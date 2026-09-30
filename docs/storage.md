@@ -120,12 +120,11 @@ Repeat this for new retained campaign artifacts before closing their delivery. N
 retirement follows automatically from a successful restore.
 
 The [N-006 evidence](evidence/N-006-2026-09-30.json) records roughly 105.6 MiB of representation
-artifacts locally and no verified durable remote backup. This revision changes the requirement,
-not that fact. No backup destination, upload, restore tool or automated retention service is
-established here. Prepare a complete inventory and bounded transfer/restore plan within the
-user's authority; if the destination or its publication/cost terms need a user choice,
-surface that concrete choice before the next checkpoint-producing campaign. A docs change
-does not authorize publishing weights or placing them in a synced folder.
+artifacts locally and no verified durable remote backup at that completion. N-007 subsequently
+established the owner-selected local copy described below; it does not add remote durability.
+For a different destination, prepare the complete inventory and bounded transfer/restore plan
+within the user's authority before surfacing genuinely missing publication or cost choices.
+A docs change does not authorize publishing weights or placing them in a synced folder.
 
 ## Artifact identity and retirement
 
@@ -138,7 +137,8 @@ prior learned artifacts and a restored 384-case inference sample. This is a same
 not remote durability or disk-loss protection. Because Desktop syncing was enabled, the
 Desktop folder link points to `~/Noetloom-Private-Backups`; artifact bytes remain outside
 Desktop sync. New working runs still use the unsynced cache and retain the original budgets.
-N-007 outputs use this same private destination, with retrieval and replay before delivery.
+N-007 outputs use this same private destination. Its [completion evidence](evidence/N-007-2026-09-30.json)
+records all 1,159 restored archive files and acquired/failed confirmation replay samples.
 Nothing is uploaded or retired under this choice.
 
 Every complete harness run has a protocol, resource-policy snapshot, runtime source inventory,

@@ -105,6 +105,15 @@ separate milestones. Only the plan selects work.
 
 ## N-007: acquisition calibration
 
+N-007 is now [complete with a localized calibration failure](../decisions/0008-calibration-result.md).
+All three models learned tiny and single-format problems. A disclosed selection amendment
+admitted the strongest control, but only four of five fresh seeds passed mixed-format
+acquisition; the fifth lost rank accuracy late in fitting. A reliably competent baseline
+has therefore not been confirmed. Retain the learning curves and failure, and require a
+separate bounded stability study with fresh final data before the conditional directions below.
+The acquisition and artifact-recovery machinery is implemented; the following methodological
+requirements remain applicable to future studies.
+
 Follow the [staged development contract](../evaluation.md#calibrate-learning-before-testing-transfer):
 tiny-set fitting, fresh one-format generalization, mixed-format acquisition, then unfamiliar
 transformations. Register a small development search before running it, with numeric stage
@@ -134,9 +143,9 @@ give controls equivalent experience. The initial computational vocabulary and ar
 biases must be explicit and tested; the prohibition on a human taxonomy of thought is not
 a prohibition on locality, sharing or relational structure.
 
-Before further checkpoint accumulation, implement the targeted
+EXP-0005 implemented the targeted
 [fitting-evidence boundary](../evaluation.md#preserve-fitting-evidence-independently-of-verification)
-and establish the [verified second copy and restore check](../storage.md#learning-evidence-and-recovery).
+and the owner-selected [second-copy and restore checks](../storage.md#learning-evidence-and-recovery).
 Parameter snapshots support inference replay; exact optimizer continuation is a separate,
 optional contract. These prerequisites address known recovery gaps without rewriting the runtime.
 

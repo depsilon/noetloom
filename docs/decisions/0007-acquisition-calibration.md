@@ -1,14 +1,15 @@
 # 0007 — Calibrate acquisition before interpreting architectural comparisons
 
-Date: 2026-09-30. This is a research-method and skill revision following the owner's review
-of `40342dc`, not a new learning result or completion of N-007.
+Date: 2026-09-30. This records the research-method and skill revision following the owner's
+review of `40342dc`. The later autonomous execution and N-007 outcome are recorded in
+[the calibration result](0008-calibration-result.md); the sections below describe the original revision.
 
 ## Decision and scope
 
 Keep the repository and Rust runtime. Select **N-007: establish an informative learning
 baseline** as the sole planned next item. Its objective is reliable task acquisition and
-localization of transfer failures using an original learned system. The current request
-ends with delivery of this skill/docs revision; it does not launch a training campaign.
+localization of transfer failures using an original learned system. The initial request
+ended with delivery of this skill/docs revision; the owner subsequently authorized execution.
 
 Preserve [EXP-0004's decision](0006-problem-representation.md), protocol, evidence and artifacts.
 All four arms missed its acquisition floor; nineteen attempts completed verification and one

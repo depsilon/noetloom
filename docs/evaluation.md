@@ -132,8 +132,10 @@ verification or resource-refused run.
 Exercise that boundary by injecting a failure after fitting and confirming that telemetry
 survives while verification remains failed or interrupted. A later audit must identify which
 saved facts it verified; it cannot invent historical telemetry or repair the run's status.
-The existing representation worker writes its final report only after downstream checks;
-this revised contract is an N-007 implementation requirement, not an implemented repair.
+The original representation worker writes its final report only after downstream checks;
+its historical behavior remains unchanged. EXP-0005 implements this boundary, with a retained
+injected failure and separate fitting, verification and resource outcomes; see its
+[result and limits](decisions/0008-calibration-result.md).
 Parameter snapshots, exact training-resume state, and restored inference state have distinct
 proof requirements in [storage and retention](storage.md).
 

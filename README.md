@@ -119,6 +119,14 @@ artifact copy are prerequisites to the campaign. The owner's selected
 it remains on the same physical disk. Predictive state and procedure consolidation remain
 conditional directions; progress depends on competence, not on the transport candidate winning.
 
+[N-007 is complete](docs/decisions/0008-calibration-result.md): all three models learned the
+tiny and single-format tasks, but mixed-format reliability was not confirmed. After a disclosed
+development-informed selection amendment, four of five fresh baseline seeds passed acquisition;
+one regressed to 89.32% rank training accuracy against a 90% floor. All 41 non-injected fits
+replayed, and the complete campaign was restored from its private copy. No seed was replaced
+or final result used for further tuning. A new bounded calibration decision is needed before
+the conditional follow-ons; this result does not establish the foundation architecture.
+
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Noetloom source and
