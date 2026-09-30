@@ -227,6 +227,22 @@ attempt plus its committed sources under existing archive size limits. It perfor
 or retirement. Follow the [storage contract](../storage.md) for private copying, inventory
 verification and inference replay from restored bytes.
 
+## Existing-transition development diagnostic
+
+After committing the [EXP-0007-D1 registration](../../experiments/EXP-0007/diagnostics.json)
+and implementation, `python3 -B scripts/transition_diagnostics.py run` audits the original
+saved prefix predictions, evaluates the six preselected one-step/mixed snapshots and fits
+one ordinary affine reference from allowed observations. It copies and validates exact input
+bytes into the new run, leaving the historical campaign unchanged. There is no final-data
+or neural-training operation.
+
+`python3 -B scripts/transition_diagnostics.py verify --original /absolute/diagnostic-run`
+recomputes the complete diagnostic in a fresh process, including the charged affine solve.
+One run and three replays are the whole admitted attempt budget, including failures.
+`python3 -B scripts/artifact_backup.py pack --scope transition-diagnostics` includes the
+diagnostic attempts and their committed source. The optional `--input-root` on `run` selects
+an intact restored historical artifact bundle; it does not bypass original hashes or source.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with

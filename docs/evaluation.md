@@ -115,6 +115,17 @@ does not impose a permanent prerequisite to unrelated capability work. Choose an
 small task, sufficient acquisition and a bounded revision; avoid turning one classifier or
 threshold into the research objective.
 
+Separate the prerequisites for candidate competence, a mechanism effect and practical
+advantage. Candidate competence needs its own frozen acquisition and held-out evidence;
+a mechanism effect needs a matched contrast; practical advantage needs competent relevant
+alternatives, including simple system-identification references, and total resource costs.
+A particular failed recurrent control is not a prerequisite for every later claim. Preserve
+the original frozen verdict when adopting better comparisons in a subsequent registration.
+Report exactness at every prefix and recovery after errors when the claim concerns repeated
+computation; endpoint correctness alone establishes only the endpoint result. For reusable
+state, compare correct continuation after distinct histories reaching the same actual state,
+without requiring identical latent vectors or supplying the true state during continuation.
+
 If a baseline acquires the task but a candidate does not, record that configuration's
 acquisition limitation. If neither acquires it by the admitted search limit or registered
 early stop, close with a calibration failure. Neither

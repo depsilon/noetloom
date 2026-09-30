@@ -2,6 +2,30 @@
   "schema_version": "noetloom.sources.v1",
   "sources": [
     {
+      "id": "R-KOOPMAN",
+      "title": "Deep learning for universal linear embeddings of nonlinear dynamics",
+      "url": "https://arxiv.org/html/1712.09707v2",
+      "year": 2018,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "An autoencoder learns coordinates with approximately linear evolution, trained with reconstruction, latent linearity and future prediction losses.",
+      "supported_claim": "Read section 3 (methods) and discussion: the learned-coordinate objective is established prior art; the continuous-spectrum extension also conditions evolution on an auxiliary frequency network.",
+      "limitations": ["Methods/discussion read, no reproduction. Uncontrolled smooth dynamical systems do not establish acquisition or compositional transfer for Noetloom's discrete action bank.", "An encoder, linear transition and decoder alone are not a novelty claim."],
+      "license_note": "Primary methods reference only; no code, weights or datasets copied."
+    },
+    {
+      "id": "R-E2C",
+      "title": "Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images",
+      "url": "https://arxiv.org/html/1506.07365v3",
+      "year": 2015,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "A probabilistic encoder/decoder and state-dependent locally linear transition are trained with prediction/reconstruction and consistency between predicted and encoded next-state distributions.",
+      "supported_claim": "Read sections 2.3–2.4: the variational formulation uses a KL constraint to keep predicted latent states compatible with the representation used for repeated planning.",
+      "limitations": ["Methods read, no reproduction. The probabilistic control model differs from the deterministic finite-domain component probe.", "Consistency is an established objective; its value here requires a matched behavioral comparison and cannot be inferred from the earlier GRU failure."],
+      "license_note": "Primary methods reference only; no code, weights or datasets copied."
+    },
+    {
       "id": "R-GRU",
       "title": "PyTorch 2.14 GRUCell documentation",
       "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.GRUCell.html",
