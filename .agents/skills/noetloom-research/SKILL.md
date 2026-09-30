@@ -33,8 +33,9 @@ Before execution, register observation/supervision boundaries, learned and hand-
 components, credible controls, held-out structures, selection rules, complete cost budgets,
 independent seeds, acceptance criteria, and stop conditions under the
 [evaluation contract](../../../docs/evaluation.md). Choose scale after a bounded preflight.
-The current runner supports only harness validation; a learned protocol requires a new
-validated contract and execution path.
+The main harness runner admits only harness validation. Learned selection and allocation
+have separate instance-specific contracts and drivers; a new experiment must earn its own
+validated contract and execution path rather than bypass their registrations.
 
 Preserve the original learned-system goal. Do not introduce a pretrained model as hidden
 runtime intelligence, or hard-code a human cognitive taxonomy as the learned primitive set.

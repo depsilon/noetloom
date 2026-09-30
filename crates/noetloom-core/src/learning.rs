@@ -1,4 +1,4 @@
-//! EXP-0002 inference. Fixed experimental scaffold, not a general cognitive architecture.
+//! Registered state-cell probes. Fixed scaffolds, not a general cognitive architecture.
 use serde::{Deserialize, Serialize};
 use std::time::Instant;
 
@@ -14,6 +14,42 @@ pub enum Arm {
     Dense,
     FrozenRouting,
     NoHistory,
+    Adaptive,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct AllocationGate {
+    pub weights: Vec<f32>,
+    pub bias: f32,
+}
+
+impl AllocationGate {
+    pub fn validate(&self) -> Result<()> {
+        if self.weights.len() != 6
+            || self.weights.iter().any(|value| !value.is_finite())
+            || !self.bias.is_finite()
+        {
+            return Err(Error::new("invalid_parameters", "invalid allocation gate"));
+        }
+        Ok(())
+    }
+
+    pub fn score(&self, features: &[f32]) -> Result<f32> {
+        self.validate()?;
+        if features.len() != 6 || features.iter().any(|value| !value.is_finite()) {
+            return Err(Error::new("invalid_input", "invalid gate features"));
+        }
+        let score = self
+            .weights
+            .iter()
+            .zip(features)
+            .fold(self.bias, |sum, (w, x)| sum + w * x);
+        if !score.is_finite() {
+            return Err(Error::new("nonfinite_computation", "gate score overflowed"));
+        }
+        Ok(score)
+    }
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -30,11 +66,21 @@ pub struct Parameters {
     pub age_coefficient: f32,
     pub null_score: f32,
     pub null_payload: Vec<f32>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub gate: Option<AllocationGate>,
 }
 
 impl Parameters {
     pub fn validate(&self) -> Result<()> {
-        if self.schema_version != "noetloom.cell_parameters.v1" || self.step > 256 {
+        let supported = match (&*self.schema_version, self.arm, &self.gate) {
+            ("noetloom.cell_parameters.v2", Arm::Adaptive, Some(gate)) => {
+                gate.validate()?;
+                true
+            }
+            ("noetloom.cell_parameters.v1", arm, None) => arm != Arm::Adaptive,
+            _ => false,
+        };
+        if !supported || self.step > 256 {
             return Err(Error::new(
                 "invalid_parameters",
                 "unsupported learned artifact version or step",
@@ -148,6 +194,9 @@ pub struct Metrics {
     pub peak_descriptor_bytes: u64,
     pub peak_staged_bytes: u64,
     pub elapsed_ns: u128,
+    pub gate_queries: u64,
+    pub continued_queries: u64,
+    pub gate_nominal_scalar_ops: u64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -156,6 +205,71 @@ pub struct Prediction {
     pub logits: Vec<f32>,
     pub prediction: usize,
     pub selected: Option<CellRef>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub gate_features: Option<Vec<f32>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub gate_score: Option<f32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub continued: Option<bool>,
+}
+
+fn softmax(logits: &[f32]) -> Result<Vec<f32>> {
+    if logits.is_empty() || logits.iter().any(|value| !value.is_finite()) {
+        return Err(Error::new("nonfinite_computation", "invalid softmax input"));
+    }
+    let maximum = logits.iter().copied().fold(f32::NEG_INFINITY, f32::max);
+    let weights: Vec<_> = logits
+        .iter()
+        .map(|value| (*value - maximum).exp())
+        .collect();
+    let total: f32 = weights.iter().sum();
+    Ok(weights.into_iter().map(|value| value / total).collect())
+}
+
+fn top_two(values: &[f32]) -> (f32, f32) {
+    let (mut first, mut second) = (0.0, 0.0);
+    for &value in values {
+        if value > first {
+            second = first;
+            first = value;
+        } else if value > second {
+            second = value;
+        }
+    }
+    (first, second)
+}
+
+/// Six observation-only features; callers charge the registered nominal operation budget.
+pub fn allocation_features(weights: &[f32], logits: &[f32]) -> Result<Vec<f32>> {
+    if weights.is_empty()
+        || weights.len() > 33
+        || weights
+            .iter()
+            .any(|value| !value.is_finite() || *value < 0.0 || *value > 1.0)
+        || (weights.iter().sum::<f32>() - 1.0).abs() > 1e-5
+        || logits.len() != 5
+    {
+        return Err(Error::new(
+            "invalid_input",
+            "invalid allocation feature input",
+        ));
+    }
+    let (first, second) = top_two(weights);
+    let entropy: f32 = weights
+        .iter()
+        .filter(|value| **value > 0.0)
+        .map(|value| -value * value.ln())
+        .sum();
+    let output = softmax(logits)?;
+    let (output_first, output_second) = top_two(&output);
+    Ok(vec![
+        first,
+        first - second,
+        entropy / (weights.len().max(2) as f32).ln(),
+        output_first,
+        output_first - output_second,
+        (weights.len() - 1) as f32 / 32.0,
+    ])
 }
 
 fn dense(value: Value) -> Result<Vec<f32>> {
@@ -331,6 +445,8 @@ impl State {
     ) -> Result<Prediction> {
         let mut transaction = provider.begin()?;
         let mut selected = Some(self.null_reference);
+        let (mut gate_features, mut gate_score, mut continued) = (None, None, None);
+        let mut first_logits = None;
         let read = if p.arm == Arm::NoHistory {
             dense(transaction.read(self.null_reference)?)?
         } else {
@@ -357,7 +473,63 @@ impl State {
                     "routing score overflowed",
                 ));
             }
-            if p.arm == Arm::Dense {
+            if p.arm == Arm::Adaptive {
+                let reference = provider.select(
+                    &Value::Dense {
+                        data: scores.clone(),
+                    },
+                    &references,
+                )?;
+                selected = Some(reference);
+                metrics.nominal_scalar_ops += references.len().saturating_sub(1) as u64;
+                let first = dense(transaction.read(reference)?)?;
+                if first.len() != 8 {
+                    return Err(Error::new("invalid_state", "payload shape changed"));
+                }
+                let logits = apply(provider, &p.decoder, &first, metrics)?;
+                let weights = softmax(&scores)?;
+                // Conservative nominal counts: softmax 5m, two-max/entropy 5m,
+                // five-way output features 40, normalization 6, linear gate 13.
+                // Validation, allocation and framework overhead are covered by time, not FLOPs.
+                let gate_ops = references.len() as u64 * 10 + 59;
+                metrics.nominal_scalar_ops += gate_ops;
+                metrics.gate_nominal_scalar_ops += gate_ops;
+                let features = allocation_features(&weights, &logits)?;
+                let score = p
+                    .gate
+                    .as_ref()
+                    .ok_or_else(|| Error::new("invalid_parameters", "missing gate"))?
+                    .score(&features)?;
+                let proceed = score >= 0.0;
+                gate_features = Some(features);
+                gate_score = Some(score);
+                continued = Some(proceed);
+                metrics.gate_queries += 1;
+                if proceed {
+                    metrics.continued_queries += 1;
+                    selected = None;
+                    let mut combined = vec![0.0; 8];
+                    for (candidate, weight) in references.iter().zip(weights) {
+                        // The first read is reused. It still incurred its decoder and gate costs.
+                        let payload = if *candidate == reference {
+                            first.clone()
+                        } else {
+                            dense(transaction.read(*candidate)?)?
+                        };
+                        if payload.len() != 8 {
+                            return Err(Error::new("invalid_state", "payload shape changed"));
+                        }
+                        for (out, value) in combined.iter_mut().zip(payload) {
+                            *out += weight * value;
+                        }
+                    }
+                    metrics.nominal_scalar_ops += references.len() as u64 * 16;
+                    combined
+                } else {
+                    first_logits = Some(logits);
+                    first
+                }
+            } else if p.arm == Arm::Dense {
                 selected = None;
                 let max = scores.iter().copied().fold(f32::NEG_INFINITY, f32::max);
                 let weights: Vec<_> = scores.iter().map(|score| (*score - max).exp()).collect();
@@ -386,7 +558,10 @@ impl State {
         if read.len() != 8 {
             return Err(Error::new("invalid_state", "payload shape changed"));
         }
-        let logits = apply(provider, &p.decoder, &read, metrics)?;
+        let logits = match first_logits {
+            Some(logits) => logits,
+            None => apply(provider, &p.decoder, &read, metrics)?,
+        };
         let prediction =
             logits.iter().enumerate().fold(
                 0,
@@ -398,6 +573,9 @@ impl State {
             logits,
             prediction,
             selected,
+            gate_features,
+            gate_score,
+            continued,
         })
     }
 }

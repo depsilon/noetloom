@@ -149,7 +149,7 @@ fn main_result(arguments: &[String]) -> Result<()> {
         &json!({"schema_version": "noetloom.native_learning.v1", "build": build_identity(),
         "parameter_sha256": sha256(&parameter_bytes), "input_sha256": sha256(&input_bytes),
         "results": results, "elapsed_seconds": started.elapsed().as_secs_f64(),
-        "scope": "Fixed EXP-0002 state-cell scaffold; learned artifact provenance must be verified by the experiment driver."}),
+        "scope": "Registered state-cell and read-allocation scaffolds; learned artifact provenance must be verified by the experiment driver."}),
     )
 }
 

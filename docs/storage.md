@@ -61,6 +61,12 @@ Temporary installation staging counts against installed space; downloads are cou
 separately in a single classification pass. Setup failures and verified wheel identities
 are retained. No trained checkpoint is automatically evicted or publicly licensed.
 
+EXP-0003 uses the same 16 MiB/120-second/2 GiB per-run admissions and shared lease. Its
+preflight retains the compiled native executable as well as frozen data and parent identities.
+There are five gate-fitting attempts. Each run stays below 10,000 query presentations;
+its three-policy replay is a separate admitted run. Previous checkpoints and their parent
+run manifests remain unchanged. All retained weights are local, not a public weight release.
+
 ## Artifact identity and retirement
 
 Every complete harness run has a protocol, resource-policy snapshot, runtime source inventory,

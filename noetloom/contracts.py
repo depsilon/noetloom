@@ -387,6 +387,11 @@ def check_repository(root: Path) -> dict[str, Any]:
             from .learning_contracts import validate_learning_protocol
             validate_learning_protocol(protocol, policy)
             repo_reference(root, protocol["design"])
+        elif protocol.get("schema_version") == "noetloom.allocation.v1":
+            from .allocation_contracts import validate_allocation_protocol
+            validate_allocation_protocol(protocol, policy)
+            repo_reference(root, protocol["design"])
+            repo_reference(root, protocol["parents"])
         else:
             validate_experiment(protocol, policy)
         if protocol["id"] in ids or path.parent.name != protocol["id"]:

@@ -1,0 +1,15 @@
+{
+  "schema_version": "noetloom.allocation_parents.v1",
+  "experiment": "EXP-0002",
+  "learning_source_commit": "572f2fc4eb8c6beb866d981458526f368fc19141",
+  "protocol_sha256": "57385a3bd3db5d916a7c84ccd0004c653b67d0cc971f41fb03564179e878f781",
+  "design_sha256": "d8a7e792804d4fb5f23d8c01596c285076304f92c18a6c3c630d6816878cf4be",
+  "frozen_scalars_per_parent": 359,
+  "records": [
+    {"seed": 1103, "selected_step": 128, "run_id": "learning-train-20260930T093242Z-11922c42", "manifest_sha256": "9485c94e38273e65ca62cd9549338a75a910d73f705bf32a84e99d01c4fa2fb8", "checkpoint_sha256": "822e265a2fff474dfb83810561ee13cafc7b9fa6f908f889ed7dad6a88826acb"},
+    {"seed": 2207, "selected_step": 256, "run_id": "learning-train-20260930T093255Z-f7622168", "manifest_sha256": "f0f67fee8c4437d4e6e95ae650aeff263bec828592d55691a27902ecedc17e91", "checkpoint_sha256": "f9852ff4729c62589d7ef96230ca1d20ccb180cd46e2f716c5f9b162e2c92d1d"},
+    {"seed": 3301, "selected_step": 256, "run_id": "learning-train-20260930T093307Z-cdaa2bff", "manifest_sha256": "a02e949777d4ed1e4fac878975933fcfbffcc336e719566d1e2b49f0750f28e2", "checkpoint_sha256": "7b377adcf6b92d8e9fbc2874d5f92b190f889b55b25954f388f2ea74731cb2c6"},
+    {"seed": 4409, "selected_step": 128, "run_id": "learning-train-20260930T093320Z-619d5379", "manifest_sha256": "2d65e3c57d586f2448f5a03cd43f119d086277dbd4aaca91093bede9edfb0034", "checkpoint_sha256": "c7525b5d773f9dc59518c7bbe8353adda3b43112038f37136112a7f3dc67a53e"},
+    {"seed": 5519, "selected_step": 256, "run_id": "learning-train-20260930T093333Z-7b6c5795", "manifest_sha256": "78a60855411b40f684d14b07434f9fdd86271cc234408d8969c79cd0b211f6cf", "checkpoint_sha256": "ea21e58f6392283bb05d7246adc77fd230335b7676c69d2872c8b7fe24040e35"}
+  ]
+}

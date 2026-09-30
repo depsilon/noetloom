@@ -1,0 +1,22 @@
+{
+  "schema_version": "noetloom.allocation.v1",
+  "id": "EXP-0003",
+  "kind": "learned_read_allocation",
+  "hypothesis_id": "H-002",
+  "source_refs": ["R-ACT", "R-NTM", "R-ZOOLOGY"],
+  "design": "experiments/EXP-0003/design.md",
+  "parents": "experiments/EXP-0003/parents.json",
+  "arms": ["adaptive", "top_one", "dense"],
+  "seeds": [1103, 2207, 3301, 4409, 5519],
+  "data": {"generator_seed": 981733, "excluded_generator_seed": 872341, "train_episodes": 64, "validation_episodes": 32, "test_episodes_per_family": 32, "development_episodes": 8, "queries_per_episode": 8, "test_families": ["base", "delay", "capacity", "interleaved"]},
+  "gate": {"features": 6, "trainable_scalars": 7, "initialization_stddev": 0.1, "initialization_seed_xor": 44259, "initial_bias": 0.0, "continue_score_threshold": 0.0, "payload_penalty": 0.02},
+  "training": {"backend": "torch", "version": "2.14.0", "device": "cpu", "dtype": "float32", "threads": 1, "candidate_steps": [128, 64], "batch_size": 8, "learning_rate": 0.02, "betas": [0.9, 0.999], "epsilon": 1e-8, "weight_decay": 0.0, "gradient_clip": 1.0, "validation_fractions": [0.25, 0.5, 1.0], "selection": "lowest_deterministic_validation_error_plus_payload_penalty_then_earliest"},
+  "preflight": {"warmup_steps": 8, "timed_steps": 16, "extrapolated_training_seconds": 30, "max_wall_seconds": 120, "max_output_bytes": 16777216},
+  "budget": {"max_wall_seconds_per_run": 120, "max_output_bytes_per_run": 16777216, "max_query_presentations_per_run": 10000, "max_training_attempts": 5, "max_peak_rss_bytes": 2147483648},
+  "acceptance": {"all_family_accuracy": 0.80, "minimum_family_accuracy": 0.70, "dense_difference_ci_low": -0.02, "minimum_family_dense_difference": -0.03, "random_difference_ci_low": 0.005, "max_payload_read_ratio": 0.50, "max_nominal_scalar_ratio": 1.0, "minimum_continue_rate": 0.05, "maximum_continue_rate": 0.95, "interval": "paired_training_seed_t95_df4"},
+  "network_during_run": false,
+  "external_pretrained_components": [],
+  "teacher_assistance": "No model-generated examples or labels; synthetic generator and own-trained parent parameters only. Development code assisted by Codex.",
+  "artifact_rights": "Generated synthetic data retained locally; source Apache-2.0; checkpoint redistribution/license undecided.",
+  "claim_boundary": "Two-stage compute-allocation component probe over five frozen own-trained readers; no final architecture, procedural reuse, novelty, general intelligence, or speed claim."
+}

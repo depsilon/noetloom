@@ -8,8 +8,8 @@ are capabilities it must learn. Neither an LLM nor a Transformer is a required f
 The architecture and its advantages remain hypotheses.
 
 The repository provides a Rust core for persistent native state and bounded dynamic execution,
-plus a Python research control plane and reproducible evaluation harness. It does not contain
-a trained model. Start with the
+plus a Python research control plane and reproducible evaluation harness. Experimental trained
+checkpoints remain in local artifact storage; weights are not included in this repository. Start with the
 [charter](docs/charter.md) and [research program](docs/architecture/research-program.md).
 
 ## Run from a source checkout
@@ -94,6 +94,11 @@ The [first learned result](docs/decisions/0004-learned-selection.md) rejected th
 selective reads averaged 72.6% accuracy versus 84.9% for the matched dense control, with one
 near-chance training seed. Payload reads fell to 7.1% of dense, without a demonstrated
 speed advantage. All five seeds and the full verification evidence are retained.
+
+[EXP-0003](experiments/EXP-0003/design.md) tests a seven-scalar learned gate over the five
+frozen dense readers. It must preserve quality and beat an input-independent allocation
+control at equal payload cost, on fresh keys and operation structures. This is a registered
+component probe; procedural reuse and a complete foundation architecture remain unproven.
 
 ## Contributing
 

@@ -58,7 +58,7 @@
       "title": "Evaluate learned allocation of additional state reads",
       "status": "active",
       "depends_on": ["N-002"],
-      "sources": ["docs/architecture/research-program.md", "docs/research/hypotheses.json", "docs/evaluation.md", "docs/decisions/0004-learned-selection.md", "experiments/EXP-0003/design.md"],
+      "sources": ["docs/architecture/research-program.md", "docs/research/hypotheses.json", "docs/evaluation.md", "docs/decisions/0004-learned-selection.md", "experiments/EXP-0003/design.md", "experiments/EXP-0003/protocol.json"],
       "outcome": "A controlled test of compute allocation or learned reusable structure chosen from the preceding experiment's measured limitation.",
       "acceptance": ["Freeze the two-stage read-allocation mechanism from EXP-0002's measured limitation before implementation.", "Charge inherited training, gate acquisition, selection, verification and all payload/descriptor work.", "Test fresh key pools, a new operation interleaving, stale-event interference and capacity shifts; procedural reuse and its invalidation remain untested.", "Compare fixed sparse/dense endpoints and an equal-payload input-independent allocator with paired-seed uncertainty.", "Record a scoped retain/reject decision and complete hosted verification without claiming general intelligence."],
       "verification": ["Use the commands registered in experiments/EXP-0003/design.md before implementation.", "Commit the final strict protocol and source before preflight/fitting.", "Replay each complete seed and follow delivered-commit CI."],

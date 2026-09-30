@@ -14,6 +14,9 @@ The separately registered [EXP-0002](../experiments/EXP-0002/design.md) uses
 `noetloom.learning.v1`, a strict instance-specific contract and a separate driver. It
 records learned selection, payload encoding, controls, held-out structures, and measured
 cost. The information below governs learned experiments; harness evidence remains distinct.
+The follow-up [EXP-0003](../experiments/EXP-0003/design.md), `noetloom.allocation.v1`, freezes
+own-trained parent readers and evaluates a learned allocation gate. It charges inherited
+fitting and new acquisition separately and retires the previous experiment's test examples.
 
 | Dimension | Required evidence for a learned experiment |
 | --- | --- |

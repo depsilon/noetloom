@@ -33,6 +33,25 @@ agreement, operation counts, and input/label boundaries. It does not independent
 optimization or attest historical timings. Current hosted checks exercise the stdlib
 contracts and Rust fixtures; they do not install PyTorch or repeat research training.
 
+EXP-0003 has a strict `noetloom.allocation.v1` contract and the same optional backend.
+Read its [registered design](../../experiments/EXP-0003/design.md). Its parent inventory
+requires the five retained EXP-0002 dense runs with their original artifact identities;
+a fresh clone without these private local checkpoints cannot execute this follow-up.
+
+```sh
+python3 -B scripts/allocation.py preflight
+python3 -B scripts/allocation.py campaign --admission PREFLIGHT_DIRECTORY
+python3 -B scripts/allocation.py verify --run TRAINING_RUN_DIRECTORY
+python3 -B scripts/allocation.py summarize --admission PREFLIGHT_DIRECTORY
+```
+
+The driver freezes parent weights, fits seven gate scalars per seed, and compares native
+adaptive, top-one and dense execution on fresh held-out keys and structures. It preserves
+the exact compiled executable inside preflight evidence, verifies every seed before summary,
+and refuses duplicate attempts. Replay re-derives policy artifacts from the frozen parent
+and selected gate. Analytical random-allocation accuracy is an expected control at equal
+payload cost; it is not a measured third implementation or latency claim.
+
 Use Python 3.11+ from the source checkout root. The CLI is `python3 -B -m noetloom`.
 The `-B` flag keeps bytecode out of the working tree. No external Python package is required.
 
@@ -67,6 +86,8 @@ The CLI's `--help` provides argument syntax.
 | Sources | `noetloom.sources.v1` | `docs/research/sources.json`, `validate_sources` |
 | Hypotheses | `noetloom.hypotheses.v2` | `docs/research/hypotheses.json`, `validate_hypotheses`; mechanism candidates and representation horizon questions |
 | Harness protocol | `noetloom.experiment.v1` | `experiments/EXP-0001/protocol.json`, `validate_experiment` |
+| Learned selection protocol | `noetloom.learning.v1` | `experiments/EXP-0002/protocol.json`, `validate_learning_protocol` |
+| Read allocation protocol | `noetloom.allocation.v1` | `experiments/EXP-0003/protocol.json`, `validate_allocation_protocol` |
 | Runtime inventory | `noetloom.source.v1` | `source.json` in each run, `source_identity` |
 | Run manifest | `noetloom.run.v1` | `manifest.json` in each run, `_manifest` |
 | Harness report | `noetloom.harness_report.v1` | `report.json` in each run, `verify_run` |
