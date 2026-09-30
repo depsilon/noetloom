@@ -19,10 +19,10 @@
       "url": "https://arxiv.org/abs/1603.08983v6",
       "year": 2016,
       "accessed_on": "2026-09-30",
-      "review_depth": "abstract",
+      "review_depth": "paper",
       "mechanism": "Adaptive Computation Time learns how many recurrent steps to take between input and output.",
       "supported_claim": "The paper reports that ACT adapts computation to task demands on four synthetic tasks; its character-level language-modeling experiment allocates more computation to harder-to-predict transitions but yields no large performance gain.",
-      "limitations": ["Evidence described here is limited to four synthetic tasks and one character-level Wikipedia language-modeling experiment."],
+      "limitations": ["Read sections 2–2.2 and section 3 experimental setup: shared recurrent transitions, cumulative halting weights, ponder penalty, approximate gradients at discontinuities, and extensive time-penalty search with 20 initializations per value. EXP-0003 is a separate two-stage allocation probe, not a reproduction or implementation of ACT.", "Evidence described here is limited to four synthetic tasks and one character-level Wikipedia language-modeling experiment."],
       "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
     },
     {
