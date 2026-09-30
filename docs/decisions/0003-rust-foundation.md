@@ -1,6 +1,6 @@
 # 0003 — Rust foundation, open representations, and competing providers
 
-Date: 2026-09-30. Local implementation accepted; hosted verification is recorded below when complete.
+Date: 2026-09-30. Local and hosted verification accepted; N-005 is complete.
 
 ## Decision
 
@@ -100,5 +100,9 @@ questions and later ShardLoom state-provider comparisons require their own expli
 
 ## Hosted verification
 
-Pending the implementation push. N-005 remains active until the delivered commit passes the
-Linux/Python 3.11 and macOS/Python 3.13 jobs, including the pinned Rust toolchain checks and restart.
+Implementation commit `eca6525499e0caed8cca9576fb809199df8cf1af` passed
+[Checks run 36692631575](https://github.com/depsilon/noetloom/actions/runs/36692631575)
+on Linux/Python 3.11 and macOS/Python 3.13. Both jobs completed successfully on 2026-09-30,
+including Python tests, repository contracts, pinned Rust formatting/tests/Clippy,
+separate-process state restart, host admission, and EXP-0001 replay. N-005 is closed;
+the next admitted work is the N-002 learning protocol and backend preflight.

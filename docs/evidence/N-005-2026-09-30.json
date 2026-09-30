@@ -1,7 +1,16 @@
 {
   "claim_scope": "infrastructure_only",
   "date": "2026-09-30",
-  "hosted_verification": "pending",
+  "hosted_verification": {
+    "conclusion": "success",
+    "head_sha": "eca6525499e0caed8cca9576fb809199df8cf1af",
+    "run_id": 36692631575,
+    "url": "https://github.com/depsilon/noetloom/actions/runs/36692631575",
+    "jobs": [
+      {"name": "Rust and Python 3.11 on ubuntu-latest", "conclusion": "success"},
+      {"name": "Rust and Python 3.13 on macos-latest", "conclusion": "success"}
+    ]
+  },
   "python_harness": {
     "harness_verdict": "passed",
     "manifest_sha256": "d3474fd6a5216ce75e2b555fba62f50700e22e62fdb7094d5a6c82c6c482b68a",

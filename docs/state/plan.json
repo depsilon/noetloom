@@ -4,7 +4,7 @@
     {
       "id": "N-005",
       "title": "Build the Rust foundation with replaceable physical execution",
-      "status": "active",
+      "status": "completed",
       "depends_on": ["N-001"],
       "sources": ["docs/charter.md", "docs/architecture/foundation-runtime.md", "docs/architecture/execution-providers.md", "docs/licensing.md", "docs/storage.md"],
       "outcome": "A restartable Rust execution path over persistent native state with selective payload reads, shared parameterized transformations, dynamically extended work graphs, replaceable physical providers, and explicit resource/evidence contracts; a bounded ShardLoom evidence-analytics interoperability probe.",
@@ -43,7 +43,7 @@
     {
       "id": "N-002",
       "title": "Test a learned sparse state-cell core against matched controls",
-      "status": "planned",
+      "status": "active",
       "depends_on": ["N-005"],
       "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/architecture/foundation-runtime.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md"],
       "outcome": "A reproducible from-scratch learned candidate and credible matched baseline, with explicit data access, frozen splits, multiple seeds, costs, retention/interference results, and a retain/revise/reject decision.",
