@@ -236,7 +236,7 @@ def validate_sources(catalog: dict[str, Any]) -> set[str]:
             dt.date.fromisoformat(text(source["accessed_on"], "accessed_on"))
         except ValueError as exc:
             raise ContractError(f"{key}: invalid access date") from exc
-        if text(source["review_depth"], "review_depth") not in {"abstract", "paper"}:
+        if text(source["review_depth"], "review_depth") not in {"abstract", "paper", "documentation"}:
             raise ContractError(f"{key}: invalid review depth")
         strings(source["limitations"], "limitations")
     return ids
@@ -405,6 +405,10 @@ def check_repository(root: Path) -> dict[str, Any]:
             if confirmation.is_file():
                 from .calibration_contracts import validate_confirmation
                 validate_confirmation(read_json(confirmation))
+        elif protocol.get("schema_version") == "noetloom.transitions.v1":
+            from .transition_contracts import validate_protocol
+            validate_protocol(protocol, profiles["local-calibration"])
+            repo_reference(root, protocol["design"])
         else:
             validate_experiment(protocol, policy)
         if protocol["id"] in ids or path.parent.name != protocol["id"]:

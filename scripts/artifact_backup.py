@@ -25,7 +25,8 @@ PRIOR = ("572f2fc4eb8c6beb866d981458526f368fc19141", "bd7c1b051fa1621608cdb20b10
 
 def pack(scope: str) -> dict:
     cache, policy = validate_cache(default_cache(), ROOT), load_policy(ROOT)
-    prefixes = ("learning-", "allocation-", "representation-") if scope == "prior" else ("calibration-",)
+    prefixes = {"prior": ("learning-", "allocation-", "representation-"),
+                "calibration": ("calibration-",), "transitions": ("transitions-",)}[scope]
     with RunLease(cache, policy, LIMIT):
         directories = sorted(p for p in cache.iterdir() if p.name.startswith(prefixes) and p.is_dir())
         if not directories or sum(tree_bytes(p) for p in directories) > LIMIT // 2:
@@ -114,7 +115,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     create = sub.add_parser("pack")
-    create.add_argument("--scope", choices=("prior", "calibration"), required=True)
+    create.add_argument("--scope", choices=("prior", "calibration", "transitions"), required=True)
     unpack = sub.add_parser("restore")
     unpack.add_argument("--archive", type=Path, required=True)
     unpack.add_argument("--inventory", type=Path, required=True)

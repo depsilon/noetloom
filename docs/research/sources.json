@@ -2,6 +2,18 @@
   "schema_version": "noetloom.sources.v1",
   "sources": [
     {
+      "id": "R-GRU",
+      "title": "PyTorch 2.14 GRUCell documentation",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.GRUCell.html",
+      "year": 2026,
+      "accessed_on": "2026-09-30",
+      "review_depth": "documentation",
+      "mechanism": "A gated recurrent cell with reset and update gates and a dense hidden transition; PyTorch applies the reset gate after the hidden affine transformation in its candidate activation.",
+      "supported_claim": "The documented equations, tensor shapes and default initialization define the direct control and its independent scalar implementation in EXP-0006.",
+      "limitations": ["API equations and shapes were read. This is implementation provenance, not evidence of acquisition, compositional generalization or architectural novelty."],
+      "license_note": "Documentation reference; using the already admitted PyTorch numerical dependency, no downloaded parameters or training data."
+    },
+    {
       "id": "R-DEEPSETS",
       "title": "Deep Sets",
       "url": "https://arxiv.org/html/1703.06114v3",

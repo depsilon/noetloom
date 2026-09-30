@@ -196,6 +196,37 @@ inputs. Known-equivalent holdout overlap also prevents a new-computation transfe
 The [evaluation contract](../evaluation.md#check-what-the-learner-can-actually-observe) requires
 future protocols to apply these checks to their own actual model paths before fitting.
 
+## Learned transition pilot
+
+EXP-0006 uses `python3 -B scripts/transitions.py preflight` after committing its reviewed
+sources and [registration](../../experiments/EXP-0006/protocol.json). It requires the existing
+optional PyTorch environment, `local-calibration` admission and the shared cache lease.
+Preflight checks source-specific execution and throughput, not acquisition. Then use:
+
+```sh
+python3 -B scripts/transitions.py inject --admission /absolute/preflight-directory
+python3 -B scripts/transitions.py train --admission /absolute/preflight-directory --arm shared_transition --stage tiny --condition lr003 --seed 9103
+python3 -B scripts/transitions.py verify --run /absolute/fitted-directory
+python3 -B scripts/transitions.py summary
+```
+
+Arms are `shared_transition` and `direct`; stages are `tiny`, `one`, `mixed`; conditions are
+`lr003` and `lr010`. The protocol fixes three development seeds, advancement, duration,
+checkpoint selection and aggregate budgets. Failed identities cannot be retried or hidden.
+`verify --development-transfer` requires the arm's complete three-seed mixed acquisition;
+ordinary fitting and replay do not access transfer outcomes. The driver has no final-evaluation
+command: confirmation needs its own later registration. A successful fit can still fail its
+acquisition gate; exit 0 means execution and verification completed. `inject` exits 0 only
+when the deliberately failed verification preserves completed fitting and admitted resources.
+Pass the resulting transfer-evaluation directory to ordinary `verify --run` to recompute
+all its saved transfer and control predictions in another process. This also tests saved
+native-state continuation through the longer rollouts.
+
+`python3 -B scripts/artifact_backup.py pack --scope transitions` bundles every transition
+attempt plus its committed sources under existing archive size limits. It performs no upload
+or retirement. Follow the [storage contract](../storage.md) for private copying, inventory
+verification and inference replay from restored bytes.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with

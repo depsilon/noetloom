@@ -17,7 +17,7 @@
     {
       "id": "N-008",
       "title": "Test learned state transitions on unfamiliar action compositions",
-      "status": "planned",
+      "status": "active",
       "depends_on": ["N-010"],
       "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/operating-model.md", "docs/evaluation.md", "docs/decisions/0009-input-validity-and-next-study.md", "experiments/EXP-0006/design.md", "docs/research/sources.json", ".agents/skills/noetloom-research/SKILL.md", ".agents/skills/noetloom-evaluation/SKILL.md", ".agents/skills/noetloom-artifacts/SKILL.md"],
       "outcome": "A bounded, from-scratch test of acquired transition machinery reused over genuinely held-out action compositions, with an informative direct predictor, task-specific acquisition and charged repeated computation.",
