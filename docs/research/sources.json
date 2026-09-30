@@ -2,6 +2,18 @@
   "schema_version": "noetloom.sources.v1",
   "sources": [
     {
+      "id": "R-DEEPSETS",
+      "title": "Deep Sets",
+      "url": "https://arxiv.org/html/1703.06114v3",
+      "year": 2017,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "Apply a shared transform to set elements, aggregate by summation, and transform the result.",
+      "supported_claim": "Read sections 2.2 and 3.1: the shared-transform/sum architecture supplies permutation invariance. The countable-domain decomposition theorem and its stated fixed-size extension are prior art; the local audit derives its finite equivalence counts directly from Noetloom's code.",
+      "limitations": ["Methods/theorem statement review only; no reproduction or claim that every continuous set function is exactly represented at fixed finite capacity.", "Permutation invariance does not establish new-computation generalization; finite-precision reductions can depend slightly on row order."],
+      "license_note": "Primary research reference only; no code, weights or datasets copied."
+    },
+    {
       "id": "R-IJEPA",
       "title": "Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture",
       "url": "https://arxiv.org/html/2301.08243v3",

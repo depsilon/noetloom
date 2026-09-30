@@ -109,8 +109,11 @@ N-007 is now [complete with a localized calibration failure](../decisions/0008-c
 All three models learned tiny and single-format problems. A disclosed selection amendment
 admitted the strongest control, but only four of five fresh seeds passed mixed-format
 acquisition; the fifth lost rank accuracy late in fitting. A reliably competent baseline
-has therefore not been confirmed. Retain the learning curves and failure, and require a
-separate bounded stability study with fresh final data before the conditional directions below.
+has therefore not been confirmed. The [input-validity correction](../decisions/0009-input-validity-and-next-study.md)
+also shows that the transpose path omits the question and ranks/sequence holdouts reuse
+effective training patterns. Retain the historical curves and failure, with those narrower
+claims. Stabilize acquisition on the next mechanism's own task with fresh final data;
+perfecting the old classifier is not a prerequisite for learned-transition research.
 The acquisition and artifact-recovery machinery is implemented; the following methodological
 requirements remain applicable to future studies.
 
@@ -149,10 +152,13 @@ and the owner-selected [second-copy and restore checks](../storage.md#learning-e
 Parameter snapshots support inference replay; exact optimizer continuation is a separate,
 optional contract. These prerequisites address known recovery gaps without rewriting the runtime.
 
-## Conditional directions after calibration
+## Next directions and their admission
 
-The following are proposed follow-ons, not additional items in the active queue. Each needs
-its own decision and admitted protocol after the preceding evidence is reviewed.
+The owner requested continued, evidence-driven iteration. N-010 corrects the evaluation;
+N-008 is now selected in the plan, with an [EXP-0006 design brief](../../experiments/EXP-0006/design.md).
+Its first task is a concrete executable protocol, including task-specific acquisition,
+complete model-visible information and known-equivalence checks before fitting. N-009
+remains a conditional direction. Each learning trial retains its own resource and stop rules.
 
 | Proposed direction | Question and decision needed |
 | --- | --- |

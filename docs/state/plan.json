@@ -2,6 +2,32 @@
   "schema_version": "noetloom.plan.v1",
   "items": [
     {
+      "id": "N-010",
+      "title": "Correct model observability and effective-input transfer claims",
+      "status": "completed",
+      "depends_on": ["N-007"],
+      "sources": ["docs/decisions/0009-input-validity-and-next-study.md", "docs/decisions/0008-calibration-result.md", "docs/evaluation.md", "noetloom/calibration_data.py", "noetloom/calibration_model.py", "noetloom/calibration_torch.py", "experiments/EXP-0005/protocol.json", ".agents/skills/noetloom-evaluation/SKILL.md"],
+      "outcome": "Both findings reproduced: all three transposed opposite-query pairs have identical consumed inputs; ranks/sequence each reduce to 30 training patterns covering every validation/confirmation case, while relation row multisets remain distinct. Historical scores and the failed seed are preserved, claims corrected, reusable refusal checks added, and task-specific stability/composition work selected for N-008.",
+      "acceptance": ["Reproduce opposite-answer inputs that become identical under the actual shared_rows slice.", "Audit exact observations, latent relabeling orbits and model-induced equivalence by format; retain actual support and overlap counts.", "Report relation scores separately and retain seed 8209's missing final evaluation; do not promote the failed confirmation.", "Add reusable ambiguity and holdout-equivalence checks with positive and negative regression cases.", "Preserve EXP-0005's source behavior, protocols, raw evidence and retired final partition; no new fitting.", "Revise the next learned-transition study to calibrate its own task and test unseen computation, with a bounded stability search and no requirement to perfect the old classifier.", "Complete local validation, refreshed harness evidence, review and hosted delivery checks."],
+      "verification": ["Five focused input-audit tests and all 132 Python tests pass; repository contracts, doctor, changed skill validation and whitespace checks pass.", "python3 -B scripts/audit_calibration_inputs.py reproduces the committed evidence exactly; --require-transfer exits 1 as expected.", "Independent per-format counts and source hashes match; expert review has no actionable findings. Frozen EXP-0005 source/protocols and N-007 evidence remain byte-identical.", "EXP-0001 run 20260930T162034Z-ee8129ca86 passed and replayed all 12,096 predictions; manifest a93f023747a4e56bd3f566fac2dd098b284bf846bc8db95e645de8de3604cead.", "Follow exact delivery-commit hosted Linux/macOS checks; Rust source is unchanged."],
+      "budget_profile": "local-small",
+      "stop_condition": "Close the evaluation correction and next-study design brief after delivery; this repair does not launch a fitting campaign. N-008 begins with an executable registration under the standing iterative-work authority.",
+      "evidence": ["docs/decisions/0009-input-validity-and-next-study.md", "docs/evidence/N-010-2026-09-30.json"]
+    },
+    {
+      "id": "N-008",
+      "title": "Test learned state transitions on unfamiliar action compositions",
+      "status": "planned",
+      "depends_on": ["N-010"],
+      "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/operating-model.md", "docs/evaluation.md", "docs/decisions/0009-input-validity-and-next-study.md", "experiments/EXP-0006/design.md", "docs/research/sources.json", ".agents/skills/noetloom-research/SKILL.md", ".agents/skills/noetloom-evaluation/SKILL.md", ".agents/skills/noetloom-artifacts/SKILL.md"],
+      "outcome": "A bounded, from-scratch test of acquired transition machinery reused over genuinely held-out action compositions, with an informative direct predictor, task-specific acquisition and charged repeated computation.",
+      "acceptance": ["First convert the design brief into a reviewed executable protocol with numeric search and resource limits; commit source and registration before fitting.", "Ensure all model paths preserve required state/action/query information and audit exact, latent and architectural equivalence before fitting.", "Calibrate one-step and short-sequence acquisition in one observation format; compare at most two learning rates at a fixed duration across three development seeds per condition/arm.", "Select the lowest-loss checkpoint among those satisfying all predeclared acquisition slices, retaining failure if none qualifies.", "Use comparable experience and supervision for the learned-transition candidate and direct predictor; disclose structural biases and test action-order sensitivity.", "Freeze five fresh seeds and independently reserved final compositions after development selection; report every seed and family without final-data tuning.", "Measure composition and longer-rollout quality against charged work; do not infer novelty, language or a complete foundation from shared recurrence.", "Preserve fitting telemetry, snapshots, replay and bounded private backup evidence; complete local and hosted verification."],
+      "verification": ["Validate input distinguishability and held-out computation against the actual model input paths.", "Run admitted execution preflight, development acquisition pilot, and only the separately frozen confirmation.", "Run relevant unit/integration and repository checks; replay saved predictions and state where the protocol requires it.", "Record scientific outcome, all attempts, costs and exact delivered-commit CI."],
+      "budget_profile": "local-calibration",
+      "stop_condition": "Close each admitted pilot or confirmation at its registered limits, including failure. Select any next revision explicitly from the evidence; no unbounded tuning, paid compute, pretrained runtime components, learned halting or provider rewrite is implied.",
+      "evidence": []
+    },
+    {
       "id": "N-007",
       "title": "Establish an informative learning baseline through acquisition calibration",
       "status": "completed",

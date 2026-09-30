@@ -116,16 +116,23 @@ unfamiliar transformations. Predictive supervision and useful inductive biases a
 with disclosed, matched information access. Preserving fitting telemetry and verifying a second
 artifact copy are prerequisites to the campaign. The owner's selected
 [private local backup](docs/evidence/N-007-recovery.json) has been restored and replay-tested;
-it remains on the same physical disk. Predictive state and procedure consolidation remain
-conditional directions; progress depends on competence, not on the transport candidate winning.
+it remains on the same physical disk. Progress depends on relevant acquisition evidence,
+not on the transport candidate winning.
 
 [N-007 is complete](docs/decisions/0008-calibration-result.md): all three models learned the
 tiny and single-format tasks, but mixed-format reliability was not confirmed. After a disclosed
 development-informed selection amendment, four of five fresh baseline seeds passed acquisition;
 one regressed to 89.32% rank training accuracy against a 90% floor. All 41 non-injected fits
 replayed, and the complete campaign was restored from its private copy. No seed was replaced
-or final result used for further tuning. A new bounded calibration decision is needed before
-the conditional follow-ons; this result does not establish the foundation architecture.
+or final result used for further tuning. This result does not establish the foundation architecture.
+
+The [subsequent input audit](docs/decisions/0009-input-validity-and-next-study.md) reproduced
+two evaluation problems: the shared-row transpose path discards the query, and ranks/sequence
+holdouts reuse the same 30 effective patterns already present in training. Their transfer
+interpretation is corrected; historical scores remain intact and relation scores are reported
+separately. Reusable ambiguity and equivalence checks now support future experiment admission.
+The selected [next study](experiments/EXP-0006/design.md) moves to learned state transitions
+and unfamiliar action compositions, with bounded acquisition calibration on that task.
 
 ## Contributing
 

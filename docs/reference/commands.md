@@ -181,6 +181,21 @@ formats even if force-added. It does not audit historical Git object sizes, vali
 Markdown anchor, fetch remote links, or certify scientific conclusions. Future formats need
 versioned validators and behavior tests; do not add speculative generalized plugin machinery.
 
+## Model input-validity audit
+
+`python3 -B scripts/audit_calibration_inputs.py` reproduces the retrospective EXP-0005
+counterexamples and partition counts using the standard library. It prints compact JSON
+with source hashes, opposite-query checks, exact/latent/row-symmetry overlap and previously
+published per-format scores. It accesses no checkpoints and performs no fitting or new
+learned prediction. Historical confirmation cases are reconstructed for this audit; they
+remain retired. Exit 0 means the audit executed, **not** that the model passed admission.
+
+Add `--require-transfer` to enforce the reported input-validity gate. Exit 1 is expected
+for EXP-0005's shared-row configuration because different required answers share consumed
+inputs. Known-equivalent holdout overlap also prevents a new-computation transfer claim.
+The [evaluation contract](../evaluation.md#check-what-the-learner-can-actually-observe) requires
+future protocols to apply these checks to their own actual model paths before fitting.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with

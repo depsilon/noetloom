@@ -16,6 +16,12 @@ not make fabricated predictions or scores pass. Test malformed, incomplete, and
 resource-refused runs when changing those paths.
 
 For learned candidates, match information access and training/tuning/inference resources.
+Before fitting, trace the actual model input path and test opposite-target counterexamples
+through every claimed transformation. Audit split overlap under exact observations, latent
+problems and known fixed preprocessing or architectural symmetries; report per-format effective
+pattern counts. Keep evaluation signatures out of learned inference. A finite collision-free
+audit is scoped evidence, not proof of general observability or novel computation. See the
+[input-validity contract](../../../docs/evaluation.md#check-what-the-learner-can-actually-observe).
 Charge routing, failed search, retrieval, acquisition, and verification. Inspect held-out
 structure as well as seed separation. Keep per-seed and per-task results; uncertainty
 must respect correlated queries and the true independent unit. Report failed runs and

@@ -137,7 +137,7 @@
       "falsifier": "The benefit is explained by unequal designer-provided encodings or supervision, label leakage, unlimited representation search, or increased solver capacity without representation transfer.",
       "source_refs": ["R-STN", "R-SLOT", "R-IJEPA", "R-RELATIONAL"],
       "novelty_status": "unassessed",
-      "evidence": ["docs/decisions/0006-problem-representation.md", "docs/evidence/N-006-2026-09-30.json", "docs/decisions/0008-calibration-result.md", "docs/evidence/N-007-2026-09-30.json"]
+      "evidence": ["docs/decisions/0006-problem-representation.md", "docs/evidence/N-006-2026-09-30.json", "docs/decisions/0008-calibration-result.md", "docs/evidence/N-007-2026-09-30.json", "docs/decisions/0009-input-validity-and-next-study.md", "docs/evidence/N-010-2026-09-30.json"]
     }
   ]
 }

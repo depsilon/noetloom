@@ -23,6 +23,14 @@ continuing from a completed item into the next ready item, including the researc
 local implementation needed to make its protocol executable. Preserve the charter and record
 each experiment's resource admission and decision before moving on.
 
+The owner reaffirmed on 2026-09-30 that original research requires continuing iteration:
+correct mistakes, adjust the approach from evidence, and continue developing the system.
+An experiment's stop rule closes that trial, not the research program. Within the granted
+local scope, select and record the next coherent revision in the plan without asking the
+owner to repeat routine authority. Keep each learning campaign bounded and separately
+registered; iteration is not permission to tune indefinitely on final results. Corrections
+and planning can be delivered before the next campaign's executable registration is ready.
+
 This project-specific grant satisfies the global requirement for explicit push authority.
 It is grounded in the user's instruction, not inferred from the roadmap. Preserve the
 current work's scope and stop condition while carrying it through delivery. Other external
@@ -65,6 +73,8 @@ At a handoff or context boundary preserve: the selected item, current user autho
 working branch and changes, decisions already made, tests actually run, exact artifact
 identities, unresolved evidence, and the next useful step. Resume that step. Do not replay
 intake, reinterpret compaction as a new task, or repeat a permission request already settled.
+Reconcile that step with newer user replies and pasted requests first. Preserve unanswered
+input, and distinguish work already completed from answers already delivered.
 
 Use concise queue evidence links and dated decisions. Long raw logs belong with runs, not
 in the active plan. Completed items retain their evidence, but are not another current queue.

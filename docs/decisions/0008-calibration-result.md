@@ -1,5 +1,10 @@
 # 0008 — Learning is observable; reliable mixed-format acquisition is not confirmed
 
+Interpretation correction, 2026-09-30: [decision 0009](0009-input-validity-and-next-study.md)
+shows that the shared-row transpose path omits the query, and ranks/sequence holdouts reuse
+training patterns under its supplied symmetry. The scores and failed confirmation below
+remain historical facts; their transfer interpretation is narrowed by that correction.
+
 Date: 2026-09-30. N-007 / EXP-0005 is complete with a localized calibration failure.
 The five-seed confirmation did **not** pass. Four fresh seeds met every acquisition gate;
 seed 8209 reached 89.32% rank-format training accuracy against the registered 90% floor.

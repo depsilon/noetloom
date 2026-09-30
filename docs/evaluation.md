@@ -43,6 +43,33 @@ the reuse and introduce a new held-out set.
 
 ## Calibrate learning before testing transfer
 
+### Check what the learner can actually observe
+
+Before fitting, trace every candidate and control through fixed slicing, masking, pooling,
+addressing and other preprocessing. Construct counterfactual examples whose required answers
+differ, and check that the model-visible information can distinguish them. An exact scorer's
+access to the complete observation does not establish equivalent access for the learner.
+Audit each claimed transformation and relevant task slice; one passing example is not proof
+of general sufficiency. The [EXP-0005 correction](decisions/0009-input-validity-and-next-study.md)
+demonstrates a query lost after transposition despite a valid complete-field scorer.
+
+Separate observations at three levels: exact rendered inputs, latent problems/trajectories,
+and equivalences induced by known fixed preprocessing or architectural symmetry. Report
+effective-pattern counts and overlap per task/format. A new raw arrangement of the same
+effective input supports invariance or optimization claims, not new-computation transfer.
+Same-target overlap can be declared for acquisition calibration; contradictory targets under
+identical consumed inputs invalidate a deterministic task. For a transfer claim, enforce
+the declared equivalence separation before fitting and final access. Keep the signature
+outside the runtime learner, and verify it against the actual model path when either changes.
+
+The [input-audit helper](../noetloom/input_audit.py) provides finite collision/overlap checks
+and a refusal gate. A clean result does not prove semantic independence, observability over
+unexamined cases, or learnability. Its historical
+[EXP-0005 audit](../scripts/audit_calibration_inputs.py) deliberately rejects that shared-row
+configuration for the claimed transfer; the frozen experiment is retained for reproduction.
+
+### Calibrate on the task that will test the next mechanism
+
 An engineering preflight checks numerical behavior, implementation agreement, throughput
 and resource admission. It does not show that a task can be learned under that budget.
 Use a separate development pilot when informative acquisition has not been established.
@@ -75,6 +102,18 @@ Enforce advancement at the declared unit; an individually passing seed does not 
 transformation evaluation for an arm whose required seed group has not passed.
 More updates are one possible diagnostic; eight average presentations per example alone
 cannot diagnose undertraining.
+
+When diagnosing training stability, hold update count and other conditions fixed while
+varying a small declared learning-rate set. Select checkpoints using development data and
+criteria aligned with every required acquisition slice; for example, minimize validation
+loss among checkpoints passing all registered training/validation floors, with a declared
+tie break. If none qualifies, record failure. Comparing conditions that change both rate
+and duration does not isolate either cause. Freeze selection before final access.
+
+Calibrate the next mechanism's own task. Imperfect performance on an earlier diagnostic
+does not impose a permanent prerequisite to unrelated capability work. Choose an informative
+small task, sufficient acquisition and a bounded revision; avoid turning one classifier or
+threshold into the research objective.
 
 If a baseline acquires the task but a candidate does not, record that configuration's
 acquisition limitation. If neither acquires it by the admitted search limit or registered
