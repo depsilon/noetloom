@@ -303,6 +303,31 @@ See the [design](../../experiments/EXP-0008/design.md) and
 and its source archive for the authorized private copy. Restore, check every byte and exercise
 representative replay before closure; the command does not publish or retire anything.
 
+## Affine optimization comparison (EXP-0009)
+
+`python3 -B scripts/affine_coordinates.py preflight` checks training/validation inputs and
+synthetic solver, gradient and prediction boundaries. Use its directory as `--admission`
+for `inject` or `train --stage one --arm joint|refit --condition lr003|lr010` with one of
+`--seed 13003|13009|13027`. Both optimizer arms use the same reversible model. The refit arm
+solves its maps on all 512 permitted one-step training pairs at the registered cadence.
+Every solve must pass its support, rank, conditioning and finite-residual checks.
+
+After both one-step rates terminate, a common rate must pass in every seed and all selected
+parents must fully replay before `train --stage mixed --original DIRECTORY` is admitted.
+Retain the same arm, seed, rate and preflight admission. `evaluate --original DIRECTORY --admission PREFLIGHT_DIRECTORY`
+requires an acquired mixed parent plus all three acquired and replayed mixed seeds at that
+arm's selected rate. It renders development compositions and continuation only; no command
+accesses reserved final trajectories.
+
+`verify --original DIRECTORY` reproduces every recorded fit measurement, selection, saved
+prediction and scheduled affine refit, or the full conditional development evaluation.
+`--recovery` marks an additional replay from a restored source/artifact bundle. Failed
+attempts remain charged and cannot be retried with the same identity. Parameters are inference
+snapshots, not exact optimizer-resume state. The [protocol](../../experiments/EXP-0009/protocol.json)
+defines the ceilings and [design](../../experiments/EXP-0009/design.md) defines claim scope.
+Use `python3 -B scripts/artifact_backup.py pack --scope affine-coordinates` for the private
+archive, then verify restoration and representative replay before closure.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with
