@@ -129,6 +129,18 @@ does not authorize publishing weights or placing them in a synced folder.
 
 ## Artifact identity and retirement
 
+### N-007 owner-selected private local copy
+
+On 2026-09-30 the owner selected a desktop-accessible **private/local-only** destination.
+For this campaign that choice takes precedence over the independent-failure-domain gate
+above. The [recovery evidence](evidence/N-007-recovery.json) records a verified copy of all
+prior learned artifacts and a restored 384-case inference sample. This is a same-disk copy,
+not remote durability or disk-loss protection. Because Desktop syncing was enabled, the
+Desktop folder link points to `~/Noetloom-Private-Backups`; artifact bytes remain outside
+Desktop sync. New working runs still use the unsynced cache and retain the original budgets.
+N-007 outputs use this same private destination, with retrieval and replay before delivery.
+Nothing is uploaded or retired under this choice.
+
 Every complete harness run has a protocol, resource-policy snapshot, runtime source inventory,
 raw predictions, report, and manifest. The manifest lists each payload's size and SHA-256.
 It is written last. Missing or unexpected files, differing runtime source, changed predictions,

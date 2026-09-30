@@ -19,7 +19,8 @@ from urllib.parse import unquote, urlparse
 JSON_LIMIT = 2 * 1024 * 1024
 CONTROLS = ("exact_memory", "no_memory", "stale_memory", "bounded_memory")
 PHASES = ("initial", "delayed", "revision", "deletion", "unknown")
-POLICY_FILES = {"local-small": "resource-policy.json", "ci-smoke": "resource-policy-ci.json"}
+POLICY_FILES = {"local-small": "resource-policy.json", "ci-smoke": "resource-policy-ci.json",
+                "local-calibration": "resource-policy-calibration.json"}
 
 
 class ContractError(ValueError):
@@ -395,6 +396,10 @@ def check_repository(root: Path) -> dict[str, Any]:
         elif protocol.get("schema_version") == "noetloom.representation.v1":
             from .representation_contracts import validate_representation_protocol
             validate_representation_protocol(protocol, policy)
+            repo_reference(root, protocol["design"])
+        elif protocol.get("schema_version") == "noetloom.calibration.v1":
+            from .calibration_contracts import validate_calibration_protocol
+            validate_calibration_protocol(protocol, profiles["local-calibration"])
             repo_reference(root, protocol["design"])
         else:
             validate_experiment(protocol, policy)

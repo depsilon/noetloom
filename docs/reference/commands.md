@@ -78,11 +78,41 @@ These saved checkpoints contain weights and identity metadata, not the full Adam
 state required for exact training continuation. Native `resume` reopens inference state;
 the setup `--resume` option recovers dependency installation. Neither resumes model training.
 
-N-007 is a [planned calibration study](../decisions/0007-acquisition-calibration.md), with
-no executable protocol or new training command yet. The existing drivers retain their frozen
-contracts; do not repurpose their preflight or retry paths as an unregistered tuning loop.
-The staged development and fitting-telemetry requirements in [evaluation](../evaluation.md)
-must be implemented and admitted for that study before execution.
+## Acquisition calibration (EXP-0005)
+
+The [registered development pilot](../../experiments/EXP-0005/design.md) implements N-007's
+stages and fitting-evidence boundary. Existing experiment drivers retain their frozen contracts.
+
+```sh
+python3 -B scripts/calibration.py preflight
+python3 -B scripts/calibration.py inject --admission PREFLIGHT_DIRECTORY
+python3 -B scripts/calibration.py pilot --admission PREFLIGHT_DIRECTORY
+python3 -B scripts/calibration.py verify --run TRAINING_RUN_DIRECTORY
+python3 -B scripts/calibration.py summary
+```
+
+The pilot executes the declared short/long choices, keeps all three seeds per attempted
+condition, stops each model at a failed stage, and replays completed fitting records in a
+fresh process. `train` accepts `--arm`, `--stage`, `--condition` and `--seed` only within that
+same contract. No command resets failed attempts. `confirm` additionally requires a separate
+committed `experiments/EXP-0005/confirmation.json` selected after development; no such final
+access is implied by the pilot. Fitting, verification and resource outcomes remain distinct.
+An expected post-fit injection exits successfully only when those three outcomes are correct;
+its run remains failed. All parameter artifacts support inference, not optimizer continuation.
+
+The explicit `local-calibration` profile allows 50,000 presentations, 16 MiB output and
+120 seconds per worker with the original cache/headroom limits. Whole-study ceilings also
+apply, including failed attempts and replay. It does not replace `local-small` or `ci-smoke`.
+Source and protocol must be committed before execution. CPU PyTorch remains optional and
+uses the existing isolated tooling installation; hosted tests do not repeat learning.
+
+`python3 -B scripts/artifact_backup.py pack --scope prior` prepares the historical bundle;
+`--scope calibration` prepares new pilot artifacts. The tool creates no network transfer.
+`restore --archive ARCHIVE --inventory INVENTORY` verifies the archive and all extracted
+bytes in a fresh cache directory. Inference replay is a separate check. The owner's
+[private destination and restore scope](../evidence/N-007-recovery.json) are recorded explicitly.
+
+## Bootstrap commands
 
 Use Python 3.11+ from the source checkout root. The CLI is `python3 -B -m noetloom`.
 The `-B` flag keeps bytecode out of the working tree. No external Python package is required.

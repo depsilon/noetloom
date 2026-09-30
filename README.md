@@ -109,12 +109,14 @@ one failed after fitting and received a separate partial audit. No training was 
 H-011 remains open and H-001/H-002 remain dormant.
 
 The [subsequent course correction](docs/decisions/0007-acquisition-calibration.md) selects
-N-007 as a planned acquisition-calibration study. It separates bounded development from final
+N-007 as an acquisition-calibration study, now implemented as
+[EXP-0005](experiments/EXP-0005/design.md). It separates bounded development from final
 evaluation: fit a tiny set, generalize within one format, acquire mixed formats, then test
 unfamiliar transformations. Predictive supervision and useful inductive biases are permitted
 with disclosed, matched information access. Preserving fitting telemetry and verifying a second
-artifact copy are prerequisites to the next campaign. No N-007 training protocol or command is
-implemented by this documentation revision. Predictive state and procedure consolidation remain
+artifact copy are prerequisites to the campaign. The owner's selected
+[private local backup](docs/evidence/N-007-recovery.json) has been restored and replay-tested;
+it remains on the same physical disk. Predictive state and procedure consolidation remain
 conditional directions; progress depends on competence, not on the transport candidate winning.
 
 ## Contributing
