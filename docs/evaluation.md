@@ -6,12 +6,14 @@ A protocol links a falsifiable question to observations, data, candidates, contr
 acceptance criteria, and a stopping rule. The current
 [EXP-0001 protocol](../experiments/EXP-0001/protocol.json) and
 [Python validators](../noetloom/contracts.py) define the bootstrap's supported format.
-It admits only `harness_validation` for `mutable_recall_v1`. Unknown keys and versions,
+The harness execution path admits only `harness_validation` for `mutable_recall_v1`. Unknown keys and versions,
 oversized workloads, network access, pretrained components, and training requests are refused.
 These validators implement specific contracts; they are not a general JSON Schema engine.
 
-Before adding a learned experiment, introduce a versioned learning contract and execution
-path with the information below. Do not reinterpret a harness result as a model result.
+The separately registered [EXP-0002](../experiments/EXP-0002/design.md) uses
+`noetloom.learning.v1`, a strict instance-specific contract and a separate driver. It
+records learned selection, payload encoding, controls, held-out structures, and measured
+cost. The information below governs learned experiments; harness evidence remains distinct.
 
 | Dimension | Required evidence for a learned experiment |
 | --- | --- |

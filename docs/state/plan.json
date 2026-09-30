@@ -45,7 +45,7 @@
       "title": "Test a learned sparse state-cell core against matched controls",
       "status": "active",
       "depends_on": ["N-005"],
-      "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/architecture/foundation-runtime.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md"],
+      "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/architecture/foundation-runtime.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md", "experiments/EXP-0002/design.md", "experiments/EXP-0002/protocol.json"],
       "outcome": "A reproducible from-scratch learned candidate and credible matched baseline, with explicit data access, frozen splits, multiple seeds, costs, retention/interference results, and a retain/revise/reject decision.",
       "acceptance": ["Read relevant paper methods, not only abstracts, and freeze a learning protocol before evaluation.", "Choose the smallest informative scale after a bounded backend and throughput preflight.", "Control information access, training/tuning compute and inference budgets; include memory and routing ablations.", "Hold out task structures or compositions as well as random seeds; measure generalization and confidence intervals.", "Archive learned artifacts before retiring unique local outputs; record negative results."],
       "verification": ["Write an admitted learning protocol and its exact commands before running it; the bootstrap harness runner does not execute training protocols."],

@@ -2,6 +2,8 @@
 #![forbid(unsafe_code)]
 
 pub mod engine;
+pub mod learning;
+pub mod memory;
 pub mod operator;
 pub mod provider;
 pub mod store;

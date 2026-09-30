@@ -383,7 +383,12 @@ def check_repository(root: Path) -> dict[str, Any]:
     ids: set[str] = set()
     for path in protocols:
         protocol = read_json(path)
-        validate_experiment(protocol, policy)
+        if protocol.get("schema_version") == "noetloom.learning.v1":
+            from .learning_contracts import validate_learning_protocol
+            validate_learning_protocol(protocol, policy)
+            repo_reference(root, protocol["design"])
+        else:
+            validate_experiment(protocol, policy)
         if protocol["id"] in ids or path.parent.name != protocol["id"]:
             raise ContractError("protocol id duplicated or different from directory name")
         ids.add(protocol["id"])

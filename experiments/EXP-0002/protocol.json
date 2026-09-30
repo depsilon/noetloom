@@ -1,0 +1,22 @@
+{
+  "schema_version": "noetloom.learning.v1",
+  "id": "EXP-0002",
+  "kind": "learned_state_selection",
+  "family": "event_cell_recall_v1",
+  "hypothesis_id": "H-001",
+  "source_refs": ["R-NTM", "R-ZOOLOGY"],
+  "design": "experiments/EXP-0002/design.md",
+  "arms": ["selective", "dense", "frozen_routing", "no_history"],
+  "seeds": [1103, 2207, 3301, 4409, 5519],
+  "dimensions": {"key": 16, "latent": 8, "values": 4, "capacity": 32},
+  "data": {"generator_seed": 872341, "train_episodes": 256, "validation_episodes": 64, "test_episodes_per_family": 64, "queries_per_episode": 8, "test_families": ["base", "delay", "capacity", "composition"]},
+  "training": {"backend": "torch", "version": "2.14.0", "device": "cpu", "dtype": "float32", "threads": 1, "candidate_steps": [256, 128], "batch_size": 16, "learning_rate": 0.02, "betas": [0.9, 0.999], "epsilon": 1e-8, "weight_decay": 0.0, "gradient_clip": 1.0, "validation_fractions": [0.25, 0.5, 1.0], "selection": "lowest_validation_cross_entropy_then_earliest"},
+  "preflight": {"warmup_steps": 8, "timed_steps": 16, "extrapolated_training_seconds": 60, "max_wall_seconds": 120, "max_output_bytes": 16777216},
+  "budget": {"max_wall_seconds_per_run": 120, "max_output_bytes_per_run": 16777216, "max_query_presentations_per_run": 10000, "max_training_attempts": 20, "max_peak_rss_bytes": 2147483648},
+  "acceptance": {"base_accuracy": 0.90, "all_family_accuracy": 0.85, "minimum_family_accuracy": 0.75, "dense_difference_ci_low": -0.05, "ablation_difference_ci_low": 0.20, "max_payload_read_ratio": 0.25, "interval": "paired_training_seed_t95_df4"},
+  "network_during_run": false,
+  "pretrained_components": [],
+  "teacher_assistance": "No model-generated examples or labels; deterministic synthetic generator only. Development code assisted by Codex.",
+  "artifact_rights": "Generated synthetic data retained locally; source Apache-2.0; checkpoint redistribution/license undecided.",
+  "claim_boundary": "Limited learned selection and payload-encoding probe with supplied event format, ring allocation, descriptors, and one-step computation; not a final architecture, novelty result, general intelligence, or a speed claim."
+}

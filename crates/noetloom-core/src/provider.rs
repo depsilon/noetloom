@@ -114,28 +114,32 @@ impl ExecutionProvider for Store {
         operator.apply(input)
     }
     fn select(&self, scores: &Value, choices: &[CellRef]) -> Result<CellRef> {
-        let Value::Dense { data } = scores else {
-            return Err(Error::new(
-                "invalid_input",
-                "selection scores must be dense",
-            ));
-        };
-        if choices.is_empty()
-            || data.len() != choices.len()
-            || data.iter().any(|score| !score.is_finite())
-        {
-            return Err(Error::new(
-                "invalid_input",
-                "selection needs matching, finite, nonempty scores and choices",
-            ));
-        }
-        let mut selected = 0;
-        for index in 1..data.len() {
-            if data[index] > data[selected] {
-                selected = index;
-            }
-        }
-        choices[selected].validate()?;
-        Ok(choices[selected])
+        select_first(scores, choices)
     }
+}
+
+pub(crate) fn select_first(scores: &Value, choices: &[CellRef]) -> Result<CellRef> {
+    let Value::Dense { data } = scores else {
+        return Err(Error::new(
+            "invalid_input",
+            "selection scores must be dense",
+        ));
+    };
+    if choices.is_empty()
+        || data.len() != choices.len()
+        || data.iter().any(|score| !score.is_finite())
+    {
+        return Err(Error::new(
+            "invalid_input",
+            "selection needs matching, finite, nonempty scores and choices",
+        ));
+    }
+    let mut selected = 0;
+    for index in 1..data.len() {
+        if data[index] > data[selected] {
+            selected = index;
+        }
+    }
+    choices[selected].validate()?;
+    Ok(choices[selected])
 }

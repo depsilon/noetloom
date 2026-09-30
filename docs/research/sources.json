@@ -7,10 +7,10 @@
       "url": "https://arxiv.org/abs/1410.5401v2",
       "year": 2014,
       "accessed_on": "2026-09-30",
-      "review_depth": "abstract",
+      "review_depth": "paper",
       "mechanism": "A differentiable neural controller reads and writes an external memory through attentional heads.",
       "supported_claim": "The authors report preliminary demonstrations that NTMs learn simple copying, sorting, and associative-recall procedures from examples.",
-      "limitations": ["The reported evidence is preliminary and concerns the paper's specified algorithmic tasks; broad general-purpose learning is not established by this source."],
+      "limitations": ["Methods and experiments sections 3–4.6 read: soft read/erase/add heads, cosine and location addressing, episodic resets, supervised binary objectives, and synthetic tasks. This review does not establish novelty or reproduce the paper's results.", "The reported evidence is preliminary and concerns the paper's specified algorithmic tasks; broad general-purpose learning is not established by this source."],
       "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
     },
     {
@@ -43,10 +43,10 @@
       "url": "https://arxiv.org/abs/2312.04927v1",
       "year": 2023,
       "accessed_on": "2026-09-30",
-      "review_depth": "abstract",
+      "review_depth": "paper",
       "mechanism": "The study compares attention and gated-convolution recall, introduces multi-query associative recall, and evaluates sparse-attention hybrids.",
       "supported_claim": "Across 17 pretrained models, the authors attribute much of the Pile perplexity gap to in-context associative recall; evaluated input-dependent sparse-attention hybrids close 97.4% of that gap while retaining sub-quadratic scaling.",
-      "limitations": ["The reported findings are about the tested language models, Pile comparison, and associative-recall analyses; they do not establish universal superiority of a hybrid architecture."],
+      "limitations": ["Read sections 3.2, 4.3 and appendix E: multi-query distances and working-set shifts; synthetic runs use 100,000 training and 3,000 evaluation examples, 64 epochs and an AdamW learning-rate sweep. EXP-0002 is a smaller independent diagnostic, not a reproduction.", "The reported findings are about the tested language models, Pile comparison, and associative-recall analyses; they do not establish universal superiority of a hybrid architecture."],
       "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
     },
     {

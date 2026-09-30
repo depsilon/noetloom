@@ -39,7 +39,7 @@ results, exact artifact identities, review findings, and remaining proof gaps.
 The Rust core adds revision-checked persistent cells, selective payload reads, shared numerical
 operators, transaction-local writes, and controller-proposed work graphs. Its
 [execution-provider boundary](docs/architecture/execution-providers.md) keeps physical storage
-and computation replaceable. Current controllers and weights are explicitly scripted fixtures.
+and computation replaceable. Its foundation controllers and weights are explicitly scripted fixtures.
 With the pinned Rust 1.98 toolchain available, run:
 
 ```sh
@@ -83,8 +83,12 @@ checkpoints belong in versioned artifact storage; selected project assets can us
 Releases when publication is authorized. See [storage and retention](docs/storage.md).
 Ignoring a file does not prevent a synced folder from uploading it.
 
-The bootstrap chooses no training backend and fixes no model size. The next learned
-experiment must first measure an informative scale within the available hardware budget.
+The registered [EXP-0002 probe](experiments/EXP-0002/design.md) tests learned cell selection
+against dense-read, frozen-routing, and no-history controls. Its optional PyTorch development
+backend trains 359 initialized scalars; exported parameters execute in Rust. A bounded
+preflight selects between two registered training budgets before fitting. This is a limited
+mechanism experiment, not Noetloom's final architecture. See the
+[learning commands](docs/reference/commands.md#registered-learning-probe).
 
 ## Contributing
 

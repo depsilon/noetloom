@@ -50,7 +50,16 @@ Reservations are admission calculations, not preallocated disk blocks. The cache
 refuses symlinks and special files; it conservatively counts the greater of logical and
 allocated bytes and deduplicates hardlinks. It is not a filesystem quota. Other processes
 can consume disk between samples. Deadlines are cooperative; process peak RSS is reported
-but no OS memory limit is enforced. The bootstrap launches no external model or training process.
+but no OS memory limit is enforced. The EXP-0001 harness launches no external training process.
+
+EXP-0002's separate driver serializes each training process and verification through the
+same lease. Each run reserves 16 MiB, caps 120 seconds, checks the process group's sampled
+RSS against 2 GiB, and checks the worker's final OS high-water RSS. It terminates a worker
+that exceeds admission; sampling is still not an OS memory sandbox. Optional CPU training
+dependencies reserve 1 GiB installed plus 256 MiB download space under the tooling cache.
+Temporary installation staging counts against installed space; downloads are counted
+separately in a single classification pass. Setup failures and verified wheel identities
+are retained. No trained checkpoint is automatically evicted or publicly licensed.
 
 ## Artifact identity and retirement
 

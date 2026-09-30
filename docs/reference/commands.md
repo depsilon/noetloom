@@ -1,5 +1,38 @@
 # Command reference
 
+## Registered learning probe
+
+EXP-0002 has a separate strict `noetloom.learning.v1` contract. The harness `run` command
+still refuses learning protocols. See the [design](../../experiments/EXP-0002/design.md)
+before executing these commands from the checkout:
+
+```sh
+python3 -B scripts/learning_setup.py
+python3 -B scripts/learning.py preflight
+python3 -B scripts/learning.py campaign --admission PREFLIGHT_DIRECTORY
+python3 -B scripts/learning.py verify --run TRAINING_RUN_DIRECTORY
+python3 -B scripts/learning.py summarize --admission PREFLIGHT_DIRECTORY
+```
+
+Setup downloads official hash-pinned binary wheels into unsynced tooling storage. It is
+currently admitted only on macOS arm64 and does not install into system Python. A recorded
+failed setup with all verified wheels retained can be recovered offline with
+`learning_setup.py --resume SETUP_DIRECTORY`. Incomplete installation staging is disposable;
+the failed setup records and unique learned artifacts remain retained.
+
+Preflight compiles a release Rust evaluator, checks dense gradients, parameter export parity,
+and bounded CPU throughput, then freezes its step-count decision and generated data. The
+campaign runs the registered four arms and five seeds serially, verifying every completed
+run before summarizing. Existing attempts, including failures, cannot be silently retried.
+No warmup quality or held-out score selects architecture or hyperparameters. Stored raw
+checkpoints and full evidence are local; ordinary Git contains source and compact identities.
+
+`verify` re-executes the exported checkpoint in Rust and regenerates scoring from frozen
+generator output. It checks source/build identity, every retained artifact, native/tensor
+agreement, operation counts, and input/label boundaries. It does not independently repeat
+optimization or attest historical timings. Current hosted checks exercise the stdlib
+contracts and Rust fixtures; they do not install PyTorch or repeat research training.
+
 Use Python 3.11+ from the source checkout root. The CLI is `python3 -B -m noetloom`.
 The `-B` flag keeps bytecode out of the working tree. No external Python package is required.
 
