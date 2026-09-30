@@ -18,8 +18,8 @@ that can distinguish the alternatives after an actual backend and throughput pre
 The connected bootstrap machine reports 16 GiB RAM. Earlier 128 GB allocations and
 100–300M-parameter suggestions were illustrative and do not govern experiment admission.
 
-Memory, recurrence, adaptive computation, and learned program libraries have substantial
-prior art. The [source catalog](../research/sources.json) records eight primary research leads
+Memory, recurrence, adaptive computation, representation learning, and learned program libraries have substantial
+prior art. The [source catalog](../research/sources.json) records primary research leads
 and what was actually read. Review depth is recorded separately for each entry. Read the
 relevant methods, evaluation details, and limitations before implementing a derivative or
 claiming a new contribution. Novelty is unassessed.
@@ -72,6 +72,27 @@ protocol design. Promotion requires source review, a concrete task and controls,
 and representation-learning cost accounting, and an explicit decision in the existing queue.
 The immediate learned memory experiment remains scoped; every architecture decision must
 state whether it preserves or forecloses these representation questions and why.
+
+## Current direction after the memory probes
+
+The owner selected **N-006 / H-011** on 2026-09-30: one experiment on learning how to
+represent a problem across different surfaces. H-001 and H-002 remain open but dormant;
+their measured limitations do not authorize another selector, loss sweep, or allocation gate.
+The infrastructure is sufficient for this next question. Do not turn maintenance or a
+promising ShardLoom analogy into an independent backlog.
+
+[EXP-0004](../../experiments/EXP-0004/design.md) operationalizes one small part of H-011:
+an input-conditioned transport constructs an intermediate numeric field before a bounded
+solver. Its controls include larger fixed-layout computation and learned static transport.
+All networks learn features; “fixed representation” here means fixed organization at the
+specified solver boundary, not an absence of learned hidden activations. Neither tensors,
+transport, nor the supplied field size become Noetloom's final representation regime.
+
+Reusable computation (H-003) is a possible follow-up if the representation result earns it,
+not part of this experiment. H-005 promotion, heterogeneous native formats, non-token units,
+cross-representation bridges, and hierarchical physical activation remain open questions.
+The owner's landscape percentages are qualitative prioritization, not measured completion
+or evidence of capability. Only the plan selects further work.
 
 ## From infrastructure to informative learning
 

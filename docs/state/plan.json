@@ -2,6 +2,19 @@
   "schema_version": "noetloom.plan.v1",
   "items": [
     {
+      "id": "N-006",
+      "title": "Test learned problem representation across surface transformations",
+      "status": "active",
+      "depends_on": ["N-003"],
+      "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md", "experiments/EXP-0004/design.md"],
+      "outcome": "One from-scratch comparison of input-dependent problem structuring against fixed-layout and learned-static controls, with equal learning opportunities, common resource ceilings, held-out surface transformations, independent replay, and a scoped research decision.",
+      "acceptance": ["Keep H-001/H-002 open but dormant; do not add another memory selector, allocation gate, or infrastructure-polish queue.", "Promote H-011 only for a bounded, source-grounded operational test; describe the supplied representation choices and the difference from an unrestricted representation-discovery claim.", "Expose raw numeric fields, never latent order, surface identity, canonicalization, cross-surface pairs, or labels to inference.", "Compare a fixed-layout solver, a larger fixed-layout solver, learned input-dependent transport with a fixed-capacity solver, and learned static transport under a frozen shared learning budget.", "Hold out surface/rotation combinations and reflection compositions, keep validation separate, retain all five training seeds, and charge representation construction and conversion.", "Verify exact task semantics independently, tensor/native agreement, intermediate-state restart, counterfactual transport dependence, and fresh replay before recording a retain/reject/inconclusive decision.", "Complete local checks and hosted verification, with checkpoints retained locally."],
+      "verification": ["Commit design, strict protocol and implementation before any fitting or quality inspection.", "Run only the admitted development preflight, then the registered campaign without tuning or replacement seeds.", "python3 -B -m unittest discover -s tests -v", "python3 -B scripts/rust.py check", "python3 -B scripts/rust.py fixture", "python3 -B -m noetloom check", "Refresh and replay EXP-0001 after source changes; follow exact delivered-commit CI."],
+      "budget_profile": "local-small",
+      "stop_condition": "Close this one experiment at its registered decision and delivery checks. Reusable computation, deeper ShardLoom integration, and other horizon questions require a separate queue decision; do not start them to remain busy.",
+      "evidence": []
+    },
+    {
       "id": "N-005",
       "title": "Build the Rust foundation with replaceable physical execution",
       "status": "completed",

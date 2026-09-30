@@ -2,6 +2,30 @@
   "schema_version": "noetloom.sources.v1",
   "sources": [
     {
+      "id": "R-STN",
+      "title": "Spatial Transformer Networks",
+      "url": "https://arxiv.org/html/1506.02025v3",
+      "year": 2015,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "An input-conditioned localization network predicts a transform whose differentiable sampler reorganizes a feature map before downstream computation.",
+      "supported_claim": "Read sections 3–3.4: the methods define learned transformation parameters, a sampling grid, differentiable interpolation, and training through downstream loss.",
+      "limitations": ["Methods review only; no reproduction or independent verification of the paper's experimental claims.", "The transformation family and output grid remain designed; this does not establish unrestricted problem-representation discovery or a successor intelligence architecture."],
+      "license_note": "Primary methods reference only; no code, pretrained weights or data copied."
+    },
+    {
+      "id": "R-SLOT",
+      "title": "Object-Centric Learning with Slot Attention",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/8511df98c02ab60aea1b2356c013bc0f-Paper.pdf",
+      "year": 2020,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "Iterative competitive attention groups input features into exchangeable vectors with shared recurrent updates.",
+      "supported_claim": "Read sections 2–2.3 and 4–4.1: the authors define grouping, reconstruction and set-prediction uses, and evaluate object discovery against named baselines on synthetic scenes.",
+      "limitations": ["A supplied feature encoder, slot dimensionality and training objective constrain representation; findings do not establish arbitrary native formats.", "The reported discovery table excludes one outlier in one setting; Noetloom retains all registered seeds.", "No reproduction performed; EXP-0004 uses neither the full recurrent slot mechanism nor its datasets."],
+      "license_note": "Primary methods reference only; no code, pretrained weights or data copied."
+    },
+    {
       "id": "R-NTM",
       "title": "Neural Turing Machines",
       "url": "https://arxiv.org/abs/1410.5401v2",
