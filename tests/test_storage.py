@@ -70,6 +70,47 @@ class StorageTests(unittest.TestCase):
             storage_snapshot(self.cache, self.policy, self.policy["max_workspace_bytes"] + 1)
         self.assertFalse(self.cache.exists())
 
+    def test_atomic_pointer_rename_is_tolerated_only_by_live_sampling(self):
+        self.cache.mkdir(parents=True)
+        transient = self.cache / ".CURRENT-fixture"
+        published = self.cache / "CURRENT"
+        original = Path.lstat
+
+        def raced(path, *args, **kwargs):
+            if path == transient and transient.exists():
+                os.replace(transient, published)
+            return original(path, *args, **kwargs)
+
+        transient.write_bytes(b"published pointer")
+        with patch.object(Path, "lstat", raced), self.assertRaises(FileNotFoundError):
+            tree_bytes(self.cache)
+        published.unlink()
+        transient.write_bytes(b"published pointer")
+        with patch.object(Path, "lstat", raced):
+            self.assertEqual(tree_bytes(self.cache, live=True), 0)
+        # A live sample is approximate; the completed inventory must include CURRENT.
+        self.assertEqual(published.read_bytes(), b"published pointer")
+        self.assertGreaterEqual(tree_bytes(self.cache), len(b"published pointer"))
+
+    def test_live_sampling_still_refuses_symlinks_and_unreadable_entries(self):
+        self.cache.mkdir(parents=True)
+        payload = self.cache / "payload"
+        payload.write_bytes(b"evidence")
+        link = self.cache / "link"
+        link.symlink_to(payload)
+        with self.assertRaisesRegex(StorageError, "unaccountable"):
+            tree_bytes(self.cache, live=True)
+        link.unlink()
+        original = Path.lstat
+
+        def denied(path, *args, **kwargs):
+            if path == payload:
+                raise PermissionError("unreadable entry")
+            return original(path, *args, **kwargs)
+
+        with patch.object(Path, "lstat", denied), self.assertRaises(PermissionError):
+            tree_bytes(self.cache, live=True)
+
     def test_run_lease_serializes_and_releases_only_its_own_lock(self):
         with RunLease(self.cache, self.policy, 1024) as lease:
             original = lease.lock.read_bytes()

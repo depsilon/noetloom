@@ -3,8 +3,9 @@ import importlib.util
 from pathlib import Path
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from noetloom.contracts import ContractError, canonical_bytes
 from noetloom.learning_data import episode
@@ -19,6 +20,32 @@ spec.loader.exec_module(driver)
 
 
 class LearningEvidenceTests(unittest.TestCase):
+    def test_supervisor_uses_live_samples_then_requires_strict_completion(self):
+        for final_failure in (False, True):
+            with self.subTest(final_failure=final_failure), tempfile.TemporaryDirectory() as temporary:
+                child = SimpleNamespace(pid=333, returncode=0, poll=Mock(side_effect=[None, 0, 0]))
+                sampled = []
+
+                def inventory(path, *, live=False):
+                    sampled.append(live)
+                    if not live and final_failure:
+                        raise FileNotFoundError("retained entry disappeared after exit")
+                    return 0
+
+                with patch.object(driver.subprocess, "Popen", return_value=child), \
+                        patch.object(driver.subprocess, "run", return_value=SimpleNamespace(stdout="333 333 1\n")), \
+                        patch.object(driver.time, "sleep"), \
+                        patch.object(driver, "tree_bytes", side_effect=inventory), \
+                        patch.object(driver, "storage_snapshot", return_value={}) as snapshot:
+                    if final_failure:
+                        with self.assertRaisesRegex(FileNotFoundError, "after exit"):
+                            driver.supervised(["fixture"], {}, Path(temporary), {}, 10, 4096, 4096)
+                    else:
+                        result = driver.supervised(["fixture"], {}, Path(temporary), {}, 10, 4096, 4096)
+                        self.assertEqual(result["sampled_process_group_peak_rss_bytes"], 1024)
+                        self.assertEqual([call.kwargs for call in snapshot.call_args_list], [{"live": True}, {}])
+                self.assertEqual(sampled, [True, False])
+
     def setUp(self):
         self.row = episode(list(range(100)), 99, "base", "test_base-0000")
         self.predictions = [{"query_id": answer["query_id"], "prediction": answer["expected"],

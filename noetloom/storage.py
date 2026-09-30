@@ -54,8 +54,13 @@ def validate_cache(path: Path, repo_root: Path, *, home: Path | None = None,
     return resolved
 
 
-def tree_bytes(root: Path) -> int:
-    """Count conservatively, deduplicate hardlinks, and refuse symlinks/special files."""
+def tree_bytes(root: Path, *, live: bool = False) -> int:
+    """Count allocated bytes, deduplicate hardlinks, and refuse symlinks/special files.
+
+    Live sampling tolerates entries disappearing between enumeration and lstat, such as
+    an atomically renamed state pointer. It is not a consistent filesystem snapshot.
+    Admission, artifact inventories and completion use the strict default after writers stop.
+    """
     if not root.exists():
         return 0
     total = 0
@@ -63,15 +68,22 @@ def tree_bytes(root: Path) -> int:
     seen: set[tuple[int, int]] = set()
 
     def on_error(error: OSError) -> None:
+        if live and isinstance(error, FileNotFoundError):
+            return
         raise StorageError(f"cannot account for cache contents: {error}") from error
 
     for parent, directories, files in os.walk(root, followlinks=False, onerror=on_error):
         for name in directories + files:
             path = Path(parent) / name
-            info = path.lstat()
             count += 1
             if count > 100000:
                 raise StorageError("cache inventory exceeds 100000 entries; inspect before running")
+            try:
+                info = path.lstat()
+            except FileNotFoundError:
+                if live:
+                    continue
+                raise
             if stat.S_ISLNK(info.st_mode) or not (stat.S_ISDIR(info.st_mode) or stat.S_ISREG(info.st_mode)):
                 raise StorageError(f"unaccountable cache entry: {path.name}")
             if stat.S_ISREG(info.st_mode):
@@ -82,14 +94,15 @@ def tree_bytes(root: Path) -> int:
     return total
 
 
-def storage_snapshot(root: Path, policy: dict[str, Any], reserve_bytes: int = 0) -> dict[str, int]:
+def storage_snapshot(root: Path, policy: dict[str, Any], reserve_bytes: int = 0,
+                     *, live: bool = False) -> dict[str, int]:
     if type(reserve_bytes) is not int or reserve_bytes < 0:
         raise StorageError("reservation must be a nonnegative integer")
     ancestor = root
     while not ancestor.exists():
         ancestor = ancestor.parent
     free = shutil.disk_usage(ancestor).free
-    used = tree_bytes(root)
+    used = tree_bytes(root, live=live)
     if used + reserve_bytes > policy["max_workspace_bytes"]:
         raise StorageError("cache plus output reservation exceeds workspace budget")
     if free < policy["min_free_disk_bytes"] + reserve_bytes:

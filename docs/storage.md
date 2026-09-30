@@ -67,6 +67,18 @@ There are five gate-fitting attempts. Each run stays below 10,000 query presenta
 its three-policy replay is a separate admitted run. Previous checkpoints and their parent
 run manifests remain unchanged. All retained weights are local, not a public weight release.
 
+EXP-0004 uses the same lease with 32 MiB/120-second/2 GiB per-run admissions and twenty
+arm/seed attempts, including failures. It preserves the native executable, initial and all
+validation checkpoints, selected weights, raw predictions and intermediate states. A failed
+attempt remains failed even if a later audit verifies some retained predictions.
+
+The shared training supervisor samples directories while native state writers may atomically
+rename temporary pointer files. Live byte scans tolerate entries that disappear between
+enumeration and inspection; these samples are approximate. They still reject symlinks,
+special files and other I/O failures. After the worker exits, strict output/workspace scans
+and artifact inventories are required before any successful completion manifest is written.
+This avoids treating atomic publication as corruption without relaxing final admission.
+
 ## Artifact identity and retirement
 
 Every complete harness run has a protocol, resource-policy snapshot, runtime source inventory,

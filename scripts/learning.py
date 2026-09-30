@@ -66,9 +66,9 @@ def supervised(command: list[str], env: dict, directory: Path, policy: dict, sec
             while child.poll() is None:
                 if time.monotonic() - start > seconds:
                     raise StorageError("learning worker exceeded the registered wall-clock budget")
-                if tree_bytes(directory) > output_limit:
+                if tree_bytes(directory, live=True) > output_limit:
                     raise StorageError("learning output exceeds its reservation")
-                storage_snapshot(directory.parent, policy)
+                storage_snapshot(directory.parent, policy, live=True)
                 snapshot = subprocess.run(["ps", "-axo", "pid=,pgid=,rss="], capture_output=True,
                                           text=True, check=True, timeout=5)
                 rss = sum(int(row[2]) * 1024 for line in snapshot.stdout.splitlines()
@@ -80,6 +80,10 @@ def supervised(command: list[str], env: dict, directory: Path, policy: dict, sec
             if child.returncode:
                 tail = (directory / "worker.log").read_text(errors="replace")[-1600:]
                 raise StorageError(f"learning worker exited {child.returncode}: {tail}")
+            # The writer has exited: completion requires a strict, unsampled inventory.
+            if tree_bytes(directory) > output_limit:
+                raise StorageError("learning output exceeds its reservation after worker exit")
+            storage_snapshot(directory.parent, policy)
         finally:
             if child.poll() is None:
                 os.killpg(child.pid, signal.SIGTERM)
@@ -89,6 +93,7 @@ def supervised(command: list[str], env: dict, directory: Path, policy: dict, sec
                     os.killpg(child.pid, signal.SIGKILL)
                     child.wait()
     return {"elapsed_seconds": time.monotonic() - start, "sampled_process_group_peak_rss_bytes": observed_peak,
+            "storage_scope": "Live samples tolerate disappearing entries during atomic publication; post-exit output and workspace inventories are strict.",
             "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox."}
 
 
