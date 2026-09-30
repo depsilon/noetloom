@@ -95,10 +95,11 @@ selective reads averaged 72.6% accuracy versus 84.9% for the matched dense contr
 near-chance training seed. Payload reads fell to 7.1% of dense, without a demonstrated
 speed advantage. All five seeds and the full verification evidence are retained.
 
-[EXP-0003](experiments/EXP-0003/design.md) tests a seven-scalar learned gate over the five
-frozen dense readers. It must preserve quality and beat an input-independent allocation
-control at equal payload cost, on fresh keys and operation structures. This is a registered
-component probe; procedural reuse and a complete foundation architecture remain unproven.
+[EXP-0003](experiments/EXP-0003/design.md) tested a seven-scalar learned gate over the five
+frozen dense readers on fresh keys and operation structures. It was
+[rejected](docs/decisions/0005-adaptive-allocation.md): adaptive accuracy was 83.79% versus
+83.85% for fixed top-one inference, which used fewer reads and operations. Three gates
+always halted. Procedural reuse and a complete foundation architecture remain unproven.
 
 ## Contributing
 

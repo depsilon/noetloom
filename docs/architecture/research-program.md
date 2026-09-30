@@ -81,6 +81,9 @@ Its generated development/validation/test splits exercise bookkeeping and capaci
 they do not imply semantic out-of-distribution generalization.
 
 EXP-0002 registered these choices and [rejected its first selective-read configuration](../decisions/0004-learned-selection.md).
+EXP-0003 then [rejected the added allocation gate](../decisions/0005-adaptive-allocation.md):
+fixed top-one inference over the same dense-trained parameters matched quality with less
+logical work. Neither result settles Noetloom's architecture or supports procedural reuse.
 Each subsequent learned experiment must resolve them again:
 
 1. **Observation and supervision.** Specify the complete information exposed to each model,

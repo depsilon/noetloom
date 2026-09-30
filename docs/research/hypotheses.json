@@ -23,7 +23,7 @@
       "falsifier": "The apparent benefit is explained by greater total compute, favorable example selection, uncharged routing, or failure on unfamiliar compositions.",
       "source_refs": ["R-ACT", "R-RECURRENT-DEPTH", "R-MOR"],
       "novelty_status": "unassessed",
-      "evidence": []
+      "evidence": ["docs/decisions/0005-adaptive-allocation.md"]
     },
     {
       "id": "H-003",
