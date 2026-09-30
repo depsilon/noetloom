@@ -101,6 +101,13 @@ frozen dense readers on fresh keys and operation structures. It was
 83.85% for fixed top-one inference, which used fewer reads and operations. Three gates
 always halted. Procedural reuse and a complete foundation architecture remain unproven.
 
+[EXP-0004](experiments/EXP-0004/design.md) tested learned problem organization across
+held-out surface transformations. Its [comparison was inconclusive](docs/decisions/0006-problem-representation.md):
+the conditional model scored 58.54% on familiar forms and 48.61% on transfer, while every
+control also stayed below the 70% task-acquisition floor. Nineteen attempts completed;
+one failed after fitting and received a separate partial audit. No training was repeated.
+H-011 remains open, H-001/H-002 remain dormant, and no follow-on experiment is implied.
+
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Noetloom source and

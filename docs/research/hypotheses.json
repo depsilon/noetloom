@@ -130,14 +130,14 @@
       "id": "H-011",
       "category": "foundational_representation",
       "title": "Learning how to represent a problem",
-      "status": "testing",
+      "status": "proposed",
       "question": "Can the system learn how to represent a problem, rather than merely how to solve a problem once represented?",
       "mechanism": "Learning may change the problem representation itself in response to downstream usefulness under a bounded acquisition budget.",
-      "prediction": "EXP-0004 tests whether input-dependent transport of raw numeric fields improves held-out surface transfer beyond smaller and larger fixed-layout solvers and learned static transport, under a common learning budget. The unrestricted representation question remains open.",
+      "prediction": "On tasks with adequate learned acquisition, input-dependent problem organization could improve held-out surface transfer beyond fixed-layout computation and static transport under matched learning opportunities. EXP-0004 was inconclusive; a further test requires a new protocol and queue decision.",
       "falsifier": "The benefit comes from designer-provided encodings, label leakage, unlimited representation search, or increased solver capacity without representation transfer.",
       "source_refs": ["R-STN", "R-SLOT"],
       "novelty_status": "unassessed",
-      "evidence": []
+      "evidence": ["docs/decisions/0006-problem-representation.md", "docs/evidence/N-006-2026-09-30.json"]
     }
   ]
 }

@@ -88,6 +88,13 @@ All networks learn features; “fixed representation” here means fixed organiz
 specified solver boundary, not an absence of learned hidden activations. Neither tensors,
 transport, nor the supplied field size become Noetloom's final representation regime.
 
+[The experiment was inconclusive](../decisions/0006-problem-representation.md): every arm
+remained below its task-acquisition floor, and one of twenty attempts failed after fitting.
+The failed attempt's predictions were separately audited without restoring successful-run
+status or repeating optimization. The conditional model's 48.61% transfer accuracy does not
+support promotion. H-011 remains open; the result does not discriminate adequately learned
+representation strategies or falsify the unrestricted question.
+
 Reusable computation (H-003) is a possible follow-up if the representation result earns it,
 not part of this experiment. H-005 promotion, heterogeneous native formats, non-token units,
 cross-representation bridges, and hierarchical physical activation remain open questions.

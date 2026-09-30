@@ -1,0 +1,4973 @@
+{
+  "date": "2026-09-30",
+  "descriptive_results": {
+    "all_arm_base_means_below_registered_acquisition_floor": true,
+    "arms": {
+      "conditional": {
+        "base_accuracy": 0.5854166666666667,
+        "completed_only_base_accuracy": 0.5854166666666667,
+        "completed_runs": 5,
+        "family_accuracy": {
+          "base": 0.5854166666666667,
+          "combination": 0.4583333333333333,
+          "joint": 0.5291666666666667,
+          "reflection": 0.4708333333333333
+        },
+        "forward_scalar_ops": 46354,
+        "median_completed_native_process_seconds": 0.05413170804968104,
+        "median_completed_worker_seconds": 5.187304874998517,
+        "parameters": 20114,
+        "posthoc_audited_failed_checkpoints": 0,
+        "registered_training_proxy_ops_at_1024_steps": 1060364288,
+        "seed_transfer_accuracy": [
+          0.4791666666666667,
+          0.4548611111111111,
+          0.5104166666666666,
+          0.517361111111111,
+          0.46875
+        ],
+        "transfer_accuracy": 0.4861111111111111
+      },
+      "fixed_large": {
+        "base_accuracy": 0.5895833333333333,
+        "completed_only_base_accuracy": 0.59375,
+        "completed_runs": 4,
+        "family_accuracy": {
+          "base": 0.5895833333333333,
+          "combination": 0.5041666666666667,
+          "joint": 0.525,
+          "reflection": 0.5520833333333334
+        },
+        "forward_scalar_ops": 72962,
+        "median_completed_native_process_seconds": 0.07740531250601634,
+        "median_completed_worker_seconds": 4.997828749998007,
+        "parameters": 36482,
+        "posthoc_audited_failed_checkpoints": 1,
+        "registered_training_proxy_ops_at_1024_steps": 1718411264,
+        "seed_transfer_accuracy": [
+          0.5381944444444444,
+          0.5069444444444444,
+          0.5416666666666666,
+          0.5451388888888888,
+          0.5034722222222222
+        ],
+        "transfer_accuracy": 0.5270833333333333
+      },
+      "fixed_small": {
+        "base_accuracy": 0.5895833333333333,
+        "completed_only_base_accuracy": 0.5895833333333333,
+        "completed_runs": 5,
+        "family_accuracy": {
+          "base": 0.5895833333333333,
+          "combination": 0.475,
+          "joint": 0.5104166666666666,
+          "reflection": 0.5229166666666667
+        },
+        "forward_scalar_ops": 6402,
+        "median_completed_native_process_seconds": 0.03393612499348819,
+        "median_completed_worker_seconds": 4.695655916002579,
+        "parameters": 3202,
+        "posthoc_audited_failed_checkpoints": 0,
+        "registered_training_proxy_ops_at_1024_steps": 150790144,
+        "seed_transfer_accuracy": [
+          0.4965277777777778,
+          0.4722222222222222,
+          0.5,
+          0.5138888888888888,
+          0.53125
+        ],
+        "transfer_accuracy": 0.5027777777777778
+      },
+      "static": {
+        "base_accuracy": 0.5229166666666667,
+        "completed_only_base_accuracy": 0.5229166666666667,
+        "completed_runs": 5,
+        "family_accuracy": {
+          "base": 0.5229166666666667,
+          "combination": 0.4895833333333333,
+          "joint": 0.5041666666666667,
+          "reflection": 0.5
+        },
+        "forward_scalar_ops": 10482,
+        "median_completed_native_process_seconds": 0.03326966700842604,
+        "median_completed_worker_seconds": 4.880833667004481,
+        "parameters": 2690,
+        "posthoc_audited_failed_checkpoints": 0,
+        "registered_training_proxy_ops_at_1024_steps": 220749824,
+        "seed_transfer_accuracy": [
+          0.5,
+          0.5,
+          0.4791666666666667,
+          0.5104166666666666,
+          0.5
+        ],
+        "transfer_accuracy": 0.4979166666666667
+      }
+    },
+    "conditional_cross_surface_agreement": 0.3416666666666667,
+    "conditional_shifted_results": [
+      {
+        "maximum_native_tensor_error": 7.748603820800781e-07,
+        "metrics": {
+          "cases": 384,
+          "intermediate_state_read_bytes": 24576,
+          "intermediate_state_write_bytes": 24576,
+          "native_evaluation_seconds": 0.024309834,
+          "native_process_seconds": 0.051688708015717566,
+          "native_rss_samples": 2,
+          "native_sampled_peak_rss_bytes": 9109504,
+          "nominal_scalar_ops": 18592512,
+          "peak_intermediate_payload_bytes": 64,
+          "raw_input_bytes": 98304,
+          "transport_entropy": 3.9376713840086404,
+          "transport_variance": 0.00013611747255148581
+        },
+        "scored": {
+          "base": {
+            "accuracy": 0.4583333333333333,
+            "correct": 44,
+            "total": 96
+          },
+          "combination": {
+            "accuracy": 0.59375,
+            "correct": 57,
+            "total": 96
+          },
+          "joint": {
+            "accuracy": 0.53125,
+            "correct": 51,
+            "total": 96
+          },
+          "reflection": {
+            "accuracy": 0.5625,
+            "correct": 54,
+            "total": 96
+          }
+        },
+        "seed": 6101
+      },
+      {
+        "maximum_native_tensor_error": 2.980232238769531e-07,
+        "metrics": {
+          "cases": 384,
+          "intermediate_state_read_bytes": 24576,
+          "intermediate_state_write_bytes": 24576,
+          "native_evaluation_seconds": 0.021293125,
+          "native_process_seconds": 0.0504127080203034,
+          "native_rss_samples": 2,
+          "native_sampled_peak_rss_bytes": 9109504,
+          "nominal_scalar_ops": 18592512,
+          "peak_intermediate_payload_bytes": 64,
+          "raw_input_bytes": 98304,
+          "transport_entropy": 4.00209875319131,
+          "transport_variance": 8.619542822977726e-05
+        },
+        "scored": {
+          "base": {
+            "accuracy": 0.53125,
+            "correct": 51,
+            "total": 96
+          },
+          "combination": {
+            "accuracy": 0.59375,
+            "correct": 57,
+            "total": 96
+          },
+          "joint": {
+            "accuracy": 0.5104166666666666,
+            "correct": 49,
+            "total": 96
+          },
+          "reflection": {
+            "accuracy": 0.4166666666666667,
+            "correct": 40,
+            "total": 96
+          }
+        },
+        "seed": 6203
+      },
+      {
+        "maximum_native_tensor_error": 3.5762786865234375e-07,
+        "metrics": {
+          "cases": 384,
+          "intermediate_state_read_bytes": 24576,
+          "intermediate_state_write_bytes": 24576,
+          "native_evaluation_seconds": 0.021806125,
+          "native_process_seconds": 0.04799712495878339,
+          "native_rss_samples": 2,
+          "native_sampled_peak_rss_bytes": 9158656,
+          "nominal_scalar_ops": 18592512,
+          "peak_intermediate_payload_bytes": 64,
+          "raw_input_bytes": 98304,
+          "transport_entropy": 3.9998725214482587,
+          "transport_variance": 8.730881599443082e-05
+        },
+        "scored": {
+          "base": {
+            "accuracy": 0.4791666666666667,
+            "correct": 46,
+            "total": 96
+          },
+          "combination": {
+            "accuracy": 0.5104166666666666,
+            "correct": 49,
+            "total": 96
+          },
+          "joint": {
+            "accuracy": 0.5208333333333334,
+            "correct": 50,
+            "total": 96
+          },
+          "reflection": {
+            "accuracy": 0.5416666666666666,
+            "correct": 52,
+            "total": 96
+          }
+        },
+        "seed": 6301
+      },
+      {
+        "maximum_native_tensor_error": 1.0132789611816406e-06,
+        "metrics": {
+          "cases": 384,
+          "intermediate_state_read_bytes": 24576,
+          "intermediate_state_write_bytes": 24576,
+          "native_evaluation_seconds": 0.02451675,
+          "native_process_seconds": 0.054247665975708514,
+          "native_rss_samples": 2,
+          "native_sampled_peak_rss_bytes": 9158656,
+          "nominal_scalar_ops": 18592512,
+          "peak_intermediate_payload_bytes": 64,
+          "raw_input_bytes": 98304,
+          "transport_entropy": 3.9319453475701853,
+          "transport_variance": 0.00014225854835074036
+        },
+        "scored": {
+          "base": {
+            "accuracy": 0.4895833333333333,
+            "correct": 47,
+            "total": 96
+          },
+          "combination": {
+            "accuracy": 0.4791666666666667,
+            "correct": 46,
+            "total": 96
+          },
+          "joint": {
+            "accuracy": 0.4583333333333333,
+            "correct": 44,
+            "total": 96
+          },
+          "reflection": {
+            "accuracy": 0.4479166666666667,
+            "correct": 43,
+            "total": 96
+          }
+        },
+        "seed": 6407
+      },
+      {
+        "maximum_native_tensor_error": 9.5367431640625e-07,
+        "metrics": {
+          "cases": 384,
+          "intermediate_state_read_bytes": 24576,
+          "intermediate_state_write_bytes": 24576,
+          "native_evaluation_seconds": 0.02701125,
+          "native_process_seconds": 0.05332216597162187,
+          "native_rss_samples": 2,
+          "native_sampled_peak_rss_bytes": 6914048,
+          "nominal_scalar_ops": 18592512,
+          "peak_intermediate_payload_bytes": 64,
+          "raw_input_bytes": 98304,
+          "transport_entropy": 3.9399911336555657,
+          "transport_variance": 0.00013773452861954466
+        },
+        "scored": {
+          "base": {
+            "accuracy": 0.53125,
+            "correct": 51,
+            "total": 96
+          },
+          "combination": {
+            "accuracy": 0.5,
+            "correct": 48,
+            "total": 96
+          },
+          "joint": {
+            "accuracy": 0.5,
+            "correct": 48,
+            "total": 96
+          },
+          "reflection": {
+            "accuracy": 0.5520833333333334,
+            "correct": 53,
+            "total": 96
+          }
+        },
+        "seed": 6503
+      }
+    ],
+    "paired_seed_intervals": {
+      "fixed_large": {
+        "differences_by_seed": [
+          -0.059027777777777735,
+          -0.052083333333333315,
+          -0.03125,
+          -0.02777777777777779,
+          -0.03472222222222221
+        ],
+        "high": -0.023889328954377398,
+        "low": -0.05805511549006702,
+        "mean": -0.04097222222222221
+      },
+      "fixed_small": {
+        "differences_by_seed": [
+          -0.017361111111111105,
+          -0.017361111111111105,
+          0.01041666666666663,
+          0.00347222222222221,
+          -0.0625
+        ],
+        "high": 0.018675749604079504,
+        "low": -0.052009082937412854,
+        "mean": -0.016666666666666673
+      },
+      "shifted": {
+        "differences_by_seed": [
+          -0.08333333333333331,
+          -0.052083333333333315,
+          -0.01388888888888895,
+          0.05555555555555547,
+          -0.04861111111111116
+        ],
+        "high": 0.037365663279795035,
+        "low": -0.09431010772423953,
+        "mean": -0.028472222222222253
+      },
+      "static": {
+        "differences_by_seed": [
+          -0.020833333333333315,
+          -0.045138888888888895,
+          0.031249999999999944,
+          0.00694444444444442,
+          -0.03125
+        ],
+        "high": 0.02634426348715311,
+        "low": -0.04995537459826425,
+        "mean": -0.011805555555555569
+      }
+    },
+    "scope": "All twenty retained selected checkpoints. fixed_large seed 6503 is from a separate post-hoc audit of a failed attempt; that audit does not restore the registered campaign. Intervals describe these checkpoint predictions and are not a valid completed-campaign confirmation. Five initialization seeds share one frozen dataset; they are not five independent task-family draws.",
+    "speed_claim": false
+  },
+  "design_registration_commit": "f2be285",
+  "deviations": {
+    "campaign_continuation": "The script stopped at failed attempt 18. The two remaining registered arm/seed attempts ran once with unchanged original source; each passed normal replay. No replacement for the failed attempt.",
+    "implementation_repairs": "Live filesystem accounting raced atomic CURRENT publication; CI separately exposed the same race during Cargo temporary-file removal. Both affected samplers now tolerate disappearing entries only during live scans and require strict post-exit inventories.",
+    "posthoc_audit": "Existing failed-attempt outputs only; 966 additional case executions, zero fitting updates. Original failed status preserved.",
+    "scientific_protocol_changes_after_registration": false
+  },
+  "experiment": "EXP-0004",
+  "experiment_source": {
+    "design_sha256": "59aa7590fac94787cc1fc46e38439f958c2c0f61f9674f1e152a48ec60773927",
+    "protocol_sha256": "aaddd9422188ffcd317cd177ace5574926f9715b0bbddbadddb3ba4cfdfb4a0b",
+    "python": {
+      "digest": "8b156041bae706bb1c99f1312a9c3672376cb06a04c39bbd1c9abce5f80f4442",
+      "files": [
+        {
+          "path": "noetloom/__init__.py",
+          "sha256": "8cf96d65a11671f8f95db5ce1b95ae0d8f028bbb4ae05a87f6458489d25eccdc"
+        },
+        {
+          "path": "noetloom/__main__.py",
+          "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+        },
+        {
+          "path": "noetloom/allocation_contracts.py",
+          "sha256": "1acb691bf05679c6002222536dfa66688d519ff52839e2d953f6a8c21a4da89e"
+        },
+        {
+          "path": "noetloom/allocation_data.py",
+          "sha256": "8074fd6ddd97ab01cda466b50e780ed4cf53f476641c3889d01a71ebac81f168"
+        },
+        {
+          "path": "noetloom/allocation_torch.py",
+          "sha256": "761ccc4d9a261a80156e85a23183e0e7e99f664d31cdf78c261fa1bc4f20199b"
+        },
+        {
+          "path": "noetloom/allocation_worker.py",
+          "sha256": "b87a5a8042b2c97b32c0165b2eb3c1d3f24385095ba39bd688852873b9d1269f"
+        },
+        {
+          "path": "noetloom/cli.py",
+          "sha256": "2e1c84bfc1559717f2091178de43917f5486ff72b90c5945cd780f70a14537bf"
+        },
+        {
+          "path": "noetloom/contracts.py",
+          "sha256": "d72f886aef309ce3f5947cc3bb36ecdc590f44e85bf2aa0f7e4c6d3f5698b108"
+        },
+        {
+          "path": "noetloom/learning_contracts.py",
+          "sha256": "5e5e7a93b8931849e88fed76794ece63ff6e3fa056491697af38cd2bb5000938"
+        },
+        {
+          "path": "noetloom/learning_data.py",
+          "sha256": "2735f4293854b007043289dfd86e09e912aa1ef209ca8b753369d2ebe09a2015"
+        },
+        {
+          "path": "noetloom/learning_torch.py",
+          "sha256": "cc1df745e18864cd1909b0da742a6b7eb2cbf158ee978f4153160bbbb513b364"
+        },
+        {
+          "path": "noetloom/learning_worker.py",
+          "sha256": "41f8b480e94edc4f1fce4a42e9b41c5d8bb1f1f20a074887a03853d15d1e08d8"
+        },
+        {
+          "path": "noetloom/recall.py",
+          "sha256": "bde5d76314025cf148ae6194e11329a74628abc1b1b13921016f07849f09ab6f"
+        },
+        {
+          "path": "noetloom/representation_common.py",
+          "sha256": "9b1b1911945a4de543b0237494e62d4b527e4befdcb82d6f6b72f8c862138169"
+        },
+        {
+          "path": "noetloom/representation_contracts.py",
+          "sha256": "7fd353c931e38920fdf05696b19f36f7644827cbd1b443fcc4e9538117794739"
+        },
+        {
+          "path": "noetloom/representation_data.py",
+          "sha256": "0f3fba8af1a0aff64e5db62bc9706316a204dc3b00387b5df113b91c1580cc37"
+        },
+        {
+          "path": "noetloom/representation_torch.py",
+          "sha256": "eccfe9c98e216a974481a6b42e1b96072af618e6813a72a299150cc95be3888f"
+        },
+        {
+          "path": "noetloom/representation_worker.py",
+          "sha256": "9086973db416a40b762ad743e55998f0f7712624f92da2dea5a73e22aee7cef6"
+        },
+        {
+          "path": "noetloom/runner.py",
+          "sha256": "4218385a6c490c12ffd274472e9f1d3b2c391c188777d7ea7b031edb88f3ff5a"
+        },
+        {
+          "path": "noetloom/storage.py",
+          "sha256": "cef9f7bdc72e8afc5584b33838c5eff0a2537587dd0469e72e4d38e5952fee4d"
+        }
+      ],
+      "schema_version": "noetloom.source.v1"
+    },
+    "rust": {
+      "source_files": [
+        [
+          "Cargo.lock",
+          "2e4e5be490eb4d921d530d1f24c8cd9f3c4b6fb321cff4eb09aa704295c54600"
+        ],
+        [
+          "Cargo.toml",
+          "fce2b7195fbf76d6eeb347c71d2d7a3839579b32c0f222b7f34bccea2ea45c35"
+        ],
+        [
+          "crates/noetloom-core/Cargo.toml",
+          "1646df1fb5806023bbf17e21f06b0a15cc7ce5a384b8a224714f8381d5c03ac5"
+        ],
+        [
+          "crates/noetloom-core/build.rs",
+          "826e596480ef296ad5abe4e456471d026222643fd4d5d445f1ef6bbd5f64a6c3"
+        ],
+        [
+          "crates/noetloom-core/examples/foundation.rs",
+          "518ec3ca2f03b7a4e2707b753983c8878a6cce28208dec9147b32a5fa651ebe8"
+        ],
+        [
+          "crates/noetloom-core/examples/learning.rs",
+          "467e9a4780f85b48585b9ad394a7d44bb0d00ca4fda2e10c5baa7e4964066ce0"
+        ],
+        [
+          "crates/noetloom-core/examples/representation.rs",
+          "4a9b1f9ee60c3e054861f5f202d91d87b017d5a3a9727946ff05df9a62116308"
+        ],
+        [
+          "crates/noetloom-core/src/engine.rs",
+          "391c5a4ebe67d9f5803ffcc2cae30dfb445804eb81f99344abbdd052b68ab353"
+        ],
+        [
+          "crates/noetloom-core/src/learning.rs",
+          "ea20b7c81647c0613a0298ce5a97177eb95bd41c375066896058554e937745c2"
+        ],
+        [
+          "crates/noetloom-core/src/lib.rs",
+          "a23e01109a9a4bb284906e42d40d3cb59ed1f91dcc04019d414c4b6b5614a5cc"
+        ],
+        [
+          "crates/noetloom-core/src/memory.rs",
+          "a65d76bca78d66cb5eb91c7fc61c29ae40f7da388987d215a85317ba9f89d7b2"
+        ],
+        [
+          "crates/noetloom-core/src/operator.rs",
+          "dc68b92553e2876a7b95e294bb6bef0b5309d694ef1f8d6860ba7db036d04327"
+        ],
+        [
+          "crates/noetloom-core/src/provider.rs",
+          "00c2d4b327c01b0f44be21db709664b9f81ac6b45115b6832857b5e9241f3e2c"
+        ],
+        [
+          "crates/noetloom-core/src/representation.rs",
+          "be74539ee7ed8ccaca9523739dcd7ee866f40abb157971e205443757d770601a"
+        ],
+        [
+          "crates/noetloom-core/src/store.rs",
+          "baa43ce3d9cefc098a811dcbfdf0fd8373294a4b8e92cd615e1a4054b2049a6f"
+        ],
+        [
+          "crates/noetloom-core/src/value.rs",
+          "751c9e1990898f16798c028cf1f374da3262eee610267a78b65da9901f16a890"
+        ],
+        [
+          "crates/noetloom-core/tests/foundation.rs",
+          "844183033ad5995ed4bc111f32244b9282a1f5e9551e240601f46200d2d89b7a"
+        ],
+        [
+          "crates/noetloom-core/tests/learning.rs",
+          "aa7a1eee89a452feba594e041dbe2b915c7487f80a533ea8be2eb8e19c655799"
+        ],
+        [
+          "crates/noetloom-core/tests/provider.rs",
+          "73fad6cf4012b08f95000d93da4ba92038fed30b8a2d7a0e74825ca6c1144bf8"
+        ],
+        [
+          "crates/noetloom-core/tests/representation.rs",
+          "6212a1d197c5fb428ae043a90ccf3025a68eab4642f4ba262c032863b316c5ee"
+        ],
+        [
+          "rust-toolchain.toml",
+          "e879701472a698533f43f54989bbf5f3101eb0503472159d32633f3bb8a13fdf"
+        ]
+      ],
+      "source_sha256": "88e96fc9aa5aa155a19078b32cbed1ffcd9d3fea4d081b74cbb78940634497f4"
+    },
+    "scripts": [
+      {
+        "path": "scripts/allocation.py",
+        "sha256": "da8b41ed2e9437607bd79827b1fd1cce14c636da9789959658092aa6da30a4a8"
+      },
+      {
+        "path": "scripts/learning.py",
+        "sha256": "12d0f4910cf11753bef292a2a5644152b9d90c96a48114c9b521c324dea69bbd"
+      },
+      {
+        "path": "scripts/learning_setup.py",
+        "sha256": "8dede084007d11387833d69049d086198fa7cf43b95b512c4dc34fc1f27e053c"
+      },
+      {
+        "path": "scripts/representation.py",
+        "sha256": "97b74a65a9acdc167fceb19a6ec11017b362a5a327a36e336be291219d418905"
+      },
+      {
+        "path": "scripts/rust.py",
+        "sha256": "36ff709edddae2994edd49350b501d2efeac23045b054f36834b2881702a9e9a"
+      },
+      {
+        "path": "scripts/shardloom_probe.py",
+        "sha256": "1219eabd4c5caaab25be6835dd3b3c9b79f64ebaa7309d2d39a2b3e238cb0d44"
+      }
+    ]
+  },
+  "failed_attempt_audit": {
+    "admitted_campaign_status_restored": false,
+    "arm": "fixed_large",
+    "audit_script_sha256": "b67066091250ecb196bdccd1adf4e52bfcb508b70ffe1f1756fb585853fe5ba0",
+    "cases_replayed": 966,
+    "diagnostic": {
+      "agreement": {
+        "accuracy": 0.4791666666666667,
+        "all_three_agreement": 0.15625,
+        "problems": 96
+      },
+      "maximum_native_tensor_error": 4.76837158203125e-07,
+      "metrics": {
+        "cases": 288,
+        "intermediate_state_read_bytes": 73728,
+        "intermediate_state_write_bytes": 73728,
+        "native_evaluation_seconds": 0.017704417,
+        "native_process_seconds": 0.037533333990722895,
+        "native_rss_samples": 2,
+        "native_sampled_peak_rss_bytes": 7831552,
+        "nominal_scalar_ops": 21013056,
+        "peak_intermediate_payload_bytes": 256,
+        "raw_input_bytes": 73728,
+        "transport_entropy": null,
+        "transport_variance": null
+      },
+      "scored": {
+        "diagnostic": {
+          "accuracy": 0.4791666666666667,
+          "correct": 138,
+          "total": 288
+        }
+      }
+    },
+    "failure": {
+      "error": "[Errno 2] No such file or directory: '/Users/dylan/.cache/noetloom/representation-train-20260930T113851Z-33ddf36f/intermediate-288/state/.CURRENT-32651-2'",
+      "status": "failed"
+    },
+    "incomplete_restart_cases": [
+      288,
+      289
+    ],
+    "manifest_sha256": "eda204e5efc5b3cac7ad06c046df6175bb5059a21bb3a37319571ad7fb1b9f21",
+    "ordinary": {
+      "maximum_native_tensor_error": 3.5762786865234375e-07,
+      "metrics": {
+        "cases": 384,
+        "intermediate_state_read_bytes": 98304,
+        "intermediate_state_write_bytes": 98304,
+        "native_evaluation_seconds": 0.022972042,
+        "native_process_seconds": 0.038686249987222254,
+        "native_rss_samples": 2,
+        "native_sampled_peak_rss_bytes": 5816320,
+        "nominal_scalar_ops": 28017408,
+        "peak_intermediate_payload_bytes": 256,
+        "raw_input_bytes": 98304,
+        "transport_entropy": null,
+        "transport_variance": null
+      },
+      "scored": {
+        "base": {
+          "accuracy": 0.5729166666666666,
+          "correct": 55,
+          "total": 96
+        },
+        "combination": {
+          "accuracy": 0.5,
+          "correct": 48,
+          "total": 96
+        },
+        "joint": {
+          "accuracy": 0.4895833333333333,
+          "correct": 47,
+          "total": 96
+        },
+        "reflection": {
+          "accuracy": 0.5208333333333334,
+          "correct": 50,
+          "total": 96
+        }
+      }
+    },
+    "original_artifact_inventory_sha256": "4d99c599e7fcc67727dbc674f634327de86c0277a89ddcd0565284110d3f1e91",
+    "original_run_id": "representation-train-20260930T113851Z-33ddf36f",
+    "original_status": "failed_not_retried",
+    "recomputed_validation_objectives": [
+      {
+        "native_cross_entropy": 0.72582280241409,
+        "step": 256
+      },
+      {
+        "native_cross_entropy": 0.7606563845801335,
+        "step": 512
+      },
+      {
+        "native_cross_entropy": 0.8102195363891694,
+        "step": 1024
+      }
+    ],
+    "retained_states_replayed": [
+      0,
+      1,
+      96,
+      97,
+      192,
+      193
+    ],
+    "run_id": "representation-partial-audit-20260930T114327Z-78581ecd",
+    "saved_selection_matches_native_minimum": true,
+    "scope": "Post-hoc inference, validation-objective and six retained-state checks. No retraining, replacement attempt, or fabricated final budget/timing/restart record.",
+    "seed": 6503,
+    "selected_step": 256,
+    "training_repeated": false
+  },
+  "foundation_fixture": {
+    "manifest_sha256": "1d98fcbdd127cd1e9392f05d70954a63349d76f091b2fd60e2d8825efe8f26b4",
+    "run_id": "foundation-20260930T121522Z-c4a706b5",
+    "source_sha256": "88e96fc9aa5aa155a19078b32cbed1ffcd9d3fea4d081b74cbb78940634497f4"
+  },
+  "harness": {
+    "manifest_sha256": "59c7e7b8a640356c33f5b5ee189760bed6528d0e9b6a6056e8591459bccb3b02",
+    "predictions_replayed": 12096,
+    "run_id": "20260930T114620Z-4821d72751",
+    "source_sha256": "7470cae7c81ae46b5d91d6747236f42feb276adf3b0712d0fe79451421d2862f"
+  },
+  "hosted_verification": {
+    "experiment_source_commit": "293a9578f9ed5a700be3d4d6e43a7308d1fbe598",
+    "experiment_source_result": "both_os_passed",
+    "experiment_source_run_id": 36709684236,
+    "intermediate_result": "macos_cargo_live_inventory_failed_then_repaired",
+    "intermediate_sampler_fix_run_id": 36710708700,
+    "status": "passed",
+    "commit": "e11d80b53490c67e9341de5b2d6e8e1048e9b525",
+    "run_id": 36713616561,
+    "url": "https://github.com/depsilon/noetloom/actions/runs/36713616561",
+    "jobs": ["Rust and Python 3.11 on ubuntu-latest", "Rust and Python 3.13 on macos-latest"],
+    "scope": "Repaired implementation, contracts, native tests/fixtures, and harness replay. Optional learning is not rerun in hosted CI."
+  },
+  "implementation_before_preflight_commit": "293a9578f9ed5a700be3d4d6e43a7308d1fbe598",
+  "outcome": {
+    "campaign_execution": "incomplete_one_post_fit_attempt_failed",
+    "comparison_status": "inconclusive_task_acquisition_failed",
+    "completed_attempts": 19,
+    "decision": "reject_registered_configuration",
+    "failed_attempts": 1,
+    "formal_driver_summary_created": false,
+    "formal_summary_refusal": "incomplete representation campaign cannot yield a research decision",
+    "next_experiment_authorized": false,
+    "registered_attempts": 20,
+    "replacement_attempts": 0,
+    "unrestricted_H011_resolved": false
+  },
+  "post_experiment_repairs": {
+    "cargo_sampler_commit": "e11d80b53490c67e9341de5b2d6e8e1048e9b525",
+    "chronology": "All twenty attempts and the partial audit used the original experiment source. Repairs came afterward; no scientific settings, checkpoints or original manifests were changed. Replay historical EXP-0004 with commit 293a9578f9ed5a700be3d4d6e43a7308d1fbe598.",
+    "current_python_source_sha256": "7470cae7c81ae46b5d91d6747236f42feb276adf3b0712d0fe79451421d2862f",
+    "training_sampler_commit": "30534e77fb87ebb9e5bff9053a69dd870626b1b6"
+  },
+  "preflight": {
+    "binary_sha256": "7e26519d294298a4d9aae82f13fa86403c4ab8f159885cd2a9dbab047eb04dc0",
+    "compile_seconds": 4.744523125002161,
+    "costs": {
+      "conditional": {
+        "forward_ops": 46354,
+        "parameters": 20114
+      },
+      "fixed_large": {
+        "forward_ops": 72962,
+        "parameters": 36482
+      },
+      "fixed_small": {
+        "forward_ops": 6402,
+        "parameters": 3202
+      },
+      "static": {
+        "forward_ops": 10482,
+        "parameters": 2690
+      }
+    },
+    "data_sha256": "5921e1adfac1f4b7f334f946c75d5ecf3bf85489dc3fe161e5e0bff334c5ef0e",
+    "elapsed_seconds": 4.210367083025631,
+    "environment": {
+      "deterministic_algorithms": true,
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 1,
+      "torch": "2.14.0"
+    },
+    "gradients": {
+      "checked_scalars": 29,
+      "maximum_absolute_error": 1.3368656225434816e-11,
+      "scope": "sampled entries across all conditional parameter tensors, synthetic smooth loss"
+    },
+    "inference_refuses_label_fields": true,
+    "manifest_sha256": "d5f45fb394f6a3fcd737abd1a3e4cb1da51bb7107e9d3321b03a6ddbe9c7c5c8",
+    "maximum_native_tensor_errors": {
+      "conditional": 1.341104507446289e-07,
+      "fixed_large": 9.5367431640625e-07,
+      "fixed_small": 2.384185791015625e-07,
+      "static": 5.587935447692871e-08
+    },
+    "peak_rss_bytes": 317325312,
+    "run_id": "representation-preflight-20260930T113558Z-dbbcf0ab",
+    "scope": "development throughput and implementation checks only",
+    "seconds_per_step": {
+      "conditional": 0.0003808906258200295,
+      "fixed_large": 0.0003117995001957752,
+      "fixed_small": 0.00022531774811795913,
+      "static": 0.000282033874100307
+    },
+    "selected_steps": 1024,
+    "status": "passed",
+    "test_quality_used": false
+  },
+  "resources": {
+    "failed_attempt_final_worker_rss_bytes": null,
+    "fresh_replay_native_scalar_ops": 750017596,
+    "maximum_completed_worker_rss_bytes": 325451776,
+    "nominal_scope": "Forward and training counts are declared proxies, not measured hardware FLOPs. Recorded native totals include construction, conversion, ordinary/diagnostic/intervention execution and available persistence receipts; unrecorded work at the interruption is unknown. No zero cost is imputed for missing evidence.",
+    "recorded_original_native_scalar_ops": 555896636,
+    "representation_artifacts_allocated_bytes": 110682112,
+    "timing_scope": "One observation per completed run; wall time includes framework startup, validation, copying, state operations and evidence. Failed final timing is unavailable. No latency or efficiency conclusion.",
+    "training_artifacts_allocated_bytes": 59195392,
+    "validation_tensor_forward_proxy_ops_registered_all_attempts": 196128000
+  },
+  "retention": {
+    "all_initial_validation_selected_checkpoints_retained": true,
+    "checkpoint_license": "Redistribution undecided; source Apache-2.0",
+    "durable_remote_backup_verified": false,
+    "failed_attempt_and_partial_audit_retained": true,
+    "location": "~/.cache/noetloom/representation-*",
+    "public_weights_or_data_release": false,
+    "unique_checkpoints_deleted": false
+  },
+  "schema_version": "noetloom.research_evidence.v1",
+  "seed_runs": [
+    {
+      "arm": "fixed_small",
+      "artifacts": [
+        {
+          "bytes": 64975,
+          "path": "initial.json",
+          "sha256": "771e2cb7504deeb7303f3fed9bc209d7adb873c7bb77203cf2a2dc1564d57258"
+        },
+        {
+          "bytes": 66007,
+          "path": "checkpoint-256.json",
+          "sha256": "fa06bd30c84005d11b65568900078c0a7e0dd31a6b350629a24b59afd23ea60b"
+        },
+        {
+          "bytes": 65930,
+          "path": "checkpoint-512.json",
+          "sha256": "0222bd75bb0ff926715025fcb275469136c7a6945d3e2118e5306cb35f57fe66"
+        },
+        {
+          "bytes": 65717,
+          "path": "checkpoint-1024.json",
+          "sha256": "3c778d9e75915dd589d33e11fdf7418e6d7d2f60f02652909eb74a377860c63d"
+        },
+        {
+          "bytes": 65930,
+          "path": "selected.json",
+          "sha256": "0222bd75bb0ff926715025fcb275469136c7a6945d3e2118e5306cb35f57fe66"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262677,
+          "path": "native.json",
+          "sha256": "f6944f6f4b1e50a8726afaef864079e4272614f0dc40355297c9ecca6431e18c"
+        },
+        {
+          "bytes": 128225,
+          "path": "tensor.json",
+          "sha256": "ab0be1932bcf1fd7566c8ce3ca2dcfc0b075a85e4d96cbd45ec8f3f0d6a8b092"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197789,
+          "path": "native-diagnostic.json",
+          "sha256": "f53ef263b11b978f4ff18d0eb12521818145a1efbf2a17cc91226fae5a7edc83"
+        },
+        {
+          "bytes": 96141,
+          "path": "tensor-diagnostic.json",
+          "sha256": "9ef4684e487704948896f57da28a765ddbae0c317e2c1cc6a164b7d142406f06"
+        },
+        {
+          "bytes": 21504,
+          "path": "report.json",
+          "sha256": "100e04fd8f5e03fe3e13c621c8794f7fc5bf0a408fd1365e33d3c5e2ec35eff1"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "ec0427b36513b95c45460965b2d79cead3235bab4e13f24192423f1e5649cefb",
+      "monitor": {
+        "elapsed_seconds": 5.031505791994277,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 326189056
+      },
+      "report": {
+        "arm": "fixed_small",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4791666666666667,
+          "all_three_agreement": 0.5416666666666666,
+          "maximum_native_tensor_error": 1.7881393432617188e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.006388334,
+            "native_process_seconds": 0.03370566701050848,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5521408,
+            "nominal_scalar_ops": 1843776,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.587681250006426,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.355077332991641,
+        "forward_scalar_ops": 6402,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 3202,
+        "peak_rss_bytes": 321650688,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 2.384185791015625e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.00851575,
+            "native_process_seconds": 0.041741791006643325,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5537792,
+            "nominal_scalar_ops": 2458368,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.6145833333333334,
+              "correct": 59,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4583333333333333,
+              "correct": 44,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6101,
+        "selected_step": 512,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 150790144,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.674673855304718,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6280916929244995,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.7075329422950745,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113707Z-a1347db8",
+      "seed": 6101,
+      "selected_step": 512,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "b81c86b10d682746f7cc2b8afa2542f3cf985caae96e515fe23b4afaab8ded46",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 1.7881393432617188e-07,
+            "ordinary": 2.384185791015625e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113713Z-c82b058d",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 2.2024689960709054e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 2.7660279622310213e-09,
+              "step": 512
+            },
+            {
+              "absolute_error": 1.5444542533771255e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_small",
+      "artifacts": [
+        {
+          "bytes": 64951,
+          "path": "initial.json",
+          "sha256": "bc3bb9bf5f4f07d8edec4bef08e3f7c13526d9cb2196e5192a1216579f087f01"
+        },
+        {
+          "bytes": 66020,
+          "path": "checkpoint-256.json",
+          "sha256": "b353ec3ac0a6b8f804615c5e87c949afc51ac35f897d3013cddf0b41ca46ec8c"
+        },
+        {
+          "bytes": 65945,
+          "path": "checkpoint-512.json",
+          "sha256": "6fa927318d7209ff7496c524586f61c20d620487bc17e8664843f632c258879d"
+        },
+        {
+          "bytes": 65691,
+          "path": "checkpoint-1024.json",
+          "sha256": "6556b848ae7b650a5add744bb20699b93ab8b13444785012f858d4bc30571af4"
+        },
+        {
+          "bytes": 65691,
+          "path": "selected.json",
+          "sha256": "6556b848ae7b650a5add744bb20699b93ab8b13444785012f858d4bc30571af4"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262667,
+          "path": "native.json",
+          "sha256": "658b414f31f5db820f5f854c58473b0eae742d5e50a2b7b07fc89d18752035b9"
+        },
+        {
+          "bytes": 128219,
+          "path": "tensor.json",
+          "sha256": "3f1d4b75b105dfac1f3d0e2ba0b73aeb0c3c733c6eb55f823f1f21ff1259d15c"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197791,
+          "path": "native-diagnostic.json",
+          "sha256": "4aa9d901b12a277e6c56549dcc58ab49014b9868fbd9f156f952ff3ea5f6c4ff"
+        },
+        {
+          "bytes": 96186,
+          "path": "tensor-diagnostic.json",
+          "sha256": "16d56e0d273fcd6d1612a6b0412fbf6a9e8a2332f832b6369de5e69960b3a24c"
+        },
+        {
+          "bytes": 21519,
+          "path": "report.json",
+          "sha256": "21ff4d379d9cdef72a592f43c1d9fa9f45581dee4e6e95023fd50e1ba3314e59"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "3de295ebb73165b4532023e9c77cf64a427e78c0bba030010ba577fd53fd1a88",
+      "monitor": {
+        "elapsed_seconds": 5.009701083006803,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 325959680
+      },
+      "report": {
+        "arm": "fixed_small",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4513888888888889,
+          "all_three_agreement": 0.20833333333333334,
+          "maximum_native_tensor_error": 3.8743019104003906e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.005001959,
+            "native_process_seconds": 0.03144758299458772,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5275648,
+            "nominal_scalar_ops": 1843776,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.695655916002579,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.2748919999576174,
+        "forward_scalar_ops": 6402,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 3202,
+        "peak_rss_bytes": 321732608,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 4.470348358154297e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.006547958,
+            "native_process_seconds": 0.032128874969203025,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5111808,
+            "nominal_scalar_ops": 2458368,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5833333333333334,
+              "correct": 56,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.34375,
+              "correct": 33,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5416666666666666,
+              "correct": 52,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6203,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 150790144,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.7117586731910706,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6712971329689026,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.650738537311554,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113732Z-6b8e0544",
+      "seed": 6203,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "8ffa167982004caa4e2a7088e092aa86fa8ae327ad0c937c86dafa6713c229b7",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 3.8743019104003906e-07,
+            "ordinary": 4.470348358154297e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113737Z-2aefbe76",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 3.52195175246095e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 3.363985257021085e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 6.299099020168342e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_small",
+      "artifacts": [
+        {
+          "bytes": 64981,
+          "path": "initial.json",
+          "sha256": "23d55328a62da0234d3c9e99e6afd795370e997d0f5af53a8fca756f3066eaff"
+        },
+        {
+          "bytes": 66079,
+          "path": "checkpoint-256.json",
+          "sha256": "e4dd2195630362282291c3646ca4f721f986bf35567b99f3ff553bd74cbc6ecc"
+        },
+        {
+          "bytes": 65875,
+          "path": "checkpoint-512.json",
+          "sha256": "54664bbebceb24f88754d6d2d795f18925155230f0177934cfef555cec3c4371"
+        },
+        {
+          "bytes": 65726,
+          "path": "checkpoint-1024.json",
+          "sha256": "61425f78e2cdcefbaf4acb03753cf0dcd6590aee11fdba4c48585cdfdb3ae1c7"
+        },
+        {
+          "bytes": 66079,
+          "path": "selected.json",
+          "sha256": "e4dd2195630362282291c3646ca4f721f986bf35567b99f3ff553bd74cbc6ecc"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262814,
+          "path": "native.json",
+          "sha256": "efbb8a585566239d9ad57f418fb3fe07d6cc183ab554ae0caccfd7e69b6a192e"
+        },
+        {
+          "bytes": 128364,
+          "path": "tensor.json",
+          "sha256": "c959b9112828742f699cd605036f7cd1b79d7face74e4cfd1b3e5ee0738e16fb"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197940,
+          "path": "native-diagnostic.json",
+          "sha256": "8b4b886d526e1cae1eb8378b5e2850f677f75825ced682288c8c70c5cac76a59"
+        },
+        {
+          "bytes": 96304,
+          "path": "tensor-diagnostic.json",
+          "sha256": "ada6b655a516cbc1f22d17d00ec3e53b648cc2ceb9fc65a08f444b8de7657b49"
+        },
+        {
+          "bytes": 21525,
+          "path": "report.json",
+          "sha256": "8b1f6f351928a2bd322bc0b1df57fc75af5cfa74a3a29a4759517807566fc787"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "28bf496dc4303e52a3649dee43db6148067b55104db9443747e26cae83e19364",
+      "monitor": {
+        "elapsed_seconds": 5.074092582974117,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 324419584
+      },
+      "report": {
+        "arm": "fixed_small",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.5173611111111112,
+          "all_three_agreement": 0.3854166666666667,
+          "maximum_native_tensor_error": 2.384185791015625e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.004859125,
+            "native_process_seconds": 0.03141049999976531,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5898240,
+            "nominal_scalar_ops": 1843776,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.728575250017457,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.2618019579676911,
+        "forward_scalar_ops": 6402,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 3202,
+        "peak_rss_bytes": 321323008,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 2.384185791015625e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.006401834,
+            "native_process_seconds": 0.029367791023105383,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5308416,
+            "nominal_scalar_ops": 2458368,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5625,
+              "correct": 54,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5416666666666666,
+              "correct": 52,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.4479166666666667,
+              "correct": 43,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6301,
+        "selected_step": 256,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 150790144,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6598197817802429,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.672505795955658,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.663714587688446,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113756Z-0b034293",
+      "seed": 6301,
+      "selected_step": 256,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "f7dad75f98913d25a0b8a38627f2d7e3d0d1feb57c995a848122b8e758ce6482",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 2.384185791015625e-07,
+            "ordinary": 2.384185791015625e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113801Z-8a9d78ae",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 2.4294164346905234e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 8.921640171077883e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 6.471676605723786e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_small",
+      "artifacts": [
+        {
+          "bytes": 64969,
+          "path": "initial.json",
+          "sha256": "d179ed14f50c260272b972a60874f615b865183cddc83fd2c1958afbb0877bb8"
+        },
+        {
+          "bytes": 65979,
+          "path": "checkpoint-256.json",
+          "sha256": "380844b978602732a67b9171372833f032bfef8bf7f08b4b846b94bc657ad146"
+        },
+        {
+          "bytes": 65962,
+          "path": "checkpoint-512.json",
+          "sha256": "dce8509bb4828bd415fde5466981abbb1d6a78aad4c4e4152b1e5e7f62507ef9"
+        },
+        {
+          "bytes": 65689,
+          "path": "checkpoint-1024.json",
+          "sha256": "0328ae110ba6d0aa079739ca09de73ff175eed11d518991333fa726e9332e423"
+        },
+        {
+          "bytes": 65689,
+          "path": "selected.json",
+          "sha256": "0328ae110ba6d0aa079739ca09de73ff175eed11d518991333fa726e9332e423"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262532,
+          "path": "native.json",
+          "sha256": "bb866c6b3a71491f8a19247aaf490ac535577410da466c7f983e686244f12f1b"
+        },
+        {
+          "bytes": 128089,
+          "path": "tensor.json",
+          "sha256": "920422ff51f85016d52002d5e7eaed72dcff1b97dc2b27b79354228f8d87253a"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197700,
+          "path": "native-diagnostic.json",
+          "sha256": "bfb7556a985621c39a127c64cef9506cc53e854138d8646824ebd5d4d8610b04"
+        },
+        {
+          "bytes": 96092,
+          "path": "tensor-diagnostic.json",
+          "sha256": "e7ce31cb0eaee2ab1cdf5228407a899dfb34b368829766fc1e75d8e719c2e855"
+        },
+        {
+          "bytes": 21499,
+          "path": "report.json",
+          "sha256": "a44d3993c4a4bf1490158252c212f819ac29812e6ac87bed9521a2b7d7caac30"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "2b8acf3ce9791dac297ad3c723670c8922451c586211ffa9683d73db02d94b61",
+      "monitor": {
+        "elapsed_seconds": 5.033408207993489,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 326303744
+      },
+      "report": {
+        "arm": "fixed_small",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4861111111111111,
+          "all_three_agreement": 0.19791666666666666,
+          "maximum_native_tensor_error": 3.5762786865234375e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.004814667,
+            "native_process_seconds": 0.031626957992557436,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 6848512,
+            "nominal_scalar_ops": 1843776,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.652884250041097,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.2544906249968335,
+        "forward_scalar_ops": 6402,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 3202,
+        "peak_rss_bytes": 321814528,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 3.5762786865234375e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.006353083,
+            "native_process_seconds": 0.03415320796193555,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5210112,
+            "nominal_scalar_ops": 2458368,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.6041666666666666,
+              "correct": 58,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4375,
+              "correct": 42,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.59375,
+              "correct": 57,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6407,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 150790144,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6849579811096191,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.661406397819519,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6417589783668518,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113820Z-1f3dacbb",
+      "seed": 6407,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "6646b207838fac5468ea766763cdd194c21eb7a2cd1be5971e088f361a8dfade",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 3.5762786865234375e-07,
+            "ordinary": 3.5762786865234375e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113826Z-163dc8b2",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 6.463960677827174e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 1.5399097885726576e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 2.6007564546404183e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_small",
+      "artifacts": [
+        {
+          "bytes": 64994,
+          "path": "initial.json",
+          "sha256": "c901343b765e457dbb8ee3a03f0ef6b0ccdbde7f827495eca348b5cf28dba58b"
+        },
+        {
+          "bytes": 66072,
+          "path": "checkpoint-256.json",
+          "sha256": "575878d0afa15ecea8e69b23c1027df75490c1cf6d9f95c2e5b0083b7674e539"
+        },
+        {
+          "bytes": 65935,
+          "path": "checkpoint-512.json",
+          "sha256": "c2f4e72c6912dbcc2b3248a09c6803ab31281a38e93a3120d39f346ae61a1653"
+        },
+        {
+          "bytes": 65681,
+          "path": "checkpoint-1024.json",
+          "sha256": "9a82b1a8270526761f8c542109eebb657363c70fefdd38b597243476781d597c"
+        },
+        {
+          "bytes": 66072,
+          "path": "selected.json",
+          "sha256": "575878d0afa15ecea8e69b23c1027df75490c1cf6d9f95c2e5b0083b7674e539"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262816,
+          "path": "native.json",
+          "sha256": "aea560ad9091ad65bde17b8f27b7ca5aab6092eab40cf3043f6d1f750e74214f"
+        },
+        {
+          "bytes": 128357,
+          "path": "tensor.json",
+          "sha256": "c06d0e27d3f0c63e1a8475ec71ef4453cbde80effca4eaa0930e441075f7b449"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197944,
+          "path": "native-diagnostic.json",
+          "sha256": "7d08ff6fb744152e2d1bb3bb4d855cf24ee6edd5fa31f51ac39e287a508f1b75"
+        },
+        {
+          "bytes": 96334,
+          "path": "tensor-diagnostic.json",
+          "sha256": "fe9f80b71cdfbb2cb1f402152b2d94e77c118a2efac219925b10de9c7c55b368"
+        },
+        {
+          "bytes": 21515,
+          "path": "report.json",
+          "sha256": "c7b043055ca6e98978458602dfb6ae0933480743a988d19e2f5c2ef5074faf28"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "627ad244f938cf2037e2123fcbf09891d0eff9f02f7d7a9172b3dbd26b0029e9",
+      "monitor": {
+        "elapsed_seconds": 5.143069457961246,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 324698112
+      },
+      "report": {
+        "arm": "fixed_small",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4479166666666667,
+          "all_three_agreement": 0.125,
+          "maximum_native_tensor_error": 1.7881393432617188e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.004948959,
+            "native_process_seconds": 0.0314565830049105,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 6799360,
+            "nominal_scalar_ops": 1843776,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.777119875012431,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.29473099997267127,
+        "forward_scalar_ops": 6402,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 3202,
+        "peak_rss_bytes": 322191360,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 1.7881393432617188e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.006360375,
+            "native_process_seconds": 0.03393612499348819,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5242880,
+            "nominal_scalar_ops": 2458368,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5833333333333334,
+              "correct": 56,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5520833333333334,
+              "correct": 53,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6503,
+        "selected_step": 256,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 150790144,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6872373223304749,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.7215301394462585,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.7772946357727051,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113845Z-9082fbac",
+      "seed": 6503,
+      "selected_step": 256,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "1c2e61d57d6ebed25213dd238333d740e6b3b0e9bc1584ef42db98a30020e0f1",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 1.7881393432617188e-07,
+            "ordinary": 1.7881393432617188e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113851Z-8ea58ee5",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 3.7175370559694443e-09,
+              "step": 256
+            },
+            {
+              "absolute_error": 3.035746665158712e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 5.309695272348591e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_large",
+      "artifacts": [
+        {
+          "bytes": 749604,
+          "path": "initial.json",
+          "sha256": "14d1a3ecd7d005cb3320af125b050a4cc6c0a034620460ea603f74654ff5e862"
+        },
+        {
+          "bytes": 754596,
+          "path": "checkpoint-256.json",
+          "sha256": "8469b4c6d7ae3f2aa02a23246b9d8b923f939b40ba9d101178c22343841d43c7"
+        },
+        {
+          "bytes": 753787,
+          "path": "checkpoint-512.json",
+          "sha256": "4a5175e8f995736bf67ea45c630a71ed8e41b198b768831cc6db8db0e90cec49"
+        },
+        {
+          "bytes": 751994,
+          "path": "checkpoint-1024.json",
+          "sha256": "8f1188ebd6bc34710a8254930519fea518689e31c90f545720bd084b10b9bb54"
+        },
+        {
+          "bytes": 753787,
+          "path": "selected.json",
+          "sha256": "4a5175e8f995736bf67ea45c630a71ed8e41b198b768831cc6db8db0e90cec49"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262677,
+          "path": "native.json",
+          "sha256": "497b29a19dbe0645d55ed77e23a9287b500c4f06b208eff0468ec8c4646a2869"
+        },
+        {
+          "bytes": 128243,
+          "path": "tensor.json",
+          "sha256": "fa507ab3099d5f643729025d816d59d95b5e526a843c034e1e37d620f3738157"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197800,
+          "path": "native-diagnostic.json",
+          "sha256": "4b81348b2ac84bc38ff578d546dee08c264c166a4950ebb5aab0174f4806a437"
+        },
+        {
+          "bytes": 96175,
+          "path": "tensor-diagnostic.json",
+          "sha256": "c0ab3d804ea40ebbe2423d3c7b07a3762cac62f3bc39309334fd7e2eab17ab95"
+        },
+        {
+          "bytes": 21502,
+          "path": "report.json",
+          "sha256": "99c290e20496e58504b6754a4a7446d89074e43e84d1ec15384003008ca20f22"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "643a91d02a59088d7d380435184cbc25b7a8e12c9f21e184e9f6f0f2697d89e5",
+      "monitor": {
+        "elapsed_seconds": 5.08679899998242,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 332840960
+      },
+      "report": {
+        "arm": "fixed_large",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4791666666666667,
+          "all_three_agreement": 0.4166666666666667,
+          "maximum_native_tensor_error": 4.76837158203125e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.029365667,
+            "native_process_seconds": 0.05042495799716562,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 5472256,
+            "nominal_scalar_ops": 21013056,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.7785867499769665,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.39677799999481067,
+        "forward_scalar_ops": 72962,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 36482,
+        "peak_rss_bytes": 324222976,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 5.960464477539062e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.036919625,
+            "native_process_seconds": 0.07726091699441895,
+            "native_rss_samples": 3,
+            "native_sampled_peak_rss_bytes": 5668864,
+            "nominal_scalar_ops": 28017408,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.6041666666666666,
+              "correct": 58,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5416666666666666,
+              "correct": 52,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5625,
+              "correct": 54,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6101,
+        "selected_step": 512,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1718411264,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.671727180480957,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6301271319389343,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.7650324702262878,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113713Z-aa031f00",
+      "seed": 6101,
+      "selected_step": 512,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "a404616c0d04d57a5fac5c7dbf9f4900bd1e8cef89afc453f749eb06492cb914",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 4.76837158203125e-07,
+            "ordinary": 5.960464477539062e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113718Z-3c51c43a",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 5.150757054206423e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 8.216907931846151e-09,
+              "step": 512
+            },
+            {
+              "absolute_error": 8.737490198029718e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_large",
+      "artifacts": [
+        {
+          "bytes": 749615,
+          "path": "initial.json",
+          "sha256": "b8001a03eec628699ca97ddc600d2d83628566261e7f677ed8110649618248c0"
+        },
+        {
+          "bytes": 754743,
+          "path": "checkpoint-256.json",
+          "sha256": "4d7b56cb16add32835eabf81d67b9f39e860a86f05c4f3061a7961a63f7ee706"
+        },
+        {
+          "bytes": 753862,
+          "path": "checkpoint-512.json",
+          "sha256": "21f8899d040db27a1dbb27aa6b2d6bf02b5f8a810d2f74fea48f5978a0bd10da"
+        },
+        {
+          "bytes": 752020,
+          "path": "checkpoint-1024.json",
+          "sha256": "0270930e71470d0e143ded1d2b81e14829b1e8e3471e6dde3a29e96d17a69acc"
+        },
+        {
+          "bytes": 752020,
+          "path": "selected.json",
+          "sha256": "0270930e71470d0e143ded1d2b81e14829b1e8e3471e6dde3a29e96d17a69acc"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262519,
+          "path": "native.json",
+          "sha256": "8a9ba369fc645facd42db896f57193b01ea5c008a44c0c9abe755a982a5cbbf7"
+        },
+        {
+          "bytes": 128072,
+          "path": "tensor.json",
+          "sha256": "929a7eecd17a62516bdf6711e520a73169edc3ad527c6fd61fd4d41649f538a5"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197787,
+          "path": "native-diagnostic.json",
+          "sha256": "83c6099500d3959eaa4498a86a056d2c7c634dfc0e2355fb28f512ed9dca079f"
+        },
+        {
+          "bytes": 96178,
+          "path": "tensor-diagnostic.json",
+          "sha256": "d09b74f0106924f0717bf30f6f7f4953e04fd5af3b9bda51a7406b4701427e2b"
+        },
+        {
+          "bytes": 21515,
+          "path": "report.json",
+          "sha256": "65c32d435d95003a495b39cf51b33060b111277b3a2a097743d5f9ed1ceed9d7"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "1382e73de2f7c8fed7b19f706b359f48b404a2d99b925b33071a82c4b54b7f90",
+      "monitor": {
+        "elapsed_seconds": 5.342253750015516,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 326533120
+      },
+      "report": {
+        "arm": "fixed_large",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4965277777777778,
+          "all_three_agreement": 0.20833333333333334,
+          "maximum_native_tensor_error": 4.76837158203125e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.0319205,
+            "native_process_seconds": 0.05222499999217689,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 5472256,
+            "nominal_scalar_ops": 21013056,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.922191541991197,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.37296845798846334,
+        "forward_scalar_ops": 72962,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 36482,
+        "peak_rss_bytes": 323239936,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 4.76837158203125e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.040715083,
+            "native_process_seconds": 0.06684933399083093,
+            "native_rss_samples": 3,
+            "native_sampled_peak_rss_bytes": 9207808,
+            "nominal_scalar_ops": 28017408,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.6666666666666666,
+              "correct": 64,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.46875,
+              "correct": 45,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5208333333333334,
+              "correct": 50,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6203,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1718411264,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.7716705203056335,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.7303054332733154,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6582538485527039,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113737Z-94f64447",
+      "seed": 6203,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "dd8eadad3be68a3a4772d36176e93d1f596b3782390cb955207bd578896c096a",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 4.76837158203125e-07,
+            "ordinary": 4.76837158203125e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113743Z-3c51fae3",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.2840828422788775e-07,
+              "step": 256
+            },
+            {
+              "absolute_error": 1.8369033183418537e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 3.921960189945395e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_large",
+      "artifacts": [
+        {
+          "bytes": 749920,
+          "path": "initial.json",
+          "sha256": "bc860e1d260b7fd6b0e60f17dc0a3c11e5ad4d18ba196efec0457655d2df502d"
+        },
+        {
+          "bytes": 754768,
+          "path": "checkpoint-256.json",
+          "sha256": "1207cca42798eec2be5b0bbd55475dbbf88048baa42c60bc7e7ee86638bd79e7"
+        },
+        {
+          "bytes": 754089,
+          "path": "checkpoint-512.json",
+          "sha256": "2f5f47b482a1d8e3bd9932b8a25e89c6fc67624cc0a5b319c5e9822446214ff5"
+        },
+        {
+          "bytes": 752046,
+          "path": "checkpoint-1024.json",
+          "sha256": "8e114f03877ec1bd2872592d2fc5c5f4f8584964666606e87bf28f6b99d0517a"
+        },
+        {
+          "bytes": 754089,
+          "path": "selected.json",
+          "sha256": "2f5f47b482a1d8e3bd9932b8a25e89c6fc67624cc0a5b319c5e9822446214ff5"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262636,
+          "path": "native.json",
+          "sha256": "b97f51cbf949b88c9b50fc5e103b391b40746d6885cd447d82736756c613dddc"
+        },
+        {
+          "bytes": 128215,
+          "path": "tensor.json",
+          "sha256": "7331ed5d73c3ab1cb123a8efeb23cbf51a2b711a57e466cd50d4978788f7cd70"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197785,
+          "path": "native-diagnostic.json",
+          "sha256": "011b088c363eeb1c504f4c69f8caf470780ba96d263510e1f1652e90762a65e2"
+        },
+        {
+          "bytes": 96173,
+          "path": "tensor-diagnostic.json",
+          "sha256": "4a549c12f28501fc83b1ffdc5b0e308986229b0d09e8a6c2888769c3061770cc"
+        },
+        {
+          "bytes": 21543,
+          "path": "report.json",
+          "sha256": "749e7d6b6a8f2acd512caea4f4eee50887307af4146aa1ee3f34806549196f63"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "ce85a3df52a1a34bef2f00ea055c309c96f709f6428e5ee582a4fd1eb112e994",
+      "monitor": {
+        "elapsed_seconds": 5.479907125001773,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 327680000
+      },
+      "report": {
+        "arm": "fixed_large",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.5173611111111112,
+          "all_three_agreement": 0.2604166666666667,
+          "maximum_native_tensor_error": 4.172325134277344e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.031386459,
+            "native_process_seconds": 0.05196408397750929,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 5455872,
+            "nominal_scalar_ops": 21013056,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.073465958004817,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.3972558329696767,
+        "forward_scalar_ops": 72962,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 36482,
+        "peak_rss_bytes": 324354048,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 4.76837158203125e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.038655292,
+            "native_process_seconds": 0.07754970801761374,
+            "native_rss_samples": 3,
+            "native_sampled_peak_rss_bytes": 5505024,
+            "nominal_scalar_ops": 28017408,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5625,
+              "correct": 54,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5729166666666666,
+              "correct": 55,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6301,
+        "selected_step": 512,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1718411264,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.7195177674293518,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6750825047492981,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.7287482619285583,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113801Z-eb7ad218",
+      "seed": 6301,
+      "selected_step": 512,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "10be831ee0af722923805598cf6c9cd03f89dc0edea90cf96cc04ace966f5374",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 4.172325134277344e-07,
+            "ordinary": 4.76837158203125e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113807Z-e9673a50",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.4888340671426192e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 2.795141895717279e-09,
+              "step": 512
+            },
+            {
+              "absolute_error": 7.885938779761403e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_large",
+      "artifacts": [
+        {
+          "bytes": 749669,
+          "path": "initial.json",
+          "sha256": "d82be5a24e58be4beec2edf7da81f820fef507307769d61f8007a3f3d58c540c"
+        },
+        {
+          "bytes": 754645,
+          "path": "checkpoint-256.json",
+          "sha256": "3cfd886819be9130128067d4a912769eea54b5ee3cf657808ad0065322bc2fd7"
+        },
+        {
+          "bytes": 754048,
+          "path": "checkpoint-512.json",
+          "sha256": "daf445dbffba38230aa91807d20b38cd13c9673f7e9d7ce8108362dca485464a"
+        },
+        {
+          "bytes": 752323,
+          "path": "checkpoint-1024.json",
+          "sha256": "088d85f696c45a5a6d33730d83b3927414af78f047ce856982c7e6fe614415d8"
+        },
+        {
+          "bytes": 752323,
+          "path": "selected.json",
+          "sha256": "088d85f696c45a5a6d33730d83b3927414af78f047ce856982c7e6fe614415d8"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262523,
+          "path": "native.json",
+          "sha256": "973b4e2c114953ccdaf11d5979af857b92f6ce80ffc996234811202da39722f0"
+        },
+        {
+          "bytes": 128067,
+          "path": "tensor.json",
+          "sha256": "d5ec5bc2b5fbe3dcef4be3d84f5bc26c5b05cff192a0bf71b49fa621153206b9"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197738,
+          "path": "native-diagnostic.json",
+          "sha256": "1cd6d00b84b104e8bc938ffcc48263a365d105bfc2707933efb57b41212357e3"
+        },
+        {
+          "bytes": 96119,
+          "path": "tensor-diagnostic.json",
+          "sha256": "0789ae91d863feeac6bc8a7c26aa5e02447c37ae849722a27a4b79ff1a8085c5"
+        },
+        {
+          "bytes": 21533,
+          "path": "report.json",
+          "sha256": "069a2955c69fae6be6bf57bc02fd55bee5295900450dc43ac10f9efdea2db388"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "36fe490cb710fbf4ccffbbc2d96dda9aa89bb7db6cd8ed97eca89b0d423837f1",
+      "monitor": {
+        "elapsed_seconds": 5.670714041974861,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 326582272
+      },
+      "report": {
+        "arm": "fixed_large",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4583333333333333,
+          "all_three_agreement": 0.19791666666666666,
+          "maximum_native_tensor_error": 7.152557373046875e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 73728,
+            "intermediate_state_write_bytes": 73728,
+            "native_evaluation_seconds": 0.031850708,
+            "native_process_seconds": 0.053278083039913327,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 5423104,
+            "nominal_scalar_ops": 21013056,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 73728,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.235869124997407,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.40674679196672514,
+        "forward_scalar_ops": 72962,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 36482,
+        "peak_rss_bytes": 323272704,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 9.5367431640625e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 98304,
+            "intermediate_state_write_bytes": 98304,
+            "native_evaluation_seconds": 0.041921208,
+            "native_process_seconds": 0.07936258398694918,
+            "native_rss_samples": 3,
+            "native_sampled_peak_rss_bytes": 5488640,
+            "nominal_scalar_ops": 28017408,
+            "peak_intermediate_payload_bytes": 256,
+            "raw_input_bytes": 98304,
+            "transport_entropy": null,
+            "transport_variance": null
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5729166666666666,
+              "correct": 55,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4583333333333333,
+              "correct": 44,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.59375,
+              "correct": 57,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5833333333333334,
+              "correct": 56,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6407,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1718411264,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.665130078792572,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6375322937965393,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6130402684211731,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113826Z-097c122e",
+      "seed": 6407,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "2395cdba18bd7adf67fe86dd9a0dddd2b65acdefea5c6debab0a5cd2b16eaa2d",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 7.152557373046875e-07,
+            "ordinary": 9.5367431640625e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113832Z-94d7cf6f",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.58617288192886e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 1.5758239269025864e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 1.5746079773393262e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "fixed_large",
+      "artifacts": [
+        {
+          "bytes": 749881,
+          "path": "initial.json",
+          "sha256": "4eb55c7b1e30632a95462ba5d8040f04749393e3f7f917b9ad15ad0fb3f2b125"
+        },
+        {
+          "bytes": 754720,
+          "path": "checkpoint-256.json",
+          "sha256": "1a3049bc74bf32c50dd6c573422e45ed4f8aca9dc52fe9abcc1f40d4ff45843a"
+        },
+        {
+          "bytes": 753900,
+          "path": "checkpoint-512.json",
+          "sha256": "95b3d4cd29affee6080af270b3cdb04dec7b60a0e182154deceb107277bb21dd"
+        },
+        {
+          "bytes": 752136,
+          "path": "checkpoint-1024.json",
+          "sha256": "b9f9ed785119a336e535aa88e8a4636f201870b273be6b44d80bd41c103c2768"
+        },
+        {
+          "bytes": 754720,
+          "path": "selected.json",
+          "sha256": "1a3049bc74bf32c50dd6c573422e45ed4f8aca9dc52fe9abcc1f40d4ff45843a"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 262632,
+          "path": "native.json",
+          "sha256": "4261600a1f088ebf3165febbcd9d61ead1abb65869a232f4aeee273c8abd4a7f"
+        },
+        {
+          "bytes": 128187,
+          "path": "tensor.json",
+          "sha256": "605027c9861613a83116bb8cf45aecc81c67997fb46c3cad803a98b6ea5a0791"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 197841,
+          "path": "native-diagnostic.json",
+          "sha256": "bed3a1db40ab45cc140623944ce15635d6be25f3ea63848a5fda977be21e56a8"
+        },
+        {
+          "bytes": 96214,
+          "path": "tensor-diagnostic.json",
+          "sha256": "0930f28e309bc919adb69a8e460a067288f4e2216c2ac169d63514129e7be041"
+        },
+        {
+          "bytes": 185,
+          "path": "failure.json",
+          "sha256": "a6fcdd80bbcb9b8c6593ccafc4385d43c870afc765c566087f28154ac2423de1"
+        }
+      ],
+      "execution_status": "failed_after_fitting",
+      "failure": {
+        "error": "[Errno 2] No such file or directory: '/Users/dylan/.cache/noetloom/representation-train-20260930T113851Z-33ddf36f/intermediate-288/state/.CURRENT-32651-2'",
+        "status": "failed"
+      },
+      "final_report": null,
+      "final_resource_admission_verified": false,
+      "manifest_sha256": null,
+      "posthoc_audit_run_id": "representation-partial-audit-20260930T114327Z-78581ecd",
+      "run_id": "representation-train-20260930T113851Z-33ddf36f",
+      "scored_from_retained_checkpoint": {
+        "base": {
+          "accuracy": 0.5729166666666666,
+          "correct": 55,
+          "total": 96
+        },
+        "combination": {
+          "accuracy": 0.5,
+          "correct": 48,
+          "total": 96
+        },
+        "joint": {
+          "accuracy": 0.4895833333333333,
+          "correct": 47,
+          "total": 96
+        },
+        "reflection": {
+          "accuracy": 0.5208333333333334,
+          "correct": 50,
+          "total": 96
+        }
+      },
+      "seed": 6503,
+      "selected_step": 256
+    },
+    {
+      "arm": "conditional",
+      "artifacts": [
+        {
+          "bytes": 390508,
+          "path": "initial.json",
+          "sha256": "1fc5c02616c0e82ff88cc4340aaae284abfe8a8d5471351ec2630a496a8ea116"
+        },
+        {
+          "bytes": 408888,
+          "path": "checkpoint-256.json",
+          "sha256": "e8904f106e4e30d2a0ab7b524c87972f1836f704a646bda9a76a19b9a7570797"
+        },
+        {
+          "bytes": 408123,
+          "path": "checkpoint-512.json",
+          "sha256": "9758291a866384ae13ebe99123a75244e773e5307c908226dc8b76a75590e7af"
+        },
+        {
+          "bytes": 407617,
+          "path": "checkpoint-1024.json",
+          "sha256": "a3ee64697704d08cdd71d38ee0ac45a679f2f15b10eb67695e87a0c1a1e11e77"
+        },
+        {
+          "bytes": 408123,
+          "path": "selected.json",
+          "sha256": "9758291a866384ae13ebe99123a75244e773e5307c908226dc8b76a75590e7af"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 276852,
+          "path": "native.json",
+          "sha256": "4dd74b8fa824f55e54b5c79c277364f5d2657299869155e285d8e1e7460c6dfb"
+        },
+        {
+          "bytes": 142809,
+          "path": "tensor.json",
+          "sha256": "a8c60637507e10400af6c6441c6ea9ed69994f6c68e2f66ae805f5c0ffb0b2b8"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208560,
+          "path": "native-diagnostic.json",
+          "sha256": "250ac21407e5094977ff5d98fbc25dd95d251580ed9a9ac27eedb9ca4fd63ee6"
+        },
+        {
+          "bytes": 107242,
+          "path": "tensor-diagnostic.json",
+          "sha256": "c8259bc964a0be7fea8c2b3b0ed5b1dd24bc26e862b6e83afdec704977205a9d"
+        },
+        {
+          "bytes": 276966,
+          "path": "native-shifted.json",
+          "sha256": "35f8da8b4097762262b50f105cda2cc5e68fe8e0fa2e696195b724827b1952a3"
+        },
+        {
+          "bytes": 142851,
+          "path": "tensor-shifted.json",
+          "sha256": "e72847bc143dd3f89855853c0443554cb543dd97ec8982a8140bee6ce4f5b516"
+        },
+        {
+          "bytes": 22824,
+          "path": "report.json",
+          "sha256": "156373dddbfd66eb89e75a6cbb7f5f83a1e9c91e00eb0d5339f8d92c951874a6"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "145072835d271346ca7be1f5656ee128264abc170fbf07d0160ec8df8091358c",
+      "monitor": {
+        "elapsed_seconds": 5.42247883300297,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 327778304
+      },
+      "report": {
+        "arm": "conditional",
+        "case_presentations": 8560,
+        "diagnostic": {
+          "accuracy": 0.4479166666666667,
+          "all_three_agreement": 0.2916666666666667,
+          "maximum_native_tensor_error": 1.043081283569336e-06,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.016165875,
+            "native_process_seconds": 0.051469292026013136,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 3506176,
+            "nominal_scalar_ops": 13349952,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 3.9606320880494144,
+            "transport_variance": 0.00011036157533239502
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.020461499982048,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.4385914159938693,
+        "forward_scalar_ops": 46354,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 20114,
+        "peak_rss_bytes": 324812800,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 7.152557373046875e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.02070075,
+            "native_process_seconds": 0.04966204200172797,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9158656,
+            "nominal_scalar_ops": 17799936,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9376713840086364,
+            "transport_variance": 0.00013611747255148587
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5729166666666666,
+              "correct": 55,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4375,
+              "correct": 42,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5520833333333334,
+              "correct": 53,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4479166666666667,
+              "correct": 43,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6101,
+        "selected_step": 512,
+        "shifted": {
+          "maximum_native_tensor_error": 7.748603820800781e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.024309834,
+            "native_process_seconds": 0.051688708015717566,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9109504,
+            "nominal_scalar_ops": 18592512,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9376713840086404,
+            "transport_variance": 0.00013611747255148581
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.4583333333333333,
+              "correct": 44,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.59375,
+              "correct": 57,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5625,
+              "correct": 54,
+              "total": 96
+            }
+          }
+        },
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1060364288,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6359316110610962,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.5310731530189514,
+            "step": 512
+          },
+          {
+            "cross_entropy": 1.2532941102981567,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113719Z-9628bb7c",
+      "seed": 6101,
+      "selected_step": 512,
+      "verifications": [
+        {
+          "cases_replayed": 1352,
+          "manifest_sha256": "3e6639a8ac4f6219640b14b6b8a22805d9012f43a417e9b5a3b6d765e48d8a16",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 1.043081283569336e-06,
+            "ordinary": 7.152557373046875e-07,
+            "shifted": 7.748603820800781e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113725Z-098af6f8",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 4.528682095994441e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 8.690684549783612e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 1.1993464554826971e-07,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "conditional",
+      "artifacts": [
+        {
+          "bytes": 390701,
+          "path": "initial.json",
+          "sha256": "2def9057d026651846815712994756f1e4f90ed490f22a1b07eba2bb9d20a9d0"
+        },
+        {
+          "bytes": 409016,
+          "path": "checkpoint-256.json",
+          "sha256": "9203d0f25b1c21d69edb24244700dbf39d20771b26a966db74231ec99cbdb21a"
+        },
+        {
+          "bytes": 408249,
+          "path": "checkpoint-512.json",
+          "sha256": "219d405f886f691f9c4f330eaf24d73e914b0f8a54f114da67b1e1c6d689b04c"
+        },
+        {
+          "bytes": 407480,
+          "path": "checkpoint-1024.json",
+          "sha256": "d44cda5f57e8a4ae4aa6b796425ea87f35697e69fe4146e98f75c8172ac0457c"
+        },
+        {
+          "bytes": 409016,
+          "path": "selected.json",
+          "sha256": "9203d0f25b1c21d69edb24244700dbf39d20771b26a966db74231ec99cbdb21a"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 277351,
+          "path": "native.json",
+          "sha256": "3d98062564d48fc7b53516f0e1d7bf444b6d8ebfec8d4194ba80329345e0bbfa"
+        },
+        {
+          "bytes": 143296,
+          "path": "tensor.json",
+          "sha256": "a948572f10ca988227cb4f6e1d4aae05c9bfc68bb484dfba7e97ff9b12a3ae16"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 209072,
+          "path": "native-diagnostic.json",
+          "sha256": "effa55b0e3b27f6bdcdca1631c56d831632650f3ee9714d1ac017cfc360ea083"
+        },
+        {
+          "bytes": 107671,
+          "path": "tensor-diagnostic.json",
+          "sha256": "7eca637e7b11032ad5fc20df9e164f7b66c75ee43a8db9e3a9e89067462736c6"
+        },
+        {
+          "bytes": 277392,
+          "path": "native-shifted.json",
+          "sha256": "2c5e2b0429ec2ec3dd4dfcc2bd81696a60ba89fb79694d8f773e0b6792130b0c"
+        },
+        {
+          "bytes": 143307,
+          "path": "tensor-shifted.json",
+          "sha256": "5ce6d1855db7e07b1e5975b96c7f1325ae35f643fe17ed6fd0cc83dba7d59e0e"
+        },
+        {
+          "bytes": 22799,
+          "path": "report.json",
+          "sha256": "7c266906ce98932173e1dd9cc1be2bf9f1d9e152e4adb17b58801dafa577be59"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "df7b93feb21c679acac72af5e8488ff97ba6e004aefdb51bf9fe639bdc0044d6",
+      "monitor": {
+        "elapsed_seconds": 5.438138166966382,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 330072064
+      },
+      "report": {
+        "arm": "conditional",
+        "case_presentations": 8560,
+        "diagnostic": {
+          "accuracy": 0.4756944444444444,
+          "all_three_agreement": 0.34375,
+          "maximum_native_tensor_error": 3.725290298461914e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.016339958,
+            "native_process_seconds": 0.05287870898609981,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 3538944,
+            "nominal_scalar_ops": 13349952,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 3.994106117432877,
+            "transport_variance": 8.15751170388551e-05
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.103139291983098,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.43536262499401346,
+        "forward_scalar_ops": 46354,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 20114,
+        "peak_rss_bytes": 324796416,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 4.76837158203125e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.022173375,
+            "native_process_seconds": 0.04873570799827576,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9175040,
+            "nominal_scalar_ops": 17799936,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.002098753191299,
+            "transport_variance": 8.619542822977725e-05
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.6145833333333334,
+              "correct": 59,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.3958333333333333,
+              "correct": 38,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4791666666666667,
+              "correct": 46,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6203,
+        "selected_step": 256,
+        "shifted": {
+          "maximum_native_tensor_error": 2.980232238769531e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.021293125,
+            "native_process_seconds": 0.0504127080203034,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9109504,
+            "nominal_scalar_ops": 18592512,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.00209875319131,
+            "transport_variance": 8.619542822977726e-05
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.59375,
+              "correct": 57,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4166666666666667,
+              "correct": 40,
+              "total": 96
+            }
+          }
+        },
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1060364288,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6701639294624329,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.7779566645622253,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.939912736415863,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113744Z-461fa14e",
+      "seed": 6203,
+      "selected_step": 256,
+      "verifications": [
+        {
+          "cases_replayed": 1352,
+          "manifest_sha256": "784ef4bc6173dca77677ab67eb0e56f1e691f1b444a0b2cdb3d1395d2fb92da8",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 3.725290298461914e-07,
+            "ordinary": 4.76837158203125e-07,
+            "shifted": 2.980232238769531e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113749Z-914dfecb",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.4132003012257144e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 4.218378113485244e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 6.374757666183228e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "conditional",
+      "artifacts": [
+        {
+          "bytes": 390657,
+          "path": "initial.json",
+          "sha256": "d09d38593e4efc2bb80bd87b27ae27c5d386b3d95f418d7e3608fce2b31efa7e"
+        },
+        {
+          "bytes": 408614,
+          "path": "checkpoint-256.json",
+          "sha256": "e2382ca3ab2e225f8075ddf54c336c28fd90d9c12c61adfc5d643de7dc2759cb"
+        },
+        {
+          "bytes": 408124,
+          "path": "checkpoint-512.json",
+          "sha256": "dfaedcbab2ab6d29f3f7340f6cf94bb5799d1479b7ac435f3ea19ff551d27e28"
+        },
+        {
+          "bytes": 407503,
+          "path": "checkpoint-1024.json",
+          "sha256": "8b949faf6341b16af0ebfe49b7c9f9d0232d000c3ceeae7aa4703705368eefb3"
+        },
+        {
+          "bytes": 408614,
+          "path": "selected.json",
+          "sha256": "e2382ca3ab2e225f8075ddf54c336c28fd90d9c12c61adfc5d643de7dc2759cb"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 277688,
+          "path": "native.json",
+          "sha256": "cb281de6b012890d2a5619be2f21b4890ccb90533e26956fca21a8963afde909"
+        },
+        {
+          "bytes": 143602,
+          "path": "tensor.json",
+          "sha256": "e24c3706076ff49393449c7f234d8d6889f09c1297610303c1995b307cc81232"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 209321,
+          "path": "native-diagnostic.json",
+          "sha256": "47cbe14683c751228a8bf4d28a2deba62cbd27ccad1d82c1585966521ed27c89"
+        },
+        {
+          "bytes": 107983,
+          "path": "tensor-diagnostic.json",
+          "sha256": "651c72d3bc63e23a70675fd8446784e7253c6402da64b4afb852cf9a0ca80314"
+        },
+        {
+          "bytes": 277486,
+          "path": "native-shifted.json",
+          "sha256": "5f4c8a289e1ae527739919c0d6b820baaa936238690353f9f63b27203f95e8ae"
+        },
+        {
+          "bytes": 143444,
+          "path": "tensor-shifted.json",
+          "sha256": "02b8345689e0e5cac76a5aa27e17cca66d37c0364582f3f53afefb7cef292e5b"
+        },
+        {
+          "bytes": 22822,
+          "path": "report.json",
+          "sha256": "0f4661b25e5ca5ffd41b50311de88a02813d594917d1d1ee2731246fdf8800c8"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "4d7e5a121c8a441bfeb970656da6a0e462a2b86af8c91bdb368636b57c01b22f",
+      "monitor": {
+        "elapsed_seconds": 5.7374730840092525,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 333578240
+      },
+      "report": {
+        "arm": "conditional",
+        "case_presentations": 8560,
+        "diagnostic": {
+          "accuracy": 0.4791666666666667,
+          "all_three_agreement": 0.4375,
+          "maximum_native_tensor_error": 3.5762786865234375e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.015947334,
+            "native_process_seconds": 0.04870820901123807,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 3538944,
+            "nominal_scalar_ops": 13349952,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 3.9900534671107177,
+            "transport_variance": 7.378277730924066e-05
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.337864208035171,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.4542422920349054,
+        "forward_scalar_ops": 46354,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 20114,
+        "peak_rss_bytes": 325451776,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 3.5762786865234375e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.020458375,
+            "native_process_seconds": 0.05413170804968104,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 3637248,
+            "nominal_scalar_ops": 17799936,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9998725214482778,
+            "transport_variance": 8.73088159944308e-05
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.625,
+              "correct": 60,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.46875,
+              "correct": 45,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5520833333333334,
+              "correct": 53,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6301,
+        "selected_step": 256,
+        "shifted": {
+          "maximum_native_tensor_error": 3.5762786865234375e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.021806125,
+            "native_process_seconds": 0.04799712495878339,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9158656,
+            "nominal_scalar_ops": 18592512,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9998725214482587,
+            "transport_variance": 8.730881599443082e-05
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.4791666666666667,
+              "correct": 46,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5208333333333334,
+              "correct": 50,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5416666666666666,
+              "correct": 52,
+              "total": 96
+            }
+          }
+        },
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1060364288,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6879203915596008,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.7586265206336975,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.9674177169799805,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113808Z-756cd829",
+      "seed": 6301,
+      "selected_step": 256,
+      "verifications": [
+        {
+          "cases_replayed": 1352,
+          "manifest_sha256": "4cd3d27a903052755885f48164177c7d4438e8d4ed145bf191e8888a60d84626",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 3.5762786865234375e-07,
+            "ordinary": 3.5762786865234375e-07,
+            "shifted": 3.5762786865234375e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113814Z-986688ee",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 6.968953547570322e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 3.0366427150596564e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 5.9099470095524964e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "conditional",
+      "artifacts": [
+        {
+          "bytes": 390824,
+          "path": "initial.json",
+          "sha256": "4b84192ba5faadd4961ece0c6f1782ebd0063a166f908a0e6f7daada21aa54a0"
+        },
+        {
+          "bytes": 409166,
+          "path": "checkpoint-256.json",
+          "sha256": "cd7d96cfb45a9cd8c1a59e2899ef61c453afdf89b68b057f9d2ecde3001d639a"
+        },
+        {
+          "bytes": 408207,
+          "path": "checkpoint-512.json",
+          "sha256": "4f317a376ec150986e3ba2c8d071e14cc985ab993822107e85240c66971adc85"
+        },
+        {
+          "bytes": 407297,
+          "path": "checkpoint-1024.json",
+          "sha256": "aa42a14c0296a6b65c3e18994b15c5cdd225cac66f358160c96566f53ff65ee8"
+        },
+        {
+          "bytes": 408207,
+          "path": "selected.json",
+          "sha256": "4f317a376ec150986e3ba2c8d071e14cc985ab993822107e85240c66971adc85"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 277039,
+          "path": "native.json",
+          "sha256": "c5590b213a1702c4c71891d6de8e912de5062b7b09911ef35c45d51857a74b89"
+        },
+        {
+          "bytes": 142919,
+          "path": "tensor.json",
+          "sha256": "d255c3deca51c6e7101c1f6adf8ea71f6312a9d50020b730ba898d75c1847020"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208719,
+          "path": "native-diagnostic.json",
+          "sha256": "911b968abb9dc501dd788bb9474bb4142ec68c2f257130d5c63b5e223e8b9697"
+        },
+        {
+          "bytes": 107368,
+          "path": "tensor-diagnostic.json",
+          "sha256": "cea706c7daf3088451f02a8939dd6455763107a7438d7136d16da198031ee425"
+        },
+        {
+          "bytes": 277020,
+          "path": "native-shifted.json",
+          "sha256": "aa585a15c4421dfcb4ad85aeba11b436500cd39df90525c7e38833e0a236bba2"
+        },
+        {
+          "bytes": 142917,
+          "path": "tensor-shifted.json",
+          "sha256": "bf221592354e4bedfe58f39eaacfee6378add8e834d5c5b1ce731b596a97876b"
+        },
+        {
+          "bytes": 22890,
+          "path": "report.json",
+          "sha256": "eed7e7cf02b854d324cc0a54e9bd122a604e6cc6b036da173d76c5d6358690a4"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "056cf2cc32d49a331a2b4da8ac93926811416e5e9c9de8af49b9b906ed0b6a35",
+      "monitor": {
+        "elapsed_seconds": 5.513586542045232,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 331415552
+      },
+      "report": {
+        "arm": "conditional",
+        "case_presentations": 8560,
+        "diagnostic": {
+          "accuracy": 0.4791666666666667,
+          "all_three_agreement": 0.3125,
+          "maximum_native_tensor_error": 9.5367431640625e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.018345791,
+            "native_process_seconds": 0.05059004103532061,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 3538944,
+            "nominal_scalar_ops": 13349952,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 3.925147531850177,
+            "transport_variance": 0.00013731248029706815
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.187304874998517,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.47598270897287875,
+        "forward_scalar_ops": 46354,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 20114,
+        "peak_rss_bytes": 325304320,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 1.1920928955078125e-06,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.023690291,
+            "native_process_seconds": 0.05635841697221622,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9175040,
+            "nominal_scalar_ops": 17799936,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9319453475701693,
+            "transport_variance": 0.00014225854835074042
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5625,
+              "correct": 54,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5729166666666666,
+              "correct": 55,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6407,
+        "selected_step": 512,
+        "shifted": {
+          "maximum_native_tensor_error": 1.0132789611816406e-06,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.02451675,
+            "native_process_seconds": 0.054247665975708514,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9158656,
+            "nominal_scalar_ops": 18592512,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9319453475701853,
+            "transport_variance": 0.00014225854835074036
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4791666666666667,
+              "correct": 46,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.4583333333333333,
+              "correct": 44,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4479166666666667,
+              "correct": 43,
+              "total": 96
+            }
+          }
+        },
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1060364288,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6001348495483398,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.5327898263931274,
+            "step": 512
+          },
+          {
+            "cross_entropy": 1.0858820676803589,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113833Z-5f64955e",
+      "seed": 6407,
+      "selected_step": 512,
+      "verifications": [
+        {
+          "cases_replayed": 1352,
+          "manifest_sha256": "dafdd930e24d3ccad65bcba4de11ee611fe7af21a3c145dbfbe7f0397755599f",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 9.5367431640625e-07,
+            "ordinary": 1.1920928955078125e-06,
+            "shifted": 1.0132789611816406e-06
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113838Z-eccf9ffe",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 5.170351469185874e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 2.973049395560423e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 1.3555107192253502e-07,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "conditional",
+      "artifacts": [
+        {
+          "bytes": 390666,
+          "path": "initial.json",
+          "sha256": "94b22255cbd01884c318def6a077facd1e3a2e2c2e532acd653749714ad07e17"
+        },
+        {
+          "bytes": 408696,
+          "path": "checkpoint-256.json",
+          "sha256": "9e6a340faf160f19b405053891eaed7562bf443bdb11198dbadfeffa344aac1a"
+        },
+        {
+          "bytes": 408194,
+          "path": "checkpoint-512.json",
+          "sha256": "7b8bfda09d3af3003e967a0ed8945c58a548da780cd979c0e5e3b33d5293fd4d"
+        },
+        {
+          "bytes": 407405,
+          "path": "checkpoint-1024.json",
+          "sha256": "073ddff62ae07732494b54e957e28f4829eaf68a47cdaa6e51a7604856504f97"
+        },
+        {
+          "bytes": 408194,
+          "path": "selected.json",
+          "sha256": "7b8bfda09d3af3003e967a0ed8945c58a548da780cd979c0e5e3b33d5293fd4d"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 276788,
+          "path": "native.json",
+          "sha256": "4145cb71202f22424a32601da4e011e2a415abb5e79160e13e0a30ebd1c941d3"
+        },
+        {
+          "bytes": 142768,
+          "path": "tensor.json",
+          "sha256": "d65134c54a2e9151916206a4984bc6a276235d9726d0338cfbfe1056f6313f95"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208394,
+          "path": "native-diagnostic.json",
+          "sha256": "ebf48ebc7a1c536c7262a209a0d955f1a08bc082c4b503e7cdb1f7c4efdd92de"
+        },
+        {
+          "bytes": 107074,
+          "path": "tensor-diagnostic.json",
+          "sha256": "ef1df118a24738b280f4f432df648d2de06fc46189fe77c3dd9b2072e065fc71"
+        },
+        {
+          "bytes": 276849,
+          "path": "native-shifted.json",
+          "sha256": "0661e764bb7707fdf28334a5aaeb108497e2abeaa8b38d453bd6f864282afff0"
+        },
+        {
+          "bytes": 142775,
+          "path": "tensor-shifted.json",
+          "sha256": "415d7c01612791da38a70ab24b91c8e12e98396195bbfff40a16edb3adb0ce80"
+        },
+        {
+          "bytes": 22833,
+          "path": "report.json",
+          "sha256": "b99c6840488f6a942fc60fbed8b249f26db98996f3b1e2ba53fdb6d01c482f0c"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "ab7de7cee5a9c9af9d206b5bab86de47e80ead57665c93d3617806003c2eebbb",
+      "monitor": {
+        "elapsed_seconds": 5.813136167009361,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 328515584
+      },
+      "report": {
+        "arm": "conditional",
+        "case_presentations": 8560,
+        "diagnostic": {
+          "accuracy": 0.4201388888888889,
+          "all_three_agreement": 0.3229166666666667,
+          "maximum_native_tensor_error": 7.152557373046875e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.018102208,
+            "native_process_seconds": 0.05602854199241847,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 3538944,
+            "nominal_scalar_ops": 13349952,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 3.9349533357533946,
+            "transport_variance": 0.00013275068670578534
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.444399667030666,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.5685260830214247,
+        "forward_scalar_ops": 46354,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 20114,
+        "peak_rss_bytes": 324009984,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 9.5367431640625e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.026468666,
+            "native_process_seconds": 0.061640916974283755,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 9175040,
+            "nominal_scalar_ops": 17799936,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.939991133655571,
+            "transport_variance": 0.00013773452861954466
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5520833333333334,
+              "correct": 53,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.4791666666666667,
+              "correct": 46,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4270833333333333,
+              "correct": 41,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6503,
+        "selected_step": 512,
+        "shifted": {
+          "maximum_native_tensor_error": 9.5367431640625e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.02701125,
+            "native_process_seconds": 0.05332216597162187,
+            "native_rss_samples": 2,
+            "native_sampled_peak_rss_bytes": 6914048,
+            "nominal_scalar_ops": 18592512,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 3.9399911336555657,
+            "transport_variance": 0.00013773452861954466
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5520833333333334,
+              "correct": 53,
+              "total": 96
+            }
+          }
+        },
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 1060364288,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6942052245140076,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6178565621376038,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.9826595783233643,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T114036Z-f6d4c3ec",
+      "seed": 6503,
+      "selected_step": 512,
+      "verifications": [
+        {
+          "cases_replayed": 1352,
+          "manifest_sha256": "cbce1815de75f95a5fb9322471fe448d03574a179ccfe07fcb14d8077d3e66c5",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 7.152557373046875e-07,
+            "ordinary": 9.5367431640625e-07,
+            "shifted": 9.5367431640625e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T114042Z-c6837d0a",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 8.736088930039188e-08,
+              "step": 256
+            },
+            {
+              "absolute_error": 4.776211204315928e-09,
+              "step": 512
+            },
+            {
+              "absolute_error": 2.531428289209714e-09,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "static",
+      "artifacts": [
+        {
+          "bytes": 54202,
+          "path": "initial.json",
+          "sha256": "d0d71b06a9a0ce270579209362c7f6b6e5ab25fb00cf0375be9c6e05c4424411"
+        },
+        {
+          "bytes": 55324,
+          "path": "checkpoint-256.json",
+          "sha256": "ceb7d6808c5a1942dcb4973eb55a068739304634808af6e0c6f16e4a03bc88bd"
+        },
+        {
+          "bytes": 55329,
+          "path": "checkpoint-512.json",
+          "sha256": "039ed9a3cdc6fda61a4af032d5f67cd207d088d8b071d8998d4a61f1577f5ead"
+        },
+        {
+          "bytes": 55222,
+          "path": "checkpoint-1024.json",
+          "sha256": "ff6e223da30d34966fbf4fdaef2b590ffcbb1adc5097f6e4f062558dbc9cdbb9"
+        },
+        {
+          "bytes": 55222,
+          "path": "selected.json",
+          "sha256": "ff6e223da30d34966fbf4fdaef2b590ffcbb1adc5097f6e4f062558dbc9cdbb9"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 277448,
+          "path": "native.json",
+          "sha256": "81f9f6b4fcec282a944516292fef6b827d53b1fda7ff560e5055e6a1f40bbe59"
+        },
+        {
+          "bytes": 143262,
+          "path": "tensor.json",
+          "sha256": "bcd9d764c1ca40903b28c2d37a0dc36d5686952a83ed50a2659202dfbe6a0c58"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 209033,
+          "path": "native-diagnostic.json",
+          "sha256": "c273b524bdfa27636c3f293c17b3f674b65536e98915372794a9b8f2570a39a0"
+        },
+        {
+          "bytes": 107694,
+          "path": "tensor-diagnostic.json",
+          "sha256": "1ea198f25b2b86038929ef8673c902186280c74b285a7cd1bf727ff5c06c8ea8"
+        },
+        {
+          "bytes": 21454,
+          "path": "report.json",
+          "sha256": "fffa97e03f476b6dc180c4fbef7afcd2416336e3f8abc8523da7512a26c882f6"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "03973893626720f8d82df3c5a63438bce871aac280178ab9a86088ea03f4710a",
+      "monitor": {
+        "elapsed_seconds": 5.964525917021092,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 325255168
+      },
+      "report": {
+        "arm": "static",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.5,
+          "all_three_agreement": 0.14583333333333334,
+          "maximum_native_tensor_error": 8.940696716308594e-08,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.006134208,
+            "native_process_seconds": 0.028892084024846554,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5242880,
+            "nominal_scalar_ops": 3018816,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 4.135168821607215,
+            "transport_variance": 0.0
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 5.561318583961111,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.339019792038016,
+        "forward_scalar_ops": 10482,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 2690,
+        "peak_rss_bytes": 322109440,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 8.195638656616211e-08,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.008039417,
+            "native_process_seconds": 0.03326966700842604,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5308416,
+            "nominal_scalar_ops": 4025088,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.1351688216070075,
+            "transport_variance": 0.0
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.46875,
+              "correct": 45,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5208333333333334,
+              "correct": 50,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6101,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 220749824,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.692552387714386,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6921777725219727,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6848523616790771,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113725Z-41d9d097",
+      "seed": 6101,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "9f9bbbf75eefd07027694a4722ea3ff57c9a7235ebd9183ac96dc18b29606d7f",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 8.940696716308594e-08,
+            "ordinary": 8.195638656616211e-08
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113731Z-71d32643",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.0328429245198834e-07,
+              "step": 256
+            },
+            {
+              "absolute_error": 5.9122079343332246e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 6.0606836216337e-09,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "static",
+      "artifacts": [
+        {
+          "bytes": 54262,
+          "path": "initial.json",
+          "sha256": "4ee0792840fbaa2e6bf24da13ecd1c05e5d5ff220609685eb3ee1280053c1428"
+        },
+        {
+          "bytes": 55365,
+          "path": "checkpoint-256.json",
+          "sha256": "c4e2826544e847b623553926e161bf44f8703e2a3c510b2275c575769448e722"
+        },
+        {
+          "bytes": 55350,
+          "path": "checkpoint-512.json",
+          "sha256": "f8d6230b1360c79c5c474d528594b2fa79a798db91c212e19f0eb9c583d0c6c5"
+        },
+        {
+          "bytes": 55272,
+          "path": "checkpoint-1024.json",
+          "sha256": "bb33aef7398861029c90c7c4a8894378f64666152edc58a569b30bb0a225b847"
+        },
+        {
+          "bytes": 55272,
+          "path": "selected.json",
+          "sha256": "bb33aef7398861029c90c7c4a8894378f64666152edc58a569b30bb0a225b847"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 277058,
+          "path": "native.json",
+          "sha256": "1a039c41b6bbc8f94aedc616a08e72d77b85157465572cd812d827ed01e5cd49"
+        },
+        {
+          "bytes": 142959,
+          "path": "tensor.json",
+          "sha256": "857ab1cf92a1273abac493530bd97365440cb2fcefe621a4001998874c610f74"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208708,
+          "path": "native-diagnostic.json",
+          "sha256": "6322ef1cca60c97f66b46b3988f7be03a87973b058d52bd5128feef5397b965f"
+        },
+        {
+          "bytes": 107352,
+          "path": "tensor-diagnostic.json",
+          "sha256": "a1e5f5bc7c6ea88e8af7923e96b5fb0737ac9140835fefb3188426e34c621fc8"
+        },
+        {
+          "bytes": 21423,
+          "path": "report.json",
+          "sha256": "8a2f5a2969ce1e8af1872c4987a38a706f852cac7689e055562f47be4e3f5064"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "70bd86c37da407bd1b4f16c622f2f38d113946068107e6399250ea4d32ea3a21",
+      "monitor": {
+        "elapsed_seconds": 5.059106583998073,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 325058560
+      },
+      "report": {
+        "arm": "static",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.5,
+          "all_three_agreement": 1.0,
+          "maximum_native_tensor_error": 5.960464477539063e-08,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.005445167,
+            "native_process_seconds": 0.029444040963426232,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5275648,
+            "nominal_scalar_ops": 3018816,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 4.143978670312567,
+            "transport_variance": 0.0
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.722840083006304,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.30317500000819564,
+        "forward_scalar_ops": 10482,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 2690,
+        "peak_rss_bytes": 322633728,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 7.450580596923828e-08,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.007099417,
+            "native_process_seconds": 0.02758820803137496,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5226496,
+            "nominal_scalar_ops": 4025088,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.143978670311909,
+            "transport_variance": 0.0
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6203,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 220749824,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6933991312980652,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6924643516540527,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6912514567375183,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113750Z-48ac097a",
+      "seed": 6203,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "cd2d7162a4f3b2455d5ebe6f5539c5fbc18773697a5d5ceec4b5931fc5c8ae5e",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 5.960464477539063e-08,
+            "ordinary": 7.450580596923828e-08
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113755Z-48fe513a",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 2.292462331077161e-09,
+              "step": 256
+            },
+            {
+              "absolute_error": 1.0801684258154864e-07,
+              "step": 512
+            },
+            {
+              "absolute_error": 6.079354275545512e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "static",
+      "artifacts": [
+        {
+          "bytes": 54273,
+          "path": "initial.json",
+          "sha256": "a275437d3f0ce27a6927a4f528422964b1802fe20ff6ba3dfe8e97ae9cda26c1"
+        },
+        {
+          "bytes": 55324,
+          "path": "checkpoint-256.json",
+          "sha256": "2c49f699dff5deb6f1b55f964f0e14333144423e485f7a3961179e2943b7e036"
+        },
+        {
+          "bytes": 55228,
+          "path": "checkpoint-512.json",
+          "sha256": "5553c67413c151fb00cfad7ee5a0a64b969a89c57220668048ba4aaa48c58351"
+        },
+        {
+          "bytes": 55209,
+          "path": "checkpoint-1024.json",
+          "sha256": "a95b23752d2bc119ae0d093328f0a9b7b8418b38b32b55be2b07d1354f8d30ad"
+        },
+        {
+          "bytes": 55209,
+          "path": "selected.json",
+          "sha256": "a95b23752d2bc119ae0d093328f0a9b7b8418b38b32b55be2b07d1354f8d30ad"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 276922,
+          "path": "native.json",
+          "sha256": "63f09e0f216d3dd551eded9ddff8b72fe451b2189390a7a116cecb32551b600a"
+        },
+        {
+          "bytes": 142861,
+          "path": "tensor.json",
+          "sha256": "2785abb9ed4199e7674173f862e9527df2b7972e7d1850233b9ffee92a9b8c86"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208773,
+          "path": "native-diagnostic.json",
+          "sha256": "69d5bddeaba0a48f6d22957cab87012ff3d67ddad001b05769addf5fa16e85d7"
+        },
+        {
+          "bytes": 107490,
+          "path": "tensor-diagnostic.json",
+          "sha256": "72a51817156f776f958586993eacb800e5a1031cfe2a8033916219d0758c9bf4"
+        },
+        {
+          "bytes": 21480,
+          "path": "report.json",
+          "sha256": "339e6b3b152bb7546740d310c2ffb2865d187d7e7614fadffad20cd45c6109c3"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "a947a50f6c689156cbace7b931aaca64f4f0a71367a56be9e136d3825c75987a",
+      "monitor": {
+        "elapsed_seconds": 5.219722040987108,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 325615616
+      },
+      "report": {
+        "arm": "static",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.4965277777777778,
+          "all_three_agreement": 0.9479166666666666,
+          "maximum_native_tensor_error": 1.1920928955078125e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.006233916,
+            "native_process_seconds": 0.03021854197140783,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5750784,
+            "nominal_scalar_ops": 3018816,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 4.132754111604837,
+            "transport_variance": 0.0
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.880833667004481,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.3352270000032149,
+        "forward_scalar_ops": 10482,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 2690,
+        "peak_rss_bytes": 322650112,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 1.1920928955078125e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.008020541,
+            "native_process_seconds": 0.03394945902982727,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5373952,
+            "nominal_scalar_ops": 4025088,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.132754111604987,
+            "transport_variance": 0.0
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.53125,
+              "correct": 51,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.46875,
+              "correct": 45,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.4791666666666667,
+              "correct": 46,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6301,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 220749824,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6930598616600037,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6876425743103027,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6814122796058655,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113814Z-331063cb",
+      "seed": 6301,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "41c5cda7cab8297fa7f344fdf58462432b8eb725a999a68e74eaebb75315a2d1",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 1.1920928955078125e-07,
+            "ordinary": 1.1920928955078125e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113820Z-eb5b3d78",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.0185589860434163e-07,
+              "step": 256
+            },
+            {
+              "absolute_error": 3.378259605391065e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 1.1383928910646546e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "static",
+      "artifacts": [
+        {
+          "bytes": 54260,
+          "path": "initial.json",
+          "sha256": "611f9ab49f9a8145cb77a904dc616261875af4547f9ffdac955298f32d94c3d6"
+        },
+        {
+          "bytes": 55297,
+          "path": "checkpoint-256.json",
+          "sha256": "60d780329c728eef9604a7ff8166e5b8592b42e6ee59788bb9695a7752f928c8"
+        },
+        {
+          "bytes": 55350,
+          "path": "checkpoint-512.json",
+          "sha256": "4b64e06a74a9834016c1f75778056c409a263eabba61f969326633550c887221"
+        },
+        {
+          "bytes": 55139,
+          "path": "checkpoint-1024.json",
+          "sha256": "34ed581f692598371474c5c08beb8ba0d55bd5e70086e47b9831a15eac6787a8"
+        },
+        {
+          "bytes": 55139,
+          "path": "selected.json",
+          "sha256": "34ed581f692598371474c5c08beb8ba0d55bd5e70086e47b9831a15eac6787a8"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 276836,
+          "path": "native.json",
+          "sha256": "4eae08fddd4a0f620d1f4e852f31062473618c0ae1b7fb2fac159de906313718"
+        },
+        {
+          "bytes": 142783,
+          "path": "tensor.json",
+          "sha256": "abd0cd00252e38be4a0d5186de3ec6a86a3d92d7d400b822a2bb5a5de2914767"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208445,
+          "path": "native-diagnostic.json",
+          "sha256": "24e8d41805333e6e4b773ff4320a724a11acd99ee555b17db2140a5689330dcc"
+        },
+        {
+          "bytes": 107065,
+          "path": "tensor-diagnostic.json",
+          "sha256": "042c4a5f50efd51039daddd9b0030131988a24f8519681fda6121b5c1aad3c03"
+        },
+        {
+          "bytes": 21477,
+          "path": "report.json",
+          "sha256": "38396a465682c7cd3b1d0d84587633b5de9ba862dc913a12ccc02666622bacc1"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "2662e084f5227feb0511657fe37613dc819aa35a14d10ea31fd634d4faacc6f0",
+      "monitor": {
+        "elapsed_seconds": 5.2258855840191245,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 322469888
+      },
+      "report": {
+        "arm": "static",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.5069444444444444,
+          "all_three_agreement": 0.84375,
+          "maximum_native_tensor_error": 8.195638656616211e-08,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.006315583,
+            "native_process_seconds": 0.030179542023688555,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5292032,
+            "nominal_scalar_ops": 3018816,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 4.132315513441001,
+            "transport_variance": 0.0
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.878777290985454,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.33432545798132196,
+        "forward_scalar_ops": 10482,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 2690,
+        "peak_rss_bytes": 321830912,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 1.1920928955078125e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.008013584,
+            "native_process_seconds": 0.03488762502092868,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5603328,
+            "nominal_scalar_ops": 4025088,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.132315513440312,
+            "transport_variance": 0.0
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5208333333333334,
+              "correct": 50,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6407,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 220749824,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6954880356788635,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.690615177154541,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6811380386352539,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T113839Z-b72dc9cf",
+      "seed": 6407,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "a465ce56827891fa49329cd7291e1633724976c4ea10a4f98855b96e2fdaee53",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 8.195638656616211e-08,
+            "ordinary": 1.1920928955078125e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T113845Z-76bf252f",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 1.1959617085555152e-07,
+              "step": 256
+            },
+            {
+              "absolute_error": 4.85716892262289e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 3.389095448724788e-09,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "static",
+      "artifacts": [
+        {
+          "bytes": 54293,
+          "path": "initial.json",
+          "sha256": "9b71330c8234856d40805e9d33532326c6f4035982b77a512bf276d4f2624237"
+        },
+        {
+          "bytes": 55384,
+          "path": "checkpoint-256.json",
+          "sha256": "0c401de0f111e3f4f3aa9662f9e113a4219eea4ccd39d0f20a31aa1add11174f"
+        },
+        {
+          "bytes": 55275,
+          "path": "checkpoint-512.json",
+          "sha256": "f7f0e91dc84ece164c3714171cecd033c7ff4920a19cde80e31739a136d827b2"
+        },
+        {
+          "bytes": 55127,
+          "path": "checkpoint-1024.json",
+          "sha256": "3d204785861aa29408aac23057afbbb9827c626d429ba962bca3272b7855534e"
+        },
+        {
+          "bytes": 55127,
+          "path": "selected.json",
+          "sha256": "3d204785861aa29408aac23057afbbb9827c626d429ba962bca3272b7855534e"
+        },
+        {
+          "bytes": 115577,
+          "path": "inputs.json",
+          "sha256": "22106a368d5a6ea6509bfaa635f36066509d6947e52b92594cb20cdb8e85cfed"
+        },
+        {
+          "bytes": 277109,
+          "path": "native.json",
+          "sha256": "cfb8307933b77798b229f32cea351020e33a8b0caa1dab8e4264d64e1cc50e39"
+        },
+        {
+          "bytes": 143030,
+          "path": "tensor.json",
+          "sha256": "603e681f0b52555c5118c689cea0b4216ed9a146f61f79340041cb661a644dff"
+        },
+        {
+          "bytes": 86704,
+          "path": "diagnostic-inputs.json",
+          "sha256": "56d58a9c57af59b3391c66550184a65cbe3c65c38ffddccf38a76f44d34ae2eb"
+        },
+        {
+          "bytes": 208861,
+          "path": "native-diagnostic.json",
+          "sha256": "74fa27c8fcba5d6519a034b66affabcca29e17d9ce5c41c21370019444725123"
+        },
+        {
+          "bytes": 107548,
+          "path": "tensor-diagnostic.json",
+          "sha256": "f5ef5ca01dfbedbed6e392c928d070eb0ee9e2bd31f036b383d9fccc174f0557"
+        },
+        {
+          "bytes": 21483,
+          "path": "report.json",
+          "sha256": "fc242cad19a34339d51b84bd521ac7ffe9e5d061f1bb851c08352124cf13e004"
+        }
+      ],
+      "execution_status": "passed",
+      "manifest_sha256": "75065ab2ff57f6c98b2298f90a726065b3493a464902f75b752eda4c1c164925",
+      "monitor": {
+        "elapsed_seconds": 5.345816124987323,
+        "memory_scope": "Sampled process-group RSS; final worker OS high-water RSS also checked; no OS memory sandbox.",
+        "sampled_process_group_peak_rss_bytes": 324730880
+      },
+      "report": {
+        "arm": "static",
+        "case_presentations": 7792,
+        "diagnostic": {
+          "accuracy": 0.5208333333333334,
+          "all_three_agreement": 0.3958333333333333,
+          "maximum_native_tensor_error": 1.1920928955078125e-07,
+          "metrics": {
+            "cases": 288,
+            "intermediate_state_read_bytes": 18432,
+            "intermediate_state_write_bytes": 18432,
+            "native_evaluation_seconds": 0.006124209,
+            "native_process_seconds": 0.03134212497388944,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5308416,
+            "nominal_scalar_ops": 3018816,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 73728,
+            "transport_entropy": 4.126438169883426,
+            "transport_variance": 0.0
+          },
+          "problems": 96
+        },
+        "elapsed_seconds": 4.936409250018187,
+        "environment": {
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "threads": 1,
+          "torch": "2.14.0"
+        },
+        "fitting_validation_seconds": 0.33141924999654293,
+        "forward_scalar_ops": 10482,
+        "measurement_scope": "Nominal model arithmetic is a proxy. Validation, evidence statistics, state transactions, parsing and serialization remain included in measured process time; sampled RSS is not an OS sandbox.",
+        "parameter_count": 2690,
+        "peak_rss_bytes": 321126400,
+        "restart_cases": 8,
+        "restart_passed": true,
+        "results": {
+          "maximum_native_tensor_error": 1.4901161193847656e-07,
+          "metrics": {
+            "cases": 384,
+            "intermediate_state_read_bytes": 24576,
+            "intermediate_state_write_bytes": 24576,
+            "native_evaluation_seconds": 0.0079895,
+            "native_process_seconds": 0.03042758395895362,
+            "native_rss_samples": 1,
+            "native_sampled_peak_rss_bytes": 5406720,
+            "nominal_scalar_ops": 4025088,
+            "peak_intermediate_payload_bytes": 64,
+            "raw_input_bytes": 98304,
+            "transport_entropy": 4.126438169883359,
+            "transport_variance": 0.0
+          },
+          "scored": {
+            "base": {
+              "accuracy": 0.5416666666666666,
+              "correct": 52,
+              "total": 96
+            },
+            "combination": {
+              "accuracy": 0.4895833333333333,
+              "correct": 47,
+              "total": 96
+            },
+            "joint": {
+              "accuracy": 0.5104166666666666,
+              "correct": 49,
+              "total": 96
+            },
+            "reflection": {
+              "accuracy": 0.5,
+              "correct": 48,
+              "total": 96
+            }
+          }
+        },
+        "seed": 6503,
+        "selected_step": 1024,
+        "shifted": null,
+        "status": "completed",
+        "steps": 1024,
+        "training_proxy_ops": 220749824,
+        "validation_checkpoints": [
+          {
+            "cross_entropy": 0.6924226880073547,
+            "step": 256
+          },
+          {
+            "cross_entropy": 0.6932223439216614,
+            "step": 512
+          },
+          {
+            "cross_entropy": 0.6833064556121826,
+            "step": 1024
+          }
+        ]
+      },
+      "run_id": "representation-train-20260930T114042Z-0bcde478",
+      "seed": 6503,
+      "selected_step": 1024,
+      "verifications": [
+        {
+          "cases_replayed": 968,
+          "manifest_sha256": "5571838f1b28b4c4cb6738c76633476f3c60ce005f3c18b404bdedef10ff32cc",
+          "maximum_native_tensor_errors": {
+            "diagnostic": 1.1920928955078125e-07,
+            "ordinary": 1.4901161193847656e-07
+          },
+          "proof_scope": "Independent native inference, scoring, intervention and retained-state replay; no independent retraining or attestation of historical timings.",
+          "run_id": "representation-verify-20260930T114048Z-dc259f6a",
+          "status": "passed",
+          "validation_objective_replay": [
+            {
+              "absolute_error": 3.3112395048107146e-09,
+              "step": 256
+            },
+            {
+              "absolute_error": 7.841567717381537e-08,
+              "step": 512
+            },
+            {
+              "absolute_error": 1.6401303981616877e-08,
+              "step": 1024
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "completed_independent_replays": 19,
+    "completed_replay_cases": 20312,
+    "maximum_native_tensor_error": 1.1920928955078125e-06,
+    "ordinary_diagnostic_and_intervention_predictions_replayed": 15360,
+    "posthoc_audit_cases": 966,
+    "python_tests": 111,
+    "registered_intermediate_states": 160,
+    "retained_intermediate_states_replayed": 158,
+    "rust_clippy": "passed",
+    "rust_fmt": "passed",
+    "rust_tests": 42,
+    "scope": "Local unit/integrity/replay evidence. No independent retraining, historical timing attestation, successful full campaign, or broad learned capability.",
+    "total_native_case_executions_replayed": 21278,
+    "validation_case_executions_replayed": 5760
+  }
+}
