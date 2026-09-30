@@ -80,7 +80,8 @@ with empty state. It does not implement persistence across sessions or demonstra
 Its generated development/validation/test splits exercise bookkeeping and capacity shifts;
 they do not imply semantic out-of-distribution generalization.
 
-The next queue item must register a learning protocol with these design choices resolved:
+EXP-0002 registered these choices and [rejected its first selective-read configuration](../decisions/0004-learned-selection.md).
+Each subsequent learned experiment must resolve them again:
 
 1. **Observation and supervision.** Specify the complete information exposed to each model,
    allowed state writes, loss, update timing, answer format, and reset boundaries. Fit
@@ -91,7 +92,8 @@ The next queue item must register a learning protocol with these design choices 
    A hand-written upper bound diagnoses the task; it is not the principal model baseline.
 3. **Budget.** Record backend/version, initialization, trainable parameters, optimizer state,
    memory layout, measured throughput, training/tuning attempts, inference work, disk output,
-   and stop conditions. Include warmup and compilation policy. There is no chosen backend yet.
+   and stop conditions. Include warmup and compilation policy. EXP-0002 used an optional
+   single-threaded PyTorch CPU trainer and exported parameters to the Rust provider.
 4. **Transfer.** Hold out structural changes such as new bindings, longer delays, larger
    working sets, reordered operations, and unseen compositions. Keep training, selection,
    and final evaluation disjoint. Freeze the held-out generator before tuning.

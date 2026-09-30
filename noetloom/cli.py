@@ -37,7 +37,7 @@ def doctor(root: Path, cache: Path, *, profile: str = "local-small") -> dict[str
         "status": "ready", "python": sys.version.split()[0], "physical_memory_bytes": _memory_bytes(),
         "cache": str(cache), "cache_exists": cache.exists(), "policy": policy,
         "storage": snapshot, "writes_performed": False, "network_required": False,
-        "scope": "bootstrap harness admission; no training backend or OS memory sandbox is installed",
+        "scope": "bootstrap harness admission; does not inspect optional training backends or enforce an OS memory sandbox",
     }
 
 

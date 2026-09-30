@@ -11,7 +11,7 @@
       "falsifier": "The advantage disappears with credible learned baselines, access-cost accounting, memory ablation, or held-out operation structures.",
       "source_refs": ["R-NTM", "R-ZOOLOGY", "R-TITANS"],
       "novelty_status": "unassessed",
-      "evidence": []
+      "evidence": ["docs/decisions/0004-learned-selection.md"]
     },
     {
       "id": "H-002",

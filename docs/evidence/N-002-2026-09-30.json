@@ -1,0 +1,1485 @@
+{
+  "binary_sha256": "1a6b46cdd2f51b68c53d12406f4fbebee63edd550c272bc899803ce0782fc8f6",
+  "checks": {
+    "python_tests": 68,
+    "rust_clippy": true,
+    "rust_fmt": true,
+    "rust_tests": 30
+  },
+  "date": "2026-09-30",
+  "experiment": "EXP-0002",
+  "foundation_fixture": {
+    "manifest_sha256": "c4f522b8dfab19a67b818993511357265ccc816d88b7e75c5c2b9565cb95d43d",
+    "run_id": "foundation-20260930T093613Z-6553e2c9"
+  },
+  "harness": {
+    "manifest_sha256": "0b93a5fd9dfc6bc0558f4c11b82905cd823be42447e83bb708b8fb3529f0d101",
+    "predictions_replayed": 12096,
+    "run_id": "20260930T093825Z-d812fa62f5",
+    "source_sha256": "1a6810b6256c9beb569ae5caddcf6ec27b485f06e8e408bee51d41a70abda73a"
+  },
+  "hosted_verification": "pending",
+  "learning_source": {
+    "design_sha256": "d8a7e792804d4fb5f23d8c01596c285076304f92c18a6c3c630d6816878cf4be",
+    "protocol_sha256": "57385a3bd3db5d916a7c84ccd0004c653b67d0cc971f41fb03564179e878f781",
+    "python": {
+      "digest": "b47c7bc6900497ed68d105b8126ec38d55fbaebbac2f7607cc1e853150a33b76",
+      "files": [
+        {
+          "path": "noetloom/__init__.py",
+          "sha256": "8cf96d65a11671f8f95db5ce1b95ae0d8f028bbb4ae05a87f6458489d25eccdc"
+        },
+        {
+          "path": "noetloom/__main__.py",
+          "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+        },
+        {
+          "path": "noetloom/cli.py",
+          "sha256": "d982efab3d7be2f4e9f63228e78acaeac314aed7b6759d686dc0970402eb4d73"
+        },
+        {
+          "path": "noetloom/contracts.py",
+          "sha256": "632cfe1d978aa87ec1789dcb5881aaca81d209a7694906cb29ab50f335cdb6f9"
+        },
+        {
+          "path": "noetloom/learning_contracts.py",
+          "sha256": "5e5e7a93b8931849e88fed76794ece63ff6e3fa056491697af38cd2bb5000938"
+        },
+        {
+          "path": "noetloom/learning_data.py",
+          "sha256": "2735f4293854b007043289dfd86e09e912aa1ef209ca8b753369d2ebe09a2015"
+        },
+        {
+          "path": "noetloom/learning_torch.py",
+          "sha256": "cc1df745e18864cd1909b0da742a6b7eb2cbf158ee978f4153160bbbb513b364"
+        },
+        {
+          "path": "noetloom/learning_worker.py",
+          "sha256": "41f8b480e94edc4f1fce4a42e9b41c5d8bb1f1f20a074887a03853d15d1e08d8"
+        },
+        {
+          "path": "noetloom/recall.py",
+          "sha256": "bde5d76314025cf148ae6194e11329a74628abc1b1b13921016f07849f09ab6f"
+        },
+        {
+          "path": "noetloom/runner.py",
+          "sha256": "4218385a6c490c12ffd274472e9f1d3b2c391c188777d7ea7b031edb88f3ff5a"
+        },
+        {
+          "path": "noetloom/storage.py",
+          "sha256": "cef9f7bdc72e8afc5584b33838c5eff0a2537587dd0469e72e4d38e5952fee4d"
+        }
+      ],
+      "schema_version": "noetloom.source.v1"
+    },
+    "rust": {
+      "source_files": [
+        [
+          "Cargo.lock",
+          "2e4e5be490eb4d921d530d1f24c8cd9f3c4b6fb321cff4eb09aa704295c54600"
+        ],
+        [
+          "Cargo.toml",
+          "fce2b7195fbf76d6eeb347c71d2d7a3839579b32c0f222b7f34bccea2ea45c35"
+        ],
+        [
+          "crates/noetloom-core/Cargo.toml",
+          "1646df1fb5806023bbf17e21f06b0a15cc7ce5a384b8a224714f8381d5c03ac5"
+        ],
+        [
+          "crates/noetloom-core/build.rs",
+          "826e596480ef296ad5abe4e456471d026222643fd4d5d445f1ef6bbd5f64a6c3"
+        ],
+        [
+          "crates/noetloom-core/examples/foundation.rs",
+          "518ec3ca2f03b7a4e2707b753983c8878a6cce28208dec9147b32a5fa651ebe8"
+        ],
+        [
+          "crates/noetloom-core/examples/learning.rs",
+          "a2483c5d3d3acabe61fe9a49876f84e642fc7423d4a30a32aa9ee9276869464f"
+        ],
+        [
+          "crates/noetloom-core/src/engine.rs",
+          "391c5a4ebe67d9f5803ffcc2cae30dfb445804eb81f99344abbdd052b68ab353"
+        ],
+        [
+          "crates/noetloom-core/src/learning.rs",
+          "db03998635f15fa869c218211b8170e3b1d25854095a533f68b87db66505defc"
+        ],
+        [
+          "crates/noetloom-core/src/lib.rs",
+          "c4673fd1d5aa86b13f805c089f6d696951402e88f4d54193eee7ff026e3c49f0"
+        ],
+        [
+          "crates/noetloom-core/src/memory.rs",
+          "a65d76bca78d66cb5eb91c7fc61c29ae40f7da388987d215a85317ba9f89d7b2"
+        ],
+        [
+          "crates/noetloom-core/src/operator.rs",
+          "dc68b92553e2876a7b95e294bb6bef0b5309d694ef1f8d6860ba7db036d04327"
+        ],
+        [
+          "crates/noetloom-core/src/provider.rs",
+          "00c2d4b327c01b0f44be21db709664b9f81ac6b45115b6832857b5e9241f3e2c"
+        ],
+        [
+          "crates/noetloom-core/src/store.rs",
+          "baa43ce3d9cefc098a811dcbfdf0fd8373294a4b8e92cd615e1a4054b2049a6f"
+        ],
+        [
+          "crates/noetloom-core/src/value.rs",
+          "751c9e1990898f16798c028cf1f374da3262eee610267a78b65da9901f16a890"
+        ],
+        [
+          "crates/noetloom-core/tests/foundation.rs",
+          "844183033ad5995ed4bc111f32244b9282a1f5e9551e240601f46200d2d89b7a"
+        ],
+        [
+          "crates/noetloom-core/tests/learning.rs",
+          "9e2e23d0166fcf8fe20d6f57cb90b9bcbb39457de516b9b72764124ce5916d98"
+        ],
+        [
+          "crates/noetloom-core/tests/provider.rs",
+          "73fad6cf4012b08f95000d93da4ba92038fed30b8a2d7a0e74825ca6c1144bf8"
+        ],
+        [
+          "rust-toolchain.toml",
+          "e879701472a698533f43f54989bbf5f3101eb0503472159d32633f3bb8a13fdf"
+        ]
+      ],
+      "source_sha256": "3c1bd79a26ba8622e24d836177e9e24d40b9d47996225753dd05483e72e9a6fc"
+    },
+    "scripts": [
+      {
+        "path": "scripts/learning.py",
+        "sha256": "12d0f4910cf11753bef292a2a5644152b9d90c96a48114c9b521c324dea69bbd"
+      },
+      {
+        "path": "scripts/learning_setup.py",
+        "sha256": "8dede084007d11387833d69049d086198fa7cf43b95b512c4dc34fc1f27e053c"
+      },
+      {
+        "path": "scripts/rust.py",
+        "sha256": "36ff709edddae2994edd49350b501d2efeac23045b054f36834b2881702a9e9a"
+      },
+      {
+        "path": "scripts/shardloom_probe.py",
+        "sha256": "1219eabd4c5caaab25be6835dd3b3c9b79f64ebaa7309d2d39a2b3e238cb0d44"
+      }
+    ]
+  },
+  "learning_source_commit": "572f2fc4eb8c6beb866d981458526f368fc19141",
+  "preflight": {
+    "manifest_sha256": "a1547f25bd59ce30a9773869e603f4bd54d7fc066eb353b7260475419c0851b3",
+    "result": {
+      "elapsed_seconds": 2.5473774999845773,
+      "environment": {
+        "deterministic_algorithms": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "threads": 1,
+        "torch": "2.14.0"
+      },
+      "gradients": {
+        "dense_maximum_gradient_error": 2.443965863019315e-11,
+        "parameter_count": 359
+      },
+      "parity_maximum_logit_error": {
+        "dense": 3.5762786865234375e-07,
+        "frozen_routing": 5.960464477539063e-08,
+        "no_history": 3.725290298461914e-09,
+        "selective": 1.1920928955078125e-07
+      },
+      "peak_rss_bytes": 320634880,
+      "seconds_per_step": {
+        "dense": 0.0003254349358030595,
+        "frozen_routing": 0.0002196197528974153,
+        "no_history": 0.0001206562519655563,
+        "selective": 0.0002698932512430474
+      },
+      "selected_steps": 256,
+      "status": "passed",
+      "training_quality_used_for_selection": false
+    },
+    "run_id": "learning-preflight-20260930T093222Z-46013acd"
+  },
+  "queue_item": "N-002",
+  "retrieval": "Full bytes retained only under the local ~/.cache/noetloom; not published or remotely backed up. No unique checkpoint retired.",
+  "schema_version": "noetloom.learning_summary.v1",
+  "setup": {
+    "manifest_sha256": "1f0395ba35f6da9c851c6dea6bbd3440cde45085dafe1b8b1e53a8b5e306a141",
+    "prior_failures": [
+      "learning-setup-20260930T091023Z-6449c004",
+      "learning-setup-20260930T091244Z-588c8d7d"
+    ],
+    "run_id": "learning-setup-20260930T091513Z-7a834f08"
+  },
+  "summary": {
+    "arms": {
+      "dense": {
+        "accuracy": 0.8490234375,
+        "families": {
+          "base": 0.89375,
+          "capacity": 0.819140625,
+          "composition": 0.862890625,
+          "delay": 0.8203125
+        },
+        "seeds": [
+          {
+            "accuracy": 0.8583984375,
+            "elapsed_seconds": 2.6677268749917857,
+            "families": {
+              "test_base": {
+                "accuracy": 0.880859375,
+                "correct": 451,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.833984375,
+                "correct": 427,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.880859375,
+                "correct": 451,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.837890625,
+                "correct": 429,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009593708,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 4238184,
+              "nominal_scalar_ops": 3589952,
+              "payload_read_bytes": 927744,
+              "payload_reads": 28992,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.02017274999525398,
+            "peak_rss_bytes": 336740352,
+            "seed": 1103,
+            "selected_step": 128
+          },
+          {
+            "accuracy": 0.85302734375,
+            "elapsed_seconds": 2.69319112499943,
+            "families": {
+              "test_base": {
+                "accuracy": 0.89453125,
+                "correct": 458,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.814453125,
+                "correct": 417,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.87109375,
+                "correct": 446,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.83203125,
+                "correct": 426,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009524791,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 4181496,
+              "nominal_scalar_ops": 3589952,
+              "payload_read_bytes": 927744,
+              "payload_reads": 28992,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.019782792020123452,
+            "peak_rss_bytes": 336723968,
+            "seed": 2207,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.85205078125,
+            "elapsed_seconds": 2.6939174159779213,
+            "families": {
+              "test_base": {
+                "accuracy": 0.884765625,
+                "correct": 453,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.8359375,
+                "correct": 428,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.900390625,
+                "correct": 461,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.787109375,
+                "correct": 403,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009608792,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 4275460,
+              "nominal_scalar_ops": 3589952,
+              "payload_read_bytes": 927744,
+              "payload_reads": 28992,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020762833999469876,
+            "peak_rss_bytes": 336297984,
+            "seed": 3301,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.822265625,
+            "elapsed_seconds": 2.6955623750109226,
+            "families": {
+              "test_base": {
+                "accuracy": 0.8984375,
+                "correct": 460,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.794921875,
+                "correct": 407,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.779296875,
+                "correct": 399,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.81640625,
+                "correct": 418,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009856791,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 4357469,
+              "nominal_scalar_ops": 3589952,
+              "payload_read_bytes": 927744,
+              "payload_reads": 28992,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020742249966133386,
+            "peak_rss_bytes": 336953344,
+            "seed": 4409,
+            "selected_step": 128
+          },
+          {
+            "accuracy": 0.859375,
+            "elapsed_seconds": 2.7118889579433016,
+            "families": {
+              "test_base": {
+                "accuracy": 0.91015625,
+                "correct": 466,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.81640625,
+                "correct": 418,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.8828125,
+                "correct": 452,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.828125,
+                "correct": 424,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009542,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 4202325,
+              "nominal_scalar_ops": 3589952,
+              "payload_read_bytes": 927744,
+              "payload_reads": 28992,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020144957990851253,
+            "peak_rss_bytes": 336625664,
+            "seed": 5519,
+            "selected_step": 256
+          }
+        ]
+      },
+      "frozen_routing": {
+        "accuracy": 0.23193359375,
+        "families": {
+          "base": 0.23671875,
+          "capacity": 0.226953125,
+          "composition": 0.22890625,
+          "delay": 0.23515625
+        },
+        "seeds": [
+          {
+            "accuracy": 0.2294921875,
+            "elapsed_seconds": 2.6429618329857476,
+            "families": {
+              "test_base": {
+                "accuracy": 0.22265625,
+                "correct": 114,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.232421875,
+                "correct": 119,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.23046875,
+                "correct": 118,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.232421875,
+                "correct": 119,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.008958416,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3409024,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020267458981834352,
+            "peak_rss_bytes": 336510976,
+            "seed": 1103,
+            "selected_step": 64
+          },
+          {
+            "accuracy": 0.25244140625,
+            "elapsed_seconds": 2.660467542009428,
+            "families": {
+              "test_base": {
+                "accuracy": 0.2578125,
+                "correct": 132,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.251953125,
+                "correct": 129,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009076084,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3467510,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.02045887499116361,
+            "peak_rss_bytes": 337182720,
+            "seed": 2207,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.25390625,
+            "elapsed_seconds": 2.679660291993059,
+            "families": {
+              "test_base": {
+                "accuracy": 0.25390625,
+                "correct": 130,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.255859375,
+                "correct": 131,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.255859375,
+                "correct": 131,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009091,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3474188,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020565708982758224,
+            "peak_rss_bytes": 337002496,
+            "seed": 3301,
+            "selected_step": 128
+          },
+          {
+            "accuracy": 0.189453125,
+            "elapsed_seconds": 2.692342791997362,
+            "families": {
+              "test_base": {
+                "accuracy": 0.17578125,
+                "correct": 90,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.203125,
+                "correct": 104,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.177734375,
+                "correct": 91,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.201171875,
+                "correct": 103,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009162667,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3445269,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020392042002640665,
+            "peak_rss_bytes": 336855040,
+            "seed": 4409,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.234375,
+            "elapsed_seconds": 2.6883658330189064,
+            "families": {
+              "test_base": {
+                "accuracy": 0.2734375,
+                "correct": 140,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.19921875,
+                "correct": 102,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.228515625,
+                "correct": 117,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.236328125,
+                "correct": 121,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009141875,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3495630,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020866499980911613,
+            "peak_rss_bytes": 336920576,
+            "seed": 5519,
+            "selected_step": 128
+          }
+        ]
+      },
+      "no_history": {
+        "accuracy": 0.25,
+        "families": {
+          "base": 0.25,
+          "capacity": 0.25,
+          "composition": 0.25,
+          "delay": 0.25
+        },
+        "seeds": [
+          {
+            "accuracy": 0.25,
+            "elapsed_seconds": 2.656181458965875,
+            "families": {
+              "test_base": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.008101917,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 0,
+              "elapsed_ns": 2405905,
+              "nominal_scalar_ops": 1671680,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.019206291006412357,
+            "peak_rss_bytes": 335609856,
+            "seed": 1103,
+            "selected_step": 64
+          },
+          {
+            "accuracy": 0.25,
+            "elapsed_seconds": 2.654878082976211,
+            "families": {
+              "test_base": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.007993708,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 0,
+              "elapsed_ns": 2364797,
+              "nominal_scalar_ops": 1671680,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.019981833000201732,
+            "peak_rss_bytes": 335953920,
+            "seed": 2207,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.25,
+            "elapsed_seconds": 2.6412163749919273,
+            "families": {
+              "test_base": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.008005792,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 0,
+              "elapsed_ns": 2408964,
+              "nominal_scalar_ops": 1671680,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.019567999988794327,
+            "peak_rss_bytes": 335986688,
+            "seed": 3301,
+            "selected_step": 128
+          },
+          {
+            "accuracy": 0.25,
+            "elapsed_seconds": 2.6474930829717778,
+            "families": {
+              "test_base": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.008085375,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 0,
+              "elapsed_ns": 2462044,
+              "nominal_scalar_ops": 1671680,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.019311750016640872,
+            "peak_rss_bytes": 335069184,
+            "seed": 4409,
+            "selected_step": 64
+          },
+          {
+            "accuracy": 0.25,
+            "elapsed_seconds": 2.6455851669888943,
+            "families": {
+              "test_base": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.25,
+                "correct": 128,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.00804175,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 0,
+              "elapsed_ns": 2419860,
+              "nominal_scalar_ops": 1671680,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.01924812502693385,
+            "peak_rss_bytes": 335364096,
+            "seed": 5519,
+            "selected_step": 128
+          }
+        ]
+      },
+      "selective": {
+        "accuracy": 0.72626953125,
+        "families": {
+          "base": 0.76328125,
+          "capacity": 0.701953125,
+          "composition": 0.732421875,
+          "delay": 0.707421875
+        },
+        "seeds": [
+          {
+            "accuracy": 0.8310546875,
+            "elapsed_seconds": 2.6524990830221213,
+            "families": {
+              "test_base": {
+                "accuracy": 0.857421875,
+                "correct": 439,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.80859375,
+                "correct": 414,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.865234375,
+                "correct": 443,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.79296875,
+                "correct": 406,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009044083,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3477180,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.01994679099880159,
+            "peak_rss_bytes": 336592896,
+            "seed": 1103,
+            "selected_step": 128
+          },
+          {
+            "accuracy": 0.85205078125,
+            "elapsed_seconds": 2.6825552500085905,
+            "families": {
+              "test_base": {
+                "accuracy": 0.91015625,
+                "correct": 466,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.8203125,
+                "correct": 420,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.8515625,
+                "correct": 436,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.826171875,
+                "correct": 423,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.008881875,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3354059,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.01999854197492823,
+            "peak_rss_bytes": 336986112,
+            "seed": 2207,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.255859375,
+            "elapsed_seconds": 2.680604209017474,
+            "families": {
+              "test_base": {
+                "accuracy": 0.267578125,
+                "correct": 137,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.251953125,
+                "correct": 129,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.228515625,
+                "correct": 117,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.275390625,
+                "correct": 141,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009047167,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3445705,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020488792040850967,
+            "peak_rss_bytes": 336609280,
+            "seed": 3301,
+            "selected_step": 128
+          },
+          {
+            "accuracy": 0.84619140625,
+            "elapsed_seconds": 2.695931374968495,
+            "families": {
+              "test_base": {
+                "accuracy": 0.89453125,
+                "correct": 458,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.810546875,
+                "correct": 415,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.865234375,
+                "correct": 443,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.814453125,
+                "correct": 417,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009045792,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3407192,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.021239708992652595,
+            "peak_rss_bytes": 336953344,
+            "seed": 4409,
+            "selected_step": 256
+          },
+          {
+            "accuracy": 0.84619140625,
+            "elapsed_seconds": 2.7219273329828866,
+            "families": {
+              "test_base": {
+                "accuracy": 0.88671875,
+                "correct": 454,
+                "queries": 512
+              },
+              "test_capacity": {
+                "accuracy": 0.818359375,
+                "correct": 419,
+                "queries": 512
+              },
+              "test_composition": {
+                "accuracy": 0.8515625,
+                "correct": 436,
+                "queries": 512
+              },
+              "test_delay": {
+                "accuracy": 0.828125,
+                "correct": 424,
+                "queries": 512
+              }
+            },
+            "native_evaluation_seconds": 0.009163625,
+            "native_metrics": {
+              "commit_validation_bytes": 0,
+              "descriptor_read_bytes": 1508864,
+              "elapsed_ns": 3475642,
+              "nominal_scalar_ops": 2805120,
+              "payload_read_bytes": 65536,
+              "payload_reads": 2048,
+              "payload_write_bytes": 133120,
+              "peak_descriptor_bytes": 1400,
+              "peak_live_payload_bytes": 832,
+              "peak_staged_bytes": 32,
+              "queries": 2048,
+              "validation_descriptor_bytes": 3627008,
+              "writes": 4160
+            },
+            "native_process_seconds": 0.020764583023265004,
+            "peak_rss_bytes": 336560128,
+            "seed": 5519,
+            "selected_step": 256
+          }
+        ]
+      }
+    },
+    "decision": "reject_registered_configuration",
+    "gates": {
+      "base": false,
+      "dense_noninferiority": false,
+      "mean": false,
+      "memory_ablation": false,
+      "payload_read_ratio": true,
+      "routing_ablation": false,
+      "worst_family": false
+    },
+    "paired_seed_intervals": {
+      "dense": {
+        "differences_by_seed": [
+          -0.02734375,
+          -0.0009765625,
+          -0.59619140625,
+          0.02392578125,
+          -0.01318359375
+        ],
+        "high": 0.20669471657542982,
+        "low": -0.4522025290754298,
+        "mean": -0.12275390625
+      },
+      "frozen_routing": {
+        "differences_by_seed": [
+          0.6015625,
+          0.599609375,
+          0.001953125,
+          0.65673828125,
+          0.61181640625
+        ],
+        "high": 0.8373123535090599,
+        "low": 0.15135952149094012,
+        "mean": 0.4943359375
+      },
+      "no_history": {
+        "differences_by_seed": [
+          0.5810546875,
+          0.60205078125,
+          0.005859375,
+          0.59619140625,
+          0.59619140625
+        ],
+        "high": 0.8029292885041588,
+        "low": 0.14960977399584124,
+        "mean": 0.47626953125
+      }
+    },
+    "payload_read_ratio": 0.0706401766004415,
+    "scope": "Limited learned selection and payload-encoding probe with supplied event format, ring allocation, descriptors, and one-step computation; not a final architecture, novelty result, general intelligence, or a speed claim.",
+    "speed_claim": false,
+    "status": "completed",
+    "training_runs": [
+      {
+        "arm": "dense",
+        "manifest_sha256": "9485c94e38273e65ca62cd9549338a75a910d73f705bf32a84e99d01c4fa2fb8",
+        "run_id": "learning-train-20260930T093242Z-11922c42",
+        "seed": 1103
+      },
+      {
+        "arm": "dense",
+        "manifest_sha256": "f0f67fee8c4437d4e6e95ae650aeff263bec828592d55691a27902ecedc17e91",
+        "run_id": "learning-train-20260930T093255Z-f7622168",
+        "seed": 2207
+      },
+      {
+        "arm": "dense",
+        "manifest_sha256": "a02e949777d4ed1e4fac878975933fcfbffcc336e719566d1e2b49f0750f28e2",
+        "run_id": "learning-train-20260930T093307Z-cdaa2bff",
+        "seed": 3301
+      },
+      {
+        "arm": "dense",
+        "manifest_sha256": "2d65e3c57d586f2448f5a03cd43f119d086277dbd4aaca91093bede9edfb0034",
+        "run_id": "learning-train-20260930T093320Z-619d5379",
+        "seed": 4409
+      },
+      {
+        "arm": "dense",
+        "manifest_sha256": "78a60855411b40f684d14b07434f9fdd86271cc234408d8969c79cd0b211f6cf",
+        "run_id": "learning-train-20260930T093333Z-7b6c5795",
+        "seed": 5519
+      },
+      {
+        "arm": "frozen_routing",
+        "manifest_sha256": "ef9d3a92f77a8309c58c26766f302174d2f97231ecff9bfd1d355d1ad5c4b00e",
+        "run_id": "learning-train-20260930T093245Z-c4c25b2f",
+        "seed": 1103
+      },
+      {
+        "arm": "frozen_routing",
+        "manifest_sha256": "c6b92fdcff1d3841b78466deb4c07d6becb67b61fc472c981155f24c4b94b28e",
+        "run_id": "learning-train-20260930T093258Z-9e86f6b0",
+        "seed": 2207
+      },
+      {
+        "arm": "frozen_routing",
+        "manifest_sha256": "f61c9e378f4c0f4abeaf53950caa70c875c17ef3c5c335527dedf9a1b1480060",
+        "run_id": "learning-train-20260930T093311Z-ea05669d",
+        "seed": 3301
+      },
+      {
+        "arm": "frozen_routing",
+        "manifest_sha256": "28e419a420f47b8e3fd92d7731a7e6c433a301d25ac92664f12eeb81b96e21e7",
+        "run_id": "learning-train-20260930T093323Z-b5cce578",
+        "seed": 4409
+      },
+      {
+        "arm": "frozen_routing",
+        "manifest_sha256": "d69737ee36ba78772f299727ff2df00ac0cfa75a21a19ccad884903732450cbd",
+        "run_id": "learning-train-20260930T093336Z-0953271e",
+        "seed": 5519
+      },
+      {
+        "arm": "no_history",
+        "manifest_sha256": "f965a154869a91b612e4fa8d8ca86ef895db366f14165364a6828129f29b5dda",
+        "run_id": "learning-train-20260930T093248Z-7111812a",
+        "seed": 1103
+      },
+      {
+        "arm": "no_history",
+        "manifest_sha256": "1677a3bbad901477b8e1369c2d45d2c337db96befc291f50660f4bb08bb54078",
+        "run_id": "learning-train-20260930T093301Z-eefdb6c8",
+        "seed": 2207
+      },
+      {
+        "arm": "no_history",
+        "manifest_sha256": "eb824cdf9c5583036b41c3495a06206c766b39a5e9fbdf0873ce7e29153715ec",
+        "run_id": "learning-train-20260930T093314Z-34dd2d86",
+        "seed": 3301
+      },
+      {
+        "arm": "no_history",
+        "manifest_sha256": "0ca91711869ffcc9747102419317e6e8147186c2693ae4f031c96cbdd742b1ed",
+        "run_id": "learning-train-20260930T093327Z-2d4b1f2c",
+        "seed": 4409
+      },
+      {
+        "arm": "no_history",
+        "manifest_sha256": "e115c2d9be377c46f3d351310cd4dd204729106b4347b524eec6b0fbdf064908",
+        "run_id": "learning-train-20260930T093340Z-9c94a552",
+        "seed": 5519
+      },
+      {
+        "arm": "selective",
+        "manifest_sha256": "e10cb28724ffebaf87fa3d7f65191e77c8eea3617ef36e1d46d26fd15b7259ad",
+        "run_id": "learning-train-20260930T093239Z-b3e5a180",
+        "seed": 1103
+      },
+      {
+        "arm": "selective",
+        "manifest_sha256": "1549951a0501d84f42befa55f4f6265bfe711cdf2c46eb73874334951a5a1d41",
+        "run_id": "learning-train-20260930T093251Z-b856f548",
+        "seed": 2207
+      },
+      {
+        "arm": "selective",
+        "manifest_sha256": "705ef6776c541bdaea42359e56f04c1885327c13b831b9b4feb4e2948bc9827d",
+        "run_id": "learning-train-20260930T093304Z-431a5a78",
+        "seed": 3301
+      },
+      {
+        "arm": "selective",
+        "manifest_sha256": "e62d74bc1f5d4a58d78f3e6c12b475cda0383ddc4082d8a069167dd1ab311d93",
+        "run_id": "learning-train-20260930T093317Z-1490a7b8",
+        "seed": 4409
+      },
+      {
+        "arm": "selective",
+        "manifest_sha256": "8c3c4d9b156bc9c4be40934505c4f82c31808d8c75173854141c718be30b1c02",
+        "run_id": "learning-train-20260930T093330Z-de663c74",
+        "seed": 5519
+      }
+    ]
+  },
+  "summary_identity": {
+    "manifest_sha256": "5180824f8ef231197db4c0e3eb8c102a25188b5d7240877384fbebc7494698a1",
+    "run_id": "learning-summary-20260930T093343Z-ac2d2080"
+  },
+  "verifications": [
+    {
+      "manifest_sha256": "141888cbd35f999643bbeb9a1b4f03b2bfb7e2a6eca9a055dc20962b54931de5",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093242Z-a43f2651",
+      "training_run_id": "learning-train-20260930T093239Z-b3e5a180"
+    },
+    {
+      "manifest_sha256": "9ceef770d450574fbd469c99b247b1326351f3e4af4c1732f40d4e6a0b0ead72",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093245Z-f1b80bea",
+      "training_run_id": "learning-train-20260930T093242Z-11922c42"
+    },
+    {
+      "manifest_sha256": "9a451ae8bf1dbe93693d0206cdaba2a55410fee8878c45f496e98e16f608d43b",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093248Z-19e6a54d",
+      "training_run_id": "learning-train-20260930T093245Z-c4c25b2f"
+    },
+    {
+      "manifest_sha256": "a4ca11037b6c27c112d354461d429a9f15e3525e0ccb0199ec8e451502713e81",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093251Z-1f03484f",
+      "training_run_id": "learning-train-20260930T093248Z-7111812a"
+    },
+    {
+      "manifest_sha256": "51ce433add200714b51a057eb5af14933ffd74a28d65b3dacd2e96c03fb57c12",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093255Z-3c14c43a",
+      "training_run_id": "learning-train-20260930T093251Z-b856f548"
+    },
+    {
+      "manifest_sha256": "71704b52de82903b23cfae983e29150a510c9f91144c523387178696192a34d0",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093258Z-ce155009",
+      "training_run_id": "learning-train-20260930T093255Z-f7622168"
+    },
+    {
+      "manifest_sha256": "216687218e0eaa5029c17b7ae0a900f38375758306dc43639d6c4dffb1a15319",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093301Z-679358ee",
+      "training_run_id": "learning-train-20260930T093258Z-9e86f6b0"
+    },
+    {
+      "manifest_sha256": "cebe1b89efb66dab59c1879fb210e33c126fde08ab13146d242029e901976a80",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093304Z-ad0f1a8a",
+      "training_run_id": "learning-train-20260930T093301Z-eefdb6c8"
+    },
+    {
+      "manifest_sha256": "ebb4aad4574894bbd9b284ba102de0bbe05e80e02bf3eb7817ddf13c4900464a",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093307Z-3572d48d",
+      "training_run_id": "learning-train-20260930T093304Z-431a5a78"
+    },
+    {
+      "manifest_sha256": "870febe5450eac18dd365cf4ef7793b956a33106126cd59cda158ec97b506d25",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093310Z-f2680b46",
+      "training_run_id": "learning-train-20260930T093307Z-cdaa2bff"
+    },
+    {
+      "manifest_sha256": "c0f2364fcecabcae86bb8fa5954dea6b39c7a5cd247f4da126ee0a7ee155b42c",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093314Z-34679ccb",
+      "training_run_id": "learning-train-20260930T093311Z-ea05669d"
+    },
+    {
+      "manifest_sha256": "f6484cc6db99a696ae4f38905f4bdcc07edd84cb2546edb252c35e0a5204349f",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093317Z-7ac58e53",
+      "training_run_id": "learning-train-20260930T093314Z-34dd2d86"
+    },
+    {
+      "manifest_sha256": "ec157a407f433ddac45bb0c9eadf91aaa00a271c620e200d7593200a3240a574",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093320Z-f012542c",
+      "training_run_id": "learning-train-20260930T093317Z-1490a7b8"
+    },
+    {
+      "manifest_sha256": "7c5866d207ba7d68ef2769cf014c26ed03ec70051e855f501ff86d48b9061184",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093323Z-b1933b5d",
+      "training_run_id": "learning-train-20260930T093320Z-619d5379"
+    },
+    {
+      "manifest_sha256": "c3084a59a57463f51981799e85051380fc574f6348ceba48bd0f9202eb1d565e",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093326Z-524109a2",
+      "training_run_id": "learning-train-20260930T093323Z-b5cce578"
+    },
+    {
+      "manifest_sha256": "860d1cfd9232fcae5499eaa5102c7efe31614fbb841bf92b71874f6b80fd977a",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093330Z-903bbfd2",
+      "training_run_id": "learning-train-20260930T093327Z-2d4b1f2c"
+    },
+    {
+      "manifest_sha256": "eaf8b5bbcb3083631d1125866441ca652152e9f8df536379cd9a79727004c31c",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093333Z-0a910e79",
+      "training_run_id": "learning-train-20260930T093330Z-de663c74"
+    },
+    {
+      "manifest_sha256": "4f35d8f49fd29d958f5b48cb3a3e6969b1bf5a2905168d3796d90b19cc89b254",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093336Z-ad7ff36b",
+      "training_run_id": "learning-train-20260930T093333Z-7b6c5795"
+    },
+    {
+      "manifest_sha256": "9e8e4cd1082214311f367eeedaa495657f90998241d8520ef7e8cec2f712e89b",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093339Z-a232e4ff",
+      "training_run_id": "learning-train-20260930T093336Z-0953271e"
+    },
+    {
+      "manifest_sha256": "c1d85e2aa928b8605427fd975ddca7b297bb44a851742a700f9920cb9b1f8268",
+      "queries_replayed": 2048,
+      "run_id": "learning-verify-20260930T093343Z-ab1daaa2",
+      "training_run_id": "learning-train-20260930T093340Z-9c94a552"
+    }
+  ]
+}

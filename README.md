@@ -90,6 +90,11 @@ preflight selects between two registered training budgets before fitting. This i
 mechanism experiment, not Noetloom's final architecture. See the
 [learning commands](docs/reference/commands.md#registered-learning-probe).
 
+The [first learned result](docs/decisions/0004-learned-selection.md) rejected that configuration:
+selective reads averaged 72.6% accuracy versus 84.9% for the matched dense control, with one
+near-chance training seed. Payload reads fell to 7.1% of dense, without a demonstrated
+speed advantage. All five seeds and the full verification evidence are retained.
+
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Noetloom source and
