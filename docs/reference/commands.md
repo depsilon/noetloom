@@ -245,6 +245,37 @@ including the original failed run, and the original aggregate time/storage ceili
 diagnostic attempts and their committed source. The optional `--input-root` on `run` selects
 an intact restored historical artifact bundle; it does not bypass original hashes or source.
 
+## Learned state representation pilot
+
+`python3 -B scripts/state_representation.py preflight` checks the EXP-0007 input partitions,
+auxiliary-target isolation, control sensitivity, synthetic training, target-gradient boundary
+and independent scalar equations. Commit its source and protocol first. It does not establish
+acquisition. Use its absolute output path as the fitting admission:
+
+```sh
+python3 -B scripts/state_representation.py inject --admission /absolute/preflight-directory
+python3 -B scripts/state_representation.py affine --observation aligned --admission /absolute/preflight-directory
+python3 -B scripts/state_representation.py train --observation aligned --arm latent --condition lr003 --seed 11003 --admission /absolute/preflight-directory
+python3 -B scripts/state_representation.py verify --run /absolute/fit-directory
+python3 -B scripts/state_representation.py transfer --run /absolute/acquired-fit-directory
+python3 -B scripts/state_representation.py verify --run /absolute/transfer-directory
+python3 -B scripts/state_representation.py summary
+```
+
+Arms are `latent`, `consistent` and `direct`; observations are `aligned` and `nonlinear`.
+Every fit runs the registered tiny/one/mixed curriculum and stops on a failed gate. Complete
+all three seeds at a common condition before advancing that arm to nonlinear observations or
+development transfer. `transfer` also requires a full prior fitting replay. Execution success
+does not imply acquisition. No command renders final trajectories. Every identity, failure,
+verification and restoration replay is charged against the single persistent ledger.
+
+`verify --recovery` permits one separately charged replay of an intact original after private
+restoration; it never changes the original result. Bundle each observation separately with
+`python3 -B scripts/artifact_backup.py pack --scope state-repr-aligned` or
+`--scope state-repr-nonlinear`, then verify the private copy, restore its inventory and exercise
+representative inference from its recorded source. The source is part of each bundle. These
+commands neither publish nor retire artifacts.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with

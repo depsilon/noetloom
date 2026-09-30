@@ -409,6 +409,11 @@ def check_repository(root: Path) -> dict[str, Any]:
             from .transition_contracts import validate_protocol
             validate_protocol(protocol, profiles["local-calibration"])
             repo_reference(root, protocol["design"])
+        elif protocol.get("schema_version") == "noetloom.state_representation.v1":
+            from .state_rep_contracts import validate_protocol
+            validate_protocol(protocol, profiles["local-calibration"])
+            repo_reference(root, protocol["design"])
+            repo_reference(root, protocol["prior_evidence"])
         else:
             validate_experiment(protocol, policy)
         if protocol["id"] in ids or path.parent.name != protocol["id"]:
