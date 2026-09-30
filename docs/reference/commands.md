@@ -99,6 +99,17 @@ committed `experiments/EXP-0005/confirmation.json` selected after development; n
 access is implied by the pilot. Fitting, verification and resource outcomes remain distinct.
 An expected post-fit injection exits successfully only when those three outcomes are correct;
 its run remains failed. All parameter artifacts support inference, not optimizer continuation.
+`verify --development-transfer --run RUN` additionally requires the entire arm/condition to
+pass its three-seed mixed-format gate. It consumes a replay allowance. The original pilot at
+`734e3d6` performed three diagnostics too early; its result record preserves that deviation.
+Historical replay requires its recorded source, available in the private evidence bundle.
+`summary` verifies each recorded source against its exact Git revision and reports selections
+separately by revision. Its confirmation decision requires successful fitting, verification,
+resource admission and a matching completed replay for every frozen seed.
+The [confirmation amendment](../../experiments/EXP-0005/confirmation-amendment.md)
+freezes `shared_rows`, `mixed`, `long`, final-step selection and five fresh seeds. Execute
+each with `confirm --admission PREFLIGHT_DIRECTORY --arm shared_rows --stage mixed
+--condition long --seed SEED`, then `verify --run CONFIRMATION_RUN_DIRECTORY`.
 
 The explicit `local-calibration` profile allows 50,000 presentations, 16 MiB output and
 120 seconds per worker with the original cache/headroom limits. Whole-study ceilings also

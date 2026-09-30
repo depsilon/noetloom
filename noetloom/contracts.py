@@ -401,6 +401,10 @@ def check_repository(root: Path) -> dict[str, Any]:
             from .calibration_contracts import validate_calibration_protocol
             validate_calibration_protocol(protocol, profiles["local-calibration"])
             repo_reference(root, protocol["design"])
+            confirmation = path.parent / "confirmation.json"
+            if confirmation.is_file():
+                from .calibration_contracts import validate_confirmation
+                validate_confirmation(read_json(confirmation))
         else:
             validate_experiment(protocol, policy)
         if protocol["id"] in ids or path.parent.name != protocol["id"]:

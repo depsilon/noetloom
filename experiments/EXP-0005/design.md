@@ -103,3 +103,12 @@ for replay of all saved predictions and independently recomputed scores. This ca
 the existing numerical environment, without extending the Rust runtime. A replay validates
 saved inference, not a reproduction of stochastic optimization. Restore and replay selected
 new evidence from its second copy before delivery, and retain all attempts.
+
+## Execution note
+
+The pilot executed with source `734e3d6`. Review found that three individually qualifying
+seeds received transformation diagnostics before the complete three-seed condition qualified.
+These observations did not feed fitting, checkpoint selection or the short/long choice; they
+remain exploratory records, with no arm-level transfer comparison. The delivered driver
+separates this action from fitting and requires aggregate admission before transformation
+access. No learning was repeated or historical artifact rewritten by that repair.

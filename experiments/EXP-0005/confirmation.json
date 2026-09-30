@@ -1,0 +1,19 @@
+{
+  "schema_version": "noetloom.calibration_confirmation.v1",
+  "seeds": [8101, 8209, 8311, 8419, 8521],
+  "arms": ["shared_rows"],
+  "conditions": {"shared_rows": "long"},
+  "selection_rule": "last",
+  "pilot_source_commit": "734e3d618a1e0ba7be655e7a57b3c668268040ac",
+  "development_summary_sha256": "b2aa228114a5311905d16c19fa3ea74c5b72c0a94b6e728d646230a850c3c6bb",
+  "development_parents": [
+    {"seed": 7103, "run": "calibration-development-ca04683787", "manifest_sha256": "e2546982bbfebcf216fbb35eca4d3423239e159730ca9430397630714fee3eea", "fit_sha256": "de9c6cf5b318abfa546acb9780da360421fb7bc5b2455caf0e847b6b76be8d33", "snapshot_sha256": "a9f59cd9b3b66674a5e3f688955ac5eb2c7d96b3133b2ad7ada65a7baea7635e", "replay": "calibration-replay-a3fbb52f0f", "replay_manifest_sha256": "79a4bd7474bfce6c36a2816fe9dbc522ee6215cc43863bdb0e9d7104bc2efacb"},
+    {"seed": 7207, "run": "calibration-development-9ad4b5594f", "manifest_sha256": "0f5e04876450a7b6fc8ee7e6c8d194125cdc080ef4e7060eb300d2c2d581353b", "fit_sha256": "ea657b67f5fdd1a7e9f2c263b6c68e93529c865dd8719b26c7f3c479e6c89a33", "snapshot_sha256": "987abfb81e078994a162548d1c65120821d162ab6852824a16cbab8424292d79", "replay": "calibration-replay-cd0e53ad34", "replay_manifest_sha256": "336617c699513c1aa3d46726b12ca666be27c150257ea5a0900a2119bd4292f0"},
+    {"seed": 7309, "run": "calibration-development-702b32ee70", "manifest_sha256": "4d3a001a27002913ff736e4e4e6cdd961d32dd4a6879c085cd9f76b3867bfb78", "fit_sha256": "b21ad243962ed628d9fbd41b7cbb83c4b28ef0178cee241f81529d114007db44", "snapshot_sha256": "a0fee255faafa29859a9a238002ffd8cf45f5aaf72860d68fd95713273ebc9ff", "replay": "calibration-replay-a27242a131", "replay_manifest_sha256": "c0618baa0cf4b49e226cceafce0e9dbde32dd54b4f17611bced3b3d0e298d36b"}
+  ],
+  "acquisition": {"training_and_validation": "original mixed gates at step 2048 for all five seeds", "mean_final_base_accuracy": 0.90, "minimum_final_seed_format_accuracy": 0.85, "trained_minus_untrained_base_ci_low": 0.20},
+  "transfer": {"families": ["row_permutation", "transpose"], "mean_accuracy": 0.90, "minimum_seed_format_accuracy": 0.85, "paired_change_from_base_ci_low": -0.05, "interval": "paired_training_seed_t95_df4; fixed generated cases, not population uncertainty"},
+  "missing_runs": "Attempt all five seeds once. Any missing, failed, or acquisition-failing seed prevents overall competence confirmation; do not replace it or tune on final results.",
+  "amendment": "One development-informed selection-rule amendment: use the final 2048-update snapshot instead of minimum validation loss. All three archived development final snapshots qualify. No extra pilot fitting; original pilot gates/results remain unchanged. This is not the original preregistered selection rule.",
+  "claim": "Baseline-only competence and transformation retention on six-entity fields; no architecture comparison, H-011 promotion, novelty, persistence, procedure or language claim."
+}

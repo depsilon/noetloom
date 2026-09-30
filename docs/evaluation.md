@@ -71,6 +71,8 @@ in the pilot, with thresholds appropriate to the task's chance or trivial baseli
 recycle EXP-0004's 70% floor as a universal standard. Retain all attempts and training curves,
 fixed train/validation measurement points, class/support counts, actual presentations and
 per-format accuracy. Minibatch loss cannot substitute for measured training accuracy.
+Enforce advancement at the declared unit; an individually passing seed does not admit
+transformation evaluation for an arm whose required seed group has not passed.
 More updates are one possible diagnostic; eight average presentations per example alone
 cannot diagnose undertraining.
 

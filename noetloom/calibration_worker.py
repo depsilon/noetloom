@@ -54,6 +54,25 @@ def metric_record(value: dict) -> dict:
     return {key: value[key] for key in ("cross_entropy", "scored")}
 
 
+def select_measurement(measurements: list[dict], request: dict) -> int:
+    rule = request.get("checkpoint_selection", "minimum_validation_loss")
+    if rule == "last":
+        if request["kind"] != "confirmation":
+            raise ContractError("last-step selection belongs only to the explicit confirmation amendment")
+        return len(measurements) - 1
+    if rule != "minimum_validation_loss":
+        raise ContractError("unregistered calibration checkpoint selection")
+    objective = "training" if request["stage"] == "tiny" else "validation"
+    return min(range(len(measurements)), key=lambda i: (measurements[i][objective]["cross_entropy"], measurements[i]["step"]))
+
+
+def require_confirmation_payloads(directory: Path, request: dict, selected: dict, protocol: dict) -> None:
+    if request["kind"] == "confirmation":
+        expected = acquisition_gate(request["stage"], selected, protocol)["passed"]
+        if any((directory / name).is_file() != expected for name in ("evaluation-data.json", "untrained.json")):
+            raise ContractError("confirmation evaluation and initialization-control payloads do not match acquisition admission")
+
+
 def reference_check(engine, model, cases: list[dict]) -> dict:
     # Full replay uses a fresh numerical process; these checks independently implement
     # every operation and sample up to 24 observed fields spanning the available rows.
@@ -99,16 +118,22 @@ def verify_selected(engine, model, data: dict, fit: dict, protocol: dict, reques
             raise ContractError("restored snapshot does not reproduce fitting selection metrics")
     passed = acquisition_gate(request["stage"], selected, protocol)["passed"]
     evaluation = []
-    if request["stage"] == "mixed" and passed:
+    # Development transformation access is a separate replay action admitted only
+    # after all registered seeds pass. Fitting cannot grant that arm-level permission.
+    if request["kind"] == "confirmation" and request["stage"] == "mixed" and passed:
         evaluation = generate(protocol, "mixed", confirmation=request["kind"] == "confirmation")["evaluation"]
         write(directory, "evaluation-data.json", {"rows": evaluation})
         results["evaluation"] = evaluate(engine, model, evaluation)
+        untrained = engine.Model.restore(read_json(directory / "parameters-0.json"))
+        write(directory, "untrained.json", evaluate(engine, untrained, evaluation))
     write(directory, "predictions.json", results)
     reference = reference_check(engine, model, data["training"] + data["validation"])
     diagnostic = diagnostics(engine, model, data["training"], data["validation"]) if data["validation"] else None
     presentations = 2 * len(data["training"]) + 3 * len(data["validation"]) + len(evaluation) + 3 * reference["cases"]
     if not data["validation"]:
         presentations -= len(data["training"])
+    if evaluation:
+        presentations += len(evaluation)  # Registered untrained-initialization control.
     return {"reference": reference, "acquisition": fit["acquisition"], "diagnostics": diagnostic,
             "verification_presentations": presentations,
             "evaluation_cases": len(evaluation), "evaluation_scored": results["evaluation"]["scored"]}
@@ -149,8 +174,7 @@ def train(engine, protocol: dict, request: dict, directory: Path) -> None:
             measurements.append(measurement)
             write(directory, "fit-progress.json", {"completed_updates": step, "losses": losses,
                                                     "measurements": measurements})
-    objective = "training" if request["stage"] == "tiny" else "validation"
-    selected_index = min(range(len(measurements)), key=lambda i: (measurements[i][objective]["cross_entropy"], measurements[i]["step"]))
+    selected_index = select_measurement(measurements, request)
     selected = measurements[selected_index]
     snapshot = read_json(directory / selected["snapshot"])
     write(directory, "selected.json", snapshot)
@@ -182,7 +206,6 @@ def replay(engine, protocol: dict, request: dict, directory: Path) -> None:
             or fit["protocol_sha256"] != file_digest(original / "protocol.json")
             or fit["selected_sha256"] != file_digest(original / "selected.json")):
         raise ContractError("fitting identity, update count, snapshots or measurement schedule differs")
-    objective = "training" if old_request["stage"] == "tiny" else "validation"
     for measurement in measurements:
         path = original / measurement["snapshot"]
         if file_digest(path) != measurement["snapshot_sha256"]:
@@ -194,9 +217,10 @@ def replay(engine, protocol: dict, request: dict, directory: Path) -> None:
         for group in ("training", "validation"):
             if metric_record(evaluate(engine, model, data[group])) != measurement[group]:
                 raise ContractError("replayed fitting curve differs from saved metrics")
-    chosen = min(range(len(measurements)), key=lambda i: (measurements[i][objective]["cross_entropy"], measurements[i]["step"]))
+    chosen = select_measurement(measurements, old_request)
     if fit["selected_measurement"] != chosen or read_json(original / "selected.json") != read_json(original / measurements[chosen]["snapshot"]):
         raise ContractError("selected snapshot differs from registered checkpoint rule")
+    require_confirmation_payloads(original, old_request, measurements[chosen], protocol)
     model = engine.Model.restore(read_json(original / "selected.json"))
     if (original / "evaluation-data.json").is_file():
         evaluation = read_json(original / "evaluation-data.json")["rows"]
@@ -214,9 +238,22 @@ def replay(engine, protocol: dict, request: dict, directory: Path) -> None:
     count = len(measurements) * (len(data["training"]) + len(data["validation"])) + sum(len(v) for v in data.values()) + 3 * reference["cases"]
     if diagnostic:
         count += len(data["training"]) + 2 * len(data["validation"])
+    if (original / "untrained.json").is_file():
+        untrained = engine.Model.restore(read_json(original / "parameters-0.json"))
+        if evaluate(engine, untrained, data["evaluation"]) != read_json(original / "untrained.json"):
+            raise ContractError("replayed untrained-initialization control differs")
+        count += len(data["evaluation"])
+    if request.get("development_transfer"):
+        transfer = generate(protocol, "mixed")["evaluation"]
+        write(directory, "transfer-data.json", {"rows": transfer})
+        write(directory, "transfer.json", evaluate(engine, model, transfer))
+        transfer_reference = reference_check(engine, model, transfer)
+        count += len(transfer) + 3 * transfer_reference["cases"]
+        write(directory, "transfer-reference.json", transfer_reference)
     write(directory, "replay.json", {"status": "passed", "original_fit_sha256": file_digest(original / "fit.json"),
                                     "measurements": len(measurements), "predictions": sum(len(v) for v in data.values()),
                                     "case_presentations": count,
+                                    "development_transfer": bool(request.get("development_transfer")),
                                     "reference": reference, "scope": "Inference and fitted curves replayed; optimization not rerun."})
 
 

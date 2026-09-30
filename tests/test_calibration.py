@@ -10,10 +10,11 @@ import unittest
 from unittest.mock import patch
 
 from helpers import ROOT
-from noetloom.calibration_contracts import acquisition_gate, validate_calibration_protocol
+from noetloom.calibration_contracts import acquisition_gate, confirmation_decision, validate_calibration_protocol, validate_confirmation
 from noetloom.calibration_data import decode, generate, orbit_key, partitions, render, score
 from noetloom.calibration_model import parameter_count, scalar_forward, shapes, validate_snapshot
 from noetloom.calibration_records import publish_fit, write
+from noetloom.calibration_worker import require_confirmation_payloads, select_measurement, verify_selected
 from noetloom.contracts import ContractError, canonical_bytes, load_policy, read_json
 from noetloom.representation_data import generate as retired_data
 
@@ -173,6 +174,108 @@ class CalibrationTests(unittest.TestCase):
             request = {**request, "stage": "tiny", "condition": "long"}
             with self.assertRaisesRegex(ContractError, "unsuccessful short"):
                 driver.admit(root, protocol(), request)
+
+    def test_one_passing_seed_cannot_admit_development_transformations(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "request.json").write_bytes(canonical_bytes({"kind": "development", "stage": "mixed",
+                "arm": "shared_rows", "condition": "short", "seed": 7103}))
+            with patch.object(driver, "stage_selection", return_value=None), self.assertRaisesRegex(ContractError, "three-seed"):
+                driver.require_transfer_selection(root, protocol(), root)
+            with patch.object(driver, "stage_selection", return_value="long"), self.assertRaisesRegex(ContractError, "three-seed"):
+                driver.require_transfer_selection(root, protocol(), root)
+            with patch.object(driver, "stage_selection", return_value="short"):
+                driver.require_transfer_selection(root, protocol(), root)
+
+    def test_fitting_verification_never_renders_development_transforms_even_for_a_passing_seed(self):
+        metrics = {"cross_entropy": 0.0, "scored": {"identity/" + s: {"accuracy": 1.0} for s in protocol()["data"]["surfaces"]}}
+        selected = {"step": 512, "training": metrics, "validation": metrics}
+        fit = {"measurements": [selected], "selected_measurement": 0, "acquisition": {"passed": True}}
+        data = {"training": [{}], "validation": [{}], "evaluation": []}
+        with patch("noetloom.calibration_worker.evaluate", return_value=metrics), \
+                patch("noetloom.calibration_worker.write"), \
+                patch("noetloom.calibration_worker.reference_check", return_value={"cases": 1}), \
+                patch("noetloom.calibration_worker.diagnostics", return_value={}), \
+                patch("noetloom.calibration_worker.generate") as generation:
+            result = verify_selected(None, None, data, fit, protocol(), {"kind": "development", "stage": "mixed"}, Path("unused"))
+            generation.assert_not_called()
+            self.assertEqual(result["evaluation_cases"], 0)
+
+    def test_confirmation_amendment_does_not_retroactively_change_pilot_selection(self):
+        points = [{"step": 512, "validation": {"cross_entropy": 0.1}},
+                  {"step": 2048, "validation": {"cross_entropy": 0.2}}]
+        self.assertEqual(select_measurement(points, {"kind": "development", "stage": "mixed"}), 0)
+        self.assertEqual(select_measurement(points, {"kind": "confirmation", "stage": "mixed", "checkpoint_selection": "last"}), 1)
+        with self.assertRaisesRegex(ContractError, "confirmation amendment"):
+            select_measurement(points, {"kind": "development", "stage": "mixed", "checkpoint_selection": "last"})
+        registration = read_json(ROOT / "experiments/EXP-0005/confirmation.json")
+        validate_confirmation(registration)
+        registration["seeds"][0] += 1
+        with self.assertRaisesRegex(ContractError, "frozen"):
+            validate_confirmation(registration)
+
+    def test_confirmation_distinguishes_acquisition_transfer_and_missing_seeds(self):
+        registration = read_json(ROOT / "experiments/EXP-0005/confirmation.json")
+        def scored(correct):
+            return {"correct": correct, "total": 192, "class_support": [96, 96], "accuracy": correct / 192}
+        results = {seed: {"acquisition": True, "run_status": "passed", "replay_status": "passed",
+                         "outcomes": {key: {"status": "completed"} for key in ("fitting", "verification", "resource")},
+                         "trained": {family + "/" + surface: scored(96 if family == "transpose" else 186)
+                                     for family in ("identity", "row_permutation", "transpose") for surface in ("ranks", "sequence", "relations")},
+                         "untrained": {family + "/" + surface: scored(96)
+                                       for family in ("identity", "row_permutation", "transpose") for surface in ("ranks", "sequence", "relations")}}
+                   for seed in registration["seeds"]}
+        result = confirmation_decision(registration, results)
+        self.assertEqual(result["decision"], "competent_baseline_confirmed")
+        self.assertTrue(result["transfer"]["row_permutation"]["retained"])
+        self.assertFalse(result["transfer"]["transpose"]["retained"])
+        for key in ("run_status", "replay_status"):
+            altered = deepcopy(results)
+            altered[registration["seeds"][0]][key] = "failed"
+            self.assertEqual(confirmation_decision(registration, altered)["decision"], "not_confirmed")
+        for key in ("fitting", "verification", "resource"):
+            altered = deepcopy(results)
+            altered[registration["seeds"][0]]["outcomes"][key]["status"] = "failed"
+            self.assertEqual(confirmation_decision(registration, altered)["decision"], "not_confirmed")
+        results[registration["seeds"][0]]["acquisition"] = False
+        self.assertEqual(confirmation_decision(registration, results)["decision"], "not_confirmed")
+        del results[registration["seeds"][0]]
+        self.assertEqual(confirmation_decision(registration, results)["decision"], "not_confirmed")
+
+    def test_historical_summary_checks_archived_source_without_admitting_current_replay(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            old = {"files": [{"path": "old.py", "sha256": "a" * 64}]}
+            stored = {"schema_version": "noetloom.calibration_run.v1", "status": "passed", "artifacts": [],
+                      "source": old, "source_commit": "b" * 40}
+            (root / "manifest.json").write_bytes(canonical_bytes(stored))
+            with patch.object(driver.supervisor, "artifacts", return_value=[]), \
+                    patch.object(driver, "source_at_revision", return_value=old), \
+                    patch.object(driver, "identity", return_value={"files": []}):
+                self.assertEqual(driver.manifest(root, current_source=False), stored)
+                with self.assertRaisesRegex(ContractError, "source differs"):
+                    driver.manifest(root)
+            with patch.object(driver.supervisor, "artifacts", return_value=[]), \
+                    patch.object(driver, "source_at_revision", return_value={"files": []}):
+                with self.assertRaisesRegex(ContractError, "source differs"):
+                    driver.manifest(root, current_source=False)
+
+    def test_confirmation_replay_requires_both_final_and_initialization_control_payloads(self):
+        counts = {"identity/" + surface: {"accuracy": 1.0} for surface in protocol()["data"]["surfaces"]}
+        selected = {"step": 2048, "training": {"scored": counts}, "validation": {"scored": counts}}
+        request = {"kind": "confirmation", "stage": "mixed"}
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with self.assertRaisesRegex(ContractError, "payloads"):
+                require_confirmation_payloads(root, request, selected, protocol())
+            (root / "evaluation-data.json").write_text("{}")
+            with self.assertRaisesRegex(ContractError, "payloads"):
+                require_confirmation_payloads(root, request, selected, protocol())
+            (root / "untrained.json").write_text("{}")
+            require_confirmation_payloads(root, request, selected, protocol())
+            selected["step"] = 0
+            with self.assertRaisesRegex(ContractError, "payloads"):
+                require_confirmation_payloads(root, request, selected, protocol())
 
 
 if __name__ == "__main__":

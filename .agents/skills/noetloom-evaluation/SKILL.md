@@ -27,6 +27,8 @@ use the staged development contract rather than inspecting final examples to tun
 Keep loss curves, training and validation accuracy, class/support counts and per-format results.
 Tiny-set memorization is a sanity check. Loss, a finite gradient and one successful seed do
 not establish reliable learning. Report unequal realized compute even under common ceilings.
+Enforce advancement at the registered unit: an individually passing seed cannot admit
+arm-level transformation tests when the contract requires every seed to acquire first.
 
 For new learning workers, preserve fitting telemetry before downstream verification. Report
 fitting, verification and resource admission separately, with unknown or interrupted states
