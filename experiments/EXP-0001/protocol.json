@@ -1,0 +1,30 @@
+{
+  "schema_version": "noetloom.experiment.v1",
+  "id": "EXP-0001",
+  "title": "Mutable associative recall harness controls",
+  "kind": "harness_validation",
+  "hypothesis": "An episode-isolated evaluation can distinguish exact recall from absent, stale, and capacity-limited memory across retention, revision, deletion, and unknown-key probes.",
+  "family": "mutable_recall_v1",
+  "source_refs": ["R-NTM", "R-ZOOLOGY"],
+  "controls": ["exact_memory", "no_memory", "stale_memory", "bounded_memory"],
+  "seeds": [11, 29, 47],
+  "value_count": 16,
+  "bounded_memory_slots": 4,
+  "splits": [
+    {"name": "development", "episodes": 8, "memory_slots": 4, "distractors": 2, "updates": 1, "deletes": 1},
+    {"name": "validation", "episodes": 8, "memory_slots": 4, "distractors": 2, "updates": 1, "deletes": 1},
+    {"name": "test", "episodes": 16, "memory_slots": 4, "distractors": 2, "updates": 1, "deletes": 1},
+    {"name": "capacity_shift", "episodes": 16, "memory_slots": 16, "distractors": 8, "updates": 4, "deletes": 4}
+  ],
+  "budget": {"max_wall_seconds": 30, "max_output_bytes": 8388608},
+  "acceptance": {
+    "exact_memory_accuracy": 1.0,
+    "negative_controls_must_fail": ["no_memory", "stale_memory", "bounded_memory"],
+    "require_disjoint_episode_inputs": true
+  },
+  "claim_boundary": "This validates a synthetic evaluation harness and hand-written controls. No learning, cross-session memory, discovered procedure, foundation capability, efficiency advantage, or LLM substitution is demonstrated.",
+  "stop_conditions": ["budget_exceeded", "input_overlap", "reference_failure", "insensitive_negative_control"],
+  "network_required": false,
+  "pretrained_components": [],
+  "training_performed": false
+}

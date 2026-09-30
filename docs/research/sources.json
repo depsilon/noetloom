@@ -1,0 +1,101 @@
+{
+  "schema_version": "noetloom.sources.v1",
+  "sources": [
+    {
+      "id": "R-NTM",
+      "title": "Neural Turing Machines",
+      "url": "https://arxiv.org/abs/1410.5401v2",
+      "year": 2014,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "A differentiable neural controller reads and writes an external memory through attentional heads.",
+      "supported_claim": "The authors report preliminary demonstrations that NTMs learn simple copying, sorting, and associative-recall procedures from examples.",
+      "limitations": ["The reported evidence is preliminary and concerns the paper's specified algorithmic tasks; broad general-purpose learning is not established by this source."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-ACT",
+      "title": "Adaptive Computation Time for Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1603.08983v6",
+      "year": 2016,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "Adaptive Computation Time learns how many recurrent steps to take between input and output.",
+      "supported_claim": "The paper reports that ACT adapts computation to task demands on four synthetic tasks; its character-level language-modeling experiment allocates more computation to harder-to-predict transitions but yields no large performance gain.",
+      "limitations": ["Evidence described here is limited to four synthetic tasks and one character-level Wikipedia language-modeling experiment."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-DREAMCODER",
+      "title": "DreamCoder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning",
+      "url": "https://arxiv.org/abs/2006.08381v1",
+      "year": 2020,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "A wake-sleep loop grows a symbolic program language while training neural guidance on imagined and replayed problems.",
+      "supported_claim": "The authors report solving inductive-programming and creative tasks, and rediscovering concepts in functional programming, vector algebra, and classical physics through compositional abstractions.",
+      "limitations": ["Results concern the demonstrated program-learning domains; general open-ended skill acquisition is not established by this source."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-ZOOLOGY",
+      "title": "Zoology: Measuring and Improving Recall in Efficient Language Models",
+      "url": "https://arxiv.org/abs/2312.04927v1",
+      "year": 2023,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "The study compares attention and gated-convolution recall, introduces multi-query associative recall, and evaluates sparse-attention hybrids.",
+      "supported_claim": "Across 17 pretrained models, the authors attribute much of the Pile perplexity gap to in-context associative recall; evaluated input-dependent sparse-attention hybrids close 97.4% of that gap while retaining sub-quadratic scaling.",
+      "limitations": ["The reported findings are about the tested language models, Pile comparison, and associative-recall analyses; they do not establish universal superiority of a hybrid architecture."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-TITANS",
+      "title": "Titans: Learning to Memorize at Test Time",
+      "url": "https://arxiv.org/abs/2501.00663v1",
+      "year": 2025,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "A learned neural long-term memory stores historical context alongside attention over current context; the paper presents three architecture variants.",
+      "supported_claim": "The authors report results on language modeling, commonsense reasoning, genomics, and time series, including higher needle-in-a-haystack accuracy than baselines beyond two million context tokens.",
+      "limitations": ["Claims reflect the paper's evaluated tasks and baselines; deployment cost, continual weight learning, and general-purpose memory are not established by this source."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-RECURRENT-DEPTH",
+      "title": "Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach",
+      "url": "https://arxiv.org/abs/2502.05171v2",
+      "year": 2025,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "A recurrent block is iterated at inference to scale computation through latent-space reasoning without generating additional reasoning tokens.",
+      "supported_claim": "The authors report a proof-of-concept model trained at 3.5 billion parameters on 800 billion tokens that improves on reasoning benchmarks as test-time computation increases.",
+      "limitations": ["The source describes a proof of concept and benchmark results; broad task coverage and production-scale advantages are not established."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-MOR",
+      "title": "Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation",
+      "url": "https://arxiv.org/abs/2507.10524v3",
+      "year": 2025,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "A shared recursive Transformer stack uses routers to assign per-token recursion depth and compute attention among still-active tokens.",
+      "supported_claim": "For evaluated models from 135M to 1.7B parameters, the authors report lower validation perplexity, better few-shot accuracy, and higher throughput than specified vanilla and recursive baselines at equal training FLOPs.",
+      "limitations": ["The abstract bounds experiments to the stated model scales and baselines; scaling beyond them is not established by this source."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    },
+    {
+      "id": "R-PLASTICITY",
+      "title": "Loss of plasticity in deep continual learning",
+      "url": "https://www.nature.com/articles/s41586-024-07711-7",
+      "year": 2024,
+      "accessed_on": "2026-09-30",
+      "review_depth": "abstract",
+      "mechanism": "Continual backpropagation maintains network plasticity by randomly reinitializing a small fraction of less-used units over training.",
+      "supported_claim": "The authors report that standard deep-learning methods lose plasticity in tested continual-learning settings, while continual backpropagation maintained it in their supervised and reinforcement-learning experiments.",
+      "limitations": ["The reported settings include ImageNet-derived and reinforcement-learning tasks; large-language-model continual learning is not established by this source."],
+      "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
+    }
+  ]
+}

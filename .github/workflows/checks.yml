@@ -1,0 +1,71 @@
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python-version: "3.11"
+          - os: macos-latest
+            python-version: "3.13"
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      NOETLOOM_CACHE: ${{ runner.temp }}/noetloom
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run unit tests
+        run: python -B -m unittest discover -s tests -v
+
+      - name: Check repository contracts
+        run: python -B -m noetloom check
+
+      - name: Check runner host admission
+        run: python -B -m noetloom doctor --profile ci-smoke
+
+      - name: Run and replay EXP-0001
+        run: |
+          python -B - <<'PY'
+          import json
+          import os
+          import sys
+          from pathlib import Path
+
+          from noetloom.runner import run_experiment, verify_run
+
+          repo = Path.cwd()
+          run = run_experiment(
+              repo,
+              repo / "experiments/EXP-0001/protocol.json",
+              Path(os.environ["NOETLOOM_CACHE"]),
+              profile="ci-smoke",
+          )
+          verification = verify_run(repo, Path(run["directory"]), profile="ci-smoke")
+          print(json.dumps({"run": run, "verification": verification}, sort_keys=True))
+          if verification.get("harness_verdict") != "passed":
+              sys.exit("EXP-0001 replay verification did not pass")
+          PY

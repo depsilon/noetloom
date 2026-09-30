@@ -1,0 +1,60 @@
+{
+  "schema_version": "noetloom.hypotheses.v1",
+  "hypotheses": [
+    {
+      "id": "H-001",
+      "title": "Selective learned memory access",
+      "status": "proposed",
+      "mechanism": "An original learned controller selects and updates external state rather than processing all stored experience on each query.",
+      "prediction": "Under matched information and measured training/inference budgets, the candidate improves retention at increasing delay and capacity while preserving held-out task accuracy.",
+      "falsifier": "The advantage disappears with credible learned baselines, access-cost accounting, memory ablation, or held-out operation structures.",
+      "source_refs": ["R-NTM", "R-ZOOLOGY", "R-TITANS"],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-002",
+      "title": "Adaptive recurrent computation",
+      "status": "proposed",
+      "mechanism": "Shared learned computation selects additional iterations or halts based on state and uncertainty signals.",
+      "prediction": "A learned allocation rule improves the quality/cost frontier relative to fixed-depth and fixed-budget controls after charging routing and halting overhead.",
+      "falsifier": "The apparent benefit is explained by greater total compute, favorable example selection, uncharged routing, or failure on unfamiliar compositions.",
+      "source_refs": ["R-ACT", "R-RECURRENT-DEPTH", "R-MOR"],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-003",
+      "title": "Learned reusable computation",
+      "status": "proposed",
+      "mechanism": "Repeated task structure becomes reusable learned computation without requiring a predefined human cognitive taxonomy.",
+      "prediction": "New bindings and held-out compositions reuse acquired structure with lower total cost than equivalent retraining or repeated search, including acquisition and verification cost.",
+      "falsifier": "Reuse reduces to answer memorization, depends on hand-supplied solutions, fails compositional transfer, or costs more overall than the matched control.",
+      "source_refs": ["R-DREAMCODER"],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-004",
+      "title": "Continual adaptation with bounded interference",
+      "status": "proposed",
+      "mechanism": "Separately measured state writes and learned-parameter changes preserve plasticity while constraining interference and growth.",
+      "prediction": "The candidate learns sequential tasks while retaining earlier competence under a fixed total memory and adaptation budget.",
+      "falsifier": "Retention comes from unbounded storage/replay, adaptation stalls, or improvements disappear under equal replay and update budgets.",
+      "source_refs": ["R-PLASTICITY", "R-TITANS"],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-005",
+      "title": "Reversible acquisition before persistent promotion",
+      "status": "proposed",
+      "mechanism": "New learned state or reusable computation is first versioned in a bounded working area; a learned selection rule proposes promotion and permits invalidation.",
+      "prediction": "At equal total resource cost, staged acquisition improves recovery from misleading updates without materially reducing useful adaptation or unseen-task transfer.",
+      "falsifier": "Promotion and checking overhead dominate, error recovery requires oracle labels unavailable to controls, or the candidate only succeeds with hand-coded semantic categories.",
+      "source_refs": ["R-PLASTICITY", "R-DREAMCODER"],
+      "novelty_status": "unassessed",
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[project]
+name = "noetloom"
+version = "0.0.1"
+description = "Research infrastructure for an experimental post-LLM foundation architecture"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Noetloom contributors"}]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/depsilon/noetloom"
+
+[tool.noetloom]
+status = "research-foundation"
+execution = "source-checkout"

@@ -1,0 +1,12 @@
+{
+  "schema_version": "noetloom.resources.v1",
+  "profile": "ci-smoke",
+  "max_workspace_bytes": 67108864,
+  "min_free_disk_bytes": 536870912,
+  "max_run_output_bytes": 8388608,
+  "max_wall_seconds": 30,
+  "max_cases": 10000,
+  "max_memory_slots": 256,
+  "max_repo_file_bytes": 2097152,
+  "max_repo_total_bytes": 20971520
+}

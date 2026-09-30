@@ -1,0 +1,79 @@
+# Research and agent operating model
+
+## Authority and source ownership
+
+| Question | Authoritative source |
+| --- | --- |
+| What is the system meant to become? | [Charter](charter.md) |
+| What work is selected next? | [Plan](state/plan.json), exposed by `noetloom status` |
+| What experiment may execute and within what limits? | Its registered protocol and [resource policy](../config/resource-policy.json) |
+| What happened and which claim follows? | Run evidence, its verification, and a dated decision |
+| What is permitted in this session? | The user's instructions and already granted authority |
+| How should a task be performed? | [AGENTS.md](../AGENTS.md), relevant global skills, and the selected project skill |
+
+The roadmap is not a permission grant. Local research foundation work and the small built-in
+harness were authorized on 2026-09-30. No standing grant to push, merge, publish Releases,
+spend on remote compute, or redistribute third-party data has been recorded. Keep this
+record current when the user changes authority; do not ask again for the same granted action.
+Complete reversible preparation before an external action needs approval.
+
+## Select a coherent work unit
+
+Run `python3 -B -m noetloom status`. It selects the active item, or the first planned item
+whose dependencies are complete. The command proposes priority; it does not start work.
+Only one primary item is active. Independent leaf assignments belong to that item.
+
+Each queue item names its sources, outcome, acceptance conditions, verification, resource
+profile, and stop condition. The bootstrap's future research items are design briefs:
+their first task is to register an executable learning protocol. The harness runner
+deliberately refuses training protocols until an appropriate learning contract exists.
+Do not fill this gap with guessed commands or treat a broad acceptance list as preregistration.
+
+Prefer one coherent implementation and evidence package over many tiny slices. Stop when
+the item's stated boundary is reached, a resource limit is hit, or continuing requires a
+new research decision. Update the plan and decision before expanding scope. A negative
+result closes an experiment when its protocol was sound; it need not close the research question.
+
+## Continuity without an ever-growing prompt
+
+At a handoff or context boundary preserve: the selected item, current user authorization,
+working branch and changes, decisions already made, tests actually run, exact artifact
+identities, unresolved evidence, and the next useful step. Resume that step. Do not replay
+intake, reinterpret compaction as a new task, or repeat a permission request already settled.
+
+Use concise queue evidence links and dated decisions. Long raw logs belong with runs, not
+in the active plan. Completed items retain their evidence, but are not another current queue.
+Split an unwieldy completed history into an archive only when it becomes a real loading cost;
+do not manufacture ledgers before evidence exists.
+
+## Primary and subagent responsibilities
+
+The primary retains research judgment, experiment design, integration, and final acceptance.
+Under the user's global routing policy, delegate bounded independent inventories,
+source-field extraction, specified transformations, and already-selected checks to a suitable
+economical leaf. Do not delegate uncertain research conclusions as mechanical work.
+
+Every packet names exact inputs, exclusive writable paths or read-only scope, expected
+output, acceptance checks, and stop conditions. A leaf gets no additional publication,
+compute-spend, or messaging authority. Verify results against sources and executable checks;
+confidence or a `COMPLETE` label is insufficient. Reuse useful worker context. Do not run
+multiple local training or evaluation jobs merely because agents are available.
+
+The current harness serializes writers within one cache root. Agents must share that root
+for local runs. Different cache roots do not constitute a global scheduler or global quota.
+
+## Evidence and completion
+
+Close infrastructure work with executable checks and evidence. Close a research claim with
+the [evaluation contract](evaluation.md), including controls and negative results. Record
+which methods were actually read in the [source catalog](research/sources.json).
+
+A decision states the observed result, supported scope, remaining uncertainty, next technical
+choice, and artifact locations or content identities. `noetloom check` validates structure,
+references, source syntax, and working-file budgets. It cannot establish scientific truth,
+review quality, novelty, legal rights, or that a listed command was executed.
+
+The global [Noetloom grounding skill](skills/sl-dh-noetloom-repo-grounding/SKILL.md) is a
+small project entrypoint. Repo-local research, evaluation, and artifact skills contain
+task-specific guidance. General engineering and research standards stay in the user's
+global skill library; ordinary contributors can use the repository without that library.
