@@ -30,9 +30,11 @@ def pack(scope: str) -> dict:
                 "transition-diagnostics": ("transition-diagnostic-",),
                 "state-repr-aligned": ("state-repr-aligned-",),
                 "state-repr-nonlinear": ("state-repr-nonlinear-",), "coordinates": ("coordinates-",),
-                "affine-coordinates": ("affine-coordinates-",)}[scope]
+                "affine-coordinates": ("affine-coordinates-",),
+                "representation-bridge": ("representation-bridge-",)}[scope]
     with RunLease(cache, policy, LIMIT):
-        directories = sorted(p for p in cache.iterdir() if p.name.startswith(prefixes) and p.is_dir())
+        directories = sorted(p for p in cache.iterdir() if p.name.startswith(prefixes) and p.is_dir()
+                             and not (scope == "prior" and p.name.startswith("representation-bridge-")))
         if not directories or sum(tree_bytes(p) for p in directories) > LIMIT // 2:
             raise ContractError("backup scope empty or exceeds 256 MiB input admission")
         output = cache / ("artifact-bundle-" + scope + "-" + uuid.uuid4().hex[:8])
@@ -119,7 +121,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     create = sub.add_parser("pack")
-    create.add_argument("--scope", choices=("prior", "calibration", "transitions", "transition-diagnostics", "state-repr-aligned", "state-repr-nonlinear", "coordinates", "affine-coordinates"), required=True)
+    create.add_argument("--scope", choices=("prior", "calibration", "transitions", "transition-diagnostics", "state-repr-aligned", "state-repr-nonlinear", "coordinates", "affine-coordinates", "representation-bridge"), required=True)
     unpack = sub.add_parser("restore")
     unpack.add_argument("--archive", type=Path, required=True)
     unpack.add_argument("--inventory", type=Path, required=True)

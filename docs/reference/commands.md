@@ -328,6 +328,38 @@ defines the ceilings and [design](../../experiments/EXP-0009/design.md) defines 
 Use `python3 -B scripts/artifact_backup.py pack --scope affine-coordinates` for the private
 archive, then verify restoration and representative replay before closure.
 
+## Representation change (EXP-0010)
+
+`python3 -B scripts/representation_bridge.py preflight` checks the registered observation
+transforms, actual float32 input partitions and synthetic numerical execution. It renders
+non-final inputs for structural audit without evaluating a learned candidate on development
+quality. Use its directory as `--admission` for `inject` and for each
+`baseline --seed 14003|14009|14027`. A baseline checks its pinned old parent on old-view
+development and continuation, then records zero-shot one-step training/validation predictions
+on both new views. All three old baselines must pass and fully replay before fitting.
+
+Use `train --stage one --observation shift|remix --arm frozen_warm|frozen_reset|refit_warm|refit_reset
+--condition lr010 --seed 14003|14009|14027 --admission PREFLIGHT_DIRECTORY`. Each seed has one
+registered retained parent, verified against the complete prior evidence and embedded into
+its new run. Warm/reset describes mapping initialization; frozen/refit describes operation
+treatment. Both treatments update only mapping parameters with Adam. Frozen operations must
+remain exactly equal to the parent values after every update.
+
+All 24 one-step attempts must terminate before any `train --stage mixed --original DIRECTORY`.
+Each arm/view independently requires all three one-step seeds to acquire and ordinarily replay;
+the mixed parent must be its exact matching seed and first acquired checkpoint. `evaluate
+--original DIRECTORY --admission PREFLIGHT_DIRECTORY` waits for all three mixed seeds to acquire
+and replay. Selection uses the earliest saved passing checkpoint, while the full registered
+fitting duration remains charged. No command exposes final trajectories.
+
+`verify --original DIRECTORY` reproduces a fit's full measurement, selection, prediction and
+refit evidence, an old baseline, or new-view development evaluation. `--recovery` marks the
+additional restored-source replay. Failed attempts cannot be repeated under the same identity.
+Use `python3 -B scripts/artifact_backup.py pack --scope representation-bridge` to retain the
+new runs and exact source archives. The [design](../../experiments/EXP-0010/design.md) and
+[protocol](../../experiments/EXP-0010/protocol.json) define retained-version scope, independent
+view gates, inherited costs and the limited descriptive cost comparison.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with
