@@ -52,6 +52,28 @@ and refuses duplicate attempts. Replay re-derives policy artifacts from the froz
 and selected gate. Analytical random-allocation accuracy is an expected control at equal
 payload cost; it is not a measured third implementation or latency claim.
 
+EXP-0004 has a strict `noetloom.representation.v1` contract. Read its
+[registered design](../../experiments/EXP-0004/design.md) before execution. It uses the
+already installed optional backend, starts every arm from its own initialization, and
+does not inherit EXP-0002/0003 checkpoints or require another download.
+
+```sh
+python3 -B scripts/representation.py preflight
+python3 -B scripts/representation.py campaign --admission PREFLIGHT_DIRECTORY
+python3 -B scripts/representation.py verify --run TRAINING_RUN_DIRECTORY
+python3 -B scripts/representation.py summarize --admission PREFLIGHT_DIRECTORY
+```
+
+The development preflight checks sampled gradients, native agreement and input boundaries,
+then admits a common update count using throughput alone. The campaign fits four arms and
+five seeds serially, retains all three validation checkpoints and the selected parameters,
+and refuses replacement attempts. Rust replay verifies predictions, held-out transport
+interventions, validation objectives, resource counts and persisted intermediate states.
+The summary reports the registered retain/reject decision separately from execution success;
+if every arm fails the task-acquisition floor, the representation comparison is inconclusive.
+Replay requires the recorded source commit and intact local artifacts, including its preserved
+executable. Hosted checks exercise contracts and native fixtures without repeating training.
+
 Use Python 3.11+ from the source checkout root. The CLI is `python3 -B -m noetloom`.
 The `-B` flag keeps bytecode out of the working tree. No external Python package is required.
 
@@ -88,6 +110,7 @@ The CLI's `--help` provides argument syntax.
 | Harness protocol | `noetloom.experiment.v1` | `experiments/EXP-0001/protocol.json`, `validate_experiment` |
 | Learned selection protocol | `noetloom.learning.v1` | `experiments/EXP-0002/protocol.json`, `validate_learning_protocol` |
 | Read allocation protocol | `noetloom.allocation.v1` | `experiments/EXP-0003/protocol.json`, `validate_allocation_protocol` |
+| Problem representation protocol | `noetloom.representation.v1` | `experiments/EXP-0004/protocol.json`, `validate_representation_protocol` |
 | Runtime inventory | `noetloom.source.v1` | `source.json` in each run, `source_identity` |
 | Run manifest | `noetloom.run.v1` | `manifest.json` in each run, `_manifest` |
 | Harness report | `noetloom.harness_report.v1` | `report.json` in each run, `verify_run` |

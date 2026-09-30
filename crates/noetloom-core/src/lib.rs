@@ -6,6 +6,7 @@ pub mod learning;
 pub mod memory;
 pub mod operator;
 pub mod provider;
+pub mod representation;
 pub mod store;
 pub mod value;
 
