@@ -30,6 +30,8 @@ The first protocol checks mutable associative recall using four hand-written con
 exact memory, absent memory, stale memory, and bounded memory. It probes retention,
 revision, deletion, and capacity. A passing run establishes that this harness distinguishes
 those controls; it establishes no learned intelligence or efficiency advantage.
+The [first verified run](experiments/EXP-0001/evidence/2026-09-30/README.md) records the
+results, exact artifact identities, review findings, and remaining proof gaps.
 
 ## Work autonomously with evidence
 

@@ -4,15 +4,15 @@
     {
       "id": "N-001",
       "title": "Establish the autonomous research foundation",
-      "status": "active",
+      "status": "completed",
       "depends_on": [],
       "sources": ["docs/charter.md", "docs/operating-model.md", "experiments/EXP-0001/protocol.json"],
       "outcome": "A small portable repo with discoverable instructions, research provenance, one active queue, validated experiment contracts, storage admission, and reproducible harness controls.",
       "acceptance": ["All local tests and repository checks pass.", "EXP-0001 passes and its evidence is replay-verified.", "The project skill is validated and available locally.", "An adversarial review has no unresolved blocking findings."],
-      "verification": ["python3 -B -m unittest discover -s tests -v", "python3 -B -m noetloom check", "python3 -B -m noetloom run experiments/EXP-0001/protocol.json"],
+      "verification": ["python3 -B -m unittest discover -s tests -v", "python3 -B -m noetloom check", "python3 -B -m noetloom run experiments/EXP-0001/protocol.json", "python3 -B -m noetloom verify-run ~/.cache/noetloom/20260930T023155Z-6a45c94644"],
       "budget_profile": "local-small",
       "stop_condition": "Close after the foundation and harness evidence are verified; record the next experiment as a separate research decision.",
-      "evidence": []
+      "evidence": ["experiments/EXP-0001/evidence/2026-09-30/README.md", "docs/decisions/0001-foundation.md"]
     },
     {
       "id": "N-002",
