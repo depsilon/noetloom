@@ -40,6 +40,10 @@ defines authority, continuity, subagent handoffs, and completion. The
 [machine-readable plan](docs/state/plan.json) is the only active queue. Use `status` to select
 the next item instead of reconstructing priorities from old discussions.
 
+Routine commits, pushes, and CI follow-through for agreed Noetloom work are delegated.
+The [delivery skill](.agents/skills/noetloom-delivery/SKILL.md) carries a coherent change
+through hosted verification without requiring the user to direct each Git step.
+
 Research is organized by [falsifiable hypotheses](docs/research/hypotheses.json),
 [reviewed source records](docs/research/sources.json), registered experiment protocols,
 and dated [decisions](docs/decisions/0001-foundation.md). The

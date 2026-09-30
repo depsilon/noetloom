@@ -20,8 +20,10 @@ outcome when its experiment was sound. Do not turn it into an indefinite prototy
 
 - Preserve the user's current instructions and already granted authority. Local implementation,
   repairs, disposable tests, and the small built-in harness can proceed without repeated approval.
-- Follow the user's global Git rules. A roadmap entry does not grant push, merge, release,
-  paid-compute, or external-data publication authority. Record later standing grants once.
+- The user has granted standing authority to commit and push already scoped Noetloom work
+  to `depsilon/noetloom` and follow CI through completion. Do not request permission for
+  each routine push. Read the scope in `docs/operating-model.md`; a roadmap alone is not
+  authority for unrelated publication, paid compute, or destructive work.
 - Use the existing global engineering/research/review skills when relevant. Keep general guidance
   there, not duplicated in every Noetloom document.
 - The primary owns research judgment, architecture, integration, and acceptance. Delegate bounded
@@ -53,6 +55,7 @@ outcome when its experiment was sound. Do not turn it into an indefinite prototy
 | Research or a new experiment | `.agents/skills/noetloom-research/SKILL.md` |
 | Evaluation, controls, results | `.agents/skills/noetloom-evaluation/SKILL.md` |
 | Artifacts, downloads, training outputs | `.agents/skills/noetloom-artifacts/SKILL.md` |
+| Commits, pushes, CI, and delivery | `.agents/skills/noetloom-delivery/SKILL.md` |
 | Agent continuity and authority | `docs/operating-model.md` |
 | CLI or contract changes | `docs/reference/commands.md`, `noetloom/contracts.py` |
 
@@ -76,4 +79,5 @@ its sampled checks are not an OS memory sandbox. Never delete a unique checkpoin
 a manifest exists. See `docs/storage.md` for integrity, archival, and retention rules.
 
 Before handing off, update the queue evidence and unresolved work. Leave exact commands and
-artifact identities; do not copy large transcripts into the active queue.
+artifact identities, the pushed commit, and CI status; do not copy large transcripts into
+the active queue. A routine push or a fixable CI failure is part of the work, not a user handoff.

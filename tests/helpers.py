@@ -28,3 +28,21 @@ def small_protocol() -> dict:
 
 def write_json(path: Path, value: object) -> None:
     path.write_bytes(canonical_bytes(value))
+
+
+def plan_fixture() -> dict:
+    """A fixed dependency graph, independent of the changing project work queue."""
+    return {
+        "schema_version": "noetloom.plan.v1",
+        "items": [
+            {
+                "id": f"N-{number:03d}", "title": f"Fixture item {number}", "status": "planned",
+                "depends_on": [] if number == 1 else [f"N-{number - 1:03d}"],
+                "sources": ["AGENTS.md"], "outcome": "Known test outcome",
+                "acceptance": ["Known test condition"], "verification": ["test command"],
+                "budget_profile": "local-small", "stop_condition": "Fixture complete",
+                "evidence": [],
+            }
+            for number in (1, 2, 3)
+        ],
+    }

@@ -11,11 +11,21 @@
 | What is permitted in this session? | The user's instructions and already granted authority |
 | How should a task be performed? | [AGENTS.md](../AGENTS.md), relevant global skills, and the selected project skill |
 
-The roadmap is not a permission grant. Local research foundation work and the small built-in
-harness were authorized on 2026-09-30. No standing grant to push, merge, publish Releases,
-spend on remote compute, or redistribute third-party data has been recorded. Keep this
-record current when the user changes authority; do not ask again for the same granted action.
-Complete reversible preparation before an external action needs approval.
+On 2026-09-30, the user clarified that Noetloom should inherit the autonomy expected for
+ShardLoom: they do not want to instruct the agent to push each completed change. For already
+scoped Noetloom work, standing authority includes implementation, appropriate research,
+verification, local commits, pushes of source/docs/tests/compact evidence to `depsilon/noetloom`,
+and diagnosing, repairing, and pushing fixes until its CI checks complete successfully.
+Use a pull request when it is part of the agreed repository workflow. Routine Git delivery
+does not require a new permission question, including after compaction or in a later session.
+
+This project-specific grant satisfies the global requirement for explicit push authority.
+It is grounded in the user's instruction, not inferred from the roadmap. Preserve the
+current work's scope and stop condition while carrying it through delivery. Other external
+commitments, such as paid compute, bulk Release publication, redistribution of third-party
+data, or merges outside a delegated PR workflow, still need their own applicable authority.
+Finish reversible preparation before surfacing a genuine unresolved decision; do not invent
+an approval gate for routine engineering or an already granted action.
 
 ## Select a coherent work unit
 
@@ -30,8 +40,10 @@ deliberately refuses training protocols until an appropriate learning contract e
 Do not fill this gap with guessed commands or treat a broad acceptance list as preregistration.
 
 Prefer one coherent implementation and evidence package over many tiny slices. Stop when
-the item's stated boundary is reached, a resource limit is hit, or continuing requires a
-new research decision. Update the plan and decision before expanding scope. A negative
+the item's stated boundary, including its delivery checks, is reached or a resource limit
+is hit. Make evidence-supported research and engineering decisions within the agreed scope;
+a routine design choice is not a reason to hand work back to the user. Update the plan and
+decision before expanding scope. A negative
 result closes an experiment when its protocol was sound; it need not close the research question.
 
 ## Continuity without an ever-growing prompt
@@ -73,7 +85,13 @@ choice, and artifact locations or content identities. `noetloom check` validates
 references, source syntax, and working-file budgets. It cannot establish scientific truth,
 review quality, novelty, legal rights, or that a listed command was executed.
 
+For published engineering work, retain the pushed commit and hosted check result. Local
+verification is preparation for delivery; a push is followed by CI inspection and in-scope
+repairs. See the [delivery skill](../.agents/skills/noetloom-delivery/SKILL.md). If an external
+service or a genuine missing authorization prevents completion, record the concrete blocker
+and completed preparation rather than asking the user to perform the routine steps.
+
 The global [Noetloom grounding skill](skills/sl-dh-noetloom-repo-grounding/SKILL.md) is a
-small project entrypoint. Repo-local research, evaluation, and artifact skills contain
+small project entrypoint. Repo-local research, evaluation, artifact, and delivery skills contain
 task-specific guidance. General engineering and research standards stay in the user's
 global skill library; ordinary contributors can use the repository without that library.

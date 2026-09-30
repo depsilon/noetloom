@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from helpers import ROOT, policy, protocol
+from helpers import ROOT, plan_fixture, policy, protocol
 from noetloom.contracts import (ContractError, load_policy, next_item, query_count, read_json, repo_reference,
                                 validate_experiment, validate_hypotheses, validate_plan,
                                 validate_policy, validate_sources)
@@ -90,10 +90,7 @@ class ContractTests(unittest.TestCase):
                 validate_policy(changed)
 
     def test_queue_selection_dependencies_and_completion_evidence(self):
-        plan = read_json(ROOT / "docs/state/plan.json")
-        for item in plan["items"]:
-            item["status"] = "planned"
-            item["evidence"] = []
+        plan = plan_fixture()
         self.assertEqual(next_item(plan)["id"], "N-001")
         plan["items"][0]["status"] = "completed"
         with self.assertRaisesRegex(ContractError, "evidence"):
@@ -116,9 +113,7 @@ class ContractTests(unittest.TestCase):
             load_policy(ROOT, "unlimited")
 
     def test_plan_refuses_cycles_missing_dependencies_and_concurrent_items(self):
-        original = read_json(ROOT / "docs/state/plan.json")
-        for item in original["items"]:
-            item["status"] = "planned"
+        original = plan_fixture()
         for mutation in ("cycle", "missing", "active-dependency", "multiple-active"):
             with self.subTest(mutation=mutation):
                 plan = copy.deepcopy(original)
