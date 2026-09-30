@@ -18,7 +18,14 @@
     "run_id": "20260930T093825Z-d812fa62f5",
     "source_sha256": "1a6810b6256c9beb569ae5caddcf6ec27b485f06e8e408bee51d41a70abda73a"
   },
-  "hosted_verification": "pending",
+  "hosted_verification": {
+    "status": "success",
+    "commit": "76d1da5fd088673d030cf6e2771768f572b36893",
+    "run_id": 36697703280,
+    "url": "https://github.com/depsilon/noetloom/actions/runs/36697703280",
+    "jobs": ["Rust and Python 3.11 on ubuntu-latest", "Rust and Python 3.13 on macos-latest"],
+    "scope": "Tests, contracts, Rust formatting/Clippy, restart and harness replay; optional learned training remains local evidence."
+  },
   "learning_source": {
     "design_sha256": "d8a7e792804d4fb5f23d8c01596c285076304f92c18a6c3c630d6816878cf4be",
     "protocol_sha256": "57385a3bd3db5d916a7c84ccd0004c653b67d0cc971f41fb03564179e878f781",

@@ -43,7 +43,7 @@
     {
       "id": "N-002",
       "title": "Test a learned sparse state-cell core against matched controls",
-      "status": "active",
+      "status": "completed",
       "depends_on": ["N-005"],
       "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/architecture/foundation-runtime.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md", "experiments/EXP-0002/design.md", "experiments/EXP-0002/protocol.json"],
       "outcome": "A reproducible from-scratch learned candidate and credible matched baseline, with explicit data access, frozen splits, multiple seeds, costs, retention/interference results, and a retain/revise/reject decision.",

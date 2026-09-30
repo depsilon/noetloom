@@ -1,6 +1,6 @@
 # 0004 — Reject the first hard-selection configuration
 
-Date: 2026-09-30. EXP-0002 is complete; N-002 awaits hosted delivery checks.
+Date: 2026-09-30. EXP-0002 and N-002 are complete.
 
 ## Decision
 
@@ -78,7 +78,8 @@ about 575 MiB plus 131 MiB retained downloads within the original 1 GiB/256 MiB 
 
 Local completion checks: 68 Python tests; 30 Rust tests, formatting and Clippy; repository
 contracts; a refreshed foundation restart; and 12,096 EXP-0001 predictions replayed under
-the final Python source. Hosted verification will be linked below when complete.
+the final Python source. The research-evidence rejection test now constructs its own
+empty-evidence case instead of assuming the live hypothesis register is still empty.
 
 ## Next technical choice
 
@@ -95,4 +96,8 @@ pretrained model, or mandatory ShardLoom representation was introduced.
 
 ## Hosted verification
 
-Pending the experiment delivery commit. N-002 remains active until both hosted jobs pass.
+Both Linux/Python 3.11 and macOS/Python 3.13 jobs passed for delivery commit
+`76d1da5fd088673d030cf6e2771768f572b36893` in
+[Checks run 36697703280](https://github.com/depsilon/noetloom/actions/runs/36697703280),
+including Rust tests/format/Clippy, persistence restart, Python tests/contracts, and harness
+replay. These hosted jobs do not install the optional trainer or repeat model fitting.
