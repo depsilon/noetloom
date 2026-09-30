@@ -2,6 +2,54 @@
   "schema_version": "noetloom.sources.v1",
   "sources": [
     {
+      "id": "R-IJEPA",
+      "title": "Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture",
+      "url": "https://arxiv.org/html/2301.08243v3",
+      "year": 2023,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "A context encoder and predictor learn to predict target image-block representations from an own-trained exponential-moving-average target encoder.",
+      "supported_claim": "Read sections 2–3, including targets, context, prediction and loss: prediction in representation space offers a training objective beyond a downstream answer label; masking and target construction constrain the problem.",
+      "limitations": ["The published method uses Vision Transformers; no architecture, weights or performance claim is adopted for Noetloom.", "Methods review only, with no reproduction. This paper does not establish action-conditioned learning, unrestricted representation discovery or broad intelligence."],
+      "license_note": "Primary methods reference only; no code, weights or datasets copied."
+    },
+    {
+      "id": "R-RELATIONAL",
+      "title": "Relational inductive biases, deep learning, and graph networks",
+      "url": "https://arxiv.org/html/1806.01261v3",
+      "year": 2018,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "Explicit relational assumptions and shared computation constrain learning over structured inputs.",
+      "supported_claim": "Read the introduction and sections 2–2.1: fully connected, convolutional and recurrent layers embody different relational assumptions, sharing and invariances. Useful structure and learned parameters need not be opposing choices.",
+      "limitations": ["This is partly a position/review paper; architectural biases do not guarantee combinatorial generalization.", "Graph-network implementation details and experimental claims were not reproduced; no fixed cognitive taxonomy is inferred."],
+      "license_note": "Primary conceptual reference only; no code, weights or datasets copied."
+    },
+    {
+      "id": "R-DREAMERV3",
+      "title": "Mastering Diverse Domains through World Models",
+      "url": "https://arxiv.org/html/2301.04104v2",
+      "year": 2024,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "A recurrent state-space model learns action-conditioned latent dynamics alongside reconstruction and other prediction objectives.",
+      "supported_claim": "Read Learning algorithm / World model learning in the April 2024 preprint: observations shape latent state, past actions condition recurrent transitions, and reconstruction constrains predictive representations.",
+      "limitations": ["This read scope is the version-2 preprint, not a full review of the later Nature publication, actor/critic method or supplementary evaluation.", "No reproduction performed. Control-task results do not establish Noetloom transfer, language capability or LLM displacement."],
+      "license_note": "Primary methods reference only; no code, weights or datasets copied."
+    },
+    {
+      "id": "R-NAR",
+      "title": "Neural Algorithmic Reasoning",
+      "url": "https://arxiv.org/html/2105.02761v1",
+      "year": 2021,
+      "accessed_on": "2026-09-30",
+      "review_depth": "paper",
+      "mechanism": "A learned processor imitates an algorithm in a latent space and is reused with learned input/output mappings.",
+      "supported_claim": "Read Algorithms in the real world and The blueprint of neural algorithmic reasoning: the proposed pipeline trains a processor with known-algorithm supervision, then fixes it while fitting encoders and decoders for natural inputs.",
+      "limitations": ["An opinion/blueprint article, not a general guarantee of extrapolation or autonomous procedure discovery.", "No cited executor was reproduced; supervision and supplied algorithmic structure must remain explicit in any derived experiment."],
+      "license_note": "Primary conceptual reference only; no code, weights or datasets copied."
+    },
+    {
       "id": "R-STN",
       "title": "Spatial Transformer Networks",
       "url": "https://arxiv.org/html/1506.02025v3",
@@ -52,13 +100,13 @@
     {
       "id": "R-DREAMCODER",
       "title": "DreamCoder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning",
-      "url": "https://arxiv.org/abs/2006.08381v1",
+      "url": "https://arxiv.org/html/2006.08381v1",
       "year": 2020,
       "accessed_on": "2026-09-30",
-      "review_depth": "abstract",
+      "review_depth": "paper",
       "mechanism": "A wake-sleep loop grows a symbolic program language while training neural guidance on imagined and replayed problems.",
-      "supported_claim": "The authors report solving inductive-programming and creative tasks, and rediscovering concepts in functional programming, vector algebra, and classical physics through compositional abstractions.",
-      "limitations": ["Results concern the demonstrated program-learning domains; general open-ended skill acquisition is not established by this source."],
+      "supported_claim": "Read Wake/Sleep Program Learning (wake, abstraction and dreaming) and the opening Results for list processing and text editing: learned library abstractions compress discovered programs while a recognition model guides search over a supplied initial vocabulary.",
+      "limitations": ["Method review and reported examples, not an independent reproduction or a full review of the supplementary algorithm.", "Typed program representations, initial primitives, search and task likelihoods are supplied; general open-ended skill acquisition and Noetloom novelty are not established."],
       "license_note": "Reference only; code, weights, and data licenses require separate review before reuse."
     },
     {

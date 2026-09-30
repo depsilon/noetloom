@@ -21,6 +21,9 @@ do not ask the user to repeat that grant. The roadmap does not grant unrelated s
 Noetloom studies an original learned foundation architecture with persistent state and
 selective computation. It has no required LLM subsystem or prescribed human cognitive
 taxonomy. Keep hypotheses, learned capability, hand-written controls, and evidence distinct.
+For a learning experiment, route through the [research skill](../../../.agents/skills/noetloom-research/SKILL.md)
+and [evaluation contract](../../../docs/evaluation.md): execution preflight and acquisition
+calibration answer different questions. A docs revision does not start the next training item.
 
 Use global SL-DH engineering, research, verification, and subagent routing when applicable.
 Repo-local research, evaluation, artifact, runtime, and delivery skills add project-specific guidance.

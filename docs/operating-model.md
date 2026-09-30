@@ -36,10 +36,18 @@ an approval gate for routine engineering or an already granted action.
 Run `python3 -B -m noetloom status`. It selects the active item, or the first planned item
 whose dependencies are complete. The command proposes priority; it does not start work.
 Only one primary item is active. Independent leaf assignments belong to that item.
+The current request also controls the stopping boundary: a skill, documentation or planning
+revision may select a future item without starting its learning campaign. Deliver that revision
+and leave the future item planned. This does not revoke standing authority for routine execution
+and delivery when the learning work is in scope.
 
 Each queue item names its sources, outcome, acceptance conditions, verification, resource
 profile, and stop condition. The bootstrap's future research items are design briefs:
-their first task is to register an executable learning protocol. The harness runner
+their first task is to register an executable learning protocol. Where task acquisition is
+unestablished, register a bounded development pilot before choosing the final comparison.
+Permitted development choices may respond to pilot evidence within its declared search envelope;
+record all attempts and costs. Freeze the confirmatory protocol after calibration and before
+final evaluation. The harness runner
 deliberately refuses training protocols until an appropriate learning contract exists.
 Do not fill this gap with guessed commands or treat a broad acceptance list as preregistration.
 
@@ -47,8 +55,9 @@ Prefer one coherent implementation and evidence package over many tiny slices. S
 the item's stated boundary, including its delivery checks, is reached or a resource limit
 is hit. Make evidence-supported research and engineering decisions within the agreed scope;
 a routine design choice is not a reason to hand work back to the user. Update the plan and
-decision before expanding scope. A negative
-result closes an experiment when its protocol was sound; it need not close the research question.
+decision before expanding scope. A negative result closes an experiment when its protocol
+was sound; it need not close the research question. Inadequate acquisition is a calibration
+outcome, not a verdict on all formulations of a broad architecture hypothesis.
 
 ## Continuity without an ever-growing prompt
 

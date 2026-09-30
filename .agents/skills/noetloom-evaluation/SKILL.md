@@ -1,6 +1,6 @@
 ---
 name: noetloom-evaluation
-description: Implement or review Noetloom experiment controls, scoring, replay evidence, comparison budgets, and the scope of reported research claims.
+description: Implement or review Noetloom acquisition gates, development/final split isolation, learning telemetry, controls, replay evidence, budgets, and claim scope.
 ---
 
 # Noetloom evaluation
@@ -20,6 +20,22 @@ Charge routing, failed search, retrieval, acquisition, and verification. Inspect
 structure as well as seed separation. Keep per-seed and per-task results; uncertainty
 must respect correlated queries and the true independent unit. Report failed runs and
 selection history instead of retaining only successful seeds.
+
+Distinguish optimization, same-format generalization, encoding interference and transfer.
+Require task-appropriate acquisition evidence before interpreting a representation comparison;
+use the staged development contract rather than inspecting final examples to tune a weak model.
+Keep loss curves, training and validation accuracy, class/support counts and per-format results.
+Tiny-set memorization is a sanity check. Loss, a finite gradient and one successful seed do
+not establish reliable learning. Report unequal realized compute even under common ceilings.
+
+For new learning workers, preserve fitting telemetry before downstream verification. Report
+fitting, verification and resource admission separately, with unknown or interrupted states
+kept explicit; no partial record upgrades a failed run to success. Confirm this boundary
+with an injected post-fit verification failure. Label saved weights as inference parameter
+snapshots unless full training state and an interrupted-versus-uninterrupted check support
+an exact-resume claim. These are prospective requirements, not retroactive capabilities of
+the EXP-0002/0003/0004 drivers. See the evaluation contract and
+[artifact rules](../../../docs/storage.md).
 
 Use the [command reference](../../../docs/reference/commands.md) for exact supported checks.
 Passing `check` is structural evidence. Passing EXP-0001 is harness evidence. Neither is

@@ -74,6 +74,16 @@ if every arm fails the task-acquisition floor, the representation comparison is 
 Replay requires the recorded source commit and intact local artifacts, including its preserved
 executable. Hosted checks exercise contracts and native fixtures without repeating training.
 
+These saved checkpoints contain weights and identity metadata, not the full Adam/RNG/data-order
+state required for exact training continuation. Native `resume` reopens inference state;
+the setup `--resume` option recovers dependency installation. Neither resumes model training.
+
+N-007 is a [planned calibration study](../decisions/0007-acquisition-calibration.md), with
+no executable protocol or new training command yet. The existing drivers retain their frozen
+contracts; do not repurpose their preflight or retry paths as an unregistered tuning loop.
+The staged development and fitting-telemetry requirements in [evaluation](../evaluation.md)
+must be implemented and admitted for that study before execution.
+
 Use Python 3.11+ from the source checkout root. The CLI is `python3 -B -m noetloom`.
 The `-B` flag keeps bytecode out of the working tree. No external Python package is required.
 

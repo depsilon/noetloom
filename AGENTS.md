@@ -42,6 +42,9 @@ outcome when its experiment was sound. Do not turn it into an indefinite prototy
   state. Existing LLM/Transformer or neural-memory designs remain labeled comparisons or limited
   component probes; do not silently adopt or rename one as Noetloom's architecture.
 - Do not prescribe human categories of thought as the required learned primitive inventory.
+- Calibrate acquisition on development data before a confirmatory architecture comparison.
+  Preflight proves execution, not learning. Bounded tuning, disclosed auxiliary supervision
+  and useful inductive biases are allowed; follow `docs/evaluation.md` and isolate final evaluation.
 - Preserve foundational representation questions beyond the first memory experiments.
   Noetloom defines semantic requirements; physical providers, including ShardLoom, earn
   their role through scoped evidence rather than becoming architectural invariants.

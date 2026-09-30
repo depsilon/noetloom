@@ -81,6 +81,52 @@ This avoids treating atomic publication as corruption without relaxing final adm
 Rust tooling applies the same distinction while Cargo creates and removes temporary build
 files; its pre-build reservation and post-build storage check remain strict.
 
+## Learning evidence and recovery
+
+Distinguish three artifact roles:
+
+| Artifact | Supported recovery |
+| --- | --- |
+| Parameter snapshot | Restore saved weights and replay inference with the matching implementation and inputs |
+| Training-resume checkpoint | Continue optimization only if model, optimizer moments, scheduler/scaler state where used, RNG states, data-order position, completed step and environment are retained and validated |
+| Persisted inference state | Reopen a particular learned intermediate or runtime state and continue its declared inference operation |
+
+EXP-0004's `initial.json`, `checkpoint-*.json` and `selected.json` contain parameter snapshots
+and identity metadata. They contain no Adam state or training data cursor. Its restart checks
+resume inference from persisted intermediates, not optimization. An exact training-resume
+claim additionally needs an interrupted-versus-uninterrupted comparison under the declared
+determinism conditions. Full optimizer continuation is optional unless a protocol needs it;
+do not imply it from the filename “checkpoint.”
+
+Future learning workers must persist fitting records before downstream verification and keep
+fitting, verification and resource outcomes separate, as specified in the
+[evaluation contract](evaluation.md). These records improve recovery without laundering a
+failed attempt into successful evidence. Earlier artifacts and failures retain their identities.
+
+Before N-007 accumulates more unique checkpoints, establish a verified second copy of the
+existing irreplaceable learned evidence and a bounded retention path for new runs. Choose
+an authorized destination in a separate failure domain, record its location/access method,
+capacity, retention and rights, and inventory the useful bundle: weights, source/runtime
+identity, protocol, data or generator inputs, manifests and necessary parent artifacts.
+Include the uniquely retained outputs of failed attempts; a success-only backup is incomplete.
+An adjacent directory or second partition on the same physical disk is not protection from
+loss of that disk. An expiring CI artifact is not an indefinite retention commitment.
+
+Verify the copied inventory and bytes by independent retrieval. Restore a declared bundle to
+a fresh directory without relying on originals, check hashes and dependencies, and execute
+the applicable inference/replay check. Record what was actually restored, its source identity,
+command/result and any platform limitations; a sampled restore validates only that sample.
+Repeat this for new retained campaign artifacts before closing their delivery. No local
+retirement follows automatically from a successful restore.
+
+The [N-006 evidence](evidence/N-006-2026-09-30.json) records roughly 105.6 MiB of representation
+artifacts locally and no verified durable remote backup. This revision changes the requirement,
+not that fact. No backup destination, upload, restore tool or automated retention service is
+established here. Prepare a complete inventory and bounded transfer/restore plan within the
+user's authority; if the destination or its publication/cost terms need a user choice,
+surface that concrete choice before the next checkpoint-producing campaign. A docs change
+does not authorize publishing weights or placing them in a synced folder.
+
 ## Artifact identity and retirement
 
 Every complete harness run has a protocol, resource-policy snapshot, runtime source inventory,

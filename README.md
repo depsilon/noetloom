@@ -106,7 +106,16 @@ held-out surface transformations. Its [comparison was inconclusive](docs/decisio
 the conditional model scored 58.54% on familiar forms and 48.61% on transfer, while every
 control also stayed below the 70% task-acquisition floor. Nineteen attempts completed;
 one failed after fitting and received a separate partial audit. No training was repeated.
-H-011 remains open, H-001/H-002 remain dormant, and no follow-on experiment is implied.
+H-011 remains open and H-001/H-002 remain dormant.
+
+The [subsequent course correction](docs/decisions/0007-acquisition-calibration.md) selects
+N-007 as a planned acquisition-calibration study. It separates bounded development from final
+evaluation: fit a tiny set, generalize within one format, acquire mixed formats, then test
+unfamiliar transformations. Predictive supervision and useful inductive biases are permitted
+with disclosed, matched information access. Preserving fitting telemetry and verifying a second
+artifact copy are prerequisites to the next campaign. No N-007 training protocol or command is
+implemented by this documentation revision. Predictive state and procedure consolidation remain
+conditional directions; progress depends on competence, not on the transport candidate winning.
 
 ## Contributing
 

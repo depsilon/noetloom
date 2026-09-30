@@ -38,6 +38,13 @@ or an explicitly limited component probe. It must not silently become the Noetlo
 or be renamed as an original architecture. Borrowed mechanisms need clear attribution;
 architectural originality and practical advantage each require their own evidence.
 
+Original learning does not require the weakest possible supervision. Own-initialized systems
+may learn from masked observations, known transformations, paired training views, or the
+consequences of actions. Shared operators, recurrence, locality and relational structure are
+legitimate experimental biases. Make that supplied vocabulary explicit, give controls the
+same information, and test dependence on it. These choices do not prescribe human categories
+of thought or authorize pretrained runtime intelligence.
+
 ## Design requirements
 
 - Learn useful computational structures rather than prescribing a human taxonomy of thought.
@@ -83,7 +90,10 @@ in either project without making ShardLoom an AI framework or Noetloom a databas
 
 A result changes a technical decision and survives appropriate controls. A coherent engineering
 improvement can close infrastructure work; a capability claim requires learned-system evidence.
-Documentation, execution traces, and hand-written reference solvers are useful infrastructure,
+Track acquisition, transfer, retention, useful recurrence and procedural reuse as distinct
+milestones. Do not assign percentages to how much of the research landscape is exhausted;
+there is no defined denominator. Documentation, execution traces, and hand-written reference
+solvers are useful infrastructure,
 but do not count as learned intelligence. Broad capability requires a maintained profile spanning
 language, coding, reasoning, retention, adaptation, multimodal transfer, and calibrated tool use.
 
