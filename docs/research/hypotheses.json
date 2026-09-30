@@ -1,8 +1,9 @@
 {
-  "schema_version": "noetloom.hypotheses.v1",
+  "schema_version": "noetloom.hypotheses.v2",
   "hypotheses": [
     {
       "id": "H-001",
+      "category": "mechanism",
       "title": "Selective learned memory access",
       "status": "proposed",
       "mechanism": "An original learned controller selects and updates external state rather than processing all stored experience on each query.",
@@ -14,6 +15,7 @@
     },
     {
       "id": "H-002",
+      "category": "mechanism",
       "title": "Adaptive recurrent computation",
       "status": "proposed",
       "mechanism": "Shared learned computation selects additional iterations or halts based on state and uncertainty signals.",
@@ -25,6 +27,7 @@
     },
     {
       "id": "H-003",
+      "category": "mechanism",
       "title": "Learned reusable computation",
       "status": "proposed",
       "mechanism": "Repeated task structure becomes reusable learned computation without requiring a predefined human cognitive taxonomy.",
@@ -36,6 +39,7 @@
     },
     {
       "id": "H-004",
+      "category": "mechanism",
       "title": "Continual adaptation with bounded interference",
       "status": "proposed",
       "mechanism": "Separately measured state writes and learned-parameter changes preserve plasticity while constraining interference and growth.",
@@ -47,12 +51,91 @@
     },
     {
       "id": "H-005",
+      "category": "mechanism",
       "title": "Reversible acquisition before persistent promotion",
       "status": "proposed",
       "mechanism": "New learned state or reusable computation is first versioned in a bounded working area; a learned selection rule proposes promotion and permits invalidation.",
       "prediction": "At equal total resource cost, staged acquisition improves recovery from misleading updates without materially reducing useful adaptation or unseen-task transfer.",
       "falsifier": "Promotion and checking overhead dominate, error recovery requires oracle labels unavailable to controls, or the candidate only succeeds with hand-coded semantic categories.",
       "source_refs": ["R-PLASTICITY", "R-DREAMCODER"],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-006",
+      "category": "foundational_representation",
+      "title": "Units of cognition beyond tokens",
+      "status": "horizon",
+      "question": "Does cognition need tokens as its fundamental unit?",
+      "mechanism": "An own-initialized system may learn internal units whose boundaries are not inherited from language tokenization.",
+      "prediction": "A registered future comparison could find representations that preserve task information and transfer while reducing total conversion and computation cost against token-based controls.",
+      "falsifier": "The alternative loses necessary information, fails transfer, or its advantage disappears after charging representation learning, conversion, and execution.",
+      "source_refs": [],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-007",
+      "category": "foundational_representation",
+      "title": "Multiple native representations",
+      "status": "horizon",
+      "question": "Can different information classes have different native representations?",
+      "mechanism": "The system may select or acquire heterogeneous representations without requiring a single universal serialization for cognition.",
+      "prediction": "A registered future comparison could show useful transfer across native formats with less total work than forcing every input through a single representation.",
+      "falsifier": "Benefits require task-specific hand routing, incompatible isolated experts, or uncharged conversions and do not survive unseen input combinations.",
+      "source_refs": [],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-008",
+      "category": "foundational_representation",
+      "title": "Discovered intermediate computation",
+      "status": "horizon",
+      "question": "Can the system discover its own intermediate computational representation?",
+      "mechanism": "Learning may shape intermediate structures and permissible transformations instead of operating only inside a designer-fixed cognitive language.",
+      "prediction": "A registered future comparison could show acquired intermediate structure that transfers across tasks and bindings after charging discovery and execution costs.",
+      "falsifier": "The structure is a renamed fixed instruction inventory, a task identifier, or a memorized solution and does not support held-out composition.",
+      "source_refs": [],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-009",
+      "category": "foundational_representation",
+      "title": "Temporary executable structures",
+      "status": "horizon",
+      "question": "Can learned computation construct temporary executable structures?",
+      "mechanism": "A learned planner may assemble bounded transient work structures whose execution changes with the problem, rather than only selecting fixed-depth transformations.",
+      "prediction": "A registered future comparison could demonstrate useful unseen compositions at lower total cost than matched static or search controls, including construction and checking.",
+      "falsifier": "Only scripted graph construction works, learned proposals need an oracle, or gains disappear when invalid proposals and construction costs are included.",
+      "source_refs": [],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-010",
+      "category": "foundational_representation",
+      "title": "Transfer without a compulsory text bottleneck",
+      "status": "horizon",
+      "question": "Can information move between linguistic, relational, spatial, mathematical, procedural, causal, and perceptual representations without everything becoming text?",
+      "mechanism": "Learned transformations may preserve task-relevant relationships between native representations; these examples are not a required human category inventory.",
+      "prediction": "A registered future comparison could preserve cross-representation constraints and transfer to unseen combinations without a mandatory language serialization step.",
+      "falsifier": "Transfers discard required structure, rely on pretrained translators or hand-coded semantic solutions, or fail when wording and modality correlations change.",
+      "source_refs": [],
+      "novelty_status": "unassessed",
+      "evidence": []
+    },
+    {
+      "id": "H-011",
+      "category": "foundational_representation",
+      "title": "Learning how to represent a problem",
+      "status": "horizon",
+      "question": "Can the system learn how to represent a problem, rather than merely how to solve a problem once represented?",
+      "mechanism": "Learning may change the problem representation itself in response to downstream usefulness under a bounded acquisition budget.",
+      "prediction": "A registered future comparison could show acquired representations that improve transfer to new problem formulations beyond solving more examples within a supplied representation.",
+      "falsifier": "The benefit comes from designer-provided encodings, label leakage, unlimited representation search, or increased solver capacity without representation transfer.",
+      "source_refs": [],
       "novelty_status": "unassessed",
       "evidence": []
     }

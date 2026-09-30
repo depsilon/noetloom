@@ -2,6 +2,19 @@
   "schema_version": "noetloom.plan.v1",
   "items": [
     {
+      "id": "N-005",
+      "title": "Build the Rust foundation with replaceable physical execution",
+      "status": "active",
+      "depends_on": ["N-001"],
+      "sources": ["docs/charter.md", "docs/architecture/foundation-runtime.md", "docs/architecture/execution-providers.md", "docs/licensing.md", "docs/storage.md"],
+      "outcome": "A restartable Rust execution path over persistent native state with selective payload reads, shared parameterized transformations, dynamically extended work graphs, replaceable physical providers, and explicit resource/evidence contracts; a bounded ShardLoom evidence-analytics interoperability probe.",
+      "acceptance": ["The core is independent of an LLM/Transformer, and scripted fixtures remain distinct from learned capability.", "An end-to-end slice changes selected persistent state, reopens it, and reproduces the expected result without activating inactive payloads; commit validation I/O is accounted separately.", "Revision/hash/transaction checks and resource failures preserve persistent state integrity.", "Dynamic work reuses operator parameters and reports actual execution and payload-access evidence.", "An independent provider exercises the same executor and unsupported operations fail explicitly.", "A bounded actual-engine ShardLoom probe records exact query results, route evidence, unsupported outcomes, and evidence limitations without a cognitive-state dependency.", "Representation horizon questions and Apache-2.0 artifact boundaries reflect the owner's course corrections.", "Local Rust/Python checks and hosted Linux/macOS checks pass with bounded unsynced build storage."],
+      "verification": ["python3 -B scripts/rust.py check", "python3 -B scripts/rust.py fixture", "python3 -B -m unittest discover -s tests -v", "python3 -B -m noetloom check", "Run and replay EXP-0001 after Python source identity changes.", "Run scripts/shardloom_probe.py with an explicitly identified existing binary; inspect raw envelopes and exact outputs.", "Follow hosted Linux/macOS checks for the delivered commit."],
+      "budget_profile": "local-small",
+      "stop_condition": "Close the executable foundation slice with evidence, then continue to N-002; do not mistake infrastructure success for learned intelligence.",
+      "evidence": ["docs/decisions/0003-rust-foundation.md", "docs/evidence/N-005-2026-09-30.json"]
+    },
+    {
       "id": "N-004",
       "title": "Complete autonomous foundation delivery and hosted verification",
       "status": "completed",
@@ -29,10 +42,10 @@
     },
     {
       "id": "N-002",
-      "title": "Train an original memory-access candidate against matched controls",
+      "title": "Test a learned sparse state-cell core against matched controls",
       "status": "planned",
-      "depends_on": ["N-001"],
-      "sources": ["docs/architecture/research-program.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md"],
+      "depends_on": ["N-005"],
+      "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/architecture/foundation-runtime.md", "docs/research/hypotheses.json", "docs/research/sources.json", "docs/evaluation.md"],
       "outcome": "A reproducible from-scratch learned candidate and credible matched baseline, with explicit data access, frozen splits, multiple seeds, costs, retention/interference results, and a retain/revise/reject decision.",
       "acceptance": ["Read relevant paper methods, not only abstracts, and freeze a learning protocol before evaluation.", "Choose the smallest informative scale after a bounded backend and throughput preflight.", "Control information access, training/tuning compute and inference budgets; include memory and routing ablations.", "Hold out task structures or compositions as well as random seeds; measure generalization and confidence intervals.", "Archive learned artifacts before retiring unique local outputs; record negative results."],
       "verification": ["Write an admitted learning protocol and its exact commands before running it; the bootstrap harness runner does not execute training protocols."],

@@ -18,6 +18,10 @@ verification, local commits, pushes of source/docs/tests/compact evidence to `de
 and diagnosing, repairing, and pushing fixes until its CI checks complete successfully.
 Use a pull request when it is part of the agreed repository workflow. Routine Git delivery
 does not require a new permission question, including after compaction or in a later session.
+The user's subsequent instruction to work through the queue autonomously also authorizes
+continuing from a completed item into the next ready item, including the research and bounded
+local implementation needed to make its protocol executable. Preserve the charter and record
+each experiment's resource admission and decision before moving on.
 
 This project-specific grant satisfies the global requirement for explicit push authority.
 It is grounded in the user's instruction, not inferred from the roadmap. Preserve the

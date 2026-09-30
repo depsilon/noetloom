@@ -38,7 +38,13 @@ outcome when its experiment was sound. Do not turn it into an indefinite prototy
   systems are different roles. Record any training-data assistance and its provenance.
 - Own initialized learned components and established numerical libraries are compatible.
   Attention, recurrence, graphs, and compression are hypotheses or tools, not ideological tests.
+- The candidate foundation is compact learned computation over persistent, selectively activated
+  state. Existing LLM/Transformer or neural-memory designs remain labeled comparisons or limited
+  component probes; do not silently adopt or rename one as Noetloom's architecture.
 - Do not prescribe human categories of thought as the required learned primitive inventory.
+- Preserve foundational representation questions beyond the first memory experiments.
+  Noetloom defines semantic requirements; physical providers, including ShardLoom, earn
+  their role through scoped evidence rather than becoming architectural invariants.
 - Keep exact controls, learned models, tools, and retrieved state distinct in results. A trace proves
   what ran, not that an unrestricted answer is true or that a latent state is interpretable.
 - Reference papers support only their demonstrated scope. Record what was actually read.
@@ -54,6 +60,7 @@ outcome when its experiment was sound. Do not turn it into an indefinite prototy
 | Premise or architecture | `docs/charter.md`, `docs/architecture/research-program.md` |
 | Research or a new experiment | `.agents/skills/noetloom-research/SKILL.md` |
 | Evaluation, controls, results | `.agents/skills/noetloom-evaluation/SKILL.md` |
+| Rust state, execution, providers | `.agents/skills/noetloom-runtime/SKILL.md` |
 | Artifacts, downloads, training outputs | `.agents/skills/noetloom-artifacts/SKILL.md` |
 | Commits, pushes, CI, and delivery | `.agents/skills/noetloom-delivery/SKILL.md` |
 | Agent continuity and authority | `docs/operating-model.md` |
@@ -67,10 +74,13 @@ The bootstrap uses Python 3.11+ and the standard library. From the repo root:
 python3 -B -m unittest discover -s tests -v
 python3 -B -m noetloom check
 python3 -B -m noetloom doctor
+python3 -B scripts/rust.py check
+python3 -B scripts/rust.py fixture
 ```
 
 Use focused tests while editing, then the full small suite and contract checks at completion.
-The built-in harness is a local infrastructure test, not a learned-model benchmark. Larger
+Rust 1.98 is pinned for the core; the driver uses unsynced bounded tooling storage.
+The built-in harness and Rust fixture are infrastructure tests, not learned-model benchmarks. Larger
 training or evaluation needs a resource-admitted protocol; do not launch it from a docs change.
 
 Keep bulk output outside the checkout and synced folders. `config/resource-policy.json` owns

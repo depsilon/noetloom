@@ -1,12 +1,15 @@
 # Noetloom
 
-Noetloom is a research project for an original foundation architecture built around compact
-learned computation, persistent mutable state, and selective use of computation. Language,
-code, perception, and tool use are target capabilities. The architecture and its advantages
-remain hypotheses.
+Noetloom is an experimental post-LLM foundation architecture intended to learn continuously,
+reason with variable computation, and operate across multiple native representations.
+The system itself is the proposed intelligence: compact learned machinery acting over
+persistent, mutable, selectively activated state. Language, code, perception, and tool use
+are capabilities it must learn. Neither an LLM nor a Transformer is a required foundation.
+The architecture and its advantages remain hypotheses.
 
-The repository currently provides the research operating system and a small, reproducible
-evaluation harness. It does not contain a trained model. Start with the
+The repository provides a Rust core for persistent native state and bounded dynamic execution,
+plus a Python research control plane and reproducible evaluation harness. It does not contain
+a trained model. Start with the
 [charter](docs/charter.md) and [research program](docs/architecture/research-program.md).
 
 ## Run from a source checkout
@@ -33,6 +36,22 @@ those controls; it establishes no learned intelligence or efficiency advantage.
 The [first verified run](experiments/EXP-0001/evidence/2026-09-30/README.md) records the
 results, exact artifact identities, review findings, and remaining proof gaps.
 
+The Rust core adds revision-checked persistent cells, selective payload reads, shared numerical
+operators, transaction-local writes, and controller-proposed work graphs. Its
+[execution-provider boundary](docs/architecture/execution-providers.md) keeps physical storage
+and computation replaceable. Current controllers and weights are explicitly scripted fixtures.
+With the pinned Rust 1.98 toolchain available, run:
+
+```sh
+python3 -B scripts/rust.py check
+python3 -B scripts/rust.py fixture
+```
+
+The driver keeps builds and dependencies under `~/.cache/noetloom-tooling`, serializes runs,
+and verifies committed state in a separate process. Fixture receipts include source/build,
+provider, operator, snapshot, and resource identities. See the
+[foundation design](docs/architecture/foundation-runtime.md) for scope and limits.
+
 ## Work autonomously with evidence
 
 [AGENTS.md](AGENTS.md) is the agent entrypoint. The [operating model](docs/operating-model.md)
@@ -48,6 +67,9 @@ Research is organized by [falsifiable hypotheses](docs/research/hypotheses.json)
 [reviewed source records](docs/research/sources.json), registered experiment protocols,
 and dated [decisions](docs/decisions/0001-foundation.md). The
 [evaluation contract](docs/evaluation.md) separates infrastructure checks from capability claims.
+The hypothesis registry also preserves foundational representation questions beyond the first
+memory experiments. ShardLoom can earn a role in evidence analytics or physical execution;
+it is not a required cognitive substrate.
 
 ## Keep the working set small
 
@@ -66,6 +88,6 @@ experiment must first measure an informative scale within the available hardware
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. The repository is public;
-no code license is granted by this bootstrap. Select an explicit license before inviting
-reuse or distributing packaged code or learned artifacts.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Noetloom source and
+documentation are available under [Apache-2.0](LICENSE). Datasets, separately distributed
+weights, branding, and patent strategy have [explicit separate boundaries](docs/licensing.md).

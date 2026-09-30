@@ -157,3 +157,17 @@ class ContractTests(unittest.TestCase):
         sources["sources"].append(copy.deepcopy(sources["sources"][0]))
         with self.assertRaisesRegex(ContractError, "duplicate source"):
             validate_sources(sources)
+
+    def test_horizon_questions_are_distinct_from_admitted_research(self):
+        ids = validate_sources(read_json(ROOT / "docs/research/sources.json"))
+        original = read_json(ROOT / "docs/research/hypotheses.json")
+        index = next(i for i, row in enumerate(original["hypotheses"])
+                     if row["status"] == "horizon")
+        for field, value in (("category", "mechanism"), ("question", ""),
+                             ("evidence", ["unsupported-claim.json"]),
+                             ("status", "testing")):
+            with self.subTest(field=field):
+                changed = copy.deepcopy(original)
+                changed["hypotheses"][index][field] = value
+                with self.assertRaises(ContractError):
+                    validate_hypotheses(changed, ids)

@@ -7,6 +7,11 @@ architecture or a catalogue of human mental primitives. A plausible starting fam
 learned controller coupled to selectively read and written state, with bounded recurrent
 computation. This is a candidate family to test, not an established Noetloom design.
 
+First build the [Rust foundation slice](foundation-runtime.md): persistent native state,
+selective activation, reusable parameterized transforms, and bounded dynamic execution.
+The substrate must exist before a meaningful comparison of the proposed system is possible.
+Infrastructure fixtures validate this path but do not stand in for a learned candidate.
+
 The first learned experiment should answer whether useful memory access can be learned from
 the system's own initialization under a small, matched budget. Begin at the smallest scale
 that can distinguish the alternatives after an actual backend and throughput preflight.
@@ -15,14 +20,17 @@ The connected bootstrap machine reports 16 GiB RAM. Earlier 128 GB allocations a
 
 Memory, recurrence, adaptive computation, and learned program libraries have substantial
 prior art. The [source catalog](../research/sources.json) records eight primary research leads
-and what was actually read. Its current entries are abstract-level orientation. Read the
+and what was actually read. Review depth is recorded separately for each entry. Read the
 relevant methods, evaluation details, and limitations before implementing a derivative or
 claiming a new contribution. Novelty is unassessed.
 
 ## Candidate questions
 
 The [hypothesis register](../research/hypotheses.json) contains falsifiable predictions and
-falsifiers. The following relationships explain why those questions matter:
+falsifiers. It separates immediate **mechanism** candidates H-001 through H-005 from
+**foundational representation** horizon questions H-006 through H-011. The first memory
+experiments do not define the limits of Noetloom's architecture. The following relationships
+explain why the immediate questions matter:
 
 - **State access versus state size.** A compact controller may benefit from a large external
   state only if it can learn what to retrieve, write, revise, or leave untouched. Measure
@@ -47,6 +55,23 @@ reusable computation is separately tested. This could reduce the cost of mistake
 but selection and verification may cost more than it saves. The system must learn useful
 representations and promotion signals; this is not a mandatory hand-coded taxonomy of thought.
 Register it as a future controlled comparison rather than implementing it speculatively.
+
+## Representation remains a research object
+
+Protect the charter's north star: “The intelligence is the research object; its architecture
+is not yet established.” Memory access is the first diagnostic, not the definition of cognition.
+The horizon preserves six questions: units beyond tokens; multiple native representations;
+discovered intermediate computation; temporary executable structures; transfer between
+representations without a compulsory text bottleneck; and learning how to represent a problem.
+Linguistic, relational, spatial, mathematical, procedural, causal, and perceptual information
+are examples of desired reach, not a required internal taxonomy.
+
+Horizon entries originate in founder questions, have no claimed research evidence, and do
+not authorize experiments. Their predictions and falsifiers are provisional directions for
+protocol design. Promotion requires source review, a concrete task and controls, conversion
+and representation-learning cost accounting, and an explicit decision in the existing queue.
+The immediate learned memory experiment remains scoped; every architecture decision must
+state whether it preserves or forecloses these representation questions and why.
 
 ## From infrastructure to informative learning
 

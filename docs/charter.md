@@ -18,6 +18,28 @@ The technical north star is substitution across the tasks people use LLMs for, f
 capabilities such as durable learning and reusable learned computation. This is a research goal,
 not a present capability claim, a market forecast, or a promise of frontier parity.
 
+## Architectural boundary
+
+The founder reaffirmed this boundary on 2026-09-30: Noetloom is the foundation system itself.
+It is not a cognitive service beneath an LLM, a memory attachment to a pretrained model, or
+an efficiency variant of an autoregressive language-model stack. Language generation is one
+learned interface, not the mandatory substrate for internal computation.
+
+Candidate designs must explain how compact learned transitions operate over persistent,
+mutable state, how only relevant state is activated, and how computation can grow through
+iteration or composition. Those mechanisms must be tested separately before claiming the
+full design works. Useful computational structures should emerge through learning; do not
+supply arithmetic, analogy, planning, or other human categories as the required primitive set.
+
+Tensor libraries, optimization, small neural components, and established numerical operations
+are implementation tools. Their use does not itself adopt the LLM/Transformer paradigm.
+An existing recurrent, attention, or neural-memory architecture may be a comparison control
+or an explicitly limited component probe. It must not silently become the Noetloom foundation
+or be renamed as an original architecture. Borrowed mechanisms need clear attribution;
+architectural originality and practical advantage each require their own evidence.
+
+## Design requirements
+
 - Learn useful computational structures rather than prescribing a human taxonomy of thought.
 - Separate knowledge, working state, reusable procedures, and foundational learned parameters when
   doing so measurably helps. Their final representation remains open.
@@ -44,6 +66,18 @@ not a present capability claim, a market forecast, or a promise of frontier pari
 These transfers are research hypotheses. Database operation certificates can establish exact
 semantics for specified operations; a cognitive trace does not establish arbitrary factual truth.
 Vortex, Rust, ShardLoom's runtime, and its product-specific constraints are not mandatory dependencies.
+
+ShardLoom may also earn an operational role. Near-term trials can use its actual engine for
+data curation, experiment telemetry, evaluation analytics, and provenance. Longer-term
+persistent-state selection is a separate hypothesis. Noetloom defines representation and
+operation semantics; physical providers compete on correctness, resource cost, provenance,
+and coverage. Noetloom must remain free to choose tensors, graphs, Vortex, new representations,
+or a hybrid. A sibling engine's current abstractions do not define cognition.
+
+Keep a boundary between learned decisions about what should happen and physical execution
+of admitted operations. Provider evidence establishes scoped execution behavior, not cognitive
+truth or calibrated uncertainty. Shared workload discoveries may motivate explicit changes
+in either project without making ShardLoom an AI framework or Noetloom a database product.
 
 ## Progress means
 

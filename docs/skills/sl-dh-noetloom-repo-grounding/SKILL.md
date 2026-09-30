@@ -23,7 +23,10 @@ selective computation. It has no required LLM subsystem or prescribed human cogn
 taxonomy. Keep hypotheses, learned capability, hand-written controls, and evidence distinct.
 
 Use global SL-DH engineering, research, verification, and subagent routing when applicable.
-Repo-local research, evaluation, artifact, and delivery skills add project-specific guidance.
+Repo-local research, evaluation, artifact, runtime, and delivery skills add project-specific guidance.
+Use the [runtime skill](../../../.agents/skills/noetloom-runtime/SKILL.md) for Rust state and
+execution providers. The first memory hypotheses do not close the representation horizon;
+ShardLoom can earn a physical role without defining Noetloom's semantic architecture.
 The primary owns scientific judgment and final acceptance; verify bounded leaf outputs.
 
 Keep bulky outputs outside the checkout and cloud-synced folders under the declared

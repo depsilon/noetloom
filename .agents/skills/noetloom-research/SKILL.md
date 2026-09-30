@@ -15,6 +15,20 @@ and the experiment that could falsify that transfer. The catalog's review depth 
 an abstract is enough to identify a lead, not to reproduce methods or establish novelty.
 Use local source first and current primary documentation for changing APIs or libraries.
 
+Before choosing a candidate, state its role and check the charter's architectural boundary.
+Explain the persistent state, selectively active computation, learned transitions, and path
+to variable computation. Keep familiar recurrent, attention, or neural-memory models labeled
+as controls or limited component probes. A successful toy task does not make a borrowed model
+the Noetloom foundation. Numerical libraries and small learned components remain legitimate
+tools; the required distinction concerns the system architecture and what is actually learned.
+
+Keep mechanism experiments separate from foundational representation horizon questions in
+the hypothesis register. A horizon entry is not an admitted experiment. Before promoting it,
+review sources, register controls and representation/conversion costs, and update the single
+queue. Describe which representation possibilities a candidate preserves or forecloses.
+Physical providers compete to implement Noetloom's requirements; sibling abstractions do
+not determine cognition. Provider certificates prove only their scoped execution claims.
+
 Before execution, register observation/supervision boundaries, learned and hand-written
 components, credible controls, held-out structures, selection rules, complete cost budgets,
 independent seeds, acceptance criteria, and stop conditions under the

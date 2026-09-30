@@ -15,9 +15,9 @@ concurrency:
 
 jobs:
   checks:
-    name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
+    name: Rust and Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 5
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -42,6 +42,21 @@ jobs:
 
       - name: Check repository contracts
         run: python -B -m noetloom check
+
+      - name: Install pinned Rust toolchain
+        run: rustup toolchain install 1.98.0 --profile minimal --component rustfmt --component clippy
+
+      - name: Check Rust foundation
+        env:
+          NOETLOOM_CACHE: ${{ runner.temp }}/noetloom
+          NOETLOOM_TOOLING_CACHE: ${{ runner.temp }}/noetloom-tooling
+        run: python -B scripts/rust.py check --profile ci-smoke
+
+      - name: Verify Rust state across processes
+        env:
+          NOETLOOM_CACHE: ${{ runner.temp }}/noetloom
+          NOETLOOM_TOOLING_CACHE: ${{ runner.temp }}/noetloom-tooling
+        run: python -B scripts/rust.py fixture --profile ci-smoke
 
       - name: Check runner host admission
         env:

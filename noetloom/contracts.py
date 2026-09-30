@@ -318,25 +318,36 @@ def next_item(plan: dict[str, Any]) -> dict[str, Any] | None:
 
 def validate_hypotheses(data: dict[str, Any], source_ids: set[str]) -> None:
     fields(data, {"schema_version", "hypotheses"}, "hypotheses")
-    version(data, "noetloom.hypotheses.v1")
+    version(data, "noetloom.hypotheses.v2")
     if not isinstance(data["hypotheses"], list) or not data["hypotheses"]:
         raise ContractError("hypotheses must be nonempty")
     ids: set[str] = set()
     for row in data["hypotheses"]:
         fields(row, {
-            "id", "title", "status", "mechanism", "prediction", "falsifier",
+            "id", "category", "title", "status", "mechanism", "prediction", "falsifier",
             "source_refs", "novelty_status", "evidence",
-        }, "hypothesis")
+        }, "hypothesis", {"question"})
         key = identifier(row["id"], r"H-\d{3}", "hypothesis id")
         if key in ids:
             raise ContractError(f"duplicate hypothesis: {key}")
         ids.add(key)
         for field in ("title", "mechanism", "prediction", "falsifier"):
             text(row[field], field)
-        refs = strings(row["source_refs"], "hypothesis sources")
+        if row["category"] not in {"mechanism", "foundational_representation"}:
+            raise ContractError(f"{key}: invalid hypothesis category")
+        horizon = row["status"] == "horizon"
+        if horizon:
+            if row["category"] != "foundational_representation":
+                raise ContractError(f"{key}: horizon is reserved for foundational representation questions")
+            text(row.get("question"), "horizon question")
+            if row["evidence"]:
+                raise ContractError(f"{key}: promote a horizon question before recording experiment evidence")
+        elif "question" in row:
+            text(row["question"], "research question")
+        refs = strings(row["source_refs"], "hypothesis sources", allow_empty=horizon)
         if not set(refs) <= source_ids:
             raise ContractError(f"{key}: unknown research source")
-        if text(row["status"], "hypothesis status") not in {"proposed", "testing", "supported_in_scope", "rejected"}:
+        if text(row["status"], "hypothesis status") not in {"horizon", "proposed", "testing", "supported_in_scope", "rejected"}:
             raise ContractError(f"{key}: invalid hypothesis status")
         if row["novelty_status"] != "unassessed":
             raise ContractError("novelty needs an explicit future review contract")

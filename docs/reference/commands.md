@@ -1,4 +1,4 @@
-# Bootstrap command reference
+# Command reference
 
 Use Python 3.11+ from the source checkout root. The CLI is `python3 -B -m noetloom`.
 The `-B` flag keeps bytecode out of the working tree. No external Python package is required.
@@ -32,7 +32,7 @@ The CLI's `--help` provides argument syntax.
 | Resource policy | `noetloom.resources.v1` | `config/resource-policy.json`, `validate_policy` |
 | Active queue | `noetloom.plan.v1` | `docs/state/plan.json`, `validate_plan` |
 | Sources | `noetloom.sources.v1` | `docs/research/sources.json`, `validate_sources` |
-| Hypotheses | `noetloom.hypotheses.v1` | `docs/research/hypotheses.json`, `validate_hypotheses` |
+| Hypotheses | `noetloom.hypotheses.v2` | `docs/research/hypotheses.json`, `validate_hypotheses`; mechanism candidates and representation horizon questions |
 | Harness protocol | `noetloom.experiment.v1` | `experiments/EXP-0001/protocol.json`, `validate_experiment` |
 | Runtime inventory | `noetloom.source.v1` | `source.json` in each run, `source_identity` |
 | Run manifest | `noetloom.run.v1` | `manifest.json` in each run, `_manifest` |
@@ -52,3 +52,44 @@ training backend. Extend it deliberately if runtime code or dependencies move el
 formats even if force-added. It does not audit historical Git object sizes, validate every
 Markdown anchor, fetch remote links, or certify scientific conclusions. Future formats need
 versioned validators and behavior tests; do not add speculative generalized plugin machinery.
+
+## Rust foundation
+
+Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with
+warnings denied. Use `python3 -B scripts/rust.py fixture` to build the example, run its scripted
+state transition, and verify it in a second process. Exit 0 means success; exit 1 means a
+build, admission, identity, or execution failure. Both commands accept `--profile ci-smoke`
+only for explicitly disposable CI work; local default admission remains unchanged.
+
+`NOETLOOM_TOOLING_CACHE` defaults to `~/.cache/noetloom-tooling`; its `cargo-target` and
+`cargo-home` directories hold bounded build and dependency output. The driver sets two
+compiler jobs and disables incremental compilation. `NOETLOOM_CACHE` selects the shared
+run cache/lease. Builds and runtime jobs must not overlap. The Rust 1.98 toolchain is pinned
+in `rust-toolchain.toml`; install that toolchain separately if absent.
+
+The fixture emits `execution.json`, `restart.json`, `manifest.json`, and its immutable state
+directory. A failure retains evidence and has no successful completion marker. The native
+execution receipt is `noetloom.execution.v1`; the store index is `noetloom.state.v1`.
+`noetloom.rust_build.v1` embeds a sorted path/SHA-256 inventory of Rust sources/tests/examples,
+workspace/crate manifests, lockfile, and toolchain pin, plus compiler/target/profile/flags.
+The driver checks it against current source and records the actual binary hash. This identity
+is separate from `noetloom.source.v1`, which continues to identify only the Python harness.
+
+Receipts distinguish activation payload I/O, commit validation I/O, metadata bytes,
+logical active values, staged bytes, nominal scalar work, graph/trace bytes, and elapsed time.
+They do not certify process memory, power, learned capability, or comparative efficiency.
+
+## Optional ShardLoom infrastructure probe
+
+`python3 -B scripts/shardloom_probe.py --binary /absolute/path/to/shardloom` generates 512
+synthetic trace-shaped rows, runs three public SQL queries through Vortex preparation/native
+execution, exports small JSONL results, and checks them against an independent reference.
+`--source-checkout PATH` records source context but does not claim that commit built the binary.
+The actual binary hash is recorded. The command does not install or build ShardLoom.
+
+Output stays under the shared run cache and lease with 8 MiB/30-second limits. The engine
+request is 1 GiB/two workers; any weaker enforcement reported by its envelope remains visible.
+Exit 0 means all three scoped queries and route checks passed, 1 means partial/unsupported
+coverage, and 2 means an admission or driver failure. Full envelopes, results, failures, and
+the prepared Vortex file remain available; `report.json` records exact identities and limits.
+This optional local probe is not required to build or test the independent Rust core.
