@@ -148,6 +148,7 @@ class ContractTests(unittest.TestCase):
         hypotheses = read_json(ROOT / "docs/research/hypotheses.json")
         validate_hypotheses(hypotheses, ids)
         hypotheses["hypotheses"][0]["status"] = "supported_in_scope"
+        hypotheses["hypotheses"][0]["evidence"] = []
         with self.assertRaisesRegex(ContractError, "evidence"):
             validate_hypotheses(hypotheses, ids)
         hypotheses["hypotheses"][0]["status"] = "proposed"
