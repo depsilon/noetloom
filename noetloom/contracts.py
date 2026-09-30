@@ -414,6 +414,11 @@ def check_repository(root: Path) -> dict[str, Any]:
             validate_protocol(protocol, profiles["local-calibration"])
             repo_reference(root, protocol["design"])
             repo_reference(root, protocol["prior_evidence"])
+        elif protocol.get("schema_version") == "noetloom.coordinates.v1":
+            from .coordinates_contracts import validate_protocol
+            validate_protocol(protocol, profiles["local-calibration"])
+            repo_reference(root, protocol["design"])
+            repo_reference(root, protocol["prior_evidence"])
         else:
             validate_experiment(protocol, policy)
         if protocol["id"] in ids or path.parent.name != protocol["id"]:

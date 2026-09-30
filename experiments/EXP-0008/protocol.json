@@ -1,0 +1,239 @@
+{
+  "schema_version": "noetloom.coordinates.v1",
+  "id": "EXP-0008",
+  "kind": "development_pilot",
+  "design": "experiments/EXP-0008/design.md",
+  "source_refs": [
+    "R-KOOPMAN",
+    "R-NICE",
+    "R-LKIS"
+  ],
+  "role": "Development acquisition comparison only: learned useful coordinates with generic reversible coupling versus independent mappings. No foundation, compression, continual skill, final transfer or practical advantage claim.",
+  "observations": [
+    "nonlinear"
+  ],
+  "arms": [
+    "latent",
+    "reversible",
+    "direct"
+  ],
+  "development_seeds": [
+    12003,
+    12009,
+    12027
+  ],
+  "conditions": [
+    {
+      "name": "lr003",
+      "rate": 0.003
+    },
+    {
+      "name": "lr010",
+      "rate": 0.01
+    }
+  ],
+  "data": {
+    "bits": 10,
+    "actions": 4,
+    "world_seed": 180701,
+    "partition_seed": 180703,
+    "state_counts": [
+      512,
+      128,
+      192,
+      192
+    ],
+    "development_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "final_pairs": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "one_training_per_action": 128,
+    "one_validation_per_action": 32,
+    "mixed_training_per_length": 128,
+    "mixed_validation_per_length": 64,
+    "development_one_per_action": 32,
+    "development_short_per_length": 64,
+    "development_novel_pairs": 64,
+    "development_per_long_family": 96,
+    "continuation_pairs_per_family": 16,
+    "nonlinear_shears": [
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        5,
+        3,
+        4
+      ],
+      [
+        8,
+        6,
+        7
+      ]
+    ],
+    "nonlinear_coefficient": 1.25,
+    "scope": "Fresh signed-permutation/flip world. All fitting initial and prefix states are in the training state partition. Validation/development paths may also visit training states but cannot enter another held-out state partition. Complement-paired sampling balances canonical bits. Neither runtime nor fitting sees canonical state, inverse observation map or action rules."
+  },
+  "model": {
+    "state_width": 10,
+    "independent_parameters": 1804,
+    "reversible_parameters": 1780,
+    "direct_parameters": 5416,
+    "independent": "Unchanged EXP-0007 residual 10->32 tanh->10 encoder and separate decoder, zero output layers at initialization.",
+    "reversible": "Four additive coupling layers, each 5->30 tanh->5. Even coordinates condition odd in layers 0/2; odd condition even in 1/3. Reverse order with subtraction is the decoder. Generic NICE layout, no generator-selected edges, scaling layer, likelihood, or supplied inverse.",
+    "transition": "Unchanged four affine 10x10 maps and biases. Latent and reversible maps start at exactly the same seeded identity-plus-uniform[-.05,.05] parameters.",
+    "direct": "Unchanged four residual 10->64 tanh->10 observation-space maps; own initializations and task-specific nonlinear acquisition."
+  },
+  "training": {
+    "version": "2.14.0",
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 1,
+    "optimizer": "Adam",
+    "batch_size": 8,
+    "gradient_clip_norm": 1,
+    "steps": {
+      "tiny": 2048,
+      "one": 4096,
+      "mixed": 2048
+    },
+    "measurement_steps": {
+      "tiny": [
+        0,
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "one": [
+        0,
+        256,
+        512,
+        1024,
+        2048,
+        3072,
+        4096
+      ],
+      "mixed": [
+        0,
+        512,
+        1024,
+        1536,
+        2048
+      ]
+    },
+    "curriculum": "Independent tiny and one-step cohorts start from the same own seed initialization. Tiny failure never blocks one-step fitting. Only after all three one-step seeds pass at a common condition may that arm run mixed fits initialized from each selected one-step snapshot, with fresh Adam. Choose lr003 before lr010. No candidate is initialized from an oracle, another arm, or EXP-0007.",
+    "sampling": "Uniform stage-training trajectories, grouped by selected length for tensor batches; uniform length choice in mixed fitting so short rollouts receive comparable updates.",
+    "prediction_loss": "Mean squared observed-coordinate error averaged within trajectory then across trajectories, over every free-running prefix.",
+    "reconstruction_weight": 0.5,
+    "consistency_weight": {
+      "latent": 0,
+      "reversible": 0,
+      "direct": 0
+    },
+    "auxiliary": "Independent mappings retain .5 reconstruction MSE. Reversible reconstructions use the exact inverse and the same .5 term (numerically near zero); direct reconstruction is identity. Both latent arms receive the same observation targets. Consistency is measured only, with no objective contribution."
+  },
+  "acquisition": {
+    "coordinate_tolerance": 0.25,
+    "tiny_training_all_prefix_accuracy": 1,
+    "training_all_prefix_accuracy": 0.98,
+    "validation_all_prefix_accuracy": 0.95,
+    "minimum_action_and_length_accuracy": 0.9,
+    "training_reconstruction_accuracy": 0.99,
+    "validation_reconstruction_accuracy": 0.95,
+    "selection": "Minimum validation prediction MSE among all passing checkpoints (tiny uses training MSE), earliest step breaks ties. If none passes select minimum loss, retain failure. Complete every registered duration.",
+    "mixed_admission": "Complete both rates' one-step fits before selecting the first qualifying common rate where all three seeds acquire, with full replay for every parent. Tiny fitting is a separate diagnostic, never a coverage prerequisite."
+  },
+  "evaluation": {
+    "scope": "Training/validation acquisition only. No development composition, continuation or final trajectories in this pilot. Mixed uses the existing permitted short words, length 1-3, running on its own states.",
+    "comparison": "Compare each common arm/rate/seed/cohort with matched observed inputs, batch and update ceilings. Reversible has 1.33% fewer parameters than independent, but more mapping arithmetic; report actual work. Direct has 5416 parameters and is a relevant baseline, not a parameter-matched mechanism arm.",
+    "decision": "Retain a learnable configuration only when all three seeds pass one-step and mixed gates at the selected common condition. Reconstruction alone is not acquisition. Reversibility improvement requires common-condition paired acquisition evidence and per-seed accuracy, loss, reconstruction and costs; different conditions support configuration comparison only. No significance or broad architecture verdict.",
+    "follow_on": "After closure, separately register a sufficiently supported current-encoder affine inner solve if evidence warrants. Do not combine it with this comparison. Representation change with retained operations is a later horizon."
+  },
+  "budget": {
+    "max_fit_attempts": 45,
+    "max_preflight_attempts": 2,
+    "max_failure_injections": 1,
+    "max_oracle_attempts": 1,
+    "max_replay_attempts": 54,
+    "max_attempts": 103,
+    "max_updates_per_run": 4200,
+    "max_presentations_per_run": 50000,
+    "max_forward_prefixes_per_run": 300000,
+    "max_auxiliary_observations_per_run": 200000,
+    "max_affine_fit_examples_per_run": 0,
+    "max_gradient_updates_total": 132000,
+    "max_presentations_total": 5000000,
+    "max_forward_prefixes_total": 20000000,
+    "max_output_bytes_per_run": 16777216,
+    "max_artifact_bytes_total": 268435456,
+    "max_wall_seconds_per_run": 120,
+    "max_wall_seconds_total": 3600,
+    "max_peak_rss_bytes": 2147483648
+  },
+  "verification": "Committed source/protocol; training/validation actual-input audit; generic inverse, tensor/scalar and gradient checks; synthetic post-fit failure; all measurement/selection/prediction/probe replay; own-state persistence on short runs; private backup and restored-source representative replay. Snapshots are inference parameters, not exact optimizer-resume state.",
+  "prior_evidence": "docs/evidence/N-011-state-representation-2026-09-30.json",
+  "network_during_run": false,
+  "external_pretrained_components": [],
+  "final_access": false,
+  "stop_condition": "Close after the two declared rates, three seeds, independent tiny/one cohorts and conditionally one mixed condition per arm. No extension of EXP-0007, larger widths, extra objectives, final access, runtime redesign, or unregistered retry. A separately registered inner solve is a future decision.",
+  "diagnostics": {
+    "oracle": {
+      "training_one_step_examples": 512,
+      "training_six_step_paths": 64,
+      "salt": 120801,
+      "scope": "Analytically constructed old-family parameters from known rules and shear map. Isolated oracle module, separate artifact, never candidate initialization, training target or evaluation input. Float32 and independent scalar replay; finite bipolar capacity only. No reviewer archive was available; independent derivation."
+    },
+    "prediction_perturbation": {
+      "steps": {
+        "tiny": [
+          0,
+          256,
+          2048
+        ],
+        "one": [
+          0,
+          256,
+          4096
+        ],
+        "mixed": []
+      },
+      "observations": "The same 32 tiny training pairs, from training states only.",
+      "groups": {
+        "latent": [
+          "encoder",
+          "decoder",
+          "mappings",
+          "all"
+        ],
+        "reversible": [
+          "mappings",
+          "all"
+        ],
+        "direct": [
+          "all"
+        ]
+      },
+      "update": "One isolated prediction-only SGD perturbation at the fit's rate for each group, clipping that group's gradient norm at 1. Restore the unchanged checkpoint before each group; use no optimizer state. Charge and replay every gradient and parameter update. No candidate state is changed.",
+      "measure": "Prediction loss and complete-observation reconstruction MSE/accuracy/max error before and after; delta is a local intervention, not proof of the cause of Adam failure."
+    }
+  }
+}

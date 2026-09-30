@@ -276,6 +276,33 @@ restoration; it never changes the original result. Bundle each observation separ
 representative inference from its recorded source. The source is part of each bundle. These
 commands neither publish nor retire artifacts.
 
+## Coordinate acquisition comparison (EXP-0008)
+
+`python3 -B scripts/coordinates.py preflight` audits only training/validation inputs and runs
+synthetic numerical checks. With its returned directory as `--admission`, run `oracle` for the
+isolated capacity witness, `inject` for the synthetic post-fit failure check, or `train` with
+`--stage tiny|one`, `--arm latent|reversible|direct`, `--condition lr003|lr010` and one of
+`--seed 12003|12009|12027`. These two cohorts initialize independently; tiny failure cannot
+block the larger one-step cohort. Every arm enters this nonlinear task directly.
+
+After both rates terminate, all three one-step seeds must pass at the selected common condition
+and replay before `train --stage mixed` is admitted. Supply that seed's one-step directory as
+`--original` and the same arm, condition and seed. The selected snapshot initializes familiar
+length 1–3 fitting with a fresh optimizer. There is no composition, continuation or final command.
+
+`verify --original DIRECTORY` recomputes every saved acquisition measurement, checkpoint
+selection, prediction and local reconstruction perturbation, including unsuccessful fits.
+Perturbations are isolated prediction-only SGD updates, charged again when replayed; they do
+not change candidate snapshots or claim to explain Adam's behavior. `--recovery` gives one
+additional replay identity for a restored source/artifact bundle. Fit identities cannot be
+retried; failed attempts remain charged. Fitting, verification and resource outcomes are separate.
+
+See the [design](../../experiments/EXP-0008/design.md) and
+[frozen protocol](../../experiments/EXP-0008/protocol.json) for exact gates and cumulative limits.
+`python3 -B scripts/artifact_backup.py pack --scope coordinates` includes every admitted run
+and its source archive for the authorized private copy. Restore, check every byte and exercise
+representative replay before closure; the command does not publish or retire anything.
+
 ## Rust foundation
 
 Use `python3 -B scripts/rust.py check` for formatting, all Rust test targets, and Clippy with

@@ -29,7 +29,7 @@ def pack(scope: str) -> dict:
                 "calibration": ("calibration-",), "transitions": ("transitions-",),
                 "transition-diagnostics": ("transition-diagnostic-",),
                 "state-repr-aligned": ("state-repr-aligned-",),
-                "state-repr-nonlinear": ("state-repr-nonlinear-",)}[scope]
+                "state-repr-nonlinear": ("state-repr-nonlinear-",), "coordinates": ("coordinates-",)}[scope]
     with RunLease(cache, policy, LIMIT):
         directories = sorted(p for p in cache.iterdir() if p.name.startswith(prefixes) and p.is_dir())
         if not directories or sum(tree_bytes(p) for p in directories) > LIMIT // 2:
@@ -118,7 +118,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     create = sub.add_parser("pack")
-    create.add_argument("--scope", choices=("prior", "calibration", "transitions", "transition-diagnostics", "state-repr-aligned", "state-repr-nonlinear"), required=True)
+    create.add_argument("--scope", choices=("prior", "calibration", "transitions", "transition-diagnostics", "state-repr-aligned", "state-repr-nonlinear", "coordinates"), required=True)
     unpack = sub.add_parser("restore")
     unpack.add_argument("--archive", type=Path, required=True)
     unpack.add_argument("--inventory", type=Path, required=True)
