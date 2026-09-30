@@ -4,7 +4,7 @@
     {
       "id": "N-004",
       "title": "Complete autonomous foundation delivery and hosted verification",
-      "status": "active",
+      "status": "completed",
       "depends_on": ["N-001"],
       "sources": ["docs/operating-model.md", "docs/decisions/0002-autonomous-delivery.md", ".agents/skills/noetloom-delivery/SKILL.md", ".github/workflows/checks.yml"],
       "outcome": "The foundation is published to the existing public Noetloom repository, hosted checks are green, and future routine delivery follows the user's standing authority without repeated push questions.",
@@ -12,7 +12,7 @@
       "verification": ["python3 -B -m noetloom check", "Validate the delivery skill and review its behavior against the user's autonomy request.", "git push -u origin main", "Inspect the Checks workflow for the pushed commit and repair any in-scope failures."],
       "budget_profile": "local-small",
       "stop_condition": "Close after publication and hosted verification; do not start a new learning experiment as part of an authority/docs correction.",
-      "evidence": []
+      "evidence": ["docs/decisions/0002-autonomous-delivery.md"]
     },
     {
       "id": "N-001",

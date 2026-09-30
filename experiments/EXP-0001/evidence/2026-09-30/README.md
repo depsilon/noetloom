@@ -75,8 +75,10 @@ This is behavioral review, not a measured claim of optimal agent performance.
 
 The CI workflow's YAML, triggers, permissions, matrix, explicit `ci-smoke` profile, and
 inline Python syntax were checked locally. Action commit pins were verified through
-official GitHub release/commit endpoints. Hosted Linux/macOS CI has not run yet; Linux
-and Python 3.11 compatibility remain unverified until it does.
+official GitHub release/commit endpoints. Hosted Linux/macOS CI had not run at the time
+of this local evidence record. The later
+[delivery evidence](../../../../docs/decisions/0002-autonomous-delivery.md#delivery-evidence)
+records the workflow correction and passing Linux Python 3.11/macOS Python 3.13 checks.
 
 ## Next decision
 

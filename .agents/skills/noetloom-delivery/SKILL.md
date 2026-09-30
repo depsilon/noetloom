@@ -39,7 +39,9 @@ budget or remove a required check to make CI appear successful.
 
 For a failed check, obtain its logs, identify the failing boundary, reproduce where useful,
 repair related failures as one coherent change, and push the fix. Use the global debugging
-and verification workflows as needed. Keep following the new commit until required checks
+and verification workflows as needed. If the workflow is rejected before jobs start, logs
+may not exist; inspect the run's workflow annotations and the documented context rules.
+Keep following the new commit until required checks
 pass or a concrete external blocker remains; do not ask the user to push fixes manually.
 
 Retain a run URL or comparable check identity with the pushed commit in compact evidence
