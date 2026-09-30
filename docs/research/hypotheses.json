@@ -35,7 +35,7 @@
       "falsifier": "Reuse reduces to answer memorization, relies on an undisclosed runtime solver or unequal task-specific supervision, fails compositional transfer, or costs more overall than the matched control.",
       "source_refs": ["R-DREAMCODER", "R-NAR"],
       "novelty_status": "unassessed",
-      "evidence": ["docs/decisions/0010-learned-transition-pilot.md", "docs/evidence/N-008-2026-09-30.json", "docs/decisions/0011-transition-diagnostics.md", "docs/decisions/0012-state-representation-pilot.md", "docs/evidence/N-011-state-representation-2026-09-30.json"]
+      "evidence": ["docs/decisions/0010-learned-transition-pilot.md", "docs/evidence/N-008-2026-09-30.json", "docs/decisions/0011-transition-diagnostics.md", "docs/decisions/0012-state-representation-pilot.md", "docs/evidence/N-011-state-representation-2026-09-30.json", "docs/decisions/0013-coordinate-acquisition.md", "docs/evidence/N-012-coordinates-2026-09-30.json"]
     },
     {
       "id": "H-004",
@@ -133,11 +133,11 @@
       "status": "proposed",
       "question": "Can the system learn how to represent a problem, rather than merely how to solve a problem once represented?",
       "mechanism": "Learning may change the problem representation itself through downstream or predictive objectives under a bounded acquisition budget with explicit supplied structure and supervision.",
-      "prediction": "On tasks with adequate learned acquisition, input-dependent problem organization could improve held-out surface transfer beyond fixed-layout computation and static transport under matched learning opportunities. EXP-0004 was inconclusive; EXP-0005 did not confirm reliable baseline acquisition. EXP-0007 retained aligned state reuse but failed nonlinear tiny acquisition and reconstruction; it did not test nonlinear neural transfer. N-012 requires a new bounded calibration protocol before further fitting.",
+      "prediction": "On tasks with adequate acquisition, learned problem organization could improve held-out transfer under matched learning opportunities. EXP-0004 was inconclusive and EXP-0005 did not confirm reliable baseline acquisition. EXP-0007 retained aligned state reuse. EXP-0008 learned nonlinear one-step behavior in individual seeds; reversibility preserved reconstruction but neither mapping family acquired across all seeds. Nonlinear neural composition remains untested. N-013 separately tests affine optimization before any representation-bridge or retained-operation claim.",
       "falsifier": "The benefit is explained by unequal designer-provided encodings or supervision, label leakage, unlimited representation search, or increased solver capacity without representation transfer.",
       "source_refs": ["R-STN", "R-SLOT", "R-IJEPA", "R-RELATIONAL"],
       "novelty_status": "unassessed",
-      "evidence": ["docs/decisions/0006-problem-representation.md", "docs/evidence/N-006-2026-09-30.json", "docs/decisions/0008-calibration-result.md", "docs/evidence/N-007-2026-09-30.json", "docs/decisions/0009-input-validity-and-next-study.md", "docs/evidence/N-010-2026-09-30.json", "docs/decisions/0012-state-representation-pilot.md", "docs/evidence/N-011-state-representation-2026-09-30.json"]
+      "evidence": ["docs/decisions/0006-problem-representation.md", "docs/evidence/N-006-2026-09-30.json", "docs/decisions/0008-calibration-result.md", "docs/evidence/N-007-2026-09-30.json", "docs/decisions/0009-input-validity-and-next-study.md", "docs/evidence/N-010-2026-09-30.json", "docs/decisions/0012-state-representation-pilot.md", "docs/evidence/N-011-state-representation-2026-09-30.json", "docs/decisions/0013-coordinate-acquisition.md", "docs/evidence/N-012-coordinates-2026-09-30.json"]
     }
   ]
 }
