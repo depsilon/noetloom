@@ -131,8 +131,16 @@ two evaluation problems: the shared-row transpose path discards the query, and r
 holdouts reuse the same 30 effective patterns already present in training. Their transfer
 interpretation is corrected; historical scores remain intact and relation scores are reported
 separately. Reusable ambiguity and equivalence checks now support future experiment admission.
-The selected [next study](experiments/EXP-0006/design.md) moves to learned state transitions
-and unfamiliar action compositions, with bounded acquisition calibration on that task.
+
+[EXP-0006 is complete as a development pilot](docs/decisions/0010-learned-transition-pilot.md).
+A 288-parameter transition model acquired the task and scored 100% on all six development
+families across three seeds, including unfamiliar compositions and longer rollouts. Its
+observation-aligned state and action bank are strong supplied biases. The recurrent control
+fitted training sequences but failed short-sequence validation at both registered learning
+rates, so the confirmatory comparison was not admitted and final data remain unopened. All
+24 fits and three transfer evaluations replayed; the private archive was restored and tested.
+The [next selected study](experiments/EXP-0007/design.md) tests whether useful reuse survives
+learning the state representation itself. The foundation architecture remains unestablished.
 
 ## Contributing
 

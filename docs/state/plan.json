@@ -2,6 +2,19 @@
   "schema_version": "noetloom.plan.v1",
   "items": [
     {
+      "id": "N-011",
+      "title": "Test learned state representation for reusable transitions",
+      "status": "planned",
+      "depends_on": ["N-008"],
+      "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/operating-model.md", "docs/evaluation.md", "docs/decisions/0010-learned-transition-pilot.md", "experiments/EXP-0007/design.md", "docs/research/sources.json", ".agents/skills/noetloom-research/SKILL.md", ".agents/skills/noetloom-evaluation/SKILL.md", ".agents/skills/noetloom-artifacts/SKILL.md"],
+      "outcome": "A bounded test of whether useful transition composition survives learning its state encoding and decoding, with controls separating observation alignment, transition constraints and auxiliary state supervision.",
+      "acceptance": ["Convert the design brief into a reviewed executable protocol with source review and numeric search/resource limits; commit before fitting.", "Use a fresh world and partitions; preserve prior source, results and unopened final trajectories.", "Compare an observation-aligned reference, learned latent transition variants and a competent direct recurrent reference with equivalent prefix information and disclosed structural biases.", "Register reconstruction or state-consistency objectives, target-gradient behavior, useful-information checks and sensitive interventions; consistency loss alone cannot establish a useful representation.", "Calibrate task-specific acquisition across declared seeds and slices before unfamiliar compositions; retain all failures and stop at the bounded search limit.", "Audit actual input and auxiliary-target distinguishability, architectural equivalences, net computations and negative-control sensitivity by family before fitting.", "Admit a separately frozen fresh-seed confirmation only after baseline acquisition; charge representation conversion, supervision, tuning and repeated inference.", "Preserve fitting telemetry, snapshots, full replay and private backup/restore evidence; record a scoped decision and complete hosted delivery."],
+      "verification": ["Validate the executable contract and meaningful positive/negative input and replay cases.", "Run admitted preflight and development; run confirmation only if its prerequisite and separate registration are met.", "Run relevant unit/integration and repository checks, refreshed harness evidence where source changes require it, and exact delivered-commit CI.", "Report every arm/seed/family, all attempts and costs without adopting the probe as the foundation."],
+      "budget_profile": "local-calibration",
+      "stop_condition": "Close each registered pilot or confirmation at its limits, including failure, then select any revision explicitly from evidence. This design brief admits no fitting; no unbounded tuning, pretrained runtime component, paid compute, learned halting or provider rewrite is implied.",
+      "evidence": []
+    },
+    {
       "id": "N-010",
       "title": "Correct model observability and effective-input transfer claims",
       "status": "completed",
@@ -17,15 +30,15 @@
     {
       "id": "N-008",
       "title": "Test learned state transitions on unfamiliar action compositions",
-      "status": "active",
+      "status": "completed",
       "depends_on": ["N-010"],
       "sources": ["docs/charter.md", "docs/architecture/research-program.md", "docs/operating-model.md", "docs/evaluation.md", "docs/decisions/0009-input-validity-and-next-study.md", "experiments/EXP-0006/design.md", "docs/research/sources.json", ".agents/skills/noetloom-research/SKILL.md", ".agents/skills/noetloom-evaluation/SKILL.md", ".agents/skills/noetloom-artifacts/SKILL.md"],
-      "outcome": "A bounded, from-scratch test of acquired transition machinery reused over genuinely held-out action compositions, with an informative direct predictor, task-specific acquisition and charged repeated computation.",
+      "outcome": "Completed bounded development pilot: all three shared-transition seeds acquired and scored every development composition family exactly; the direct recurrent control fitted training but failed short-sequence validation at both admitted rates. Confirmation was not admitted and final trajectories remain unrendered. Retain the supplied-state component result; N-011 will test learned state representation. All 24 fits and three transfer evaluations replayed, with verified private archive recovery.",
       "acceptance": ["First convert the design brief into a reviewed executable protocol with numeric search and resource limits; commit source and registration before fitting.", "Ensure all model paths preserve required state/action/query information and audit exact, latent and architectural equivalence before fitting.", "Calibrate one-step and short-sequence acquisition in one observation format; compare at most two learning rates at a fixed duration across three development seeds per condition/arm.", "Select the lowest-loss checkpoint among those satisfying all predeclared acquisition slices, retaining failure if none qualifies.", "Use comparable experience and supervision for the learned-transition candidate and direct predictor; disclose structural biases and test action-order sensitivity.", "Freeze five fresh seeds and independently reserved final compositions after development selection; report every seed and family without final-data tuning.", "Measure composition and longer-rollout quality against charged work; do not infer novelty, language or a complete foundation from shared recurrence.", "Preserve fitting telemetry, snapshots, replay and bounded private backup evidence; complete local and hosted verification."],
-      "verification": ["Validate input distinguishability and held-out computation against the actual model input paths.", "Run admitted execution preflight, development acquisition pilot, and only the separately frozen confirmation.", "Run relevant unit/integration and repository checks; replay saved predictions and state where the protocol requires it.", "Record scientific outcome, all attempts, costs and exact delivered-commit CI."],
+      "verification": ["Frozen source/protocol 1eeda57e868fad0d3608c4f0cd30b93c0ba1e513 passed input/computation audits and numerical throughput preflight before fitting.", "All 24 fits replayed 120 saved measurement points; all three 608-case development transfers and controls replayed. Nine acquisition failures remain failures; injected verification failure retained its eight-update fit.", "Baseline mixed acquisition failed both conditions across all three seeds, so the conditional five-seed confirmation acceptance step was not admitted; final cases were not rendered.", "All 879 archive entries restored and hash-verified; acquired, failed-acquisition and longer-rollout results replay from archived source/weights. Receipt copies are verified.", "144 Python tests, repository contracts, doctor and whitespace checks pass; refreshed EXP-0001 run 20260930T171300Z-ae85174a80 replayed all 12,096 predictions.", "Frozen-source hosted Linux/macOS Python and Rust checks passed; follow the exact evidence-delivery commit through hosted CI."],
       "budget_profile": "local-calibration",
       "stop_condition": "Close each admitted pilot or confirmation at its registered limits, including failure. Select any next revision explicitly from the evidence; no unbounded tuning, paid compute, pretrained runtime components, learned halting or provider rewrite is implied.",
-      "evidence": []
+      "evidence": ["docs/decisions/0010-learned-transition-pilot.md", "docs/evidence/N-008-2026-09-30.json"]
     },
     {
       "id": "N-007",

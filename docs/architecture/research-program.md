@@ -152,17 +152,29 @@ and the owner-selected [second-copy and restore checks](../storage.md#learning-e
 Parameter snapshots support inference replay; exact optimizer continuation is a separate,
 optional contract. These prerequisites address known recovery gaps without rewriting the runtime.
 
+## N-008: learned transition reuse with supplied state
+
+[EXP-0006's bounded pilot is complete](../decisions/0010-learned-transition-pilot.md). Across three
+development seeds, a small learned transition bank acquired the task and correctly predicted
+every evaluated unfamiliar composition and longer rollout. Input and net-function audits make
+this a stronger finite composition result than the corrected static holdouts. It supplies
+observation-aligned coordinates, fixed action routing and extensive prefix supervision, and
+tests one small signed-permutation world. The recurrent direct control acquired one-step
+predictions and fitted the short training sequences but failed held-out short-sequence gates
+at both admitted rates. Its failure prevented the registered confirmatory comparison; final
+trajectories remain unrendered. H-003 remains open, without a confirmed cost or architecture claim.
+
 ## Next directions and their admission
 
-The owner requested continued, evidence-driven iteration. N-010 corrects the evaluation;
-N-008 is now selected in the plan, with an [EXP-0006 design brief](../../experiments/EXP-0006/design.md).
-Its first task is a concrete executable protocol, including task-specific acquisition,
-complete model-visible information and known-equivalence checks before fitting. N-009
-remains a conditional direction. Each learning trial retains its own resource and stop rules.
+The next selected item is **N-011**, with an [EXP-0007 design brief](../../experiments/EXP-0007/design.md):
+test whether useful composition survives learning the state representation, with controls
+that separate coordinate alignment, transition structure and auxiliary state supervision.
+The first task is a concrete executable protocol and source review; the brief admits no fitting.
+N-009 remains conditional. Each learning trial retains its own resource and stop rules.
 
 | Proposed direction | Question and decision needed |
 | --- | --- |
-| N-008: predictive state and compositional execution | Does a shared learned transition retain useful competence on new bindings and action compositions after one-step acquisition? Compare with a direct predictor under equivalent experience and charged repeated computation. |
+| N-011: learned state representation for reusable transitions | Can learned encoding/decoding preserve acquired composition, and which explicit state or supervision constraints explain any difference from a competent recurrent control? |
 | N-009: procedure acquisition and consolidation | Can acquired computation transfer to new inputs and repay discovery, checking, storage and selection costs over a measured workload? Compare with repeated execution and answer caching. |
 
 For predictive state, a small simulator supplies observations, actions and consequences during

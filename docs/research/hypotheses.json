@@ -35,7 +35,7 @@
       "falsifier": "Reuse reduces to answer memorization, relies on an undisclosed runtime solver or unequal task-specific supervision, fails compositional transfer, or costs more overall than the matched control.",
       "source_refs": ["R-DREAMCODER", "R-NAR"],
       "novelty_status": "unassessed",
-      "evidence": []
+      "evidence": ["docs/decisions/0010-learned-transition-pilot.md", "docs/evidence/N-008-2026-09-30.json"]
     },
     {
       "id": "H-004",
