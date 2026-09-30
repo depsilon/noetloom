@@ -1,6 +1,6 @@
 # 0005 — Reject the allocation gate; retain the simpler control
 
-Date: 2026-09-30. EXP-0003 is complete; N-003 awaits hosted delivery verification.
+Date: 2026-09-30. EXP-0003 and N-003 are complete.
 
 ## Decision
 
@@ -104,7 +104,7 @@ Before fitting, review tightened the final tensor input/scoring separation and c
 fixture's expected payload count. No test quality informed those implementation repairs.
 Local verification passed 84 Python tests, 36 Rust tests, formatting, Clippy, repository
 contracts, a foundation restart and 12,096 EXP-0001 replayed predictions under the current
-Python source. Hosted verification is recorded below when complete.
+Python source. Hosted verification is recorded below.
 
 ## Boundary for the next research decision
 
@@ -117,4 +117,8 @@ remain open. Do not equate completion of this queue with achievement of the char
 
 ## Hosted verification
 
-Pending the delivery commit. N-003 remains active until both hosted jobs pass.
+Both Linux/Python 3.11 and macOS/Python 3.13 jobs passed for delivery commit
+`4aba81ebdb61dcb470266cd784650c3a3d66a6f9` in
+[Checks run 36701155197](https://github.com/depsilon/noetloom/actions/runs/36701155197).
+The jobs include Python tests/contracts, Rust tests/formatting/Clippy, a persistence restart
+and harness replay. They do not install the optional trainer or repeat research fitting.
