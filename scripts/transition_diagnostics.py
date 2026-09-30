@@ -14,17 +14,18 @@ sys.path.insert(0, str(ROOT))
 from noetloom.calibration_records import write
 from noetloom.contracts import ContractError, load_policy, read_json
 from noetloom.storage import RunLease, RunWriter, default_cache, file_digest, storage_snapshot, tree_bytes, validate_cache
-from noetloom.transition_diagnostics import validate_registration
+from noetloom.transition_diagnostics import REPAIR, validate_registration
 import learning as supervisor
 from learning_setup import environment
 from transitions import committed
 
-PROTOCOL = ROOT / "experiments/EXP-0007/diagnostics.json"
+PROTOCOL = ROOT / "experiments/EXP-0007/diagnostics-repair.json"
 
 
 def identity() -> dict:
     protocol = read_json(PROTOCOL)
     paths = sorted([*(ROOT / "noetloom").glob("*.py"), *(ROOT / "scripts").glob("*.py"), PROTOCOL,
+                    ROOT / "experiments/EXP-0007/diagnostics.json",
                     ROOT / "experiments/EXP-0007/design.md", ROOT / "config/resource-policy-calibration.json",
                     ROOT / protocol["historical_evidence"], ROOT / protocol["historical_protocol"]])
     return {"files": [{"path": str(path.relative_to(ROOT)), "sha256": file_digest(path)} for path in paths]}
@@ -79,6 +80,9 @@ def execute(kind: str, *, original: Path | None = None, input_root: Path | None 
         raise ContractError("diagnostic run/replay arguments differ")
     source, cache = identity(), validate_cache(default_cache(), ROOT)
     head, recovery = committed(source), check_historical_binding(protocol)
+    if (file_digest(ROOT / "experiments/EXP-0007/diagnostics.json") != REPAIR["original_protocol_sha256"]
+            or file_digest(cache / REPAIR["failed_attempt"] / "manifest.json") != REPAIR["failed_manifest_sha256"]):
+        raise ContractError("diagnostic repair requires intact original registration and failed attempt")
     original = original.resolve() if original is not None else None
     if original:
         validated_run(original)

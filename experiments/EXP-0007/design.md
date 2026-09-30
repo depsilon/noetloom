@@ -46,6 +46,13 @@ ceiling; each attempt permits 16 MiB, 120 seconds and 2 GiB peak RSS. Replays re
 affine fitting. Failed attempts remain charged. This measures what the old training contributed
 and whether correct endpoints conceal intermediate failures; it is not independent confirmation.
 
+The [implementation repair](diagnostics-repair.json) retains the original registration and
+failed attempt `transition-diagnostic-run-dc524301a1`. That attempt completed affine fitting
+but stopped before comparison scoring because the new reader omitted the historical data's
+`rows` envelope. One unused replay allowance becomes a repair run: two runs and two replays
+within the same four-attempt, 64 MiB and 480-second ceilings. Science, data, fit and score
+definitions are unchanged. The original failure remains a failure.
+
 ## Coherent comparison to make executable
 
 Use one fully observed transition domain with a fresh world and fresh partitions, keeping

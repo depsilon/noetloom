@@ -238,7 +238,9 @@ or neural-training operation.
 
 `python3 -B scripts/transition_diagnostics.py verify --original /absolute/diagnostic-run`
 recomputes the complete diagnostic in a fresh process, including the charged affine solve.
-One run and three replays are the whole admitted attempt budget, including failures.
+The recorded reader repair exchanges one unused replay allowance for a second run; the
+[amendment](../../experiments/EXP-0007/diagnostics-repair.json) preserves four total attempts,
+including the original failed run, and the original aggregate time/storage ceilings.
 `python3 -B scripts/artifact_backup.py pack --scope transition-diagnostics` includes the
 diagnostic attempts and their committed source. The optional `--input-root` on `run` selects
 an intact restored historical artifact bundle; it does not bypass original hashes or source.

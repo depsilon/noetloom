@@ -1,7 +1,6 @@
 """Post-hoc EXP-0006 diagnostics, separately registered as EXP-0007-D1."""
 from __future__ import annotations
 
-import json
 from pathlib import Path
 import sys
 import time
@@ -15,14 +14,22 @@ from .storage import file_digest, tree_bytes
 from .transition_data import generate, transfer
 from . import transition_worker as original_worker
 
+REPAIR = {"original_protocol_sha256": "be7504277acdcc1d909106728fdff86ea2c037254f94f280ac2667549a4224f9",
+          "failed_attempt": "transition-diagnostic-run-dc524301a1",
+          "failed_manifest_sha256": "e3caec12f944a72b30bee6e668bc818423dc09c6532b0135d74fa41d253a4617",
+          "reason": "Read the historical transfer-data rows envelope; no comparison outcomes were produced. Convert one unused replay allowance into one implementation-repair run; preserve four attempts and all aggregate ceilings."}
+
 
 def validate_registration(protocol: dict) -> None:
     keys = {"schema_version", "id", "kind", "historical_source_commit", "historical_evidence",
             "historical_evidence_sha256", "historical_protocol", "seeds", "snapshot_stages", "arm", "affine",
             "prefix_audit", "checkpoint_comparison", "backend", "budget", "verification", "claim_boundary",
             "network_during_run", "external_pretrained_components", "final_access", "retention"}
-    if not isinstance(protocol, dict) or set(protocol) != keys:
+    if not isinstance(protocol, dict) or set(protocol) not in (keys, keys | {"amendment"}):
         raise ContractError("diagnostic registration fields differ")
+    amended = "amendment" in protocol
+    if amended and protocol["amendment"] != REPAIR:
+        raise ContractError("diagnostic repair amendment differs")
     if (protocol.get("schema_version") != "noetloom.transition_diagnostics.v1"
             or protocol.get("id") != "EXP-0007-D1" or protocol.get("kind") != "posthoc_development_diagnostics"
             or protocol.get("historical_source_commit") != "1eeda57e868fad0d3608c4f0cd30b93c0ba1e513"
@@ -38,6 +45,8 @@ def validate_registration(protocol: dict) -> None:
                 "max_output_bytes_per_run": 16777216, "max_wall_seconds_per_run": 120,
                 "max_peak_rss_bytes": 2147483648, "max_artifact_bytes_total": 67108864,
                 "max_wall_seconds_total": 480}
+    if amended:
+        expected.update(max_runs=2, max_replays=2)
     if protocol.get("budget") != expected:
         raise ContractError("diagnostic numeric budget differs")
     if protocol.get("backend") != {"version": "2.14.0", "device": "cpu", "threads": 1,
@@ -77,9 +86,18 @@ def copied_name(index: int, role: str) -> str:
 
 
 def load(path: Path):
-    if path.stat().st_size > 2 * 1024**2:
-        raise ContractError("diagnostic individual input exceeds admission")
-    return json.loads(path.read_text())
+    return read_json(path)
+
+
+def historical_rows(data: dict, kind: str, split: str) -> list[dict]:
+    expected = {"training", "validation"} if kind == "fit" else {"rows"}
+    if (kind not in {"fit", "transfer"} or set(data) != expected
+            or (kind == "fit" and split not in expected) or (kind == "transfer" and split != "development")):
+        raise ContractError("historical diagnostic data envelope differs")
+    rows = data[split if kind == "fit" else "rows"]
+    if not isinstance(rows, list):
+        raise ContractError("historical diagnostic trajectories must be a list")
+    return rows
 
 
 def copy_bounded(source: Path, target: Path, directory: Path, limit: int) -> None:
@@ -143,7 +161,7 @@ def audit_saved(directory: Path, records: list[dict], usage: dict) -> list[dict]
         row = {key: record[key] for key in ("run", "arm", "seed", "stage", "condition", "selected_step")}
         row["splits"] = {}
         for split in splits:
-            examples = data[split] if record["kind"] == "fit" else data
+            examples = historical_rows(data, record["kind"], split)
             old = saved[split] if record["kind"] == "fit" else saved
             measured = scored(examples, old["logits"], usage)
             if set(measured) != set(old["scored"]):
@@ -167,7 +185,7 @@ def compute(directory: Path, records: list[dict], history: dict, usage: dict, fi
     original_transfers = {}
     for i, row in enumerate(records):
         if row["kind"] == "transfer":
-            if load(directory / copied_name(i, "data")) != development:
+            if historical_rows(load(directory / copied_name(i, "data")), "transfer", "development") != development:
                 raise ContractError("diagnostic generator does not match inspected development bytes")
             original_transfers[row["seed"]] = read_json(directory / copied_name(i, "predictions"))
     results = {"saved_prefix_audit": audit_saved(directory, records, usage), "neural": []}
@@ -206,8 +224,7 @@ def compute(directory: Path, records: list[dict], history: dict, usage: dict, fi
     return results
 
 
-def main() -> None:
-    directory = Path(sys.argv[1])
+def run(directory: Path) -> None:
     protocol, request = read_json(directory / "protocol.json"), read_json(directory / "request.json")
     validate_registration(protocol)
     root = Path(request["source_root"])
@@ -249,10 +266,17 @@ def main() -> None:
                 or usage["neural_forward"]["prefix_predictions"] + usage["affine_forward_prefixes"] > limits["max_forward_prefixes_per_run"]):
             raise ContractError("diagnostic measured work exceeds registration")
         write(directory, "work.json", usage)
-        write(directory, "worker-resources.json", {"peak_rss_bytes": peak_rss_bytes()})
         return {"prefix_audits": len(records), "neural_checkpoints": 6, "affine_examples": len(examples), "replay": replay}
 
     publish_fit(directory, fit, verify)
+
+
+def main() -> None:
+    directory = Path(sys.argv[1])
+    try:
+        run(directory)
+    finally:
+        write(directory, "worker-resources.json", {"peak_rss_bytes": peak_rss_bytes()})
 
 
 if __name__ == "__main__":

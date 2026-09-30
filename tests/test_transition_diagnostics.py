@@ -12,6 +12,7 @@ from unittest.mock import patch
 from noetloom.contracts import ContractError, canonical_bytes, read_json
 from noetloom.storage import file_digest
 from noetloom import transition_diagnostics as diagnostics
+from noetloom.transition_data import score
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -29,6 +30,31 @@ def evidence() -> dict:
 
 
 class TransitionDiagnosticsTests(unittest.TestCase):
+    def test_saved_transfer_rows_envelope_is_scored_without_schema_translation(self):
+        row = {"initial": [0] * 8, "actions": [0, 1], "targets": [[1] * 8, [0] * 8], "family": "synthetic"}
+        data = {"rows": [row]}
+        saved = {"logits": [[[1.0] * 8, [-1.0] * 8]], "predictions": [[0] * 8], "scored": score([row], [[0] * 8])}
+        record = {"run": "synthetic", "kind": "transfer", "arm": "shared_transition", "seed": 1,
+                  "stage": "development_transfer", "condition": "lr003", "selected_step": 1}
+        usage = {"scored_trajectories": 0, "scored_prefixes": 0}
+        with patch.object(diagnostics, "load", return_value=data), patch.object(diagnostics, "read_json", return_value=saved):
+            result = diagnostics.audit_saved(Path("/unused"), [record], usage)
+        self.assertEqual(result[0]["splits"]["development"]["all"]["all_prefix_exact"], 1)
+        self.assertEqual(usage, {"scored_trajectories": 1, "scored_prefixes": 2})
+        self.assertEqual(diagnostics.historical_rows(data, "transfer", "development"), [row])
+        with self.assertRaisesRegex(ContractError, "envelope"):
+            diagnostics.historical_rows({"training": [row]}, "transfer", "development")
+
+    def test_repair_preserves_total_admission_and_original_registration(self):
+        repaired = read_json(ROOT / "experiments/EXP-0007/diagnostics-repair.json")
+        diagnostics.validate_registration(repaired)
+        self.assertEqual(repaired["amendment"]["original_protocol_sha256"], file_digest(ROOT / "experiments/EXP-0007/diagnostics.json"))
+        original = protocol()
+        restored = copy.deepcopy(repaired)
+        restored.pop("amendment")
+        restored["budget"].update(max_runs=1, max_replays=3)
+        self.assertEqual(restored, original)
+
     def test_registration_is_exact(self):
         expected = protocol()
         diagnostics.validate_registration(expected)
