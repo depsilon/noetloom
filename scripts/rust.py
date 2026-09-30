@@ -52,9 +52,10 @@ def tooling_environment() -> tuple[Path, dict[str, str]]:
     return tooling, env
 
 
-def check_tooling(tooling: Path, min_free: int, *, reserve: bool = False) -> dict[str, int]:
-    build = tree_bytes(tooling / "cargo-target")
-    dependencies = tree_bytes(tooling / "cargo-home")
+def check_tooling(tooling: Path, min_free: int, *, reserve: bool = False,
+                  live: bool = False) -> dict[str, int]:
+    build = tree_bytes(tooling / "cargo-target", live=live)
+    dependencies = tree_bytes(tooling / "cargo-home", live=live)
     if build > BUILD_LIMIT or dependencies > DEPENDENCY_LIMIT:
         raise StorageError("Rust tooling exceeds admitted build/dependency storage; inspect before retrying")
     remaining = BUILD_LIMIT + DEPENDENCY_LIMIT - build - dependencies if reserve else 0
@@ -75,7 +76,7 @@ def cargo(arguments: list[str], env: dict[str, str], tooling: Path, policy: dict
             except subprocess.TimeoutExpired:
                 if time.monotonic() - started > BUILD_SECONDS:
                     raise StorageError("Rust command exceeded the 300-second build deadline")
-                check_tooling(tooling, policy["min_free_disk_bytes"])
+                check_tooling(tooling, policy["min_free_disk_bytes"], live=True)
         if code:
             raise StorageError(f"cargo {' '.join(arguments)} failed with exit {code}")
         check_tooling(tooling, policy["min_free_disk_bytes"])

@@ -3,15 +3,38 @@ from __future__ import annotations
 import json
 import subprocess
 import tempfile
+from types import SimpleNamespace
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from noetloom.storage import StorageError
 from scripts import rust
 
 
 class RustDriverTests(unittest.TestCase):
+    def test_build_sampling_is_live_and_post_exit_admission_remains_strict(self):
+        for final_failure in (False, True):
+            with self.subTest(final_failure=final_failure):
+                process = SimpleNamespace(wait=Mock(side_effect=[subprocess.TimeoutExpired('cargo', 1), 0]),
+                                          poll=Mock(return_value=0))
+                observed = []
+
+                def inspect(tooling, min_free, *, live=False):
+                    observed.append(live)
+                    if not live and final_failure:
+                        raise StorageError('strict post-build inventory failed')
+                    return {}
+
+                with patch.object(rust.subprocess, 'Popen', return_value=process), \
+                        patch.object(rust, 'check_tooling', side_effect=inspect):
+                    if final_failure:
+                        with self.assertRaisesRegex(StorageError, 'post-build'):
+                            rust.cargo(['check'], {}, Path('/fixture'), {'min_free_disk_bytes': 1})
+                    else:
+                        rust.cargo(['check'], {}, Path('/fixture'), {'min_free_disk_bytes': 1})
+                self.assertEqual(observed, [True, False])
+
     def test_stale_compiled_source_identity_is_refused(self):
         process = subprocess.CompletedProcess([], 0, json.dumps({"build": {"source_sha256": "old"}}).encode(), b"")
         with patch.object(rust.subprocess, "run", return_value=process):

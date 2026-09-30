@@ -78,6 +78,8 @@ enumeration and inspection; these samples are approximate. They still reject sym
 special files and other I/O failures. After the worker exits, strict output/workspace scans
 and artifact inventories are required before any successful completion manifest is written.
 This avoids treating atomic publication as corruption without relaxing final admission.
+Rust tooling applies the same distinction while Cargo creates and removes temporary build
+files; its pre-build reservation and post-build storage check remain strict.
 
 ## Artifact identity and retirement
 
