@@ -247,6 +247,51 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Maintained ToolShelf tests explicitly close fixture connections and pass all 39 cases locally with resource warnings enabled. Native 36-test completion, the earlier semantic repair, and this CI integration repair remain separately documented with current source identities.",
       "at": "2026-10-04T19:52:12.870957+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-003",
+        "title": "Integrate optional distributions and deliver verified guidance",
+        "status": "planned",
+        "cycle": 1,
+        "depends_on": [
+          "P-002"
+        ],
+        "outcome": "Version 0.2.0 preserves the useful helper examples and reproducible plugin while delivering the readable autonomous method through passing local and GitHub checks.",
+        "scope": [
+          "Maintained helper examples, licensing, plugin resources and version",
+          "Regression checks, adversarial review and precise proof documentation",
+          "Scoped commit, push, PR checks and authorized merge; no Directory submission"
+        ],
+        "instructions": [
+          "Refresh owned source copies and revalidate affected completed examples.",
+          "Build identical plugin archives, exercise installed resources, and retain review metadata and limitations.",
+          "Review the full diff for broken links, misleading claims and baseline/helper coupling; repair findings.",
+          "Run full checks, bind current evidence, update continuation state, and follow CI through authorized delivery."
+        ],
+        "guidance": [
+          "docs/plugin.md — packaging and publication boundary",
+          "docs/licensing.md — copied-material terms",
+          "docs/validation.md — commands and limitations"
+        ],
+        "acceptance": [
+          "Existing applications and helper safety contracts continue to pass.",
+          "Readable assets, canonical skills and optional guides are included consistently in the reproducible plugin.",
+          "Documentation reports demonstrated paths and gaps; all authorized local/GitHub checks pass before merge."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-911639de54e143b7a8c99c7d16725d5e",
+        "check-a5372d97298845d097029483ce27aa87"
+      ],
+      "summary": "Delivered version 0.2.0 in PR #3, merged as 230dd5938c3a9d26395be6275a86fc93db86cc5f. Repaired PR run 37229930101 and main run 37230017496 passed Linux/Python 3.11, macOS/Python 3.13 and Windows/Python 3.13. Local 46-case suite, maintained ToolShelf 39-test behavior and package checks passed. The reproducible plugin was installed, hash-checked and removed; it remains unsubmitted and unpublished. GitHub automated review was unavailable due to quota; primary acceptance review is documented.",
+      "at": "2026-10-04T19:55:41.517031+00:00"
     }
   ]
 }

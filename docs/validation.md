@@ -54,7 +54,14 @@ at `e0b377a` passed Linux/Python 3.11 and macOS/Python 3.13. Windows/Python 3.13
 exposed seven test-cleanup errors caused by test-owned SQLite connections left open.
 Explicit closure preserves their commit/rollback behavior; the application already
 closed its own connections. The repaired 39-test application suite passes locally with
-resource warnings enabled. The three-platform CI rerun is pending.
+resource warnings enabled. [The repaired PR run](https://github.com/depsilon/noetloom/actions/runs/37229930101)
+at `4bb70d5` passed all three complete workflows. [PR #3](https://github.com/depsilon/noetloom/pull/3)
+merged as `230dd5938c3a9d26395be6275a86fc93db86cc5f`; its
+[main-branch run](https://github.com/depsilon/noetloom/actions/runs/37230017496) also passed
+Linux/Python 3.11, macOS/Python 3.13 and Windows/Python 3.13. The Windows jobs retain
+their explicit symlink-privilege skips. The GitHub Codex review bot reported exhausted
+review quota, so no remote automated code review is claimed; primary acceptance and
+the local consistency review are the review evidence for this delivery.
 
 Optional-helper regression tests also verify blocked planning sentinels, actual owner
 paths for compact/custom document layouts, copied readable guides, preserved feedback
