@@ -23,6 +23,14 @@ invalid. The plan and guidance were updated within the existing objective.
 
 All local acceptance is complete. Deferred features and authority remain unchanged.
 
+Parent [CI run 37229650408](https://github.com/depsilon/noetloom/actions/runs/37229650408)
+passed Linux and macOS but exposed seven Windows cleanup errors in test-owned SQLite
+connections. SQLite's connection context manages transactions without closing the
+connection; each direct test connection now also uses `contextlib.closing`. Product
+connections already close explicitly. The 39-test suite passed again on macOS with
+`python3.13 -B -W always::ResourceWarning -m unittest discover -s tests -v`, without
+resource warnings. The parent validation record owns the subsequent CI result.
+
 ## Original phase 1 — historical evidence
 
 Historical milestone: catalog completion is now reopened for the accepted case-insensitive

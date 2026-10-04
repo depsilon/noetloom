@@ -1,3 +1,4 @@
+from contextlib import closing
 from datetime import date
 from pathlib import Path
 import sqlite3
@@ -107,7 +108,7 @@ class LendingTests(unittest.TestCase):
         self.assertEqual(sorted(process.returncode for process in processes), [0, 1], outputs)
         self.assertEqual(len(self.store.loans()), 1)
         self.assertIn("already loaned", "".join(stderr for _, stderr in outputs))
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             self.assertEqual(connection.execute("PRAGMA foreign_key_check").fetchall(), [])
 
     def test_unknown_asset_on_missing_database_does_not_create_files(self):

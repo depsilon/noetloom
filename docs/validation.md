@@ -49,6 +49,13 @@ The source-fingerprint check detects drift; it does not replay an agent or prove
 Noetloom improves every agent's performance. Native exercise execution was on macOS
 Python 3.13. Cross-platform CI results are recorded below when available.
 
+The initial [PR run](https://github.com/depsilon/noetloom/actions/runs/37229650408)
+at `e0b377a` passed Linux/Python 3.11 and macOS/Python 3.13. Windows/Python 3.13
+exposed seven test-cleanup errors caused by test-owned SQLite connections left open.
+Explicit closure preserves their commit/rollback behavior; the application already
+closed its own connections. The repaired 39-test application suite passes locally with
+resource warnings enabled. The three-platform CI rerun is pending.
+
 Optional-helper regression tests also verify blocked planning sentinels, actual owner
 paths for compact/custom document layouts, copied readable guides, preserved feedback
 and evidence contracts, and packaged-link completeness. Both earlier helper examples

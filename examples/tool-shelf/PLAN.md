@@ -89,5 +89,10 @@ Accepted steering: ID normalization reopens only affected catalog semantics and 
 lending/import checks. Preserve unrelated evidence. Shared dashboards, authentication and
 cloud sync remain deferred. Resolve this in the existing phases; do not create a second queue.
 
-The maintainer review repair and all authorized phases are complete. There is no
+Parent Windows CI exposed open SQLite handles in the test fixtures. Explicit connection
+closure repairs that test-lifecycle defect; all 39 cases pass locally with resource warnings
+enabled. The application behavior and completed native exercise remain unchanged. The
+parent repository owns the cross-platform rerun and remote delivery.
+
+The maintainer review repairs and all authorized local phases are complete. There is no
 permission question. A new session should confirm newer steering before selecting new work.

@@ -1,3 +1,4 @@
+from contextlib import closing
 import os
 from pathlib import Path
 import sqlite3
@@ -79,7 +80,7 @@ class CatalogTests(unittest.TestCase):
                          [("strasse-1", "Perceuse — café")])
 
     def legacy_database(self, assets):
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             connection.execute("PRAGMA application_id = 1414744134")
             connection.execute("PRAGMA user_version = 1")
             connection.execute("CREATE TABLE tools (asset_id TEXT PRIMARY KEY, name TEXT NOT NULL)")
@@ -91,7 +92,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_legacy_read_is_canonical_and_write_migrates_atomically(self):
         self.legacy_database([(" D-1 ", "Drill")])
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             connection.execute("INSERT INTO loans VALUES (1, ' D-1 ', 'Alex', '2026-01-01', '2026-01-02', NULL)")
         before = self.path.read_bytes()
         self.assertEqual(self.store.inventory()[0]["asset_id"], "d-1")
@@ -100,7 +101,7 @@ class CatalogTests(unittest.TestCase):
             self.store.add("d-1", "Duplicate")
         self.assertEqual(self.path.read_bytes(), before)
         self.store.add("H-1", "Hammer")
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 2)
             self.assertEqual(connection.execute("SELECT asset_id FROM loans").fetchone()[0], "d-1")
             self.assertEqual(connection.execute("PRAGMA foreign_key_check").fetchall(), [])
@@ -115,7 +116,7 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual(self.path.read_bytes(), before)
 
     def test_foreign_database_is_rejected_without_changes(self):
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             connection.execute("CREATE TABLE unrelated(secret TEXT)")
             connection.execute("INSERT INTO unrelated VALUES ('keep me')")
         before = self.path.read_bytes()
@@ -127,7 +128,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_unknown_schema_version_is_rejected(self):
         self.store.add("A", "Drill")
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             connection.execute("PRAGMA user_version = 999")
         result = self.cli("add", "B", "Hammer")
         self.assertEqual(result.returncode, 1)

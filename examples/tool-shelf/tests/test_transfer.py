@@ -1,3 +1,4 @@
+from contextlib import closing
 import csv
 import io
 import os
@@ -189,7 +190,7 @@ class TransferTests(unittest.TestCase):
             actual = self.cli(*command, db=restored)
             self.assertEqual(actual.returncode, 0, actual.stderr)
             self.assertEqual(actual.stdout, expected.stdout)
-        with sqlite3.connect(restored) as connection:
+        with closing(sqlite3.connect(restored)) as connection, connection:
             self.assertEqual(connection.execute("PRAGMA integrity_check").fetchone()[0], "ok")
             self.assertEqual(connection.execute("PRAGMA foreign_key_check").fetchall(), [])
         copied = Store(self.directory / "catalog-copy.sqlite3")
@@ -271,7 +272,7 @@ class TransferTests(unittest.TestCase):
 
     def test_legacy_preview_export_and_apply_preserve_atomic_normalization(self):
         self.store.add("d-1", "Drill")
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             connection.execute("UPDATE tools SET asset_id = ' D-1 '")
             connection.execute("PRAGMA user_version = 1")
         self.write_csv("asset_id,name\nH-1,Hammer\n")
@@ -289,7 +290,7 @@ class TransferTests(unittest.TestCase):
             self.assertIn("d-1,Drill", archive.read("catalog.csv").decode("utf-8"))
         apply_import(self.store, self.csv_path, token)
         self.assertEqual([row["asset_id"] for row in self.store.inventory()], ["d-1", "h-1"])
-        with sqlite3.connect(self.path) as connection:
+        with closing(sqlite3.connect(self.path)) as connection, connection:
             self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 2)
 
     def test_export_remains_consistent_during_separate_process_writes(self):

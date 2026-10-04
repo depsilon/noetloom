@@ -53,6 +53,11 @@ instructional isolation exercise on a shared machine, not an OS sandbox.
    was repaired. The maintained example passes 39 tests and a rerun of the full journey.
    Windows symlink creation was isolated as a platform-dependent test. This additional
    repair is distinguished from the fresh agent's original 36-test result.
+8. Parent CI passed Linux and macOS but exposed seven Windows test-cleanup errors:
+   direct test-owned SQLite connections committed without closing. Primary integration
+   added explicit closure, preserving the transaction behavior and all 39 checks. The
+   local suite also passed with resource warnings enabled. Final platform results are
+   recorded in [the parent validation record](../../validation.md).
 
 The working application, its derived plan, readable guidance and retained artifacts are
 in [examples/tool-shelf](../../../examples/tool-shelf/README.md). Current acceptance is

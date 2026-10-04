@@ -13,6 +13,11 @@ Current acceptance: 39 tests passed and the full journey passed again, retained 
 evidence/journey-ugolnj__/. VALIDATION.md distinguishes this repair from native evidence.
 Names/borrowers still reject controls; IDs reject controls after trimming their boundary.
 
+Parent CI then exposed test-owned SQLite connections left open during Windows cleanup.
+The tests now close every direct connection explicitly while retaining commit/rollback
+behavior. All 39 tests pass locally with resource warnings enabled; the parent owns the
+three-platform CI rerun and final repository delivery.
+
 The original correction is captured, applied and verified. Its implementation milestones
 and final native handoff were delivered to the supervising session. The broader Noetloom
 delivery report is owned by that session; a local record does not stand in for a response.
