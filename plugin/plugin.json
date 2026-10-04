@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "noetloom",
+  "version": "0.1.0",
+  "description": "Create and maintain project-specific agent workflows with persistent requirements, feedback reconciliation, resumable plans, and evidence-backed delivery.",
+  "author": {"name": "Dylan Heinrich", "url": "https://github.com/depsilon"},
+  "homepage": "https://github.com/depsilon/noetloom",
+  "repository": "https://github.com/depsilon/noetloom",
+  "license": "Apache-2.0 AND MIT-0",
+  "keywords": ["projects", "requirements", "feedback", "continuation", "verification"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Noetloom",
+        "shortDescription": "Create and maintain projects",
+        "longDescription": "Create or adopt a project in your chosen workspace, reconcile feedback into its requirements and plan, resume from local records, and verify completed work. Noetloom supplies instructions, templates, and small Python helpers; your coding agent supplies implementation and execution. Requires a host with workspace file access and Python 3.11 or later. It does not listen to other conversations, run in the background, or grant deployment permissions.",
+        "developerName": "Dylan Heinrich",
+        "category": "Developer Tools",
+        "websiteURL": "https://github.com/depsilon/noetloom",
+        "supportURL": "https://github.com/depsilon/noetloom/issues",
+        "privacyPolicyURL": "https://github.com/depsilon/noetloom/blob/main/docs/privacy.md",
+        "defaultPrompt": [
+          "Create a local project for an offline reading list and start implementing it.",
+          "Reconcile this project's latest feedback and continue its authorized work.",
+          "Check this project's acceptance evidence and explain what remains before completion."
+        ],
+        "brandColor": "#285443",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.svg"
+      },
+      "onboardingSkill": "./skills/noetloom-bootstrap/SKILL.md"
+    }
+  }
+}

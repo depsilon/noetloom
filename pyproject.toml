@@ -1,11 +1,11 @@
 [project]
 name = "noetloom"
-version = "0.0.1"
-description = "Research infrastructure for an experimental post-LLM foundation architecture"
+version = "0.1.0"
+description = "A reference and generation kit for agent-operated projects"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
-license-files = ["LICENSE", "NOTICE"]
+license-files = ["LICENSE", "NOTICE", "LICENSES/MIT-0.txt"]
 authors = [{name = "Noetloom contributors"}]
 dependencies = []
 
@@ -13,5 +13,5 @@ dependencies = []
 Repository = "https://github.com/depsilon/noetloom"
 
 [tool.noetloom]
-status = "research-foundation"
+status = "project-framework"
 execution = "source-checkout"

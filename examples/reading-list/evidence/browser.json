@@ -1,0 +1,37 @@
+{
+  "schema": "noetloom.browser-observation.v1",
+  "observed_on": "2026-10-04",
+  "host": "Codex in-app browser",
+  "origin": "local HTTP preview",
+  "desktop_viewport": [
+    1280,
+    725
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "observations": [
+    "empty-title error and focus",
+    "add via button and keyboard",
+    "mark read and filter unread",
+    "reload preserves entries",
+    "preview server stopped: cached reload, remove, add, reload persist",
+    "mobile scrollWidth equals viewport width 390",
+    "no warning or error console entries returned"
+  ],
+  "limitations": [
+    "manual observation, not automated replay",
+    "file URL navigation unavailable in the test host",
+    "no native mobile browser or cross-browser coverage"
+  ],
+  "sha256": {
+    "core.js": "a0b5a8fecc53295d65e1576f80252510abf504353fadb392b7000edf1574e246",
+    "app.js": "9d0ce48f228f69e7215deddd4c1774b9e4c58dd148be0b1b2b0cd3367aa58730",
+    "sw.js": "acb8c4d34e9c3661208fd46aeac706695a57302c4f949ce64f37da4ee866aebe",
+    "index.html": "23146b32abd84460f439ee1cbb1282d094550731decee139b761c0f4dcd381db",
+    "style.css": "f7c902625ccc6d5f1a20631603652ecbff7ff6e2dea8765610bb78a71740078d",
+    "evidence/reading-list-desktop.jpg": "7340b65fa5e03583f693bcdd42654fb064ec40c26add7fe5a31902521444716d",
+    "evidence/reading-list-mobile.jpg": "c0ead39d78e62d8c71344ad1588f45085a2332db9b8cad7fc57460287bbd1c18"
+  }
+}

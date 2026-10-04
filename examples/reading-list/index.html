@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Reading list</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div><h1>Reading list</h1><p>Save a good read for later.</p></div>
+      <p class="storage-note">On this device<br><span id="offline-state">No account needed.</span></p>
+    </header>
+    <div class="workspace">
+      <section class="entry-panel" aria-labelledby="add-heading">
+        <h2 id="add-heading">Add something to read</h2>
+        <form id="entry-form" novalidate>
+          <label for="title">Title <span aria-hidden="true">*</span></label>
+          <input id="title" name="title" maxlength="200" required autocomplete="off" aria-describedby="form-error">
+          <label for="url">Link <span>(optional)</span></label>
+          <input id="url" name="url" type="url" maxlength="2048" placeholder="https://…" autocomplete="off" aria-describedby="form-error">
+          <p id="form-error" class="error" role="alert"></p>
+          <button class="primary" type="submit">Add to list</button>
+        </form>
+        <p class="local-note">Your list stays in this browser. Clearing browser data removes saved entries. Links open the original page and may need a connection.</p>
+        <p id="storage-error" class="error" role="alert"></p>
+        <button id="reset" type="button" hidden>Reset saved list</button>
+      </section>
+      <section class="list-panel" aria-labelledby="list-heading">
+        <div class="list-header">
+          <h2 id="list-heading" tabindex="-1">Your shelf <span id="count"></span></h2>
+          <label class="filter"><input type="checkbox" id="unread-only"> Unread only</label>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <ul id="entries" aria-label="Saved reading"></ul>
+        <div id="empty" class="empty"><p>Room for your next discovery.</p><span>Add a title to start your list.</span></div>
+      </section>
+    </div>
+    <footer>A little space for things worth reading.</footer>
+    <noscript>This reading list needs JavaScript enabled to save and manage entries.</noscript>
+  </main>
+</body>
+</html>

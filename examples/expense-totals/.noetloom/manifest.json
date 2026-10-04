@@ -1,0 +1,27 @@
+{
+  "schema": "noetloom.project.v1",
+  "project_id": "7f791247-6b06-4c5b-bf71-253b57ae5c87",
+  "name": "expense-totals",
+  "kit_version": "0.1.0",
+  "domain": "utility",
+  "roles": {
+    "project": "docs/project.md",
+    "architecture": "docs/project.md",
+    "plan": "docs/plan.md",
+    "validation": "docs/validation.md",
+    "completed": "docs/plan.md"
+  },
+  "skills": [
+    ".agents/skills/noetloom-intake",
+    ".agents/skills/noetloom-work",
+    ".agents/skills/noetloom-verify",
+    ".agents/skills/project-utility"
+  ],
+  "bootstrap_request": {
+    "name": "expense-totals",
+    "prompt": "Build a Python standard-library CLI that totals CSV expenses by category. Input columns are category and amount; output stable JSON totals with two decimal places. Reject malformed or non-finite amounts with an error and nonzero exit. Allow negative refunds. No network services or authentication.",
+    "domain": "utility",
+    "compact": true,
+    "docs_dir": "docs"
+  }
+}

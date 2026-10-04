@@ -1,0 +1,19 @@
+{
+  "schema": "noetloom.project.v1",
+  "project_id": "noetloom-framework",
+  "name": "Noetloom",
+  "kit_version": "0.1.0",
+  "roles": {
+    "project": "docs/project.md",
+    "architecture": "docs/architecture.md",
+    "plan": "docs/plan.md",
+    "validation": "docs/validation.md",
+    "completed": "docs/completed.md"
+  },
+  "skills": [
+    ".agents/skills/noetloom-bootstrap",
+    ".agents/skills/noetloom-intake",
+    ".agents/skills/noetloom-work",
+    ".agents/skills/noetloom-verify"
+  ]
+}

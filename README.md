@@ -1,149 +1,62 @@
 # Noetloom
 
-Noetloom is an experimental post-LLM foundation architecture intended to learn continuously,
-reason with variable computation, and operate across multiple native representations.
-The system itself is the proposed intelligence: compact learned machinery acting over
-persistent, mutable, selectively activated state. Language, code, perception, and tool use
-are capabilities it must learn. Neither an LLM nor a Transformer is a required foundation.
-The architecture and its advantages remain hypotheses.
+**A small working framework for projects built by coding agents.**
 
-The repository provides a Rust core for persistent native state and bounded dynamic execution,
-plus a Python research control plane and reproducible evaluation harness. Experimental trained
-checkpoints remain in local artifact storage; weights are not included in this repository. Start with the
-[charter](docs/charter.md) and [research program](docs/architecture/research-program.md).
+Noetloom teaches an existing agent how to turn a request into a project, maintain one
+plan, reconcile feedback, verify real results, and resume from files after the original
+conversation is gone. The agent builds the application. The project owns its evolving
+requirements, skills, decisions, plan, and evidence.
 
-## Run from a source checkout
+Start with [BOOTSTRAP.md](BOOTSTRAP.md). Give it to Codex, Claude Code, or another capable
+coding agent together with your request and a target workspace:
 
-Python 3.11+ and Git are sufficient. No package installation, model download, API key, or
-network access is needed for the commands below. Run them from this repository's root:
+> Use Noetloom to build an offline reading list in ../reading-list. Keep it simple.
+
+The agent can create the local framework with Python 3.11+:
 
 ```sh
-python3 -B -m noetloom status
-python3 -B -m noetloom check
-python3 -B -m unittest discover -s tests -v
-python3 -B -m noetloom doctor
-python3 -B -m noetloom run experiments/EXP-0001/protocol.json
+python3 -B -m noetloom bootstrap ../reading-list --name reading-list --domain website --prompt "Build an offline reading list."
 ```
 
-`run` prints the directory it created. Pass that directory to
-`python3 -B -m noetloom verify-run` to check every artifact and replay every prediction.
-Full command semantics and exit codes are in the [command reference](docs/reference/commands.md).
+Then it reads the generated `AGENTS.md` and starts implementing there. Bootstrap
+creates the working structure, **not a finished application**. Its initial application
+check deliberately fails until the agent replaces it with meaningful verification.
+Use `--adopt` to add the framework to an existing project, or `--compact` to combine
+document roles for a small project. Existing application files are never overwritten.
+Run the kit from its source checkout; there are no Python package dependencies.
 
-The first protocol checks mutable associative recall using four hand-written controls:
-exact memory, absent memory, stale memory, and bounded memory. It probes retention,
-revision, deletion, and capacity. A passing run establishes that this harness distinguishes
-those controls; it establishes no learned intelligence or efficiency advantage.
-The [first verified run](experiments/EXP-0001/evidence/2026-09-30/README.md) records the
-results, exact artifact identities, review findings, and remaining proof gaps.
-
-The Rust core adds revision-checked persistent cells, selective payload reads, shared numerical
-operators, transaction-local writes, and controller-proposed work graphs. Its
-[execution-provider boundary](docs/architecture/execution-providers.md) keeps physical storage
-and computation replaceable. Its foundation controllers and weights are explicitly scripted fixtures.
-With the pinned Rust 1.98 toolchain available, run:
+Inside a generated project:
 
 ```sh
-python3 -B scripts/rust.py check
-python3 -B scripts/rust.py fixture
+python3 -B .noetloom/project.py status
+python3 -B .noetloom/project.py check
 ```
 
-The driver keeps builds and dependencies under `~/.cache/noetloom-tooling`, serializes runs,
-and verifies committed state in a separate process. Fixture receipts include source/build,
-provider, operator, snapshot, and resource identities. See the
-[foundation design](docs/architecture/foundation-runtime.md) for scope and limits.
+New messages pass through intake before work resumes. For example, “work offline;
+defer authentication” changes the project requirements and affected work, while
+“could we support multiple users eventually?” remains a question. Receipts distinguish
+capture, application, and acknowledgement. Completion requires current evidence;
+changed requirements reopen the affected work. [The operating guide](docs/operating-model.md)
+explains the commands and ownership rules.
 
-## Work autonomously with evidence
+There is no daemon, model endpoint, agent runtime, or background listener. Noetloom
+guides an active host session and preserves enough local state for the next one.
+It cannot capture messages that never reach the project, authenticate a receipt's
+author, or establish correctness from a passing command alone.
 
-[AGENTS.md](AGENTS.md) is the agent entrypoint. The [operating model](docs/operating-model.md)
-defines authority, continuity, subagent handoffs, and completion. The
-[machine-readable plan](docs/state/plan.json) is the only active queue. Use `status` to select
-the next item instead of reconstructing priorities from old discussions.
+- [Working examples](examples/README.md): a CSV command-line utility and an offline website.
+- [OpenAI plugin](docs/plugin.md): reproducible skills-only packaging and tested local installation.
+- [Host support and evidence](docs/hosts.md): native Codex exercise, portable instructions,
+  and the limits of Claude compatibility checks.
+- [Design and reference sources](docs/architecture.md): generalized from ShardLoom's
+  workflow, without its database restrictions.
+- [Contributing](CONTRIBUTING.md): local checks and maintenance.
 
-Routine commits, pushes, and CI follow-through for agreed Noetloom work are delegated.
-The [delivery skill](.agents/skills/noetloom-delivery/SKILL.md) carries a coherent change
-through hosted verification without requiring the user to direct each Git step.
+The active repository has replaced Noetloom's former model-research project. That
+work remains in Git history. No parallel research track is maintained here.
 
-Research is organized by [falsifiable hypotheses](docs/research/hypotheses.json),
-[reviewed source records](docs/research/sources.json), registered experiment protocols,
-and dated [decisions](docs/decisions/0001-foundation.md). The
-[evaluation contract](docs/evaluation.md) separates infrastructure checks from capability claims.
-The hypothesis registry also preserves foundational representation questions beyond the first
-memory experiments. ShardLoom can earn a role in evidence analytics or physical execution;
-it is not a required cognitive substrate.
-
-## Keep the working set small
-
-Run output defaults to `~/.cache/noetloom`, outside the checkout. The default profile allows
-a 10 GiB working cache and keeps 20 GiB of free disk headroom. EXP-0001 has an 8 MiB output
-budget and a 30-second cooperative deadline. These are admission and output controls, not
-an operating-system memory sandbox.
-
-Git stores source, protocols, small evidence, and manifests. Bulk datasets and learned
-checkpoints belong in versioned artifact storage; selected project assets can use GitHub
-Releases when publication is authorized. See [storage and retention](docs/storage.md).
-Ignoring a file does not prevent a synced folder from uploading it.
-
-The registered [EXP-0002 probe](experiments/EXP-0002/design.md) tests learned cell selection
-against dense-read, frozen-routing, and no-history controls. Its optional PyTorch development
-backend trains 359 initialized scalars; exported parameters execute in Rust. A bounded
-preflight selects between two registered training budgets before fitting. This is a limited
-mechanism experiment, not Noetloom's final architecture. See the
-[learning commands](docs/reference/commands.md#registered-learning-probe).
-
-The [first learned result](docs/decisions/0004-learned-selection.md) rejected that configuration:
-selective reads averaged 72.6% accuracy versus 84.9% for the matched dense control, with one
-near-chance training seed. Payload reads fell to 7.1% of dense, without a demonstrated
-speed advantage. All five seeds and the full verification evidence are retained.
-
-[EXP-0003](experiments/EXP-0003/design.md) tested a seven-scalar learned gate over the five
-frozen dense readers on fresh keys and operation structures. It was
-[rejected](docs/decisions/0005-adaptive-allocation.md): adaptive accuracy was 83.79% versus
-83.85% for fixed top-one inference, which used fewer reads and operations. Three gates
-always halted. Procedural reuse and a complete foundation architecture remain unproven.
-
-[EXP-0004](experiments/EXP-0004/design.md) tested learned problem organization across
-held-out surface transformations. Its [comparison was inconclusive](docs/decisions/0006-problem-representation.md):
-the conditional model scored 58.54% on familiar forms and 48.61% on transfer, while every
-control also stayed below the 70% task-acquisition floor. Nineteen attempts completed;
-one failed after fitting and received a separate partial audit. No training was repeated.
-H-011 remains open and H-001/H-002 remain dormant.
-
-The [subsequent course correction](docs/decisions/0007-acquisition-calibration.md) selects
-N-007 as an acquisition-calibration study, now implemented as
-[EXP-0005](experiments/EXP-0005/design.md). It separates bounded development from final
-evaluation: fit a tiny set, generalize within one format, acquire mixed formats, then test
-unfamiliar transformations. Predictive supervision and useful inductive biases are permitted
-with disclosed, matched information access. Preserving fitting telemetry and verifying a second
-artifact copy are prerequisites to the campaign. The owner's selected
-[private local backup](docs/evidence/N-007-recovery.json) has been restored and replay-tested;
-it remains on the same physical disk. Progress depends on relevant acquisition evidence,
-not on the transport candidate winning.
-
-[N-007 is complete](docs/decisions/0008-calibration-result.md): all three models learned the
-tiny and single-format tasks, but mixed-format reliability was not confirmed. After a disclosed
-development-informed selection amendment, four of five fresh baseline seeds passed acquisition;
-one regressed to 89.32% rank training accuracy against a 90% floor. All 41 non-injected fits
-replayed, and the complete campaign was restored from its private copy. No seed was replaced
-or final result used for further tuning. This result does not establish the foundation architecture.
-
-The [subsequent input audit](docs/decisions/0009-input-validity-and-next-study.md) reproduced
-two evaluation problems: the shared-row transpose path discards the query, and ranks/sequence
-holdouts reuse the same 30 effective patterns already present in training. Their transfer
-interpretation is corrected; historical scores remain intact and relation scores are reported
-separately. Reusable ambiguity and equivalence checks now support future experiment admission.
-
-[EXP-0006 is complete as a development pilot](docs/decisions/0010-learned-transition-pilot.md).
-A 288-parameter transition model acquired the task and scored 100% on all six development
-families across three seeds, including unfamiliar compositions and longer rollouts. Its
-observation-aligned state and action bank are strong supplied biases. The recurrent control
-fitted training sequences but failed short-sequence validation at both registered learning
-rates, so the confirmatory comparison was not admitted and final data remain unopened. All
-24 fits and three transfer evaluations replayed; the private archive was restored and tested.
-The [next selected study](experiments/EXP-0007/design.md) tests whether useful reuse survives
-learning the state representation itself. The foundation architecture remains unestablished.
-
-## Contributing
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Noetloom source and
-documentation are available under [Apache-2.0](LICENSE). Datasets, separately distributed
-weights, branding, and patent strategy have [explicit separate boundaries](docs/licensing.md).
+The framework code, lifecycle skills, helper, and documentation are Apache-2.0;
+reusable source templates are MIT-0. Generated projects keep those notices under
+`.noetloom/licenses/` and receive no automatically imposed framework license or
+copyright for their independent application. See [LICENSE](LICENSE), [NOTICE](NOTICE),
+and [the licensing guide](docs/licensing.md).

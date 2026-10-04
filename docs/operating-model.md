@@ -1,120 +1,83 @@
-# Research and agent operating model
+# Project operation
 
-## Authority and source ownership
+The active agent reads the actual conversation and local files. The helper reads files
+and runs declared checks. Neither receipts nor checkpoints are another work queue.
 
-| Question | Authoritative source |
+| Owner | Responsibility |
 | --- | --- |
-| What is the system meant to become? | [Charter](charter.md) |
-| What work is selected next? | [Plan](state/plan.json), exposed by `noetloom status` |
-| What experiment may execute and within what limits? | Its registered protocol and [resource policy](../config/resource-policy.json) |
-| What happened and which claim follows? | Run evidence, its verification, and a dated decision |
-| What is permitted in this session? | The user's instructions and already granted authority |
-| How should a task be performed? | [AGENTS.md](../AGENTS.md), relevant global skills, and the selected project skill |
+| Project | Purpose, requirements, authority, constraints, deferred scope |
+| Architecture | Components, data ownership, decisions and tradeoffs |
+| Plan | All active items in dependency/value order |
+| Validation | Commands, input coverage, acceptance proof boundaries |
+| Completed | Historical outcomes, evidence, and reopening events |
+| Feedback receipts | What input was captured, applied, superseded, or acknowledged |
+| Checkpoint | Current pause state and a concrete hint for continuation |
 
-On 2026-09-30, the user clarified that Noetloom should inherit the autonomy expected for
-ShardLoom: they do not want to instruct the agent to push each completed change. For already
-scoped Noetloom work, standing authority includes implementation, appropriate research,
-verification, local commits, pushes of source/docs/tests/compact evidence to `depsilon/noetloom`,
-and diagnosing, repairing, and pushing fixes until its CI checks complete successfully.
-Use a pull request when it is part of the agreed repository workflow. Routine Git delivery
-does not require a new permission question, including after compaction or in a later session.
-The user's subsequent instruction to work through the queue autonomously also authorizes
-continuing from a completed item into the next ready item, including the research and bounded
-local implementation needed to make its protocol executable. Preserve the charter and record
-each experiment's resource admission and decision before moving on.
+Paths come from `.noetloom/manifest.json`. Use local skills for intake, work, and
+verification. The CLI prints JSON; exit 0 means the requested helper operation
+succeeded, 1 means a check failed, and 2 means invalid input or a state error.
 
-The owner reaffirmed on 2026-09-30 that original research requires continuing iteration:
-correct mistakes, adjust the approach from evidence, and continue developing the system.
-An experiment's stop rule closes that trial, not the research program. Within the granted
-local scope, select and record the next coherent revision in the plan without asking the
-owner to repeat routine authority. Keep each learning campaign bounded and separately
-registered; iteration is not permission to tune indefinitely on final results. Corrections
-and planning can be delivered before the next campaign's executable registration is ready.
+## Commands from the generated project root
 
-This project-specific grant satisfies the global requirement for explicit push authority.
-It is grounded in the user's instruction, not inferred from the roadmap. Preserve the
-current work's scope and stop condition while carrying it through delivery. Other external
-commitments, such as paid compute, bulk Release publication, redistribution of third-party
-data, or merges outside a delegated PR workflow, still need their own applicable authority.
-Finish reversible preparation before surfacing a genuine unresolved decision; do not invent
-an approval gate for routine engineering or an already granted action.
+```sh
+python3 -B .noetloom/project.py status
+python3 -B .noetloom/project.py check
+python3 -B .noetloom/project.py feedback record --id message-2 --kind correction --message "Work offline; defer authentication."
+```
 
-## Select a coherent work unit
+The agent now updates the relevant owners and affected work. A previously completed
+affected item first reopens with `reopen P-001 --feedback message-2 --reason "Offline requirement changed"`.
+After applying the edits:
 
-Run `python3 -B -m noetloom status`. It selects the active item, or the first planned item
-whose dependencies are complete. The command proposes priority; it does not start work.
-Only one primary item is active. Independent leaf assignments belong to that item.
-The current request also controls the stopping boundary: a skill, documentation or planning
-revision may select a future item without starting its learning campaign. Deliver that revision
-and leave the future item planned. This does not revoke standing authority for routine execution
-and delivery when the learning work is in scope.
+```sh
+python3 -B .noetloom/project.py feedback apply --id message-2 --disposition accepted --summary "Offline storage required; authentication deferred." --roles project architecture plan validation --items P-001
+```
 
-Each queue item names its sources, outcome, acceptance conditions, verification, resource
-profile, and stop condition. The bootstrap's future research items are design briefs:
-their first task is to register an executable learning protocol. Where task acquisition is
-unestablished, register a bounded development pilot before choosing the final comparison.
-Permitted development choices may respond to pilot evidence within its declared search envelope;
-record all attempts and costs. Freeze the confirmatory protocol after calibration and before
-final evaluation. The harness runner
-deliberately refuses training protocols until an appropriate learning contract exists.
-Do not fill this gap with guessed commands or treat a broad acceptance list as preregistration.
+The agent tells the user what changed. Only after delivering that response:
 
-Prefer one coherent implementation and evidence package over many tiny slices. Stop when
-the item's stated boundary, including its delivery checks, is reached or a resource limit
-is hit. Make evidence-supported research and engineering decisions within the agreed scope;
-a routine design choice is not a reason to hand work back to the user. Update the plan and
-decision before expanding scope. A negative result closes an experiment when its protocol
-was sound; it need not close the research question. Inadequate acquisition is a calibration
-outcome, not a verdict on all formulations of a broad architecture hypothesis.
+```sh
+python3 -B .noetloom/project.py feedback ack --id message-2 --message "Offline storage is now required and authentication is deferred."
+python3 -B .noetloom/project.py verify application
+```
 
-## Continuity without an ever-growing prompt
+Inspect the results and use the returned check record ID:
 
-At a handoff or context boundary preserve: the selected item, current user authorization,
-working branch and changes, decisions already made, tests actually run, exact artifact
-identities, unresolved evidence, and the next useful step. Resume that step. Do not replay
-intake, reinterpret compaction as a new task, or repeat a permission request already settled.
-Reconcile that step with newer user replies and pasted requests first. Preserve unanswered
-input, and distinguish work already completed from answers already delivered.
+```sh
+python3 -B .noetloom/project.py complete P-001 --evidence check-RETURNED_ID --summary "Implemented and exercised the required behavior."
+```
 
-Use concise queue evidence links and dated decisions. Long raw logs belong with runs, not
-in the active plan. Completed items retain their evidence, but are not another current queue.
-Split an unwieldy completed history into an archive only when it becomes a real loading cost;
-do not manufacture ledgers before evidence exists.
+These IDs illustrate commands, not existing evidence. `--help` on each command shows
+its full arguments. `feedback apply` supports accepted, merged, already-addressed,
+deferred, rejected, and answered. `--supersedes` names earlier applied messages.
+`feedback classify` assigns a concrete kind to pending unclassified capture.
 
-## Primary and subagent responsibilities
+`checkpoint --item P-001 --next "Add the reload regression test"` stores a resume hint;
+omit the item after all work is complete. A pause/resume is a recorded receipt with
+kind `pause` or `resume`, applied as accepted. Checkpoints cannot clear pause. Status
+prioritizes interrupted writes, pending input, pause, and then ready work. It exposes
+applied but unacknowledged feedback independently of work completion.
 
-The primary retains research judgment, experiment design, integration, and final acceptance.
-Under the user's global routing policy, delegate bounded independent inventories,
-source-field extraction, specified transformations, and already-selected checks to a suitable
-economical leaf. Do not delegate uncertain research conclusions as mechanical work.
+`recover` finishes an interrupted helper transaction after checking for intervening
+edits. If a conflict exists, inspect the journal and preserve the user's edits before
+deliberately resolving it; do not delete the journal as a generic repair. Manual
+semantic edits are not transactional: leave the feedback pending until all affected
+owners are reconciled. Another session will see and finish that pending input.
 
-Every packet names exact inputs, exclusive writable paths or read-only scope, expected
-output, acceptance checks, and stop conditions. A leaf gets no additional publication,
-compute-spend, or messaging authority. Verify results against sources and executable checks;
-confidence or a `COMPLETE` label is insufficient. Reuse useful worker context. Do not run
-multiple local training or evaluation jobs merely because agents are available.
+`adapters` regenerates thin Claude entries after canonical skill changes. `check`
+detects adapter drift, invalid work dependencies, missing owners, cross-project
+records, and stale completion evidence. It does not execute application tests.
 
-The current harness serializes writers within one cache root. Agents must share that root
-for local runs. Different cache roots do not constitute a global scheduler or global quota.
+## Verification records
 
-## Evidence and completion
+The plan and validation Markdown owners contain marked JSON blocks. Edit their JSON
+directly while preserving each marker and surrounding prose. The generated files
+provide an initial example. Check commands are argument arrays, with `{python}` for
+the helper's interpreter, project-relative `cwd`, explicit file-glob `inputs`, and
+`timeout_seconds` in (0, 3600]. Required patterns must match files. Input contents and
+the set of matched files are fingerprinted before and after each command.
 
-Close infrastructure work with executable checks and evidence. Close a research claim with
-the [evaluation contract](evaluation.md), including controls and negative results. Record
-which methods were actually read in the [source catalog](research/sources.json).
-
-A decision states the observed result, supported scope, remaining uncertainty, next technical
-choice, and artifact locations or content identities. `noetloom check` validates structure,
-references, source syntax, and working-file budgets. It cannot establish scientific truth,
-review quality, novelty, legal rights, or that a listed command was executed.
-
-For published engineering work, retain the pushed commit and hosted check result. Local
-verification is preparation for delivery; a push is followed by CI inspection and in-scope
-repairs. See the [delivery skill](../.agents/skills/noetloom-delivery/SKILL.md). If an external
-service or a genuine missing authorization prevents completion, record the concrete blocker
-and completed preparation rather than asking the user to perform the routine steps.
-
-The global [Noetloom grounding skill](skills/sl-dh-noetloom-repo-grounding/SKILL.md) is a
-small project entrypoint. Repo-local research, evaluation, artifact, and delivery skills contain
-task-specific guidance. General engineering and research standards stay in the user's
-global skill library; ordinary contributors can use the repository without that library.
+Include all sources needed to justify the check; the helper cannot discover omitted
+dependencies. Framework consistency and successful exits do not replace semantic
+review. Stale evidence must be refreshed through reopening and new checks; historical
+results remain historical. An unrelated item's checks stay valid when their declared
+inputs and acceptance are unchanged.

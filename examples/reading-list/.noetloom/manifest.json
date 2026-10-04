@@ -1,0 +1,27 @@
+{
+  "schema": "noetloom.project.v1",
+  "project_id": "8d55d350-44d4-4f81-8849-b5968dd9e383",
+  "name": "reading-list",
+  "kit_version": "0.1.0",
+  "domain": "website",
+  "roles": {
+    "project": "docs/project.md",
+    "architecture": "docs/architecture.md",
+    "plan": "docs/plan.md",
+    "validation": "docs/validation.md",
+    "completed": "docs/completed.md"
+  },
+  "skills": [
+    ".agents/skills/noetloom-intake",
+    ".agents/skills/noetloom-work",
+    ".agents/skills/noetloom-verify",
+    ".agents/skills/project-website"
+  ],
+  "bootstrap_request": {
+    "name": "reading-list",
+    "prompt": "Build a small offline reading list website. Users can add a title and optional HTTP(S) URL, mark an entry read or unread, filter unread entries, and remove an entry. Save entries locally across reloads. No accounts, authentication, sync, server dependency, or remote assets. Show clear empty and error states and support keyboard and narrow screens.",
+    "domain": "website",
+    "compact": false,
+    "docs_dir": "docs"
+  }
+}
