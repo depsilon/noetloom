@@ -292,6 +292,33 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Delivered version 0.2.0 in PR #3, merged as 230dd5938c3a9d26395be6275a86fc93db86cc5f. Repaired PR run 37229930101 and main run 37230017496 passed Linux/Python 3.11, macOS/Python 3.13 and Windows/Python 3.13. Local 46-case suite, maintained ToolShelf 39-test behavior and package checks passed. The reproducible plugin was installed, hash-checked and removed; it remains unsubmitted and unpublished. GitHub automated review was unavailable due to quota; primary acceptance review is documented.",
       "at": "2026-10-04T19:55:41.517031+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-001",
+      "cycle": 4,
+      "reason": "The additional existing-application exercise changes shared validation input inventories. Preserve the prior outcome and revalidate its broad integration evidence after the scoped addition.",
+      "feedback": "existing-application-proof-20261004",
+      "at": "2026-10-04T20:56:05.221350+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-002",
+      "cycle": 3,
+      "reason": "The additional existing-application exercise changes shared validation input inventories. Preserve the prior outcome and revalidate its broad integration evidence after the scoped addition.",
+      "feedback": "existing-application-proof-20261004",
+      "at": "2026-10-04T20:56:05.290074+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-003",
+      "cycle": 2,
+      "reason": "The additional existing-application exercise changes shared validation input inventories. Preserve the prior outcome and revalidate its broad integration evidence after the scoped addition.",
+      "feedback": "existing-application-proof-20261004",
+      "at": "2026-10-04T20:56:05.354852+00:00"
     }
   ]
 }

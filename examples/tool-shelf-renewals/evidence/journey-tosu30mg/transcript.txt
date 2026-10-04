@@ -1,0 +1,278 @@
+Interpreter: 3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]
+Scenario directory: /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 add ' D-001 ' 'Cordless drill'
+exit=0
+Added d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 add H-001 'Claw hammer'
+exit=0
+Added h-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 add d-001 'Overwrite attempt'
+exit=1
+Error: Asset ID 'd-001' already exists.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 add X-001 ' '
+exit=1
+Error: Tool name must not be empty.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/new-tools.csv
+exit=0
+line	asset_id	name
+2	s-001	Scie, précision
+3	strasse-2	"Équerre ""atelier"""
+Preview: 2 tools; no data written.
+Preview token: c382f4aac29f96571f3ec770a60ff0b18b9660bf5466a7d4b5bf723e28ab3c09
+To apply this unchanged file and catalog, repeat import with --confirm TOKEN.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 add L-001 Ladder
+exit=0
+Added l-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/new-tools.csv --confirm c382f4aac29f96571f3ec770a60ff0b18b9660bf5466a7d4b5bf723e28ab3c09
+exit=1
+Error: Preview is stale; preview this CSV again without --confirm.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/new-tools.csv
+exit=0
+line	asset_id	name
+2	s-001	Scie, précision
+3	strasse-2	"Équerre ""atelier"""
+Preview: 2 tools; no data written.
+Preview token: 4332d5e8402bd5077dc2218093e05e4d61293ecdc6f460fa0071af62ace2fc4d
+To apply this unchanged file and catalog, repeat import with --confirm TOKEN.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/new-tools.csv --confirm 4332d5e8402bd5077dc2218093e05e4d61293ecdc6f460fa0071af62ace2fc4d
+exit=1
+Error: Preview is stale; preview this CSV again without --confirm.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/new-tools.csv --confirm 4332d5e8402bd5077dc2218093e05e4d61293ecdc6f460fa0071af62ace2fc4d
+exit=0
+Imported 2 tools.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 add ' STRASSE-2 ' 'Unicode collision'
+exit=1
+Error: Asset ID 'strasse-2' already exists.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/invalid-batch.csv
+exit=1
+Error: CSV import rejected:
+Line 4: asset ID 'a' duplicates line 3 after normalization.
+Line 6: Tool name must not be empty.
+Line 7: expected 2 fields, found 3.
+Line 5: asset ID 's-001' already exists in the catalog.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/invalid-batch.csv --confirm 0000000000000000000000000000000000000000000000000000000000000000
+exit=1
+Error: CSV import rejected:
+Line 4: asset ID 'a' duplicates line 3 after normalization.
+Line 6: Tool name must not be empty.
+Line 7: expected 2 fields, found 3.
+Line 5: asset ID 's-001' already exists in the catalog.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	available		
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	available		
+strasse-2	"Équerre ""atelier"""	available		
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 lend ' D-001 ' 'Alex María' --due 2026-10-06 --on 2026-10-01
+exit=0
+Loan 1: lent d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 lend d-001 Sam --due 2026-10-07 --on 2026-10-02
+exit=1
+Error: Asset 'd-001' is already loaned.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 lend unknown Sam --due 2026-10-07 --on 2026-10-02
+exit=1
+Error: Unknown asset ID 'unknown'.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 lend h-001 Sam --due 2026-02-30 --on 2026-10-02
+exit=1
+Error: Due date must be a real date in YYYY-MM-DD format.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 return D-001 --on 2026-09-30
+exit=1
+Error: Return date cannot precede lending date.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 overdue
+exit=2
+usage: toolshelf overdue [-h] --as-of AS_OF
+toolshelf overdue: error: the following arguments are required: --as-of
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 overdue --as-of 2026-10-06
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 overdue --as-of 2026-10-07
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 return ' D-001 ' --on 2026-10-07
+exit=0
+Loan 1: returned d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 return d-001 --on 2026-10-07
+exit=1
+Error: Asset 'd-001' has no active loan.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 lend D-001 Sam --due 2026-10-10 --on 2026-10-08
+exit=0
+Loan 2: lent d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 lend ' s-001 ' Robin --due 2026-10-09 --on 2026-10-08
+exit=0
+Loan 3: lent s-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 inventory --available
+exit=0
+asset_id	name	status	borrower	due_on
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+strasse-2	"Équerre ""atelier"""	available		
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 loans --active
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 overdue --as-of 2026-10-11
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 export /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/recovery.zip
+exit=0
+Exported to /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/recovery.zip.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 export /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/recovery.zip
+exit=1
+Error: Destination already exists: /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/recovery.zip
+
+Verified: database bytes and existence unchanged.
+Verified: refusing a repeated export preserved the archive bytes.
+Archive contents: RESTORE.txt, catalog.csv, inventory.csv, library.sqlite3, loans.csv
+Verified: archive has 5 tools and 3 loans, including 1 closed and 2 active loans.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/restored.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-10
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	loaned	Robin	2026-10-09
+strasse-2	"Équerre ""atelier"""	available		
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-10
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	loaned	Robin	2026-10-09
+strasse-2	"Équerre ""atelier"""	available		
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/restored.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/restored.sqlite3 overdue --as-of 2026-10-11
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/library.sqlite3 overdue --as-of 2026-10-11
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+
+Verified: database bytes and existence unchanged.
+Verified: restored CLI output matches live inventory, history and overdue; SQLite integrity and foreign keys pass.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/catalog-copy.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/exported-catalog.csv
+exit=0
+line	asset_id	name
+2	d-001	Cordless drill
+3	h-001	Claw hammer
+4	l-001	Ladder
+5	s-001	Scie, précision
+6	strasse-2	"Équerre ""atelier"""
+Preview: 5 tools; no data written.
+Preview token: 82c50dd3120f519653e848313c603755cb2295570ae6f01145f599889d358849
+To apply this unchanged file and catalog, repeat import with --confirm TOKEN.
+
+Verified: database bytes and existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/catalog-copy.sqlite3 import /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/exported-catalog.csv --confirm 82c50dd3120f519653e848313c603755cb2295570ae6f01145f599889d358849
+exit=0
+Imported 5 tools.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/journey-tosu30mg/catalog-copy.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	available		
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	available		
+strasse-2	"Équerre ""atelier"""	available		
+
+Verified: database bytes and existence unchanged.
+Verified: exported catalog imported into a new database with every ID and quoted Unicode name preserved.
+Recovery archive SHA-256: c44f9017bcd84f00ca1fe62c43c0ac0adc1c052eebfd52e7d98c59fbe6e778d3
+RESULT: PASS — full journey, expected failures, recovery and transfer assertions passed.

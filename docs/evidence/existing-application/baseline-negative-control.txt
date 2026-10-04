@@ -1,0 +1,215 @@
+Retained negative-control output. Absolute observer/repository paths are rendered as $INDEPENDENT/$REPOSITORY; the raw output remains with the local exercise.
+
+test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic (__main__.IndependentAcceptance.test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic) ... FAIL
+test_competing_identical_extensions_record_one_transition (__main__.IndependentAcceptance.test_competing_identical_extensions_record_one_transition) ... FAIL
+test_legacy_v2_reports_and_read_only_history_preserve_bytes (__main__.IndependentAcceptance.test_legacy_v2_reports_and_read_only_history_preserve_bytes) ... FAIL
+test_new_export_restores_current_reports_and_complete_history (__main__.IndependentAcceptance.test_new_export_restores_current_reports_and_complete_history) ... FAIL
+test_prior_recovery_archive_remains_usable_for_read_and_renewal (__main__.IndependentAcceptance.test_prior_recovery_archive_remains_usable_for_read_and_renewal) ... FAIL
+test_refused_databases_and_missing_database_remain_unchanged (__main__.IndependentAcceptance.test_refused_databases_and_missing_database_remain_unchanged) ... FAIL
+test_rejected_requests_and_early_returns_are_byte_atomic (__main__.IndependentAcceptance.test_rejected_requests_and_early_returns_are_byte_atomic) ... FAIL
+test_return_and_reborrow_preserve_prior_loan_and_renewal_history (__main__.IndependentAcceptance.test_return_and_reborrow_preserve_prior_loan_and_renewal_history) ... FAIL
+test_two_renewals_keep_history_normalization_and_exact_overdue_boundary (__main__.IndependentAcceptance.test_two_renewals_keep_history_normalization_and_exact_overdue_boundary) ... FAIL
+test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity (__main__.IndependentAcceptance.test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity) ... FAIL
+
+======================================================================
+FAIL: test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic (__main__.IndependentAcceptance.test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 280, in test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic
+    self.run_cli("renew", "strasse-1", "--due", "2026-10-15", "--on", "2026-10-05")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renew', 'strasse-1', '--due', '2026-10-15', '--on', '2026-10-05')
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_competing_identical_extensions_record_one_transition (__main__.IndependentAcceptance.test_competing_identical_extensions_record_one_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 237, in test_competing_identical_extensions_record_one_transition
+    self.assertEqual(sorted(p.returncode for p in processes), [0, 1], output)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [2, 2] != [0, 1]
+
+First differing element 0:
+2
+0
+
+- [2, 2]
++ [0, 1] : [('', "usage: toolshelf [-h] [--db DB]\n                 {add,inventory,lend,return,loans,overdue,import,export} ...\ntoolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)\n"), ('', "usage: toolshelf [-h] [--db DB]\n                 {add,inventory,lend,return,loans,overdue,import,export} ...\ntoolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)\n")]
+
+======================================================================
+FAIL: test_legacy_v2_reports_and_read_only_history_preserve_bytes (__main__.IndependentAcceptance.test_legacy_v2_reports_and_read_only_history_preserve_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 127, in test_legacy_v2_reports_and_read_only_history_preserve_bytes
+    self.assertEqual(self.history(), [])
+                     ~~~~~~~~~~~~^^
+  File "/private$INDEPENDENT/acceptance.py", line 105, in history
+    return self.rows(*arguments, columns=RENEWALS, db=db)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 95, in rows
+    result = self.run_cli(*arguments, db=db, baseline=baseline)
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renewals',)
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renewals' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_new_export_restores_current_reports_and_complete_history (__main__.IndependentAcceptance.test_new_export_restores_current_reports_and_complete_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 246, in test_new_export_restores_current_reports_and_complete_history
+    self.run_cli("renew", "strasse-1", "--due", "2026-10-15", "--on", "2026-10-05")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renew', 'strasse-1', '--due', '2026-10-15', '--on', '2026-10-05')
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_prior_recovery_archive_remains_usable_for_read_and_renewal (__main__.IndependentAcceptance.test_prior_recovery_archive_remains_usable_for_read_and_renewal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 322, in test_prior_recovery_archive_remains_usable_for_read_and_renewal
+    self.assertEqual(self.history(db=restored), [])
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 105, in history
+    return self.rows(*arguments, columns=RENEWALS, db=db)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 95, in rows
+    result = self.run_cli(*arguments, db=db, baseline=baseline)
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renewals',)
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renewals' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_refused_databases_and_missing_database_remain_unchanged (__main__.IndependentAcceptance.test_refused_databases_and_missing_database_remain_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 305, in test_refused_databases_and_missing_database_remain_unchanged
+    self.assertEqual(self.history(db=absent), [])
+                     ~~~~~~~~~~~~^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 105, in history
+    return self.rows(*arguments, columns=RENEWALS, db=db)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 95, in rows
+    result = self.run_cli(*arguments, db=db, baseline=baseline)
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renewals',)
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renewals' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_rejected_requests_and_early_returns_are_byte_atomic (__main__.IndependentAcceptance.test_rejected_requests_and_early_returns_are_byte_atomic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 197, in test_rejected_requests_and_early_returns_are_byte_atomic
+    self.run_cli("renew", "strasse-1", "--due", "2026-10-15", "--on", "2026-10-05")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renew', 'strasse-1', '--due', '2026-10-15', '--on', '2026-10-05')
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_return_and_reborrow_preserve_prior_loan_and_renewal_history (__main__.IndependentAcceptance.test_return_and_reborrow_preserve_prior_loan_and_renewal_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 208, in test_return_and_reborrow_preserve_prior_loan_and_renewal_history
+    self.run_cli("renew", "strasse-1", "--due", "2026-10-15", "--on", "2026-10-05")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renew', 'strasse-1', '--due', '2026-10-15', '--on', '2026-10-05')
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_two_renewals_keep_history_normalization_and_exact_overdue_boundary (__main__.IndependentAcceptance.test_two_renewals_keep_history_normalization_and_exact_overdue_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 162, in test_two_renewals_keep_history_normalization_and_exact_overdue_boundary
+    self.run_cli("renew", "\tSTRAẞE-1\n", "--due", "2026-10-10", "--on", "2026-10-05")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renew', '\tSTRAẞE-1\n', '--due', '2026-10-10', '--on', '2026-10-05')
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renew' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+======================================================================
+FAIL: test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity (__main__.IndependentAcceptance.test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private$INDEPENDENT/acceptance.py", line 146, in test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity
+    self.assertEqual(self.history(db=legacy), [])
+                     ~~~~~~~~~~~~^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 105, in history
+    return self.rows(*arguments, columns=RENEWALS, db=db)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private$INDEPENDENT/acceptance.py", line 95, in rows
+    result = self.run_cli(*arguments, db=db, baseline=baseline)
+  File "/private$INDEPENDENT/acceptance.py", line 88, in run_cli
+    self.assertEqual(result.returncode, 0, message)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : ('renewals',)
+exit=2
+stdout=
+stderr=usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,return,loans,overdue,import,export} ...
+toolshelf: error: argument command: invalid choice: 'renewals' (choose from add, inventory, lend, return, loans, overdue, import, export)
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.388s
+
+FAILED (failures=10)

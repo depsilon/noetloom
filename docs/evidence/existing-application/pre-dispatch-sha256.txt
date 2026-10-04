@@ -1,0 +1,5 @@
+Frozen before dispatch at 2026-10-04T20:53:40.385393+00:00
+b8c1e774bf6f7f80354df1a5630a988755ec0918e0bc0b541669efb1be66f01b  project/NEW-OBJECTIVE.md
+5efef931ef5954604ca77331b642b944f69ae804f89db21d5c3e06860974e56f  project/reference/OPERATING-METHOD.md
+4e1113194280bd180ddf3eeb55de2ca73dd2a64eefb4edc4f0e3baff26092a46  independent/acceptance-cases.md
+e573169e80c8bd3e682aff203da5546a1796e9634bf2ebc90624d544eeaebb6e  independent/baseline-sha256.txt

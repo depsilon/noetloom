@@ -1,0 +1,21 @@
+First independent run started 2026-10-04T21:17:12.719740+00:00
+Candidate manifest SHA-256: 1085f4f246aa928f7fc148cdfa4657da9ffced70bd33f27a5ac371168d342655
+Frozen runner SHA-256: 78ede18456fe03cdba641bdd1864520dfe7df90c06318303d1e955a1356ec6c2
+Command: python3.13 -B acceptance.py --project candidate-at-completion --baseline original-tool-shelf
+Exit: 0
+
+test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic (__main__.IndependentAcceptance.test_catalog_preview_survives_renewal_and_duplicate_batch_stays_atomic) ... ok
+test_competing_identical_extensions_record_one_transition (__main__.IndependentAcceptance.test_competing_identical_extensions_record_one_transition) ... ok
+test_legacy_v2_reports_and_read_only_history_preserve_bytes (__main__.IndependentAcceptance.test_legacy_v2_reports_and_read_only_history_preserve_bytes) ... ok
+test_new_export_restores_current_reports_and_complete_history (__main__.IndependentAcceptance.test_new_export_restores_current_reports_and_complete_history) ... ok
+test_prior_recovery_archive_remains_usable_for_read_and_renewal (__main__.IndependentAcceptance.test_prior_recovery_archive_remains_usable_for_read_and_renewal) ... ok
+test_refused_databases_and_missing_database_remain_unchanged (__main__.IndependentAcceptance.test_refused_databases_and_missing_database_remain_unchanged) ... ok
+test_rejected_requests_and_early_returns_are_byte_atomic (__main__.IndependentAcceptance.test_rejected_requests_and_early_returns_are_byte_atomic) ... ok
+test_return_and_reborrow_preserve_prior_loan_and_renewal_history (__main__.IndependentAcceptance.test_return_and_reborrow_preserve_prior_loan_and_renewal_history) ... ok
+test_two_renewals_keep_history_normalization_and_exact_overdue_boundary (__main__.IndependentAcceptance.test_two_renewals_keep_history_normalization_and_exact_overdue_boundary) ... ok
+test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity (__main__.IndependentAcceptance.test_valid_v1_data_reads_without_writes_then_renews_preserving_loan_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 4.290s
+
+OK

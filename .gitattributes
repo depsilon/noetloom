@@ -2,3 +2,4 @@
 *.png binary
 *.gz binary
 examples/tool-shelf/evidence/** -text
+examples/tool-shelf-renewals/evidence/** -text
