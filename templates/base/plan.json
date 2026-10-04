@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "items": [{
+    "id": "P-001",
+    "title": "Implement the requested project",
+    "status": "planned",
+    "cycle": 1,
+    "depends_on": [],
+    "outcome": "",
+    "scope": ["Application, local operating documents, and relevant tests"],
+    "acceptance": ["Refine the request into concrete acceptance, implement it, and exercise the real interface"],
+    "verification": ["application"]
+  }]
+}
