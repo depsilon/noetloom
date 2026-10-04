@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 import zipfile
 
 from scripts.build_plugin import ROOT, SKILLS, build, payload, validate_manifest
@@ -35,6 +36,14 @@ class PluginTests(unittest.TestCase):
             for name in SKILLS:
                 self.assertEqual(archive.read(f"skills/{name}/SKILL.md").decode(),
                                  (ROOT / f".agents/skills/{name}/SKILL.md").read_text(encoding="utf-8"))
+            icon = archive.read("assets/icon.svg")
+            self.assertEqual(icon, (ROOT / "assets/logo.svg").read_bytes())
+            svg = ET.fromstring(icon)
+            self.assertEqual(svg.attrib["width"], svg.attrib["height"])
+            self.assertGreaterEqual(int(svg.attrib["width"]), 48)
+            original = icon.replace(b' width="128" height="128"', b"", 1)
+            self.assertEqual(hashlib.sha256(original).hexdigest(),
+                             "6107292413cb8e2f4d587c8425542d4724cb8b079fd23246bbcdd049c1377d54")
             provenance = json.loads(archive.read("bundle.json"))
             self.assertEqual(set(provenance["files"]), set(names) - {"bundle.json"})
             for name, record in provenance["files"].items():

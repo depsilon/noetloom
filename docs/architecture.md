@@ -73,7 +73,7 @@ checks were executed and its checkout was not modified.
 | [Documentation skill](https://github.com/depsilon/shardloom/blob/42eb2a033b9bc07859a58e1f8edb9c3f1a242302/docs/skills/documentation-rfc.md) | Scale documentation to the decision while retaining scope and verification. |
 | [Developer-agent guidance](https://github.com/depsilon/shardloom/blob/42eb2a033b9bc07859a58e1f8edb9c3f1a242302/docs/skills/developer-agent-experience.md) and [contributing](https://github.com/depsilon/shardloom/blob/42eb2a033b9bc07859a58e1f8edb9c3f1a242302/CONTRIBUTING.md) | Connect instructions, implementation, review, and completion authority. |
 
-Noetloom generalizes those relationships, not Vortex invariants, execution-engine
-restrictions, benchmark protocols, or contribution-approval policy. The public skills
-here are original project guidance. Private local engineering and verification skills
-were used during development but are neither published nor required by generated projects.
+These sources inform ownership, intake, coherent work, and verification. The public
+skills here are original project guidance. Private local engineering and verification
+skills were used during development but are neither published nor required by generated
+projects. The shared logo's source and license are recorded in [assets](../assets/README.md).

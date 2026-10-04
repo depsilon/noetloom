@@ -1,3 +1,5 @@
+<img src="assets/logo.svg" alt="Noetloom logo" width="112" height="112">
+
 # Noetloom
 
 **A small working framework for projects built by coding agents.**
@@ -48,12 +50,8 @@ author, or establish correctness from a passing command alone.
 - [OpenAI plugin](docs/plugin.md): reproducible skills-only packaging and tested local installation.
 - [Host support and evidence](docs/hosts.md): native Codex exercise, portable instructions,
   and the limits of Claude compatibility checks.
-- [Design and reference sources](docs/architecture.md): generalized from ShardLoom's
-  workflow, without its database restrictions.
+- [Design and reference sources](docs/architecture.md): ownership, execution, and verification.
 - [Contributing](CONTRIBUTING.md): local checks and maintenance.
-
-The active repository has replaced Noetloom's former model-research project. That
-work remains in Git history. No parallel research track is maintained here.
 
 The framework code, lifecycle skills, helper, and documentation are Apache-2.0;
 reusable source templates are MIT-0. Generated projects keep those notices under

@@ -19,7 +19,7 @@ DOMAINS = ("utility", "website", "data", "deployment")
 
 def payload(root=ROOT):
     mapping = {"plugin.json": "plugin/plugin.json", "README.md": "plugin/README.md",
-               "assets/icon.svg": "plugin/assets/icon.svg", "BOOTSTRAP.md": "BOOTSTRAP.md",
+               "assets/icon.svg": "assets/logo.svg", "assets/README.md": "assets/README.md", "BOOTSTRAP.md": "BOOTSTRAP.md",
                "LICENSE": "LICENSE", "NOTICE": "NOTICE", "LICENSES/MIT-0.txt": "LICENSES/MIT-0.txt",
                "templates/LICENSE": "templates/LICENSE", ".noetloom/project.py": ".noetloom/project.py"}
     for name in ("__init__.py", "__main__.py", "runtime.py", "bootstrap.py"):

@@ -5,9 +5,9 @@ agents. An agent creates or adopts the user's workspace and implements the reque
 deliverable. Each resulting project owns its requirements, decisions, skills, plan,
 feedback, checkpoint, and evidence without this conversation or private installations.
 
-The October 4, 2026 product pivot replaces the active model-research implementation,
-campaigns, and queue. Normal Git history, licensing, unrelated work, external artifacts,
-and the ShardLoom checkout are preserved. No parallel research product remains active.
+Product documentation and distributed guidance describe the current framework directly.
+Use the faceted diamond symbol from ShardLoom's published GitHub as Noetloom's logo,
+with its applicable asset notices and source provenance.
 
 ## Required behavior
 
@@ -36,10 +36,10 @@ and the ShardLoom checkout are preserved. No parallel research product remains a
 
 ## Authority and boundaries
 
-The user explicitly authorized the complete overhaul, removal of the prior active
-product, scoped commits/pushes, GitHub CI repair, and merge after completion. This does
-not authorize changing ShardLoom, deleting external artifacts, paid services, application
-deployment, or publishing private skills. Generated projects receive their own user
+The user explicitly authorized this framework, scoped commits/pushes, GitHub CI repair,
+and merge after completion. This does not authorize changing reference repositories,
+deleting external artifacts, paid services, application deployment, or publishing
+private skills. Generated projects receive their own user
 authority; the template grants no external permissions.
 
 No model API, daemon, agent runtime, vector database, marketplace, or orchestration
