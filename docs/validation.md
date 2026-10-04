@@ -64,7 +64,18 @@ tests. Source manifests and current application links were checked separately.
 This demonstrates bounded maintenance across existing components and compatibility
 contracts, not maturity at production scale or universal defect detection. Native agent
 execution and initial acceptance were on macOS/Python 3.13. Hosted tests of the result are
-distinct from native execution on another agent host. Hosted delivery remains in progress.
+distinct from native execution on another agent host.
+
+[PR #4](https://github.com/depsilon/noetloom/pull/4) at
+`052023955760b2df6a719026ec80199ae21156db` passed all three
+[hosted workflows](https://github.com/depsilon/noetloom/actions/runs/37235858831):
+Linux/Python 3.11, macOS/Python 3.13 and Windows/Python 3.13. It merged as
+`0e2a6daaf6ae15e5d7b6b3aa7fa6f7a236232af4`, whose
+[main-branch run](https://github.com/depsilon/noetloom/actions/runs/37236064763) also
+passed all three. No post-handoff application repair was needed. Windows retains the
+existing explicit symlink-privilege skips. The GitHub Codex review bot again reported
+exhausted review quota; primary source review, the mechanical evidence audit and frozen
+independent acceptance are the review evidence, with no remote automated review claimed.
 
 ### Readable autonomous baseline, version 0.2.0
 

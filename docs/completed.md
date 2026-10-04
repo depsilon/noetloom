@@ -319,6 +319,182 @@ Historical evidence; active work belongs in the plan.
       "reason": "The additional existing-application exercise changes shared validation input inventories. Preserve the prior outcome and revalidate its broad integration evidence after the scoped addition.",
       "feedback": "existing-application-proof-20261004",
       "at": "2026-10-04T20:56:05.354852+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-004",
+        "title": "Validate autonomous maintenance of an existing application",
+        "status": "active",
+        "cycle": 1,
+        "depends_on": [],
+        "outcome": "An agent extends the existing ToolShelf application from a bounded outcome, derives and executes its own phases, preserves compatibility, and receives independent acceptance after declaring completion.",
+        "scope": [
+          "Plain-file renewal/history change to the existing application, including saved-data and export compatibility",
+          "Frozen requirement-based acceptance outside the implementation workspace, then recorded first results and scoped repairs",
+          "Maintained example and exact observation evidence, full regression verification and authorized GitHub delivery"
+        ],
+        "instructions": [
+          "Preserve the current framework architecture and operating method unless an observed concrete deficiency warrants a focused correction.",
+          "Supply the new application outcome and intact baseline without an implementation plan; let the native agent inspect, plan, implement and review without repeated task selection.",
+          "Freeze independent requirement cases before dispatch and the executable runner before the completion report; run them only after that report.",
+          "Separate development findings, native final-review findings and later independent/integration findings. Preserve initial results before repairs.",
+          "Integrate a replayable maintained example and concise evidence, revalidate affected completion records, and follow scoped publication and CI through merge."
+        ],
+        "guidance": [
+          "docs/operating-model.md — existing autonomous method, unchanged absent an observed gap",
+          "docs/validation.md — acceptance, current evidence and proof limits",
+          "examples/tool-shelf/START-HERE.md — existing application baseline"
+        ],
+        "acceptance": [
+          "The native agent derives meaningful work from the existing application and finishes the requested integrated change without a supplied phase breakdown or repeated steering.",
+          "Independent cases exercise legacy data, renewal history and chronology, concurrency, atomic failures, recovery and unchanged catalog behavior after native completion.",
+          "Actual first-run failures and any subsequent fixes remain separately reported; product and host claims stay within observed evidence.",
+          "The original example and current optional distributions remain intact, all relevant checks pass, and authorized delivery is complete."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-ac2c8a1f46f945f58bdd8cdf835593c5",
+        "check-727511c9139241c28d2f8f6d714c3e17"
+      ],
+      "summary": "Observed autonomous maintenance from the intact 39-test ToolShelf baseline: two derived phases, 54 application tests, final requirements review and ten frozen independent cases passed on the first candidate. Preserved the exact candidate and separate finding categories. PR #4 merged as 0e2a6da; PR run 37235858831 and main run 37236064763 passed Linux, macOS and Windows. No application repair or framework instruction change was needed.",
+      "at": "2026-10-04T21:28:48.816134+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-001",
+        "title": "Make the readable method own autonomous execution",
+        "status": "planned",
+        "cycle": 4,
+        "depends_on": [],
+        "outcome": "Any capable agent can derive and execute project-specific work from plain local instructions without Noetloom runtime prerequisites.",
+        "scope": [
+          "Authoritative operating loop and project-specific phase/guidance synthesis",
+          "Readable templates and canonical lifecycle instructions",
+          "Optional helper planning sentinel, local guide copies, role-path entrypoints; preserve API contracts"
+        ],
+        "instructions": [
+          "Ground the method in actual workspace inspection, user journeys and failure paths.",
+          "Require all eight phase fields and objective-level replanning; keep feedback proportionate.",
+          "Align README, bootstrap, skills and optional helper instructions; verify bootstrap cannot treat generated folders as completion."
+        ],
+        "guidance": [
+          "docs/operating-model.md — full method",
+          "docs/helpers.md — optional profile semantics",
+          "docs/architecture.md — source/copy boundaries"
+        ],
+        "acceptance": [
+          "Plain instructions cover planning, implementation, inspection, repair, integration, continuous execution, steering, continuity, permission and completion.",
+          "Native discovery, helper commands and JSON workflow records are optional.",
+          "Generated projects name actual document owners and start blocked until concrete phases are derived."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-ac2c8a1f46f945f58bdd8cdf835593c5",
+        "check-727511c9139241c28d2f8f6d714c3e17"
+      ],
+      "summary": "Revalidated the unchanged readable operating method, canonical skills and helper boundaries after adding existing-application proof inputs. Current suite and kit pass; no newly observed instruction deficiency warrants changing the method.",
+      "at": "2026-10-04T21:28:48.963511+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-002",
+        "title": "Demonstrate autonomous development and recovery from a brief",
+        "status": "planned",
+        "cycle": 3,
+        "depends_on": [
+          "P-001"
+        ],
+        "outcome": "A functioning multi-capability application demonstrates derived phases, uninterrupted advancement, mid-project steering and fresh-session recovery from local files.",
+        "scope": [
+          "ToolShelf local CLI brief and readable guide only",
+          "Native isolated build followed by one correction and fresh continuation",
+          "Maintained working example, meaningful behavior checks, source-bound observation record"
+        ],
+        "instructions": [
+          "Begin with a blank application directory, brief and guide; do not supply an implementation plan or code.",
+          "Observe a working milestone and automatic advancement; inject one asset-ID normalization correction.",
+          "Interrupt at a durable boundary, then give a new session only the local workspace and continuation instruction.",
+          "Verify actual application behavior and preserve limits; do not attribute causal or cross-host guarantees to one observation."
+        ],
+        "guidance": [
+          "docs/operating-model.md — phase execution and continuity",
+          "docs/validation.md — evidence scope"
+        ],
+        "acceptance": [
+          "The agent derives project-specific phases and guidance and implements multiple capabilities with tests.",
+          "Correction updates affected contracts and work without restoring deferred features.",
+          "A fresh session finishes from local Markdown and ordinary application tools without original chat, private skills, Noetloom commands or native discovery."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-ac2c8a1f46f945f58bdd8cdf835593c5",
+        "check-727511c9139241c28d2f8f6d714c3e17"
+      ],
+      "summary": "Revalidated the original ToolShelf example and prior observation unchanged, alongside the separate renewal extension. Original 39 tests and source inventory remain intact; native historical results and independent findings remain distinct.",
+      "at": "2026-10-04T21:28:49.166504+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-003",
+        "title": "Integrate optional distributions and deliver verified guidance",
+        "status": "planned",
+        "cycle": 2,
+        "depends_on": [
+          "P-002"
+        ],
+        "outcome": "Version 0.2.0 preserves the useful helper examples and reproducible plugin while delivering the readable autonomous method through passing local and GitHub checks.",
+        "scope": [
+          "Maintained helper examples, licensing, plugin resources and version",
+          "Regression checks, adversarial review and precise proof documentation",
+          "Scoped commit, push, PR checks and authorized merge; no Directory submission"
+        ],
+        "instructions": [
+          "Refresh owned source copies and revalidate affected completed examples.",
+          "Build identical plugin archives, exercise installed resources, and retain review metadata and limitations.",
+          "Review the full diff for broken links, misleading claims and baseline/helper coupling; repair findings.",
+          "Run full checks, bind current evidence, update continuation state, and follow CI through authorized delivery."
+        ],
+        "guidance": [
+          "docs/plugin.md — packaging and publication boundary",
+          "docs/licensing.md — copied-material terms",
+          "docs/validation.md — commands and limitations"
+        ],
+        "acceptance": [
+          "Existing applications and helper safety contracts continue to pass.",
+          "Readable assets, canonical skills and optional guides are included consistently in the reproducible plugin.",
+          "Documentation reports demonstrated paths and gaps; all authorized local/GitHub checks pass before merge."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-ac2c8a1f46f945f58bdd8cdf835593c5",
+        "check-727511c9139241c28d2f8f6d714c3e17"
+      ],
+      "summary": "Revalidated optional distributions and licensing with the new maintained example. All 50 payload entries remain byte-identical to the reviewed 0.2.0 archive. PR #4 and merged-main CI pass on all three operating systems; no Directory submission, deployment or new publication authority was used.",
+      "at": "2026-10-04T21:28:49.428539+00:00"
     }
   ]
 }
