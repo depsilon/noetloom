@@ -36,9 +36,8 @@ def main():
         name, _ = h.skill_metadata(h.read_text(ROOT / "templates/domains" / domain / "SKILL.md"))
         if name != f"project-{domain}":
             raise ValueError(f"Domain skill name mismatch: {domain}")
-    for old in ("Cargo.toml", "docs/state/plan.json", "docs/charter.md"):
-        if (ROOT / old).exists():
-            raise ValueError(f"Retired product returned to the active tree: {old}")
+    if {p.name for p in (ROOT / "noetloom").glob("*.py")} != {"__init__.py", "__main__.py", "bootstrap.py", "runtime.py"}:
+        raise ValueError("Framework module inventory and package boundary differ")
     examples = (ROOT / "examples/expense-totals", ROOT / "examples/reading-list")
     for root in (ROOT, *examples):
         project = h.Project(root)

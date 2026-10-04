@@ -24,7 +24,7 @@
           "Reconcile this project's latest feedback and continue its authorized work.",
           "Check this project's acceptance evidence and explain what remains before completion."
         ],
-        "brandColor": "#285443",
+        "brandColor": "#94BADB",
         "composerIcon": "./assets/icon.svg",
         "logo": "./assets/icon.svg"
       },

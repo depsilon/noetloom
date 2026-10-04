@@ -7,9 +7,9 @@ or an approval claim. Public submission/publication remains explicitly unauthori
 
 - Version: `0.1.0`; portable root `plugin.json`; four canonical skills.
 - Build: `python3 -B scripts/build_plugin.py --output dist/plugin-review`.
-- Review ZIP SHA-256: `836cdb21314d8edaca0724b931d908813bb67e89fb19917539aa7527617724bf`.
-- Contents: 40 files, including `bundle.json` with source mappings and hashes for
-  the other 39. No hooks, MCP server, app references, private skills, or project state.
+- Review ZIP SHA-256: `a86e6cb23488a8c9706bc3f5cc1333ed6ecd16d44c7fa068f9876f31e3965d0d`.
+- Contents: 41 files, including `bundle.json` with source mappings and hashes for
+  the other 40. No hooks, MCP server, app references, private skills, or project state.
 - Licenses: Apache-2.0 framework; designated original MIT-0 templates. Generated
   applications receive no imposed framework license or application copyright owner.
 
@@ -21,11 +21,16 @@ the checksum before reviewing or submitting an exact candidate.
 
 The macOS Codex CLI `0.159.0-alpha.12.1` accepted the local marketplace, installed
 `noetloom@noetloom-local-review`, and reported it enabled. An initial package was used
-for the agent exercise below. After documentation and closure-validation refinements,
+for the agent exercise below. After documentation, closure-validation, and shared-logo refinements,
 the final ZIP above was rebuilt, installed again, and every installed payload hash
 was compared to `bundle.json`. Fresh bootstrap and generated helper checks passed.
 The temporary plugin installation and marketplace registration were removed afterward;
 the generated project still passed its local check. Other installations were untouched.
+
+The listing uses the current faceted diamond logo from ShardLoom's published GitHub,
+with source provenance in [assets/README.md](../assets/README.md). The SVG has explicit
+128 × 128 dimensions; geometry and colors match the source. Its installed bytes were
+included in the final payload comparison.
 
 | Exercise | Observed result |
 | --- | --- |

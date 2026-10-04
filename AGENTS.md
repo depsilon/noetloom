@@ -28,9 +28,9 @@ just because code or documents changed.
 Use Python 3.11+ and the standard library for the kit. Keep generated projects
 self-contained: no personal skill paths, private dependencies, model API, or service.
 Keep one canonical skill source with generated Claude compatibility entries.
-Do not restore the removed model-research product. Preserve normal Git history,
-licensing, unrelated work, and external artifacts. ShardLoom is a read-only workflow
-reference, not a dependency or an editing target.
+Keep instructions and documentation focused on the current project framework.
+Preserve licensing, unrelated work, external artifacts, and source repositories used
+as references. They are not dependencies or editing targets.
 
 Implement a coherent authorized item through its checks and review. Continue while
 the active host session and user authority permit. No helper grants permission to
