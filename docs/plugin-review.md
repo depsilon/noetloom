@@ -3,7 +3,29 @@
 Prepared October 4, 2026. This is a local review candidate, not a Directory submission
 or an approval claim. Public submission/publication remains explicitly unauthorized.
 
-## Current candidate: 0.2.0
+## Current candidate: 0.2.0, attribution corrected October 4, 2026
+
+- Build: `python3.13 -B scripts/build_plugin.py --output dist/plugin-review-attribution-final-20261004`.
+- ZIP SHA-256: `11ee1620843183b3ae05f8837c0c9f544f4ef74e2acdbe7b9949479f608085a9`.
+- Contents: 50 files, including `bundle.json` with source hashes for the 49 payload files.
+- A second build in `dist/plugin-review-attribution-final-repro-20261004` produced identical bytes.
+
+This revision of the still-unpublished 0.2.0 candidate corrects the copyright holder,
+author and developer name to **Dylan Justin Heinrich**, dates the notice **October 4,
+2026**, and clarifies component-specific licensing. The framework remains Apache-2.0;
+designated templates remain MIT-0. Identify this candidate by its ZIP hash when reviewing.
+
+The extracted package's author/developer fields, license metadata and generated project
+were inspected. Bootstrap copied the exact current Apache license, MIT-0 license, NOTICE
+and scope explanation into `.noetloom/licenses/`, and created no application-level LICENSE.
+Canonical license terms are unchanged. No runtime or lifecycle implementation changed.
+
+Native installation was not repeated for this notice/metadata correction. The previous
+0.2.0 installation below applies to its stated older ZIP hash; it is historical evidence,
+not a claim that this corrected archive was installed. No candidate has been submitted
+or published to the Directory.
+
+## Historical candidate: 0.2.0 before the attribution correction
 
 - Build: `python3.13 -B scripts/build_plugin.py --output dist/plugin-review-readable-0.2.0`.
 - ZIP SHA-256: `a46cff44604480b67f8c708ab87347941239779db7b48065ae1ed8d23ca66571`.
@@ -22,7 +44,7 @@ Other installations were untouched. This checks package/resource integration, no
 skill selection. The current readable autonomous-build exercise is documented in
 [validation](validation.md); it uses plain local documents, independently of plugin installation.
 
-The current candidate is prepared for review and has not been submitted or published.
+That candidate was prepared for review and was not submitted or published.
 The earlier installed-agent application exercise below belongs to version 0.1.0; it is
 retained as historical evidence rather than relabeled as a new 0.2.0 run.
 

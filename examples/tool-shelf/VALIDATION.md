@@ -1,5 +1,14 @@
 # ToolShelf validation and completion evidence
 
+## Licensing maintenance — October 4, 2026
+
+The copied reference NOTICE now uses **Dylan Justin Heinrich**, copyright **2026**,
+and the notice date **October 4, 2026 (2026-10-04)**. No application source, test,
+license term or recorded runtime result changed. The source manifests cited in the
+earlier observations below retain their original bytes and describe those earlier runs.
+[Current maintenance hashes](evidence/current-source-sha256.txt) reflect the notice
+correction; the complete pre-correction example remains in Git at `4e5e2b1`.
+
 ## Current maintainer acceptance
 
 The native fresh session completed all three phases with 36 passing tests. During

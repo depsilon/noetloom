@@ -126,6 +126,49 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Refreshed the optional helper profile and readable guidance, preserved application requirements and deferrals, regenerated compatibility entries, and passed all three current declared checks. Browser evidence was fingerprint-checked, not replayed.",
       "at": "2026-10-04T19:12:58.796584+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "8d55d350-44d4-4f81-8849-b5968dd9e383",
+      "id": "P-001",
+      "cycle": 4,
+      "reason": "Refresh copied licensing notices and revalidate notice maintenance.",
+      "feedback": "licensing-attribution-20261004",
+      "at": "2026-10-04T21:57:30.303194+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "8d55d350-44d4-4f81-8849-b5968dd9e383",
+      "item": {
+        "id": "P-001",
+        "title": "Deliver an offline reading list",
+        "status": "planned",
+        "cycle": 4,
+        "depends_on": [],
+        "outcome": "Build a small offline reading list website. Users can add a title and optional HTTP(S) URL, mark an entry read or unread, filter unread entries, and remove an entry. Save entries locally across reloads. No accounts, authentication, sync, server dependency, or remote assets. Show clear empty and error states and support keyboard and narrow screens.",
+        "scope": [
+          "Application, local operating documents, and relevant tests"
+        ],
+        "acceptance": [
+          "Add title and optional safe HTTP(S) link; mark, filter and remove entries",
+          "Persist across reloads and cached offline reloads after first successful local load",
+          "Clear empty/error states, keyboard focus and narrow-screen layout",
+          "No accounts, sync, database service or remote assets",
+          "Behavior tests and source-bound browser observations pass"
+        ],
+        "verification": [
+          "application",
+          "browser-evidence",
+          "framework"
+        ]
+      },
+      "evidence": [
+        "check-d30204223fc545559b980c64975344ee",
+        "check-a98be9242cb243478f56dcd0e0f77fdd",
+        "check-f42a9a6d79294553bed967ff31c1720f"
+      ],
+      "summary": "Copied finalized NOTICE, MIT-0 text, and license-scope README exactly. Application licensing policy is unchanged; all declared checks passed. Browser-evidence verification bound existing evidence without replay.",
+      "at": "2026-10-04T21:58:14.573999+00:00"
     }
   ]
 }

@@ -1,10 +1,18 @@
 Noetloom
-Copyright 2026 Dylan Heinrich
+Copyright 2026 Dylan Justin Heinrich
+Notice updated: October 4, 2026 (2026-10-04)
 
-Noetloom framework source code and documentation are licensed under the Apache License,
-Version 2.0. Designated original starter material in templates/ is MIT-0, as described
-in https://github.com/depsilon/noetloom/blob/main/docs/licensing.md.
-See the accompanying Apache-2.0 and MIT-0 license texts for terms.
+Noetloom's framework code, lifecycle skills, helpers, documentation, plugin integration,
+and maintained example applications are licensed under the Apache License, Version 2.0.
+Designated original starter material in templates/ is licensed under MIT No Attribution
+(MIT-0); copied template material retains that license. These licenses apply to their
+respective components, not as a choice of license for the entire repository.
+
+Independent applications built using Noetloom keep their own licensing and copyright
+policy. Included Noetloom components and third-party material retain their applicable
+licenses. See the accompanying license texts and the scope explanation at
+https://github.com/depsilon/noetloom/blob/main/docs/licensing.md.
+
 Noetloom's workflow design draws on the public
 ShardLoom project; https://github.com/depsilon/noetloom/blob/main/docs/architecture.md
 identifies the exact reference sources.

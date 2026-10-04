@@ -3,6 +3,10 @@
 The application checks invoke the CLI as a user would. They cover exact arithmetic,
 refunds, filtering, full-input validation, and errors without partial output.
 
+October 4, 2026 maintenance: the copied NOTICE, MIT-0 text, and license-scope README
+match their finalized framework sources byte for byte. This maintenance did not change
+application licensing policy; the declared application and framework checks were rerun.
+
 <!-- noetloom:validation -->
 ```json
 {

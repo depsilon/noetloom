@@ -39,8 +39,14 @@ Noetloom cannot keep an exited host running or receive conversations it was neve
   [skills-only OpenAI plugin](docs/plugin.md).
 - [Design and references](docs/architecture.md) and [contributing](CONTRIBUTING.md).
 
-The framework, lifecycle guidance, helpers, documentation, and plugin integration use
-Apache-2.0. Designated original starter templates use MIT-0. An independent application
-keeps its own licensing policy; preserve applicable notices for copied framework and
-third-party material. See [LICENSE](LICENSE), [NOTICE](NOTICE), and
+Copyright 2026 **Dylan Justin Heinrich**. Licensing notice updated **October 4, 2026**.
+
+- Framework, lifecycle guidance, helpers, documentation, plugin integration and maintained
+  example applications: **Apache-2.0**.
+- Designated original starter templates: **MIT-0**, allowing reuse without attribution.
+- Independently built applications: **their own licensing policy**. Using Noetloom does
+  not assign your application's copyright to Noetloom or require either framework license.
+
+The licenses apply to their respective components. Preserve applicable notices for copied
+framework and third-party material. See [LICENSE](LICENSE), [NOTICE](NOTICE), and
 [the licensing guide](docs/licensing.md).

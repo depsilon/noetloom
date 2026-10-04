@@ -495,6 +495,42 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Revalidated optional distributions and licensing with the new maintained example. All 50 payload entries remain byte-identical to the reviewed 0.2.0 archive. PR #4 and merged-main CI pass on all three operating systems; no Directory submission, deployment or new publication authority was used.",
       "at": "2026-10-04T21:28:49.428539+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-001",
+      "cycle": 5,
+      "reason": "Shared license notices and copied-material attribution are being clarified; preserve prior application observations and revalidate affected source-bound checks.",
+      "feedback": "licensing-attribution-20261004",
+      "at": "2026-10-04T21:52:24.193178+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-002",
+      "cycle": 4,
+      "reason": "Shared license notices and copied-material attribution are being clarified; preserve prior application observations and revalidate affected source-bound checks.",
+      "feedback": "licensing-attribution-20261004",
+      "at": "2026-10-04T21:52:24.234682+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-003",
+      "cycle": 3,
+      "reason": "Shared license notices and copied-material attribution are being clarified; preserve prior application observations and revalidate affected source-bound checks.",
+      "feedback": "licensing-attribution-20261004",
+      "at": "2026-10-04T21:52:24.327251+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-004",
+      "cycle": 2,
+      "reason": "Shared license notices and copied-material attribution are being clarified; preserve prior application observations and revalidate affected source-bound checks.",
+      "feedback": "licensing-attribution-20261004",
+      "at": "2026-10-04T21:52:24.412634+00:00"
     }
   ]
 }

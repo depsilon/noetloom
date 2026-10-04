@@ -240,6 +240,46 @@ This block is the project's only execution queue.
       ],
       "summary": "Refreshed the optional helper profile and readable guidance, preserved application requirements and deferrals, regenerated compatibility entries, and passed both current declared checks.",
       "at": "2026-10-04T19:12:53.748723+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "7f791247-6b06-4c5b-bf71-253b57ae5c87",
+      "id": "P-001",
+      "cycle": 7,
+      "reason": "Refresh copied licensing notices and revalidate notice maintenance.",
+      "feedback": "licensing-attribution-20261004",
+      "at": "2026-10-04T21:57:25.825572+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "7f791247-6b06-4c5b-bf71-253b57ae5c87",
+      "item": {
+        "id": "P-001",
+        "title": "Add optional category filtering to the expense totals CLI",
+        "status": "planned",
+        "cycle": 7,
+        "depends_on": [],
+        "outcome": "Build a Python standard-library CLI that totals CSV expenses by category, with an optional category filter. Input columns are category and amount; output stable JSON totals with two decimal places. Reject malformed or non-finite amounts with an error and nonzero exit. Allow negative refunds. No network services or authentication.",
+        "scope": [
+          "Application, local operating documents, and relevant tests"
+        ],
+        "acceptance": [
+          "The CLI accepts exactly the category and amount columns in either order, rejects malformed rows, blank categories, nonnumeric/non-finite values, and amounts with over two fractional digits with stderr diagnostics and nonzero exit, and prints no partial stdout on failure",
+          "Without a filter, valid input produces deterministic JSON with sorted category keys and two-decimal amount strings; negative refunds aggregate correctly and a header-only CSV produces an empty object",
+          "With --category CATEGORY, only that category's total is returned, or {} when absent; the entire input is validated including unselected rows",
+          "Subprocess tests exercise valid, empty, invalid, filtered, absent-category, and invalid-unselected-row behavior through the public command"
+        ],
+        "verification": [
+          "application",
+          "framework"
+        ]
+      },
+      "evidence": [
+        "check-d1a632b890bb4f10827a6aac7a40e5ad",
+        "check-f57c2fbbd11f4da9abe8f335d959dc2f"
+      ],
+      "summary": "Copied finalized NOTICE, MIT-0 text, and license-scope README exactly. Application licensing policy is unchanged; all declared checks passed.",
+      "at": "2026-10-04T21:58:08.681618+00:00"
     }
   ]
 }

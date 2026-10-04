@@ -67,6 +67,12 @@ original checksum list and all historical transcripts remain preserved. The prim
 [Source fingerprints](source-sha256.txt) bind the maintained files and snapshots to this
 observation. The parent suite runs the actual application tests with ordinary Python.
 
+Later licensing maintenance on October 4, 2026 corrected the copied NOTICE to
+**Dylan Justin Heinrich** and dated it. Application sources, tests and recorded run
+artifacts are unchanged. Historical manifests remain intact; the current fingerprints
+include the corrected notice, the maintenance note and its current source list.
+The complete pre-correction example remains at repository commit `4e5e2b1`.
+
 ## Proof boundary
 
 The milestone and interruption notifications were test instrumentation, not user approval

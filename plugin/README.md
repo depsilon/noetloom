@@ -17,9 +17,12 @@ tools the host must provide. Python 3.11+ is needed only for optional helpers an
 building this package. There is no MCP server, model API, lifecycle hook, telemetry
 service, or background listener.
 
+Copyright 2026 **Dylan Justin Heinrich**. Licensing notice updated **October 4, 2026**.
+The framework is **Apache-2.0**; designated original templates are **MIT-0**.
+These licenses apply to separate components. An independent application keeps its own
+licensing policy and copyright; Noetloom does not assign it a framework license.
 See [host support](docs/hosts.md), [licensing](docs/licensing.md), and
-[privacy](docs/privacy.md). The framework is Apache-2.0; designated original
-templates are MIT-0. An independent application keeps its own licensing policy.
+[privacy](docs/privacy.md).
 
 The package is prepared for review. Directory submission, approval, and publication
 are separate actions and have not occurred. Support: https://github.com/depsilon/noetloom/issues.
