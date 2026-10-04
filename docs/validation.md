@@ -31,6 +31,26 @@ actual host installation and native-agent observations are recorded separately b
 
 ## Observed behavior and limits
 
+### Licensing attribution and scope, October 4, 2026
+
+Current Noetloom notices and package metadata name **Dylan Justin Heinrich**. Copyright
+uses **2026**; the licensing notice is dated **October 4, 2026 (2026-10-04)**. The guide
+and generated scope notice distinguish Apache-2.0 framework/example code, MIT-0 designated
+templates and independently owned applications. Standard license terms are unchanged.
+
+Current copied notices and fingerprints are refreshed. The two readable applications'
+source, tests and recorded execution artifacts are unchanged; their original manifests
+retain the historical identities. Their validation records identify the notice correction
+and current maintenance source lists. The complete pre-correction examples remain in Git
+at `4e5e2b1`. The unpublished plugin candidate is rebuilt with corrected attribution;
+its exact artifact and the historical installation evidence are separated in
+[the review record](plugin-review.md).
+
+The final local suite passed **48 tests**; the kit and project checks also passed.
+Two complete ZIP builds matched byte for byte. Inspection of the extracted final archive
+confirmed all 49 payload files matched current sources, full author/developer metadata,
+four exact generated license/notice copies, and no application-level LICENSE.
+
 ### Existing-application maintenance, unchanged method
 
 On October 4, 2026, a new native agent received the complete 39-test ToolShelf application
@@ -45,15 +65,15 @@ result passed **54 application tests**, the full journey, **26 documented comman
 The primary froze independent requirement cases before dispatch and the executable runner
 before native completion. All ten cases failed against the unchanged baseline as an
 expected negative control, then **all ten passed on the first declared candidate** without
-repairs. The maintained application is byte-identical to that candidate. The
+repairs. At initial delivery, the maintained example was byte-identical to that candidate. The
 [observation](evidence/existing-application/README.md) preserves exact timings, hashes,
 first output and separate development, final-review and independent finding categories.
 
 The parent suite now includes both the 54-test extension and independent acceptance;
-the original 39-test example is unchanged. The kit also validates both readable example
+the original 39-test application's code and tests are unchanged. The kit also validates both readable example
 inventories. Operating instructions, canonical skills, helpers, templates and plugin
 contents are unchanged: this exercise exposed no concrete framework instruction defect.
-The existing 0.2.0 plugin payload remains byte-identical to the previously reviewed package.
+At that delivery, the 0.2.0 plugin payload was byte-identical to the previously reviewed package.
 
 Local parent validation passed: `python3.13 -B -m unittest discover -s tests -v`
 ran **48 tests in 20.353 seconds**, including both application suites and independent

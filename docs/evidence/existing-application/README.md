@@ -15,7 +15,7 @@ at Noetloom commit `872e88c20c40fbada7603637633b063b282b4318`: seven application
 history, atomic CSV preview/import, and restorable ZIP exports. Its 39 tests passed
 before dispatch. [The inventory](baseline-sha256.txt) identifies the 52 copied files,
 including ordinary project guidance and historical evidence. No application was scaffolded
-for this exercise, and the original maintained example remains unchanged.
+for this exercise, and the original application's code and tests remain unchanged.
 
 The [new objective](../../../examples/tool-shelf-renewals/NEW-OBJECTIVE.md) asks for loan renewal with explicit dates and persistent event history,
 compatibility with old databases and recovery archives, unchanged existing report columns,
@@ -88,7 +88,7 @@ No case was changed or disclosed to the implementation agent before completion.
 | Native development | No application defect was reported by the executed checks. Existing version assertions and a legacy fixture were updated for the additive schema. |
 | Native final requirements review | No application defect found. One documentation finding, FA-1: stale continuation text still called the old 39-test result current. The agent repaired it before declaring completion. The injected storage failure was a passing negative test, not a discovered bug. |
 | Independent acceptance | All ten frozen cases passed on the first candidate; no application repair was needed. |
-| Primary integration review | Inspected transaction/migration boundaries, stable IDs, report/export consistency and changes to original assertions. No additional application defect found; the maintained application is the unmodified native candidate. |
+| Primary integration review | Inspected transaction/migration boundaries, stable IDs, report/export consistency and changes to original assertions. No additional application defect found; the initial maintained example was the unmodified native candidate. |
 
 The original three test modules and their test methods remain; changed old assertions
 track the schema version and additive archive member. The new module and extended
@@ -110,6 +110,13 @@ python3 -B docs/evidence/existing-application/acceptance.py \
 observation's files. The pre-dispatch inventory, initial plan and first candidate inventory
 remain distinct. Parent integration checks and hosted results belong to
 [the validation record](../../validation.md).
+
+Later licensing maintenance on October 4, 2026 corrected the copied NOTICE to
+**Dylan Justin Heinrich** and dated it. Application sources, tests, frozen acceptance
+cases and recorded run artifacts are unchanged. Historical manifests remain intact;
+current fingerprints include the corrected notice, maintenance note and current source
+list. The complete original candidate is preserved at repository commit `4e5e2b1`;
+the original baseline remains at the starting revision cited above.
 
 ## Limits
 

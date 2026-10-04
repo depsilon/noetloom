@@ -4,9 +4,9 @@ version = "0.2.0"
 description = "A portable operating method for autonomous software development, with optional Python helpers"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "Apache-2.0"
+license = "Apache-2.0 AND MIT-0"
 license-files = ["LICENSE", "NOTICE", "LICENSES/MIT-0.txt"]
-authors = [{name = "Noetloom contributors"}]
+authors = [{name = "Dylan Justin Heinrich"}]
 dependencies = []
 
 [project.urls]

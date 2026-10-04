@@ -13,6 +13,11 @@ toggle, and unread filtering were exercised. No warning/error console entries we
 reported by the browser log tool. Direct `file:` navigation was unavailable in the
 test host and is not claimed as verified. Native mobile browsers were not exercised.
 
+October 4, 2026 maintenance: the copied NOTICE, MIT-0 text, and license-scope README
+match their finalized framework sources byte for byte. This maintenance did not change
+application licensing policy; the declared application, browser-evidence, and framework
+checks were rerun. No new browser interaction is claimed.
+
 <!-- noetloom:validation -->
 ```json
 {
