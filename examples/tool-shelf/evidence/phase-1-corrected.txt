@@ -1,0 +1,36 @@
+Interpreter: 3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]
+Real separate-process catalog correction journey
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 add ' D-001 ' 'Cordless drill'
+exit=0
+Added d-001.
+
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 add 'Straße-2' 'Équerre, précision'
+exit=0
+Added strasse-2.
+
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 add d-001 'Overwrite attempt'
+exit=1
+
+Error: Asset ID 'd-001' already exists.
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 add ' STRASSE-2 ' 'Unicode collision'
+exit=1
+
+Error: Asset ID 'strasse-2' already exists.
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 inventory --available
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	available		
+strasse-2	Équerre, précision	available		
+

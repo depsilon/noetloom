@@ -1,0 +1,37 @@
+Interpreter: 3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]
+Phase 1: real separate-process catalog journey
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+
+Verified: empty read did not create a database.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 add D-001 'Cordless drill'
+exit=0
+Added D-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 add H-001 'Claw hammer'
+exit=0
+Added H-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 inventory --available
+exit=0
+asset_id	name	status	borrower	due_on
+D-001	Cordless drill	available		
+H-001	Claw hammer	available
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 add D-001 'Overwrite attempt'
+exit=1
+
+Error: Asset ID 'D-001' already exists.
+Verified: database bytes unchanged after invalid request.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 add X-001 '  '
+exit=1
+
+Error: Tool name must not be empty.
+Verified: database bytes unchanged after invalid request.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/phase-1-xas14akh/catalog.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+D-001	Cordless drill	available		
+H-001	Claw hammer	available
+

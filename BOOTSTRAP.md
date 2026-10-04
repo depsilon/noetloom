@@ -1,36 +1,49 @@
-# Build a project with Noetloom
+# Start autonomous development with Noetloom
 
-You are the coding agent. Noetloom supplies local instructions and small record
-helpers; it does not execute you or generate application code itself.
+Give a capable coding agent an objective, a target workspace, and the agreed completion
+boundary. Read this entrypoint and the [operating method](docs/operating-model.md).
+They are ordinary written instructions; installation and Noetloom commands are optional.
+A person can inspect and follow the same method with normal development tools.
 
-1. Resolve the user's actual request and workspace. Inspect applicable global,
-   ancestor, repository, and directory instructions and the skills actually available
-   in your host. Private skills may assist you locally; do not copy them into output
-   or make the result depend on their installation. Ask only for information that
-   materially blocks work, and keep existing authorization across continuations.
-2. Create or adopt the **requested project's directory**, normally outside this
-   checkout. A request to build a portal does not authorize editing Noetloom itself.
-   Read existing instructions, application code, tests, and Git state before adoption.
-3. From this checkout, run `python3 -B -m noetloom bootstrap TARGET --name NAME
-   --prompt "REQUEST" --domain utility|website|data|deployment`. Choose one relevant
-   overlay; extend it locally when justified. Add `--adopt` for existing nonempty
-   directories. Add `--compact` to combine project/architecture and plan/completed
-   owners. Conflicting document paths cause an error before writes; use `--docs-dir`
-   to choose an unused location. Bootstrap appends a managed routing section to an
-   existing AGENTS.md and preserves existing CLAUDE.md content.
-4. Change to the generated workspace. Read its AGENTS.md and selected local skills.
-   Use `python3 -B .noetloom/project.py` there for project operations; `python3 -m
-   noetloom` is the kit's entrypoint, not an installed dependency of the application.
-   Refine the project intent, constraints, authority, approach, and coherent plan.
-   Replace the initial failing `application` check with checks of real behavior and
-   explicit source inputs. Implement the requested application immediately; generated
-   folders or a plan are not the requested result.
-5. Exercise the real interface, reconcile subsequent messages through intake, and
-   complete with current evidence. Use checkpoints to resume after interruption.
-   Keep working through authorized ready items while the host session remains active.
+1. **Ground the objective.** Read the brief and applicable instructions; inspect the
+   actual code, tests, dependencies, and local changes. Choose or adopt the requested
+   application workspace. Preserve unrelated files and valid existing authority.
+   Applications normally belong outside this reference repository.
+2. **Define success.** Write the project's users, required behaviors, constraints,
+   data/interface contracts, deferred scope, material assumptions, and completion boundary.
+   Resolve routine choices yourself. Ask only about genuinely blocking information or authority.
+3. **Derive the work.** Follow the phase-design procedure in the operating method.
+   Build a dependency-ordered sequence of concrete capabilities and their checks.
+   Identify the earliest useful end-to-end result and major risks. Replace all generic
+   template placeholders before treating the plan as executable.
+4. **Create relevant guidance and routing.** Convert the project's actual risks and
+   decisions into local instructions. Select useful questions from
+   [the domain guides](templates/README.md); do not copy every overlay. Link each phase
+   to the guidance it needs. Plain Markdown sections or files are sufficient.
+5. **Establish local continuity.** Write an entrypoint and name the project, plan,
+   evidence, and progress owners. [Readable starter outlines](templates/readable/AGENTS.md)
+   are available under MIT-0; adapt and combine them. The instructions must explain
+   how to operate the project without this repository, private skills, or the conversation.
+6. **Build and continue.** Select ready work, implement, run ordinary application checks,
+   inspect real behavior, diagnose and repair, integrate, record meaningful evidence,
+   and continue the next phase. Replan necessary missing work from evidence within the
+   objective. Phase boundaries do not require routine human approval.
+7. **Finish the actual boundary.** Reconcile later steering, preserve deferrals and
+   reversals, verify the complete user journey, and deliver the agreed result. Save a
+   precise continuation note if an explicit pause, genuine blocker, or host limit intervenes.
 
-Repeating an identical bootstrap validates the installed framework without rewriting
-it. A different prompt is new feedback, not a destructive rebootstrap. Generated
-projects work with their copied helper and local skills after this kit is unavailable.
-No symlink to Noetloom, private skill installation, model API, or background service
-is required. Native skill discovery varies by host; see [docs/hosts.md](docs/hosts.md).
+Do not substitute a generic "implement the project" item, copied folders, or an initial
+test placeholder for this process. Generation initializes the working environment;
+the product experience is sustained autonomous development by the active agent.
+
+## Optional conveniences
+
+The [Python helper profile](docs/helpers.md) can copy starter resources and check
+structured records. Its initial planning sentinel is deliberately blocked until the
+agent writes real project-specific phases. It does not infer or produce those phases.
+Existing helper-managed projects remain supported.
+
+Native skills, [host adapters](docs/hosts.md), and the [OpenAI plugin](docs/plugin.md)
+are ways to discover or distribute the same method. Read the files explicitly when
+discovery is unavailable. Use the application's own tools for implementation and proof;
+no integration grants permissions or extends the life of a host session.

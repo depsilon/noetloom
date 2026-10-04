@@ -2,7 +2,7 @@
   "schema": "noetloom.project.v1",
   "project_id": "7f791247-6b06-4c5b-bf71-253b57ae5c87",
   "name": "expense-totals",
-  "kit_version": "0.1.0",
+  "kit_version": "0.2.0",
   "domain": "utility",
   "roles": {
     "project": "docs/project.md",

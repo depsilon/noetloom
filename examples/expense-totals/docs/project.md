@@ -41,3 +41,11 @@ validates the entire input before applying the optional filter, so malformed row
 unselected categories still fail. The complete result is assembled before printing so
 input failures cannot leave partial output. JSON is UTF-8 text with two-space
 indentation and a final newline. Input files are read only.
+
+## Framework maintenance
+
+This maintained example retains the optional Noetloom helper profile. The readable
+`.noetloom/operating-model.md` is the complete development method; `.noetloom/helpers.md`
+documents the profile's records and checks. The marked plan JSON is the representation
+of the single project plan. This framework refresh changes no application requirements
+or deferred scope.

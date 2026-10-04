@@ -1,14 +1,15 @@
 {
   "version": 1,
   "items": [{
-    "id": "P-001",
-    "title": "Implement the requested project",
-    "status": "planned",
+    "id": "P-000",
+    "title": "Derive the implementation phases",
+    "status": "blocked",
+    "reason": "Implementation phases have not been derived. Replace this setup sentinel with project-specific phases and real checks before starting development.",
     "cycle": 1,
     "depends_on": [],
     "outcome": "",
-    "scope": ["Application, local operating documents, and relevant tests"],
-    "acceptance": ["Refine the request into concrete acceptance, implement it, and exercise the real interface"],
+    "scope": ["Objective, workspace inspection, capability sequence, local guidance and routing"],
+    "acceptance": ["Replace this sentinel with a concrete dependency-ordered phase plan: each phase names its outcome, work instructions, relevant guidance, observable acceptance and verification"],
     "verification": ["application"]
   }]
 }

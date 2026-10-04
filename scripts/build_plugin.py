@@ -15,21 +15,25 @@ SKILLS = ("noetloom-bootstrap", "noetloom-intake", "noetloom-work", "noetloom-ve
 BASE = ("AGENTS.md", "CLAUDE.md", "project.md", "architecture.md", "plan.md", "plan.json",
         "validation.md", "completed.md", "claude-skill.md", "checkpoint.json", "license-scope.md")
 DOMAINS = ("utility", "website", "data", "deployment")
+READABLE = ("AGENTS.md", "project.md", "plan.md", "guidance.md", "validation.md", "progress.md")
 
 
 def payload(root=ROOT):
     mapping = {"plugin.json": "plugin/plugin.json", "README.md": "plugin/README.md",
                "assets/icon.svg": "assets/logo.svg", "assets/README.md": "assets/README.md", "BOOTSTRAP.md": "BOOTSTRAP.md",
                "LICENSE": "LICENSE", "NOTICE": "NOTICE", "LICENSES/MIT-0.txt": "LICENSES/MIT-0.txt",
-               "templates/LICENSE": "templates/LICENSE", ".noetloom/project.py": ".noetloom/project.py"}
+               "templates/LICENSE": "templates/LICENSE", "templates/README.md": "templates/README.md",
+               ".noetloom/project.py": ".noetloom/project.py"}
     for name in ("__init__.py", "__main__.py", "runtime.py", "bootstrap.py"):
         mapping[f"noetloom/{name}"] = f"noetloom/{name}"
-    for name in ("hosts.md", "licensing.md", "privacy.md", "operating-model.md", "architecture.md"):
+    for name in ("hosts.md", "licensing.md", "privacy.md", "operating-model.md", "helpers.md", "architecture.md", "plugin.md"):
         mapping[f"docs/{name}"] = f"docs/{name}"
     for name in SKILLS:
         mapping[f"skills/{name}/SKILL.md"] = f".agents/skills/{name}/SKILL.md"
     for name in BASE:
         mapping[f"templates/base/{name}"] = f"templates/base/{name}"
+    for name in READABLE:
+        mapping[f"templates/readable/{name}"] = f"templates/readable/{name}"
     for domain in DOMAINS:
         path = f"templates/domains/{domain}/SKILL.md"
         mapping[path] = path

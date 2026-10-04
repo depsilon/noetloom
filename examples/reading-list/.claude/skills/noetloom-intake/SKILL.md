@@ -1,10 +1,10 @@
 ---
 name: noetloom-intake
-description: "In a Noetloom-managed project, reconcile new input or review findings with requirements, decisions, work, and verification."
+description: "Reconcile consequential user steering or review evidence into an ongoing autonomous development process."
 ---
 
 <!-- Generated compatibility entry; edit the canonical skill and run adapters. -->
 Read and follow the canonical project skill at [.agents/skills/noetloom-intake/SKILL.md](../../../.agents/skills/noetloom-intake/SKILL.md).
 Resolve that link relative to this file. It contains the complete instructions.
 
-Canonical SHA-256: 22e16505444a4a93bcedbad00305eb7ffe76a0ce29af1d495e15a75bbdc4b5ab
+Canonical SHA-256: 89a4eb0461762e963e40f64469c4f0c0423acfacb16c831503751d37777f06cf

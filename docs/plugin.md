@@ -1,14 +1,18 @@
-# OpenAI plugin distribution
+# Optional OpenAI plugin distribution
 
-Noetloom has one framework and multiple distribution paths. The portable skills-only
-plugin contains byte-identical canonical skills, bootstrap code, original templates,
-and the same project helper. Packaging adds no MCP server, model runtime, lifecycle
-hooks, or host permissions. Generated projects keep their own local copies and continue
-to work after uninstalling the plugin.
+Noetloom's complete baseline is the readable [bootstrap entrypoint](../BOOTSTRAP.md)
+and [operating method](operating-model.md). They work with any capable agent or human
+using ordinary project files and the host's normal development tools. The plugin is an
+optional convenience for native discovery and the Python helper profile; it is not a
+prerequisite for autonomous development. The portable skills-only package contains
+canonical skills, bootstrap resources, original templates, and the project helper.
+Packaging adds no MCP server, model runtime, lifecycle hooks, or host permissions.
+Generated projects keep their own local files and continue to work after uninstalling
+the plugin.
 
 ## Build and inspect
 
-From the reference checkout, with Python 3.11+:
+In a source checkout, building the optional package requires Python 3.11+:
 
 ```sh
 python3 -B scripts/build_plugin.py --output dist/plugin-review
@@ -41,16 +45,17 @@ noetloom-local-review`. Never replace an unrelated marketplace or installed plug
 Desktop discovery may require a new session or app restart; installing resources is
 not proof of automatic skill activation in every host.
 
-The host must provide workspace file access and Python execution. Noetloom cannot
-add local filesystem access to a web/mobile session. If those tools are unavailable,
-the agent can explain the method but must not claim it created or verified files.
-Feedback intake applies only to delivered messages or an explicitly connected source.
-See [host evidence](hosts.md) and [privacy](privacy.md).
+The host must provide the ordinary workspace and application tools needed for the
+chosen project. Python 3.11+ is required only for the optional helper profile and this
+package build. Noetloom cannot add local filesystem access to a web/mobile session. If
+the host lacks tools needed to create or verify the application, the agent must not
+claim it did so. Feedback intake applies only to delivered messages or an explicitly
+connected source. See [host evidence](hosts.md) and [privacy](privacy.md).
 
 ## Review and publication boundary
 
 The package is prepared for review, with four related workflows: bootstrap, intake,
-continuation, and verification. [Plugin review notes](plugin-review.md) record exercised
+continuation, and verification. [Plugin review notes](https://github.com/depsilon/noetloom/blob/main/docs/plugin-review.md) record exercised
 paths and limitations. No package has been submitted or published to the Directory.
 An explicit later authorization is required for either action.
 

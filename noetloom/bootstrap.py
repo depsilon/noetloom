@@ -53,8 +53,9 @@ def bootstrap(target, *, name, prompt, domain="utility", adopt=False, compact=Fa
     def template(filename):
         text = h.read_text(KIT_ROOT / "templates/base" / filename)
         # Substitute only original template tokens; prompt content is not another template.
-        values = {"NAME": name, "DOMAIN": domain, "PROMPT": prompt}
-        return re.sub(r"@(NAME|DOMAIN|PROMPT)@", lambda match: values[match[1]], text)
+        values = {"NAME": name, "DOMAIN": domain, "PROMPT": prompt,
+                  **{role.upper() + "_PATH": path for role, path in roles.items()}}
+        return re.sub(r"@(" + "|".join(values) + r")@", lambda match: values[match[1]], text)
 
     instructions = template("AGENTS.md")
     agents = h.safe(root, "AGENTS.md")
@@ -73,9 +74,11 @@ def bootstrap(target, *, name, prompt, domain="utility", adopt=False, compact=Fa
     if "@AGENTS.md" not in claude_text.splitlines():
         claude_text = claude_text + ("\n\n" if claude_text else "") + template("CLAUDE.md")
     plan = h.read_json(KIT_ROOT / "templates/base/plan.json")
-    plan["items"][0]["outcome"] = prompt
+    plan["items"][0]["outcome"] = "Derive concrete implementation phases for: " + prompt
     files = {"AGENTS.md": agents_text, "CLAUDE.md": claude_text,
              ".noetloom/project.py": h.read_text(KIT_ROOT / ".noetloom/project.py"),
+             ".noetloom/operating-model.md": h.read_text(KIT_ROOT / "docs/operating-model.md"),
+             ".noetloom/helpers.md": h.read_text(KIT_ROOT / "docs/helpers.md"),
              ".noetloom/licenses/Apache-2.0.txt": h.read_text(KIT_ROOT / "LICENSE"),
              ".noetloom/licenses/NOTICE": h.read_text(KIT_ROOT / "NOTICE"),
              ".noetloom/licenses/MIT-0.txt": h.read_text(KIT_ROOT / "LICENSES/MIT-0.txt"),
@@ -136,5 +139,5 @@ def bootstrap(target, *, name, prompt, domain="utility", adopt=False, compact=Fa
                 h.atomic_write(path, originals[relative])
         raise
     return {"status": "created", "root": str(root), "project_id": project_id,
-            "next": "Read this project's AGENTS.md, refine requirements and checks, and implement its request.",
+            "next": "Read AGENTS.md and the local operating method. Replace the planning sentinel with project-specific phases and checks, then drive development through the agreed completion boundary.",
             "application_implemented": False}

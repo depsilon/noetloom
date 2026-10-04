@@ -1,31 +1,35 @@
 ---
 name: noetloom-work
-description: Implement or resume authorized work in a Noetloom-managed project from its single plan and durable checkpoint.
+description: Drive implementation, verification, repair, and integration across a project's phases through its agreed completion boundary.
 ---
 
-Read current instructions and inspect workspace changes. Run
-`python3 -B .noetloom/project.py status`. Reconcile newer messages and pending feedback
-with the intake skill first. Honor pause; a checkpoint is a resume hint, not authority.
-Read the project owner for purpose, constraints, deferred scope, and permissions, then
-the selected plan item and relevant domain skill. Do not load every skill or archive.
+Read the project's entrypoint, objective, current plan, and latest progress. Inspect
+the real workspace and reconcile newer input before trusting a continuation note.
+Honor explicit pauses and existing authority. The local operating method is readable
+directly; neither native discovery nor Noetloom commands are prerequisites.
 
-Work on a coherent outcome with explicit scope, acceptance, dependencies, and checks.
-The plan's `items` block is the only queue; keep explanatory prose consistent with it.
-Audits and design documents inform that queue, never compete with it. Small projects
-can combine roles. Add a decision document only when a material tradeoff needs a
-durable explanation; link it from its owning project/architecture document.
+Select the highest-value ready phase that advances the objective. Read the local
+guidance it names. A phase needs a concrete outcome, dependencies, scope, work
+instructions, guidance, acceptance, verification, and current state. If these are
+missing, derive them from the objective and evidence before implementing. Use one
+authoritative plan; designs, reviews, and checkpoints explain it rather than adding queues.
 
-Implement the actual deliverable, test behavior at the user's boundary, and inspect
-the result. When adopting an application, preserve its existing architecture and
-instructions unless the requested change warrants a revision. If private guidance
-helped, write only project-specific, independently understandable public requirements.
+Implement real behavior and integrate it with the application. Run focused checks,
+inspect the user boundary, diagnose failures, and repair causes. Keep code, tests,
+configuration, and usage instructions aligned. Ordinary failures and reversible
+engineering choices are the agent's work. Review with noetloom-verify or its readable
+instructions, update evidence, then continue the next ready phase without another prompt.
 
-Use the verify skill before closure. Continue through authorized ready work in the
-same active session; do not wait for repeated continue prompts. Pause for genuinely
-missing input or authority, not for ordinary reversible implementation choices.
-External actions still require their actual authorization. Noetloom supplies none.
+Compare progress with the objective, not just the initial checklist. Discover and
+implement necessary missing work; revise the same plan with the evidence and affected
+acceptance. Reopen affected completed outcomes and check dependants. Preserve unrelated
+work, explicit reversals, and deferred scope. Do not invent unrelated features.
 
-Before interruption, run `checkpoint --item ITEM --next "CONCRETE NEXT ACTION"` with
-the current item, or omit `--item` when no active work remains. Include unresolved
-decisions and proof gaps in their owner documents. The checkpoint must not introduce
-new scope. On resume, a changed plan or newer message takes precedence over the hint.
+Stop at the agreed boundary, an explicit pause, exhausted host/resources, or a genuine
+blocker. Save what works, failed checks, pending input/responses, authority, and the
+concrete next action in local progress. A fresh session must be able to resume from
+these files. Instructions cannot keep an exited host running or grant external authority.
+
+If the project explicitly uses the optional helper profile, follow its local helper
+reference for status, feedback, evidence, and checkpoint commands. Its marked plan block
+is that project's selected representation; do not create a second Markdown queue.

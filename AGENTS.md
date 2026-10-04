@@ -1,43 +1,37 @@
 # Working on Noetloom
 
-Noetloom is a reference and generation kit for existing coding agents. It does not
-run a model, host an agent, or receive conversations in the background.
+Noetloom is a portable framework for autonomous software development. If asked to build
+a project using it, read [BOOTSTRAP.md](BOOTSTRAP.md) and create/adopt the requested
+workspace. Applications do not belong in this reference kit except maintained examples.
 
-If the request is to **build a project using Noetloom**, read [BOOTSTRAP.md](BOOTSTRAP.md)
-and work in the requested project workspace. Reading this repository does not put
-the user's application here. `examples/` contains maintained demonstrations only.
+For changes to Noetloom itself, inspect Git changes and read [the objective](docs/project.md),
+[the single plan](docs/plan.md), [design](docs/architecture.md), and the latest progress.
+[The operating method](docs/operating-model.md) is authoritative and complete in plain
+language. This repository opted into [optional helper records](docs/helpers.md):
+`python3 -B .noetloom/project.py status` locates current work and unresolved input.
+That choice does not make helpers mandatory for projects using the method.
 
-For changes to **Noetloom itself**, inspect `git status --short --branch`, run
-`python3 -B .noetloom/project.py status`, and read the role owners in its output.
-[docs/plan.md](docs/plan.md) is the only active queue. Read relevant skills only:
-
-| Situation | Canonical skill |
+| Work | Relevant local guidance |
 | --- | --- |
-| New input, review findings, corrections, pause/resume | `.agents/skills/noetloom-intake/SKILL.md` |
-| Implementation and continuation | `.agents/skills/noetloom-work/SKILL.md` |
-| Verification and completion | `.agents/skills/noetloom-verify/SKILL.md` |
-| Creating or adopting another project | `.agents/skills/noetloom-bootstrap/SKILL.md` |
+| Derive a new project's phases and guide its build | .agents/skills/noetloom-bootstrap/SKILL.md |
+| Reconcile consequential input, findings, or pause/resume | .agents/skills/noetloom-intake/SKILL.md |
+| Implement, repair, replan, and continue | .agents/skills/noetloom-work/SKILL.md |
+| Verify acceptance and finish delivery | .agents/skills/noetloom-verify/SKILL.md |
 
-Reconcile newer messages before following a checkpoint. Keep questions, suggestions,
-requirements, and authorization distinct. A review is evidence to classify, not a
-second queue. Preserve deferred scope on a plain continuation. Reopen affected
-completed work without discarding unrelated completion evidence. Recorded, applied,
-and acknowledged feedback are separate states; never claim a response was delivered
-just because code or documents changed.
+Read these files directly; native discovery is optional. Reconcile newer messages before
+a checkpoint. Select concrete ready work, implement it, inspect behavior, test and repair,
+update evidence, and continue across phases. Replan necessary missing work within the
+objective. Keep decisions and reviews in the one plan; preserve reversals and deferred scope.
+Capture, application, and a response delivered are distinct when that distinction matters.
 
-Use Python 3.11+ and the standard library for the kit. Keep generated projects
-self-contained: no personal skill paths, private dependencies, model API, or service.
-Keep one canonical skill source with generated Claude compatibility entries.
-Keep instructions and documentation focused on the current project framework.
-Preserve licensing, unrelated work, external artifacts, and source repositories used
-as references. They are not dependencies or editing targets.
+Preserve existing permission grants and actual boundaries. Make routine reversible choices
+without repeated approval. Stop at the agreed completion boundary, explicit pause, exhausted
+host/resources, or a genuine blocker. Preserve unrelated user work, reference repositories,
+licensing, and external artifacts. No helper or instruction grants new external authority.
 
-Implement a coherent authorized item through its checks and review. Continue while
-the active host session and user authority permit. No helper grants permission to
-publish, spend, deploy, or send messages. Existing explicit user authority persists;
-do not ask repeatedly for routine actions within it.
-
-Run `python3 -B -m unittest discover -s tests -v` and
-`python3 -B -m noetloom check` at completion. Keep evidence compact and local. Update
-the plan, historical completion record, and checkpoint before handing off. Report
-actual host execution separately from compatibility-file checks.
+The optional kit uses Python 3.11+ and the standard library. Keep generated projects
+self-contained and canonical skills shared with thin host entries. Run the full small suite
+and kit checks at completion: `python3 -B -m unittest discover -s tests -v` and
+`python3 -B -m noetloom check`. [Validation](docs/validation.md) records meaningful proof.
+Update the plan, [completion history](docs/completed.md), and checkpoint. Follow authorized
+Git/CI delivery through completion; distinguish host execution from compatibility checks.

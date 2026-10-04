@@ -69,6 +69,8 @@ test host and is not claimed as verified. Native mobile browsers were not exerci
         ".noetloom/manifest.json",
         ".noetloom/templates/*.md",
         ".noetloom/licenses/*",
+        ".noetloom/operating-model.md",
+        ".noetloom/helpers.md",
         ".agents/skills/*/SKILL.md",
         ".claude/skills/*/SKILL.md",
         "AGENTS.md",

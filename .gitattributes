@@ -1,3 +1,4 @@
 * text=auto eol=lf
 *.png binary
 *.gz binary
+examples/tool-shelf/evidence/** -text

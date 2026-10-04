@@ -2,6 +2,8 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import posixpath
+import re
 import shutil
 import subprocess
 import sys
@@ -14,6 +16,18 @@ from scripts.build_plugin import ROOT, SKILLS, build, payload, validate_manifest
 
 
 class PluginTests(unittest.TestCase):
+    def test_packaged_guides_have_resolvable_local_markdown_links(self):
+        files = payload()
+        for name, data in files.items():
+            if not name.endswith(".md") or name.startswith("templates/base/"):
+                continue  # Base links are rendered against each generated project's owners.
+            for target in re.findall(r"\]\(([^)]+)\)", data.decode("utf-8")):
+                if target.startswith(("http:", "https:", "#")) or "@" in target or "<" in target:
+                    continue
+                resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), target.split("#")[0]))
+                self.assertTrue(resolved in files or any(p.startswith(resolved + "/") for p in files),
+                                f"Packaged link is missing: {name} -> {target}")
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
@@ -99,9 +113,9 @@ class PluginTests(unittest.TestCase):
         owner = project / "docs/project.md"
         owner.write_text(owner.read_text(encoding="utf-8") + "\nOffline required; authentication deferred.\n", encoding="utf-8")
         command("feedback", "apply", "--id", "offline", "--disposition", "accepted", "--summary", "Owner updated",
-                "--roles", "project", "--items", "P-001")
+                "--roles", "project", "--items", "P-000")
         ready = command("status")
-        self.assertEqual(ready["status"], "ready")
+        self.assertEqual(ready["status"], "blocked")  # Reconciliation does not derive implementation phases.
         self.assertEqual(ready["unacknowledged_feedback"][0]["id"], "offline")
         self.assertFalse((project / "LICENSE").exists())
 

@@ -15,6 +15,9 @@ class ExampleTests(unittest.TestCase):
     def test_expense_cli_behavior(self):
         self.run_command("expense-totals", [sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests", "-v"])
 
+    def test_readable_tool_shelf_behavior(self):
+        self.run_command("tool-shelf", [sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests", "-v"])
+
     def test_reading_list_state_behavior(self):
         self.assertIsNotNone(shutil.which("node"), "Node 22+ is required to validate the maintained website example")
         self.run_command("reading-list", ["node", "--test", "tests/core.test.cjs"])

@@ -2,59 +2,45 @@
 
 # Noetloom
 
-**A small working framework for projects built by coding agents.**
+**A portable framework for autonomous software development.**
 
-Noetloom teaches an existing agent how to turn a request into a project, maintain one
-plan, reconcile feedback, verify real results, and resume from files after the original
-conversation is gone. The agent builds the application. The project owns its evolving
-requirements, skills, decisions, plan, and evidence.
+Give an agent an objective and point it to Noetloom. It inspects the real workspace,
+establishes project-specific guidance and phased implementation instructions, then
+drives implementation, verification, repair, and integration through the agreed
+completion boundary. It continues across phases while its host and authority permit.
 
-Start with [BOOTSTRAP.md](BOOTSTRAP.md). Give it to Codex, Claude Code, or another capable
-coding agent together with your request and a target workspace:
+Start with [BOOTSTRAP.md](BOOTSTRAP.md) and the complete
+[operating method](docs/operating-model.md):
 
-> Use Noetloom to build an offline reading list in ../reading-list. Keep it simple.
+> Read Noetloom's BOOTSTRAP.md and operating method. Build an offline reading list
+> in ../reading-list. Deliver working local behavior, tests, and usage instructions.
+> Derive the phases and relevant project guidance, implement them, inspect and repair
+> the result, and continue until that boundary is met. Accounts and cloud sync are deferred.
 
-The agent can create the local framework with Python 3.11+:
+The baseline is ordinary written instructions and project files. Any capable agent or
+human can read them explicitly and use normal application tools. No Noetloom Python
+command, fenced JSON record, native skill discovery, adapter, or plugin is required.
+Project generation initializes the environment; it is only the beginning of development.
 
-```sh
-python3 -B -m noetloom bootstrap ../reading-list --name reading-list --domain website --prompt "Build an offline reading list."
-```
+The agent derives meaningful phases from the objective, dependencies, and risks.
+Each phase names a concrete outcome, work instructions, relevant guidance, acceptance,
+and verification. The plan evolves when evidence reveals necessary missing work.
+Routine engineering choices and phase transitions do not require repeated "continue"
+prompts. External actions still require their actual authority.
 
-Then it reads the generated `AGENTS.md` and starts implementing there. Bootstrap
-creates the working structure, **not a finished application**. Its initial application
-check deliberately fails until the agent replaces it with meaningful verification.
-Use `--adopt` to add the framework to an existing project, or `--compact` to combine
-document roles for a small project. Existing application files are never overwritten.
-Run the kit from its source checkout; there are no Python package dependencies.
+New messages steer this ongoing process. Corrections update the relevant requirements
+and work; questions do not silently become features. Local instructions preserve deferred
+scope, explicit reversals, useful evidence, and enough state for a fresh session to resume.
+Noetloom cannot keep an exited host running or receive conversations it was never given.
 
-Inside a generated project:
+- [Readable project outlines and domain guidance](templates/README.md).
+- [Working examples and proof boundaries](examples/README.md).
+- [Optional Python helpers](docs/helpers.md), [host conveniences](docs/hosts.md), and
+  [skills-only OpenAI plugin](docs/plugin.md).
+- [Design and references](docs/architecture.md) and [contributing](CONTRIBUTING.md).
 
-```sh
-python3 -B .noetloom/project.py status
-python3 -B .noetloom/project.py check
-```
-
-New messages pass through intake before work resumes. For example, “work offline;
-defer authentication” changes the project requirements and affected work, while
-“could we support multiple users eventually?” remains a question. Receipts distinguish
-capture, application, and acknowledgement. Completion requires current evidence;
-changed requirements reopen the affected work. [The operating guide](docs/operating-model.md)
-explains the commands and ownership rules.
-
-There is no daemon, model endpoint, agent runtime, or background listener. Noetloom
-guides an active host session and preserves enough local state for the next one.
-It cannot capture messages that never reach the project, authenticate a receipt's
-author, or establish correctness from a passing command alone.
-
-- [Working examples](examples/README.md): a CSV command-line utility and an offline website.
-- [OpenAI plugin](docs/plugin.md): reproducible skills-only packaging and tested local installation.
-- [Host support and evidence](docs/hosts.md): native Codex exercise, portable instructions,
-  and the limits of Claude compatibility checks.
-- [Design and reference sources](docs/architecture.md): ownership, execution, and verification.
-- [Contributing](CONTRIBUTING.md): local checks and maintenance.
-
-The framework code, lifecycle skills, helper, and documentation are Apache-2.0;
-reusable source templates are MIT-0. Generated projects keep those notices under
-`.noetloom/licenses/` and receive no automatically imposed framework license or
-copyright for their independent application. See [LICENSE](LICENSE), [NOTICE](NOTICE),
-and [the licensing guide](docs/licensing.md).
+The framework, lifecycle guidance, helpers, documentation, and plugin integration use
+Apache-2.0. Designated original starter templates use MIT-0. An independent application
+keeps its own licensing policy; preserve applicable notices for copied framework and
+third-party material. See [LICENSE](LICENSE), [NOTICE](NOTICE), and
+[the licensing guide](docs/licensing.md).

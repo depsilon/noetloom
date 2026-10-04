@@ -26,7 +26,9 @@ class BootstrapTests(unittest.TestCase):
         self.create()
         project = h.Project(self.root)
         self.assertEqual(project.check()["status"], "passed")
-        self.assertEqual(project.status()["next"]["id"], "P-001")
+        self.assertEqual(project.status()["status"], "blocked")
+        self.assertIsNone(project.status()["next"])
+        self.assertEqual(project.plan()[0]["id"], "P-000")
         self.assertEqual(project.verify(["application"])[0]["status"], "failed")
         self.assertFalse((self.root / "docs/completed.md").exists())
         self.assertFalse((self.root / "docs/decisions").exists())
@@ -34,11 +36,25 @@ class BootstrapTests(unittest.TestCase):
         result = subprocess.run([sys.executable, "-I", "-B", str(self.root / ".noetloom/project.py"), "status"],
                                 cwd=self.temp.name, env=env, capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout)["status"], "ready")
+        self.assertEqual(json.loads(result.stdout)["status"], "blocked")
         self.assertEqual((self.root / ".noetloom/project.py").read_bytes(), (KIT_ROOT / ".noetloom/project.py").read_bytes())
         self.assertFalse((self.root / "LICENSE").exists())
         self.assertEqual((self.root / ".noetloom/licenses/Apache-2.0.txt").read_bytes(), (KIT_ROOT / "LICENSE").read_bytes())
         self.assertEqual((self.root / ".noetloom/licenses/MIT-0.txt").read_bytes(), (KIT_ROOT / "LICENSES/MIT-0.txt").read_bytes())
+        for guide in ("operating-model.md", "helpers.md"):
+            self.assertEqual((self.root / ".noetloom" / guide).read_bytes(), (KIT_ROOT / "docs" / guide).read_bytes())
+
+    def test_planning_sentinel_cannot_complete_with_a_passing_placeholder_check(self):
+        self.create()
+        project = h.Project(self.root)
+        path = self.root / project.roles["validation"]
+        checks = {"version": 1, "checks": [{"id": "application", "command": ["{python}", "-c", "pass"],
+                   "cwd": ".", "inputs": ["AGENTS.md"], "timeout_seconds": 10}]}
+        path.write_text(h.replace_block(path.read_text(), "validation", checks), encoding="utf-8")
+        evidence = project.verify(["application"])[0]
+        self.assertEqual(evidence["status"], "passed")
+        with self.assertRaisesRegex(h.FrameworkError, "Only the next ready item"):
+            project.complete("P-000", [evidence["id"]], "Files exist")
 
     def test_repeat_bootstrap_preserves_bytes_and_identity(self):
         first = self.create(compact=True)
@@ -75,6 +91,7 @@ class BootstrapTests(unittest.TestCase):
         self.assertTrue((self.root / "AGENTS.md").read_text().startswith("Keep my domain rules.\n"))
         self.assertTrue((self.root / "CLAUDE.md").read_text().startswith("Keep my host instructions.\n"))
         self.assertEqual(h.Project(self.root).roles["plan"], "working-docs/plan.md")
+        self.assertIn("[Plan](working-docs/plan.md)", (self.root / "AGENTS.md").read_text())
         self.assertEqual(h.Project(self.root).check()["status"], "passed")
 
     def test_conflicting_adoption_is_preflighted_before_any_write(self):
@@ -111,6 +128,9 @@ class BootstrapTests(unittest.TestCase):
                 project = h.Project(root)
                 self.assertEqual(project.roles["project"], project.roles["architecture"])
                 self.assertEqual(project.roles["plan"], project.roles["completed"])
+                instructions = (root / "AGENTS.md").read_text()
+                self.assertIn("[Architecture](docs/project.md)", instructions)
+                self.assertIn("[Completion](docs/plan.md)", instructions)
                 self.assertEqual(project.check()["status"], "passed")
                 self.assertIn(f".agents/skills/project-{domain}", project.manifest["skills"])
 

@@ -1,49 +1,53 @@
-# Noetloom project framework
+# Noetloom: autonomous software development
 
-Noetloom supplies a method, bootstrap kit, and small local helpers for existing coding
-agents. An agent creates or adopts the user's workspace and implements the requested
-deliverable. Each resulting project owns its requirements, decisions, skills, plan,
-feedback, checkpoint, and evidence without this conversation or private installations.
-
-Product documentation and distributed guidance describe the current framework directly.
-Use the faceted diamond symbol from ShardLoom's published GitHub as Noetloom's logo,
-with its applicable asset notices and source provenance.
+Noetloom is a portable written operating method for capable coding agents. Given an
+objective and workspace, the agent derives relevant guidance and concrete implementation
+phases, then implements, verifies, repairs, integrates, and continues through the agreed
+completion boundary. The user owns the objective and direction; the agent owns routine
+development. Generation initializes the work and later messages steer it.
 
 ## Required behavior
 
-- One active plan connects user intent, coherent outcomes, acceptance, and verification.
-  Architecture reviews supply findings for intake; they do not become another queue.
-- Reconcile new messages before resuming. Questions, suggestions, instructions,
-  corrections, review evidence, and pause/resume have different effects.
-- Preserve explicit reversals and deferred scope. Record capture, application, and
-  delivered acknowledgement separately. Reopen only affected completed work.
-- Keep generated projects self-contained and proportionate. Combined document roles
-  are supported; decision and evidence directories appear when used.
-- Supply a minimal template, lifecycle skills, small domain overlays, portable host
-  instructions, and one canonical skill source with thin Claude compatibility entries.
-- Demonstrate real generated applications and durable feedback/resume behavior. File
-  generation, marker checks, and compatibility adapters alone are insufficient proof.
-- Use this framework to operate Noetloom itself. Validate locally and through GitHub CI.
-- Default to Apache-2.0 for framework implementation, lifecycle skills, helpers,
-  documentation, and plugin integration. Designated original starter templates use
-  MIT-0. Do not assign Noetloom's license or copyright owner to an independent user's
-  application; preserve third-party terms. See [licensing.md](licensing.md).
-- Build a reproducible skills-only OpenAI plugin from the same canonical sources,
-  using the current portable manifest. Test installation, generation, feedback, and
-  continuation. Prepare it for review; do not publish or submit it without further
-  explicit authority. Keep hooks outside the public package and add no MCP server
-  or runtime merely to package a plugin.
+- The complete baseline is readable, independently understandable local instructions
+  and ordinary application tools. No Noetloom-specific Python, JSON workflow records,
+  native discovery, adapters, plugin, original conversation, or private global skill is required.
+- Derive phases from actual capabilities, dependencies, risk, and user journeys.
+  Every phase includes outcome, entry/dependencies, scope/exclusions, concrete work,
+  applicable guidance, acceptance, verification, and state/exit evidence. A generic
+  implementation item or copied outline is insufficient.
+- Execute implementation, testing, inspection, diagnosis, repair, and integration.
+  Continue across phases without routine approval gates or repeated continue prompts.
+  Compare actual progress to the objective; discover and implement necessary missing
+  work through evidence-supported replanning within the delegated scope.
+- Preserve one active plan, consequential steering, explicit reversals, deferred scope,
+  current evidence, and enough local state for a fresh session. Captured, applied, and
+  answered input remain distinguishable with proportionate records.
+- Preserve useful optional helpers, existing applications, host conveniences, packaging,
+  and licensing. The helper profile selects marked records within one plan, not a second
+  queue. Its bootstrap emits a blocked planning sentinel until an agent derives real phases.
+- Prove the baseline with a real multi-phase application built from a brief, without a
+  prewritten solution or repeated steering. Exercise one mid-project correction and
+  fresh-session continuation using only local documents and ordinary application tools.
+  Report actual execution and its limits.
+- Keep current product guidance and the shared faceted diamond symbol, with provenance.
+  Framework, guides, lifecycle skills and helpers are Apache-2.0; designated original
+  templates are MIT-0. Independent applications keep their own licensing policy.
+- Use Noetloom to operate this repository. Validate locally and in authorized GitHub CI.
+  The root and two earlier examples retain their opted-in helper profile.
 
-## Authority and boundaries
+## Completion boundary and authority
 
-The user explicitly authorized this framework, scoped commits/pushes, GitHub CI repair,
-and merge after completion. This does not authorize changing reference repositories,
-deleting external artifacts, paid services, application deployment, or publishing
-private skills. Generated projects receive their own user
-authority; the template grants no external permissions.
+Deliver the readable method, aligned optional integrations, maintained examples and
+behavioral proof, tests, documentation, review, and passing GitHub CI. The user authorized
+scoped commits/pushes, CI repair, and merge after completion. Preserve unrelated changes
+and external artifacts. Reference repositories remain read-only.
 
-No model API, daemon, agent runtime, vector database, marketplace, or orchestration
-service is part of this scope. Native hooks are deferred until a real need and a
-host-specific implementation can distinguish message origins. A plain continuation
-does not add them back. Hosted Claude execution requires an available Claude host;
-compatibility-file checks are reported separately. See [hosts.md](hosts.md).
+Prepare the reproducible skills-only plugin for review. Directory submission/publication,
+paid services, application deployment, destructive changes, and publishing private skills
+remain outside authority. No new agent runtime, model API, daemon, database service,
+background listener, marketplace service, or orchestration system is requested.
+
+Hooks remain deferred until a real need and a host-specific design distinguish message
+origins. A plain continuation does not revive them. Actual Claude and ChatGPT web/mobile
+execution are unverified; compatibility checks do not imply execution. Instruction files
+cannot keep an exited host running. See [hosts.md](hosts.md).
