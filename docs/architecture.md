@@ -2,17 +2,34 @@
 
 ## Decision
 
-The existing coding agent owns interpretation, implementation, review, and acceptance.
-Noetloom provides original public guidance and a standard-library source-checkout kit.
-Bootstrap copies a standalone helper and local skills into another workspace. Generated
-projects do not import the kit or refer to personal skill paths. Existing applications
-can be adopted; all destination conflicts are checked before writes.
+The existing coding agent owns development: interpretation, phase synthesis, guidance,
+implementation, verification, repair, integration, replanning, and acceptance. The
+authoritative [operating method](operating-model.md) expresses that loop in ordinary
+instructions. Project files preserve the objective, actual plan, contracts, evidence,
+authority, and continuation state. They work with ordinary application tools; neither
+a particular record format nor a Noetloom runtime is part of the baseline contract.
+
+The readable templates are optional outlines. They do not synthesize phases. An agent
+must inspect the actual workspace, map requested capabilities and risks, write concrete
+work and checks, and review the plan against the objective. The ToolShelf exercise starts
+with a brief and method only so the resulting plan and application are agent-derived.
+Phase boundaries trigger verification and continued execution, not routine approval.
+
+## Optional helper profile
+
+The standard-library kit remains available for projects that choose machine-checked
+local records. Bootstrap copies a standalone helper, the complete operating/helper
+guides, and local skills into another workspace. Generated entrypoints name actual
+owner paths directly. Existing applications can be adopted; destination conflicts
+are checked before writes. Generated projects do not import the kit or private skills.
 
 The manifest binds five document roles: project, architecture, plan, validation, and
 completed. Roles can share Markdown files. Plan, validation, and completion each have
 one marked JSON block so humans and agents can edit prose while the helper validates
-the executable records. This avoids a second hidden JSON backlog. The initial plan
-requires real application implementation and its placeholder check deliberately fails.
+the executable records. This is the selected plan representation, not an additional
+queue. The initial P-000 planning sentinel is blocked and its placeholder check fails.
+The agent must replace it with project-specific phases and meaningful checks before
+execution. The helper does not claim to judge phase quality or generate a real plan.
 
 Feedback is an append-only sequence of recorded, optionally classified, applied, and
 acknowledged events. A stable ID makes delivery retries idempotent; repeated text with
@@ -51,11 +68,14 @@ without creating an application license. See [licensing.md](licensing.md).
 
 ## Alternatives and limits
 
-A documentation-only template cannot detect stale checks or incomplete feedback
-application. A custom agent runtime would duplicate host responsibilities and require
-new operational infrastructure. The selected helper is limited to local records,
-validation commands, adapters, and state transitions. It does not infer requirements,
-approve changes, schedule work, or guarantee application correctness.
+The readable method depends on a capable agent to judge evidence and follow the loop.
+Optional helpers can detect declared stale checks and incomplete record transitions;
+they cannot judge semantic completeness. Keeping these capabilities optional lets
+existing projects retain their ordinary documentation and tools. A custom runtime
+would duplicate host responsibilities and is outside the requested scope. Neither
+instructions nor helpers keep a stopped host running, grant authority, or guarantee
+application correctness. One observed native-agent build does not establish a causal
+improvement over other workflows or execution on every host.
 
 ## Primary workflow reference
 

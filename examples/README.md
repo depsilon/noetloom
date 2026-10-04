@@ -6,12 +6,22 @@ workspace using [BOOTSTRAP.md](../BOOTSTRAP.md).
 
 | Project | Actual application | Evidence |
 | --- | --- | --- |
+| [ToolShelf](tool-shelf/README.md) | Offline catalog, lending, returns/history, overdue queries, atomic CSV preview/import, and restorable exports | Three agent-derived phases; one mid-project correction; fresh-session continuation from plain documents; 39 behavioral tests and retained CLI journeys |
 | [Expense totals](expense-totals/README.md) | Python CSV CLI with exact decimal totals, refunds, category filtering, and strict input errors | Behavioral CLI tests; independent creation and fresh-session feedback/resume exercise; local completion history |
 | [Reading list](reading-list/README.md) | Static offline reading list with local persistence, read toggles, filtering, and error states | Node behavioral tests; recorded desktop/mobile browser observations with source fingerprints and screenshots |
 
-Each includes its own helper, canonical lifecycle/domain skills, thin Claude entries,
-manifest, owners, and evidence. Neither needs this repository on Python's import path.
-The CLI example combines document roles; the website keeps separate owners. The
+ToolShelf is the readable baseline demonstration. It began with a brief and the operating
+method, with no prepared plan or application. The active agent derived phases and local
+guidance, implemented and repaired behavior, and continued across phases. A fresh session
+recovered the interrupted correction from local Markdown and finished the build. It uses
+ordinary Python tools and has no Noetloom helper, native discovery directories or JSON
+workflow records. [The observation](../docs/evidence/readable-autonomy/README.md) distinguishes
+the native run, primary review repair, current tests and proof limits.
+
+Expense totals and Reading list retain the optional helper profile: copied helper,
+canonical lifecycle/domain skills, thin Claude entries, manifest, owners and evidence.
+Neither needs this repository on Python's import path. The expense example combines
+document roles; the website keeps separate owners. The
 examples' applications are Apache-2.0 as repository code. This does not assign the
 same license to independent applications made with the generator.
 

@@ -1,7 +1,7 @@
 [project]
 name = "noetloom"
-version = "0.1.0"
-description = "A reference and generation kit for agent-operated projects"
+version = "0.2.0"
+description = "A portable operating method for autonomous software development, with optional Python helpers"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"

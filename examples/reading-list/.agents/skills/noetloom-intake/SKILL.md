@@ -1,51 +1,33 @@
 ---
 name: noetloom-intake
-description: In a Noetloom-managed project, reconcile new input or review findings with requirements, decisions, work, and verification.
+description: Reconcile consequential user steering or review evidence into an ongoing autonomous development process.
 ---
 
-Run `python3 -B .noetloom/project.py status` from the project root. Reconcile the
-newest delivered input before trusting a checkpoint, including input not yet recorded.
-Read the owners returned by status; do not reconstruct decisions from memory.
+Interpret the newest delivered input in context before resuming affected work. Read
+the project's objective, current plan, relevant decisions, and latest progress.
+Resolve short replies against the proposal they answer. A question needs an answer;
+a suggestion is a candidate; a requirement or instruction may change authorized work.
+Reviews provide evidence to assess, not another queue or new authority.
 
-Capture material input with `feedback record --id MESSAGE_ID --kind KIND --message
-"TEXT"`. Use a stable host message ID when available, otherwise a new local identifier.
-Retry the same ID only for identical input. A later reversal gets a new ID. Use
-`--source review:NAME` for review evidence; a receipt does not grant authority.
-For ambiguous capture, use `unclassified`, then `feedback classify --id ID --kind KIND`.
+Choose accepted, merged, already addressed, deferred, rejected, or answered. Explain
+consequential decisions. For accepted steering, update affected requirements, decisions,
+guidance, phases, and checks. Preserve explicit reversals and what they supersede.
+Reopen only affected completed outcomes, including dependants whose assumptions changed.
+Keep unrelated completion evidence. Preserve deferred scope and its reconsideration
+condition on a plain continuation.
 
-Classify the message in context: question, suggestion, requirement, correction,
-instruction, review, pause, or resume. A capability question is not implementation
-authority. Split mixed input into related receipts if its parts need different
-dispositions. Resolve short replies against the proposal they answer.
+Use proportionate ordinary Markdown: a short progress note or table can distinguish
+captured, applied, and answered to the user when interruption could lose that distinction.
+Record pending reconciliation before changing affected work, and update it after owners
+are reconciled. Deliver the response before claiming it was answered; changing files is
+not acknowledgement. Routine nonconsequential chat needs no receipt or command.
 
-Choose accepted, merged, already-addressed, deferred, rejected, or answered. Explain
-why. Reviews supply candidate findings; promote only justified, authorized changes
-into the one plan. Record deferred scope and the condition for revisiting it in the
-project or decision owner, not as a hidden backlog in a receipt or checkpoint.
+An explicit pause stops implementation. Save useful state. Resume reconciles newer input
+and continues the durable objective; it does not revive deferred features or superseded
+instructions. Reuse valid authority and continue independent authorized work while real
+questions are pending. Do not turn steering into a mandatory administrative gate for
+every edit or a requirement for another user message between phases.
 
-For accepted changes, update the owning requirements, architecture/decisions, relevant
-skills, plan, and checks as needed. Identify affected completed work and run
-`reopen ITEM --feedback ID --reason "WHY"` before changing that item's acceptance.
-Keep unrelated completion evidence. Reopening increments the item cycle so previous
-test results cannot close revised work. Check dependencies, including completed
-dependants that may also be affected; the helper cannot infer semantic impact.
-
-After owner updates, use `feedback apply --id ID --disposition accepted --summary
-"WHAT CHANGED AND WHY" --roles project plan validation --items ITEM`, listing only
-actual affected owners/items. Use `--supersedes EARLIER_ID` for explicit reversals.
-Nonchanging dispositions still need an explanation. A question or suggestion cannot
-be applied as implementation; capture actual authorization separately if it arrives.
-
-For an explicit pause/resume, record the corresponding kind and apply as accepted.
-Pause stops implementation; resume clears pause but does not revive deferred scope.
-Saving a checkpoint does not clear pause. A plain continue resumes the current
-durable scope, after newer input is reconciled.
-
-Tell the user what changed or answer their question. **After that response has been
-delivered**, record `feedback ack --id ID --message "DELIVERED RESPONSE"`. Application
-is not acknowledgement. On resume, deliver still-unanswered responses; if previous
-delivery cannot be established, say so rather than marking it acknowledged by guess.
-
-If capture was interrupted, status shows pending reconciliation before implementation.
-If a helper write was interrupted, inspect its transaction and run `recover`; conflicts
-with intervening edits stop recovery. Never discard a receipt to make status green.
+Projects that opted into the helper profile use its local helper reference for stable
+receipt IDs, classification, application, acknowledgement, reopening, and interrupted-write
+recovery. That profile's commands assist the same method; they are not baseline prerequisites.

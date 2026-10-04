@@ -19,6 +19,14 @@ class ProjectTests(unittest.TestCase):
         self.root = Path(self.temp.name) / "project"
         bootstrap(self.root, name="test", prompt="Total numbers", compact=True)
         self.project = h.Project(self.root)
+        # State-machine tests use a deliberately authored implementation phase.
+        # Bootstrap itself provides only a blocked planning sentinel.
+        self.write_block("plan", {"version": 1, "items": [{
+            "id": "P-001", "title": "Compute totals", "status": "planned", "cycle": 1,
+            "depends_on": [], "outcome": "Sum numeric values, including empty input",
+            "scope": ["Pure numeric total function"],
+            "acceptance": ["Mixed positive and negative values sum correctly; empty input yields zero"],
+            "verification": ["application"]}]})
         (self.root / "app.py").write_text("def total(values):\n    return sum(values)\n", encoding="utf-8")
         check = {"id": "application", "command": ["{python}", "-B", "-c",
                  "from app import total; assert total([2, 3, -1]) == 4; assert total([]) == 0"],

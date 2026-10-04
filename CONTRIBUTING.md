@@ -1,10 +1,12 @@
 # Contributing
 
-Read `AGENTS.md`, then use `python3 -B -m noetloom status` to find the current work.
+Read `AGENTS.md`, the objective and current plan, and the readable operating method.
+This repository opted into helper records; `python3 -B -m noetloom status` locates its work.
 Keep product decisions in `docs/project.md`, active work in `docs/plan.md`, and
 completion evidence in `docs/completed.md`. Review findings enter through intake.
 
-The source-checkout kit uses Python 3.11+ and its standard library. Run:
+The optional source-checkout kit uses Python 3.11+ and its standard library. The method
+it distributes is plain instructions, usable without those helpers. For kit changes, run:
 
 ```sh
 python3 -B -m unittest discover -s tests -v
@@ -13,7 +15,7 @@ python3 -B -m noetloom check
 ```
 
 The website example additionally uses Node.js for its application tests. CI runs
-both examples and the framework suite on Linux, macOS, and Windows. A browser
+the maintained examples and framework suite on Linux, macOS, and Windows. A browser
 exercise is recorded separately; DOM-free unit tests do not establish rendered UX.
 
 Edit lifecycle skills only in `.agents/skills/`. Run

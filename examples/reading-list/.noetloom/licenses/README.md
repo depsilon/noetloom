@@ -1,7 +1,8 @@
 # Included material
 
-Noetloom's copied `.noetloom/project.py` helper and `.agents/skills/noetloom-*`
-lifecycle skills are Apache-2.0. See `Apache-2.0.txt` and `NOTICE` here. Preserve
+Noetloom's copied `.noetloom/project.py` helper, local operating/helper guides, and
+`.agents/skills/noetloom-*` lifecycle skills are Apache-2.0.
+See `Apache-2.0.txt` and `NOTICE` here. Preserve
 applicable notices and mark modifications when redistributing those components.
 
 The original starter text in AGENTS.md, CLAUDE.md, initial working documents,

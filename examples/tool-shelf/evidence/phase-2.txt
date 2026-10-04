@@ -1,0 +1,70 @@
+Interpreter: 3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]
+Real separate-process lending journey; catalog prepared in phase-1-corrected.txt
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 lend ' D-001 ' 'Alex María' --due 2026-10-06 --on 2026-10-01
+exit=0
+Loan 1: lent d-001.
+
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 lend d-001 Sam --due 2026-10-06 --on 2026-10-01
+exit=1
+
+Error: Asset 'd-001' is already loaned.
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 inventory --available
+exit=0
+asset_id	name	status	borrower	due_on
+strasse-2	Équerre, précision	available		
+
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 overdue --as-of 2026-10-06
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 overdue --as-of 2026-10-07
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	
+
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 return d-001 --on 2026-09-30
+exit=1
+
+Error: Return date cannot precede lending date.
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 return ' D-001 ' --on 2026-10-07
+exit=0
+Loan 1: returned d-001.
+
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 return d-001 --on 2026-10-07
+exit=1
+
+Error: Asset 'd-001' has no active loan.
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 lend D-001 Sam --due 2026-10-10 --on 2026-10-08
+exit=0
+Loan 2: lent d-001.
+
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+
+
+Verified: database bytes/existence unchanged.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/tmp/noetloom-autonomous-tool-shelf-3lgpp0_3/evidence/core-journey-xasiuuj4/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-10
+strasse-2	Équerre, précision	available		
+
+
+Verified: database bytes/existence unchanged.

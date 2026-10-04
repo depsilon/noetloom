@@ -15,14 +15,14 @@ actual host installation and native-agent observations are recorded separately b
       "id": "suite",
       "command": ["{python}", "-B", "-m", "unittest", "discover", "-s", "tests", "-v"],
       "cwd": ".",
-      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", "tests/*.py", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", "LICENSE", "LICENSES/*", "NOTICE", "BOOTSTRAP.md", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/operating-model.md", "docs/architecture.md", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.jpg", "examples/reading-list/evidence/*.json"],
+      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", "tests/*.py", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", "LICENSE", "LICENSES/*", "NOTICE", "BOOTSTRAP.md", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/architecture.md", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.jpg", "examples/reading-list/evidence/*.json"],
       "timeout_seconds": 300
     },
     {
       "id": "kit",
       "command": ["{python}", "-B", "scripts/check_kit.py"],
       "cwd": ".",
-      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", ".claude/skills/*/SKILL.md", "AGENTS.md", "CLAUDE.md", "BOOTSTRAP.md", "README.md", "CONTRIBUTING.md", "LICENSE", "LICENSES/*", "NOTICE", "docs/project.md", "docs/architecture.md", "docs/operating-model.md", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/plugin.md", "docs/plugin-review.md", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", ".github/workflows/checks.yml", "pyproject.toml", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.md", "examples/**/*.json", "examples/**/*.jsonl", "examples/**/licenses/*"],
+      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", ".claude/skills/*/SKILL.md", "AGENTS.md", "CLAUDE.md", "BOOTSTRAP.md", "README.md", "CONTRIBUTING.md", "LICENSE", "LICENSES/*", "NOTICE", "docs/project.md", "docs/architecture.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/plugin.md", "docs/plugin-review.md", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", ".github/workflows/checks.yml", "pyproject.toml", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.md", "examples/**/*.json", "examples/**/*.jsonl", "examples/**/licenses/*", "examples/tool-shelf/reference/*", "examples/tool-shelf/evidence/**/*.txt", "examples/tool-shelf/evidence/**/*.csv", "examples/tool-shelf/evidence/**/*.sqlite3", "examples/tool-shelf/evidence/**/*.zip", ".gitattributes"],
       "timeout_seconds": 120
     }
   ]
@@ -31,7 +31,35 @@ actual host installation and native-agent observations are recorded separately b
 
 ## Observed behavior and limits
 
-On October 4, 2026, the local suite passed 43 tests. This includes nine expense CLI
+### Readable autonomous baseline, version 0.2.0
+
+On October 4, 2026, the complete local suite passed 46 framework/integration cases,
+including the ToolShelf application's 39-test behavioral suite. The readable method,
+phase synthesis and continuity were exercised by a real native-agent build from a brief
+and a separate fresh continuation after one mid-project correction. Both sessions used
+ordinary local Markdown and application tools. No Noetloom command, discovery directory,
+private skill, prepared solution, plugin or original conversation was required.
+
+[The observation record](evidence/readable-autonomy/README.md) preserves the initial
+derived plan, interruption state, actual sequence, limits and source fingerprints.
+The agent completed 36 tests and the complete CLI journey; primary acceptance found and
+fixed a surrounding-whitespace edge case, added regressions, and revalidated 39 tests
+and the journey. The example's historical and current evidence remain distinguishable.
+The source-fingerprint check detects drift; it does not replay an agent or prove that
+Noetloom improves every agent's performance. Native exercise execution was on macOS
+Python 3.13. Cross-platform CI results are recorded below when available.
+
+Optional-helper regression tests also verify blocked planning sentinels, actual owner
+paths for compact/custom document layouts, copied readable guides, preserved feedback
+and evidence contracts, and packaged-link completeness. Both earlier helper examples
+were refreshed and revalidated without changing their application code or browser images.
+The 0.2.0 plugin built reproducibly and its native installed resources and post-removal
+project operation passed; [the review record](plugin-review.md) separates that evidence
+from the earlier 0.1.0 installed-agent exercise. No Directory submission occurred.
+
+### Earlier framework and host observations, version 0.1.0
+
+Before this refinement, the local suite passed 43 tests. This includes nine expense CLI
 tests and four Node state tests executed through three example integration cases.
 The standalone helper was exercised in new Python processes with isolated imports.
 The tests cover idempotent creation, adoption and conflict safety, duplicate feedback,

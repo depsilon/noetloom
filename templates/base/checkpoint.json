@@ -1,7 +1,7 @@
 {
   "project_id": "",
   "paused": false,
-  "item": "P-001",
-  "next_action": "Read AGENTS.md, refine the project and checks, then implement the request.",
+  "item": "P-000",
+  "next_action": "Read AGENTS.md and the operating method. Derive real implementation phases, replace the setup sentinel and placeholder checks, then execute and continue through the agreed boundary.",
   "plan_sha256": ""
 }

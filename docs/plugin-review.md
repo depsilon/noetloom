@@ -3,7 +3,30 @@
 Prepared October 4, 2026. This is a local review candidate, not a Directory submission
 or an approval claim. Public submission/publication remains explicitly unauthorized.
 
-## Candidate identity
+## Current candidate: 0.2.0
+
+- Build: `python3.13 -B scripts/build_plugin.py --output dist/plugin-review-readable-0.2.0`.
+- ZIP SHA-256: `a46cff44604480b67f8c708ab87347941239779db7b48065ae1ed8d23ca66571`.
+- Contents: 50 files, including `bundle.json` and hashes/source mappings for 49 payload files.
+  The complete readable method, readable starter outlines and optional helper reference
+  accompany the four canonical skills. No project state, hooks, or MCP server is included.
+- A second build in `dist/plugin-review-readable-repro-0.2.0` produced the identical hash.
+
+Codex CLI `0.159.0-alpha.12.1` installed this exact version through its temporary local
+marketplace and reported it enabled. Every installed payload file matched `bundle.json`.
+Installed resources created a compact helper-profile project under a custom document
+directory; its actual owner links, copied readable guides and framework check passed.
+The initial plan correctly remained blocked pending real phase derivation. The temporary
+installation and marketplace were removed; the generated project still passed its check.
+Other installations were untouched. This checks package/resource integration, not automatic
+skill selection. The current readable autonomous-build exercise is documented in
+[validation](validation.md); it uses plain local documents, independently of plugin installation.
+
+The current candidate is prepared for review and has not been submitted or published.
+The earlier installed-agent application exercise below belongs to version 0.1.0; it is
+retained as historical evidence rather than relabeled as a new 0.2.0 run.
+
+## Historical candidate: 0.1.0
 
 - Version: `0.1.0`; portable root `plugin.json`; four canonical skills.
 - Build: `python3 -B scripts/build_plugin.py --output dist/plugin-review`.
@@ -17,7 +40,7 @@ The ignored build output is produced locally from committed sources; it is not a
 GitHub release asset or a published plugin. Rebuild into a new directory and compare
 the checksum before reviewing or submitting an exact candidate.
 
-## Exercised paths
+## Historical 0.1.0 exercised paths
 
 The macOS Codex CLI `0.159.0-alpha.12.1` accepted the local marketplace, installed
 `noetloom@noetloom-local-review`, and reported it enabled. An initial package was used
@@ -60,7 +83,7 @@ copied helper; generated instructions now state the correct local command explic
    authentication, sync, or tenancy work.
 4. “Pause here.” Then, in a fresh session, “Continue.” Expect durable pause and explicit
    resumption, with pending corrections processed before the old checkpoint.
-5. Ask to create files in a host without workspace/Python tools. Expect an accurate
+5. Ask to create files in a host without the required workspace/application tools. Expect an accurate
    limitation, not fabricated files or evidence. This host-limitation scenario has not
    been executed on web/mobile in this task.
 

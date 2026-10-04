@@ -12,7 +12,7 @@ def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
     if args and args[0] in {"status", "check"}:
         return helper.main(args, Path.cwd())
-    p = argparse.ArgumentParser(description="Create a self-contained working framework for an existing coding agent")
+    p = argparse.ArgumentParser(description="Optional helper profile for Noetloom's readable autonomous development method")
     sub = p.add_subparsers(dest="command", required=True)
     b = sub.add_parser("bootstrap")
     b.add_argument("target")

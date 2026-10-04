@@ -1,28 +1,28 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "noetloom",
-  "version": "0.1.0",
-  "description": "Create and maintain project-specific agent workflows with persistent requirements, feedback reconciliation, resumable plans, and evidence-backed delivery.",
+  "version": "0.2.0",
+  "description": "Portable instructions for autonomous software development by capable agents and humans, with optional discovery and helper conveniences.",
   "author": {"name": "Dylan Heinrich", "url": "https://github.com/depsilon"},
   "homepage": "https://github.com/depsilon/noetloom",
   "repository": "https://github.com/depsilon/noetloom",
   "license": "Apache-2.0 AND MIT-0",
-  "keywords": ["projects", "requirements", "feedback", "continuation", "verification"],
+  "keywords": ["autonomous development", "software", "projects", "verification", "portable instructions"],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Noetloom",
-        "shortDescription": "Create and maintain projects",
-        "longDescription": "Create or adopt a project in your chosen workspace, reconcile feedback into its requirements and plan, resume from local records, and verify completed work. Noetloom supplies instructions, templates, and small Python helpers; your coding agent supplies implementation and execution. Requires a host with workspace file access and Python 3.11 or later. It does not listen to other conversations, run in the background, or grant deployment permissions.",
+        "shortDescription": "Autonomous development method",
+        "longDescription": "Portable written instructions for autonomous software development. Any capable agent or human can read BOOTSTRAP.md and the operating model, derive project phases and guidance, then implement, verify, repair, integrate, and continue with ordinary project tools. The plugin adds optional native discovery and helper conveniences; Python 3.11 is needed only for optional helpers. The host must provide the ordinary tools required by the chosen application. Noetloom does not listen to other conversations, run in the background, or grant deployment permissions.",
         "developerName": "Dylan Heinrich",
         "category": "Developer Tools",
         "websiteURL": "https://github.com/depsilon/noetloom",
         "supportURL": "https://github.com/depsilon/noetloom/issues",
         "privacyPolicyURL": "https://github.com/depsilon/noetloom/blob/main/docs/privacy.md",
         "defaultPrompt": [
-          "Create a local project for an offline reading list and start implementing it.",
-          "Reconcile this project's latest feedback and continue its authorized work.",
-          "Check this project's acceptance evidence and explain what remains before completion."
+          "Build an offline reading list here. Derive phases and guidance, implement, test, repair, and finish the agreed boundary.",
+          "Continue the current objective: inspect the workspace, select ready work, implement, test, repair, and integrate.",
+          "Verify the objective against its acceptance boundary, fix gaps, and report the evidence and remaining blockers."
         ],
         "brandColor": "#94BADB",
         "composerIcon": "./assets/icon.svg",

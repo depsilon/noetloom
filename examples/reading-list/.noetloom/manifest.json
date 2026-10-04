@@ -2,7 +2,7 @@
   "schema": "noetloom.project.v1",
   "project_id": "8d55d350-44d4-4f81-8849-b5968dd9e383",
   "name": "reading-list",
-  "kit_version": "0.1.0",
+  "kit_version": "0.2.0",
   "domain": "website",
   "roles": {
     "project": "docs/project.md",

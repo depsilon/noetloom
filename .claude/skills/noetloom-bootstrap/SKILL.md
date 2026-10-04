@@ -1,10 +1,10 @@
 ---
 name: noetloom-bootstrap
-description: "Create or adopt a project using Noetloom, then implement in the requested workspace."
+description: "Establish project-specific phases and guidance, then drive an autonomous build using Noetloom's readable method."
 ---
 
 <!-- Generated compatibility entry; edit the canonical skill and run adapters. -->
 Read and follow the canonical project skill at [.agents/skills/noetloom-bootstrap/SKILL.md](../../../.agents/skills/noetloom-bootstrap/SKILL.md).
 Resolve that link relative to this file. It contains the complete instructions.
 
-Canonical SHA-256: 045e01e04b753d3cccedbfcf6e5543d244601d4d53372da5f5d0db975e556dcc
+Canonical SHA-256: e0f12aa6b27de56a26b168325a056df8733d5329dc29a0ae51f31126068b7c01

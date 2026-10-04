@@ -15,3 +15,11 @@ external links or unrelated paths.
 The interface uses a two-column layout on wider screens and a single column below
 620 pixels. Native controls have visible focus styles and explicit labels. Status
 announcements and sensible focus after deletion preserve keyboard continuity.
+
+## Framework maintenance
+
+This maintained example retains the optional Noetloom helper profile. The readable
+`.noetloom/operating-model.md` is the complete development method; `.noetloom/helpers.md`
+documents the profile's records and checks. The marked plan JSON is the representation
+of the single project plan. This framework refresh changes no application requirements
+or deferred scope.

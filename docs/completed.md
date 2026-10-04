@@ -48,6 +48,101 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Delivered the project framework, self-contained generated applications, feedback and continuation workflows, Apache-2.0/MIT-0 licensing boundaries, and reproducible skills-only plugin. PR 1 merged at d8c984cdd27826d2b2400d85b2cd0b0b21380118; PR 2 merged at 6678741907f4845e9a365ff75957466c53fec312 with direct current-product guidance and the published ShardLoom diamond logo. Linux, macOS, and Windows PR checks passed in runs 37222712383 and 37223560550. The local suite passed 43 tests and the kit check. Native Codex creation, feedback, and fresh continuation were exercised; native Claude and ChatGPT web/mobile execution were not. Review ZIP SHA-256 a86e6cb23488a8c9706bc3f5cc1333ed6ecd16d44c7fa068f9876f31e3965d0d was installed and checked locally, then uninstalled. No plugin submission or publication occurred.",
       "at": "2026-10-04T18:14:51.659359+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-001",
+      "cycle": 2,
+      "reason": "Make readable autonomous development the primary operating contract and validate it through an independent build and continuation.",
+      "feedback": "readable-autonomy-20261004",
+      "at": "2026-10-04T18:49:25.797162+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-001",
+        "title": "Make the readable method own autonomous execution",
+        "status": "active",
+        "cycle": 2,
+        "depends_on": [],
+        "outcome": "Any capable agent can derive and execute project-specific work from plain local instructions without Noetloom runtime prerequisites.",
+        "scope": [
+          "Authoritative operating loop and project-specific phase/guidance synthesis",
+          "Readable templates and canonical lifecycle instructions",
+          "Optional helper planning sentinel, local guide copies, role-path entrypoints; preserve API contracts"
+        ],
+        "instructions": [
+          "Ground the method in actual workspace inspection, user journeys and failure paths.",
+          "Require all eight phase fields and objective-level replanning; keep feedback proportionate.",
+          "Align README, bootstrap, skills and optional helper instructions; verify bootstrap cannot treat generated folders as completion."
+        ],
+        "guidance": [
+          "docs/operating-model.md — full method",
+          "docs/helpers.md — optional profile semantics",
+          "docs/architecture.md — source/copy boundaries"
+        ],
+        "acceptance": [
+          "Plain instructions cover planning, implementation, inspection, repair, integration, continuous execution, steering, continuity, permission and completion.",
+          "Native discovery, helper commands and JSON workflow records are optional.",
+          "Generated projects name actual document owners and start blocked until concrete phases are derived."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-1a7b83a9b10d44a09ed8a771a437a7ce",
+        "check-ee3e1d920de94bd58a5a21de89ca8f3e"
+      ],
+      "summary": "Readable operating method and concrete phase/guidance synthesis are authoritative; helper and native integrations remain optional. Bootstrap, preservation and package regressions pass.",
+      "at": "2026-10-04T19:45:02.525628+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "noetloom-framework",
+      "item": {
+        "id": "P-002",
+        "title": "Demonstrate autonomous development and recovery from a brief",
+        "status": "planned",
+        "cycle": 1,
+        "depends_on": [
+          "P-001"
+        ],
+        "outcome": "A functioning multi-capability application demonstrates derived phases, uninterrupted advancement, mid-project steering and fresh-session recovery from local files.",
+        "scope": [
+          "ToolShelf local CLI brief and readable guide only",
+          "Native isolated build followed by one correction and fresh continuation",
+          "Maintained working example, meaningful behavior checks, source-bound observation record"
+        ],
+        "instructions": [
+          "Begin with a blank application directory, brief and guide; do not supply an implementation plan or code.",
+          "Observe a working milestone and automatic advancement; inject one asset-ID normalization correction.",
+          "Interrupt at a durable boundary, then give a new session only the local workspace and continuation instruction.",
+          "Verify actual application behavior and preserve limits; do not attribute causal or cross-host guarantees to one observation."
+        ],
+        "guidance": [
+          "docs/operating-model.md — phase execution and continuity",
+          "docs/validation.md — evidence scope"
+        ],
+        "acceptance": [
+          "The agent derives project-specific phases and guidance and implements multiple capabilities with tests.",
+          "Correction updates affected contracts and work without restoring deferred features.",
+          "A fresh session finishes from local Markdown and ordinary application tools without original chat, private skills, Noetloom commands or native discovery."
+        ],
+        "verification": [
+          "suite",
+          "kit"
+        ]
+      },
+      "evidence": [
+        "check-1a7b83a9b10d44a09ed8a771a437a7ce",
+        "check-ee3e1d920de94bd58a5a21de89ca8f3e"
+      ],
+      "summary": "ToolShelf was derived and built from a brief in three phases; one correction was interrupted and recovered by a fresh native session from local Markdown. Native 36-test completion, primary whitespace repair, final 39-test suite and real journey are distinguished in the evidence record. No cross-host or causal performance claim.",
+      "at": "2026-10-04T19:45:02.610841+00:00"
     }
   ]
 }

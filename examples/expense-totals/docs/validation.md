@@ -41,6 +41,8 @@ refunds, filtering, full-input validation, and errors without partial output.
         ".noetloom/manifest.json",
         ".noetloom/templates/*.md",
         ".noetloom/licenses/*",
+        ".noetloom/operating-model.md",
+        ".noetloom/helpers.md",
         ".agents/skills/*/SKILL.md",
         ".claude/skills/*/SKILL.md",
         "AGENTS.md",
