@@ -51,6 +51,16 @@ Two complete ZIP builds matched byte for byte. Inspection of the extracted final
 confirmed all 49 payload files matched current sources, full author/developer metadata,
 four exact generated license/notice copies, and no application-level LICENSE.
 
+[PR #5](https://github.com/depsilon/noetloom/pull/5) at
+`c5650b2625c8f88c9142dc7c6d86da5cd42eab32` passed the Linux/Python 3.11,
+macOS/Python 3.13 and Windows/Python 3.13
+[checks](https://github.com/depsilon/noetloom/actions/runs/37238979082).
+It merged as `923e4d17584c8547e95db80d6afa41f85ddf7032`; all three
+[main-branch checks](https://github.com/depsilon/noetloom/actions/runs/37239107132)
+also passed. Primary review checked license boundaries, historical proof identities,
+and exact distribution contents. The remote Codex review bot reported exhausted quota;
+no automated GitHub review is claimed.
+
 ### Existing-application maintenance, unchanged method
 
 On October 4, 2026, a new native agent received the complete 39-test ToolShelf application
