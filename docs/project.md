@@ -29,6 +29,11 @@ development. Generation initializes the work and later messages steer it.
   prewritten solution or repeated steering. Exercise one mid-project correction and
   fresh-session continuation using only local documents and ordinary application tools.
   Report actual execution and its limits.
+- Extend that proof to bounded maintenance of an existing application: derive work from
+  its architecture and a new outcome, preserve compatibility, and run independent
+  requirement-based acceptance after the implementation agent declares completion.
+  Distinguish development, final-review and later acceptance findings. Change framework
+  instructions only when the exercise exposes a concrete missing or contradictory rule.
 - Keep current product guidance and the shared faceted diamond symbol, with provenance.
   Framework, guides, lifecycle skills and helpers are Apache-2.0; designated original
   templates are MIT-0. Independent applications keep their own licensing policy.

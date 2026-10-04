@@ -1,0 +1,301 @@
+Interpreter: 3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]
+README and prior-recovery acceptance examples
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 add D-001 'Cordless drill'
+exit=0
+Added d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 add H-001 'Claw hammer'
+exit=0
+Added h-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	available		
+h-001	Claw hammer	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 lend ' d-001 ' 'Alex María' --due 2026-10-06 --on 2026-10-01
+exit=0
+Loan 1: lent d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 inventory --available
+exit=0
+asset_id	name	status	borrower	due_on
+h-001	Claw hammer	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 overdue --as-of 2026-10-06
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 overdue --as-of 2026-10-07
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 renew ' D-001 ' --due 2026-10-10 --on 2026-10-07
+exit=0
+Renewal 1: renewed d-001 until 2026-10-10.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	1	d-001	2026-10-06	2026-10-10	2026-10-07
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 renewals --asset d-001
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	1	d-001	2026-10-06	2026-10-10	2026-10-07
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 overdue --as-of 2026-10-10
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 overdue --as-of 2026-10-11
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-10	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 return D-001 --on 2026-10-07
+exit=0
+Loan 1: returned d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 lend D-001 Sam --due 2026-10-10 --on 2026-10-08
+exit=0
+Loan 2: lent d-001.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 renew D-001 --due 2026-10-12 --on 2026-10-09
+exit=0
+Renewal 2: renewed d-001 until 2026-10-12.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-10	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-12	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 loans --active
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-12	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 import /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/new-tools.csv
+exit=0
+line	asset_id	name
+2	s-001	Scie, précision
+3	strasse-2	"Équerre ""atelier"""
+Preview: 2 tools; no data written.
+Preview token: 66abfebd302f2de7a462f087600047e830f6ab06f9483ca9e2c5c798adcbb77a
+To apply this unchanged file and catalog, repeat import with --confirm TOKEN.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 import /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/new-tools.csv --confirm 66abfebd302f2de7a462f087600047e830f6ab06f9483ca9e2c5c798adcbb77a
+exit=0
+Imported 2 tools.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 export /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library-backup.zip
+exit=0
+Exported to /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library-backup.zip.
+
+Extracted library.sqlite3 to a new restored.sqlite3 as instructed.
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/restored.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-12
+h-001	Claw hammer	available		
+s-001	Scie, précision	available		
+strasse-2	"Équerre ""atelier"""	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/restored.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-10	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-12	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/restored.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	1	d-001	2026-10-06	2026-10-10	2026-10-07
+2	2	d-001	2026-10-10	2026-10-12	2026-10-09
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --help
+exit=0
+usage: toolshelf [-h] [--db DB]
+                 {add,inventory,lend,renew,renewals,return,loans,overdue,import,export} ...
+
+ToolShelf — an offline neighborhood tool library.
+
+positional arguments:
+  {add,inventory,lend,renew,renewals,return,loans,overdue,import,export}
+    add                 Add a uniquely identified tool
+    inventory           List tools and current availability
+    lend                Lend an available tool
+    renew               Extend an active loan and retain its renewal history
+    renewals            List all loan renewal history
+    return              Close the active loan for a tool
+    loans               List all loan history
+    overdue             List current loans overdue on an explicit date
+    import              Preview CSV, or apply an unchanged confirmed preview
+    export              Export catalog, inventory, loans, renewals and
+                        database to a new ZIP
+
+options:
+  -h, --help            show this help message and exit
+  --db DB               SQLite file (default: ./toolshelf.sqlite3)
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf import --help
+exit=0
+usage: toolshelf import [-h] [--confirm TOKEN] csv_file
+
+positional arguments:
+  csv_file         UTF-8 CSV with asset_id,name headers
+
+options:
+  -h, --help       show this help message and exit
+  --confirm TOKEN  Token printed by the unchanged preview
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf renew --help
+exit=0
+usage: toolshelf renew [-h] --due DUE --on ON asset_id
+
+positional arguments:
+  asset_id
+
+options:
+  -h, --help  show this help message and exit
+  --due DUE   New due date, YYYY-MM-DD (later than current due date)
+  --on ON     Renewal date, YYYY-MM-DD
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-12
+h-001	Claw hammer	available		
+s-001	Scie, précision	available		
+strasse-2	"Équerre ""atelier"""	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/restored.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-12
+h-001	Claw hammer	available		
+s-001	Scie, précision	available		
+strasse-2	"Équerre ""atelier"""	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-10	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-12	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/restored.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-10	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-12	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/library.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	1	d-001	2026-10-06	2026-10-10	2026-10-07
+2	2	d-001	2026-10-10	2026-10-12	2026-10-09
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/restored.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	1	d-001	2026-10-06	2026-10-10	2026-10-07
+2	2	d-001	2026-10-10	2026-10-12	2026-10-09
+
+PASS: all 26 README CLI examples and restored-query comparisons.
+Prior archive: evidence/journey-tosu30mg/recovery.zip; SHA-256 c44f9017bcd84f00ca1fe62c43c0ac0adc1c052eebfd52e7d98c59fbe6e778d3
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-1.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-10
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	loaned	Robin	2026-10-09
+strasse-2	"Équerre ""atelier"""	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-1.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-1.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-1.sqlite3 renew d-001 --due 2026-10-11 --on 2026-10-08
+exit=0
+Renewal 1: renewed d-001 until 2026-10-11.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-1.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	2	d-001	2026-10-10	2026-10-11	2026-10-08
+
+PASS: prior version-2 recovery preserves queries/bytes, then renews its original loan on upgrade.
+Prior archive: evidence/journey-ugolnj__/recovery.zip; SHA-256 4892144224efcb085ae5efb8470c890675e71176754ef2a179b5a1b2ca3e9b93
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-2.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-10
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	loaned	Robin	2026-10-09
+strasse-2	"Équerre ""atelier"""	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-2.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-2.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-2.sqlite3 renew d-001 --due 2026-10-11 --on 2026-10-08
+exit=0
+Renewal 1: renewed d-001 until 2026-10-11.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-2.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	2	d-001	2026-10-10	2026-10-11	2026-10-08
+
+PASS: prior version-2 recovery preserves queries/bytes, then renews its original loan on upgrade.
+Prior archive: evidence/journey-wvl95v4f/recovery.zip; SHA-256 5f717d062da54966ccda3a2fe74265456fc36fe6808e3f5cdedb16675eac7166
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-3.sqlite3 inventory
+exit=0
+asset_id	name	status	borrower	due_on
+d-001	Cordless drill	loaned	Sam	2026-10-10
+h-001	Claw hammer	available		
+l-001	Ladder	available		
+s-001	Scie, précision	loaned	Robin	2026-10-09
+strasse-2	"Équerre ""atelier"""	available		
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-3.sqlite3 loans
+exit=0
+loan_id	asset_id	name	borrower	lent_on	due_on	returned_on
+1	d-001	Cordless drill	Alex María	2026-10-01	2026-10-06	2026-10-07
+2	d-001	Cordless drill	Sam	2026-10-08	2026-10-10	
+3	s-001	Scie, précision	Robin	2026-10-08	2026-10-09	
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-3.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-3.sqlite3 renew d-001 --due 2026-10-11 --on 2026-10-08
+exit=0
+Renewal 1: renewed d-001 until 2026-10-11.
+
+$ /opt/homebrew/opt/python@3.13/bin/python3.13 -B -m toolshelf --db /private/var/folders/k3/bvkvx11d0djbcn207fk9bcfc0000gn/T/noetloom-existing-toolshelf-0kbfhr1l/project/evidence/renewal-examples-4c7ymax4/prior-recovery-3.sqlite3 renewals
+exit=0
+renewal_id	loan_id	asset_id	old_due_on	new_due_on	renewed_on
+1	2	d-001	2026-10-10	2026-10-11	2026-10-08
+
+PASS: prior version-2 recovery preserves queries/bytes, then renews its original loan on upgrade.
+RESULT: PASS — 26 README CLI examples and 3 prior recovery archives.

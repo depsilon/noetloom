@@ -15,14 +15,14 @@ actual host installation and native-agent observations are recorded separately b
       "id": "suite",
       "command": ["{python}", "-B", "-m", "unittest", "discover", "-s", "tests", "-v"],
       "cwd": ".",
-      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", "tests/*.py", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", "LICENSE", "LICENSES/*", "NOTICE", "BOOTSTRAP.md", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/architecture.md", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.jpg", "examples/reading-list/evidence/*.json"],
+      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", "tests/*.py", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", "LICENSE", "LICENSES/*", "NOTICE", "BOOTSTRAP.md", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/evidence/existing-application/*", "docs/architecture.md", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.jpg", "examples/reading-list/evidence/*.json"],
       "timeout_seconds": 300
     },
     {
       "id": "kit",
       "command": ["{python}", "-B", "scripts/check_kit.py"],
       "cwd": ".",
-      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", ".claude/skills/*/SKILL.md", "AGENTS.md", "CLAUDE.md", "BOOTSTRAP.md", "README.md", "CONTRIBUTING.md", "LICENSE", "LICENSES/*", "NOTICE", "docs/project.md", "docs/architecture.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/plugin.md", "docs/plugin-review.md", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", ".github/workflows/checks.yml", "pyproject.toml", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.md", "examples/**/*.json", "examples/**/*.jsonl", "examples/**/licenses/*", "examples/tool-shelf/reference/*", "examples/tool-shelf/evidence/**/*.txt", "examples/tool-shelf/evidence/**/*.csv", "examples/tool-shelf/evidence/**/*.sqlite3", "examples/tool-shelf/evidence/**/*.zip", ".gitattributes"],
+      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", ".claude/skills/*/SKILL.md", "AGENTS.md", "CLAUDE.md", "BOOTSTRAP.md", "README.md", "CONTRIBUTING.md", "LICENSE", "LICENSES/*", "NOTICE", "docs/project.md", "docs/architecture.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/evidence/existing-application/*", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/plugin.md", "docs/plugin-review.md", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", ".github/workflows/checks.yml", "pyproject.toml", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.md", "examples/**/*.json", "examples/**/*.jsonl", "examples/**/licenses/*", "examples/tool-shelf/reference/*", "examples/tool-shelf/evidence/**/*.txt", "examples/tool-shelf/evidence/**/*.csv", "examples/tool-shelf/evidence/**/*.sqlite3", "examples/tool-shelf/evidence/**/*.zip", "examples/tool-shelf-renewals/reference/*", "examples/tool-shelf-renewals/evidence/**/*.txt", "examples/tool-shelf-renewals/evidence/**/*.csv", "examples/tool-shelf-renewals/evidence/**/*.sqlite3", "examples/tool-shelf-renewals/evidence/**/*.zip", ".gitattributes"],
       "timeout_seconds": 120
     }
   ]
@@ -30,6 +30,41 @@ actual host installation and native-agent observations are recorded separately b
 ```
 
 ## Observed behavior and limits
+
+### Existing-application maintenance, unchanged method
+
+On October 4, 2026, a new native agent received the complete 39-test ToolShelf application
+and a bounded renewal outcome, with no prepared change plan. It inspected existing
+components, derived two extension phases and completed schema migration, CLI/history,
+concurrency, recovery and regression work without repeated task selection. Its final
+requirements review followed a passing integrated suite and journey; it added a forced
+storage-failure rollback check and repaired stale continuation wording. The final native
+result passed **54 application tests**, the full journey, **26 documented commands** and
+**three previous recovery archives** using ordinary files and Python tools.
+
+The primary froze independent requirement cases before dispatch and the executable runner
+before native completion. All ten cases failed against the unchanged baseline as an
+expected negative control, then **all ten passed on the first declared candidate** without
+repairs. The maintained application is byte-identical to that candidate. The
+[observation](evidence/existing-application/README.md) preserves exact timings, hashes,
+first output and separate development, final-review and independent finding categories.
+
+The parent suite now includes both the 54-test extension and independent acceptance;
+the original 39-test example is unchanged. The kit also validates both readable example
+inventories. Operating instructions, canonical skills, helpers, templates and plugin
+contents are unchanged: this exercise exposed no concrete framework instruction defect.
+The existing 0.2.0 plugin payload remains byte-identical to the previously reviewed package.
+
+Local parent validation passed: `python3.13 -B -m unittest discover -s tests -v`
+ran **48 tests in 20.353 seconds**, including both application suites and independent
+acceptance. `python3.13 -B scripts/check_kit.py` and `python3.13 -B -m noetloom check`
+also passed. The original 39 test methods remain in the extension, with 15 added renewal
+tests. Source manifests and current application links were checked separately.
+
+This demonstrates bounded maintenance across existing components and compatibility
+contracts, not maturity at production scale or universal defect detection. Native agent
+execution and initial acceptance were on macOS/Python 3.13. Hosted tests of the result are
+distinct from native execution on another agent host. Hosted delivery remains in progress.
 
 ### Readable autonomous baseline, version 0.2.0
 

@@ -18,13 +18,13 @@ def same(left, right):
         raise ValueError(f"Maintained copy differs: {left.relative_to(ROOT)} from {right.relative_to(ROOT)}")
 
 
-def readable_example():
+def readable_example(example, observation):
     """Bind the observed application to its files; this does not replay an agent."""
-    root = ROOT / "examples/tool-shelf"
+    root = ROOT / "examples" / example
     for name in (".noetloom", ".agents", ".claude"):
         if (root / name).exists():
             raise ValueError(f"The readable baseline example unexpectedly acquired {name}")
-    fingerprints = ROOT / "docs/evidence/readable-autonomy/source-sha256.txt"
+    fingerprints = ROOT / "docs/evidence" / observation / "source-sha256.txt"
     recorded = set()
     for line in fingerprints.read_text(encoding="utf-8").splitlines():
         if not line or line.startswith("#"):
@@ -38,7 +38,7 @@ def readable_example():
         recorded.add(relative)
     actual = {p.relative_to(ROOT).as_posix() for p in root.rglob("*")
               if p.is_file() and "__pycache__" not in p.parts and p.suffix not in {".pyc", ".pyo"}}
-    expected = {p for p in recorded if p.startswith("examples/tool-shelf/")}
+    expected = {p for p in recorded if p.startswith(f"examples/{example}/")}
     if not actual or actual != expected:
         raise ValueError("Readable example file inventory differs from its observation")
 
@@ -98,8 +98,9 @@ def main():
     for name, data in files.items():
         if any(private in data for private in (b"/.codex/skills/", b"sl-dh-", b"/Users/", b"noetloom-local-repo")):
             raise ValueError(f"Personal dependency leaked into plugin: {name}")
-    readable_example()
-    print(f"Kit, {len(SKILLS)} canonical plugin skills, licenses, adapters, 2 helper examples and the readable application agree.")
+    readable_example("tool-shelf", "readable-autonomy")
+    readable_example("tool-shelf-renewals", "existing-application")
+    print(f"Kit, {len(SKILLS)} canonical plugin skills, licenses, adapters, 2 helper examples and 2 readable application examples agree.")
 
 
 if __name__ == "__main__":

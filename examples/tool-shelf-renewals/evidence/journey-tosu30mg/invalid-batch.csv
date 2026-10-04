@@ -1,0 +1,7 @@
+asset_id,name
+new,Valid but must not import
+ A ,First
+a,Duplicate
+ S-001 ,Existing
+blank, 
+extra,Two,Three
