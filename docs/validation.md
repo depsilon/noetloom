@@ -59,6 +59,16 @@ Two builds produced the identical 53-file unpublished archive recorded in
 [plugin review](plugin-review.md). Its 52 payload files matched current source bytes;
 the new guidance remained portable. Native plugin installation was not repeated.
 
+[PR #6](https://github.com/depsilon/noetloom/pull/6) at
+`ccacd287c991f70eebc19249f5d07781630e7e29` passed Linux/Python 3.11,
+macOS/Python 3.13 and Windows/Python 3.13
+[checks](https://github.com/depsilon/noetloom/actions/runs/41186889025).
+The automatic Codex code review completed on that revision with no findings, alongside
+the primary source review and independent continuation exercise. It merged as
+`457a7e30c2c6c1e44ff1bb6cc41aa98b8135d675`; all three
+[main-branch checks](https://github.com/depsilon/noetloom/actions/runs/41187144212)
+also passed. No Directory submission or plugin publication occurred.
+
 ### Licensing attribution and scope, October 4, 2026
 
 Current Noetloom notices and package metadata name **Dylan Justin Heinrich**. Copyright
