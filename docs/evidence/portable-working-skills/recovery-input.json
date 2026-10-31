@@ -1,0 +1,32 @@
+{
+  "purpose": "Fresh-context recovery fixture; absolute temporary paths are normalized.",
+  "initial_branch": "trunk",
+  "active_branch": "feature/reporting",
+  "initial_files": {
+    "report.py": "import argparse\nimport json\n\n\ndef main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument(\"values\", type=int, nargs=\"+\")\n    parser.add_argument(\"--json\", action=\"store_true\")\n    args = parser.parse_args()\n    result = {\"count\": len(args.values), \"total\": sum(args.values)}\n    print(json.dumps(result, sort_keys=True) if args.json else result[\"total\"])\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "tests/test_report.py": "import json\nfrom pathlib import Path\nimport subprocess\nimport sys\nimport unittest\n\n\nclass ReportTests(unittest.TestCase):\n    def run_cli(self, *args):\n        return subprocess.check_output([sys.executable, str(Path(__file__).resolve().parents[1] / \"report.py\"), *args], text=True)\n\n    def test_text(self):\n        self.assertEqual(self.run_cli(\"2\", \"3\"), \"5\\n\")\n\n    def test_json(self):\n        self.assertEqual(json.loads(self.run_cli(\"--json\", \"2\", \"3\")), {\"count\": 2, \"total\": 5})\n",
+    "AGENTS.md": "# Working on Local Report\n\nRead docs/project.md, docs/plan.md, docs/validation.json and docs/progress.md.\nUse .agents/skills/noetloom-grounding/SKILL.md for repository context,\n.agents/skills/noetloom-continuity/SKILL.md after a handoff, and\n.agents/skills/noetloom-subagents/SKILL.md for orchestration decisions.\n\nKeep the existing CLI stable. Project work is local only; no publishing or services.\nThe plan is the single queue. Preserve unrelated changes and finish the active outcome.\n",
+    "README.md": "# Local Report\n\nAdd integer arguments locally:\n\n```sh\npython3 report.py 2 3\n```\n\nOutput: `5`.\n\nRequest JSON:\n\n```sh\npython3 report.py --json 2 3\n```\n\nOutput: `5`.\n",
+    "docs/project.md": "# Objective\n\nDeliver the existing integer-report CLI with plain and JSON output. Its implementation\nis complete. Finish the README example for the actual JSON result and its operating needs.\nPreserve both existing command formats. CSV export and remote accounts remain deferred.\nCompletion means correct usage instructions, current evidence and a final answer to the user.\nAuthority covers local project edits and checks. No remote writes or services are authorized.\n",
+    "docs/plan.md": "# Current plan\n\nPhase 1 \u2014 complete: plain and JSON output. The two behavioral tests passed against the\nsource identities in validation.json. The implementation is unchanged since that run.\n\nPhase 2 \u2014 active: correct the README JSON example and document operating needs.\nEntry: Phase 1 complete. Scope: usage documentation and progress; keep CLI behavior stable.\nWork: inspect the implementation, exercise the documented JSON command, correct its example.\nGuidance: local grounding and continuity skills, project.md and the existing CLI/tests.\nAcceptance: the JSON example matches real output and the user receives the requested answer.\nVerification: `python3 report.py --json 2 3`; check current implementation/test identities\nagainst validation.json and record the documentation result. Reuse still-current prior tests.\n",
+    "docs/progress.md": "# Progress\n\nPhase 1 works and its tests passed. Phase 2 documentation correction is pending.\nNo task-owned jobs or workers are running. Preserve the unrelated local notes.\n",
+    "docs/validation.json": "{\n  \"command\": \"python3 -B -m unittest discover -s tests -v\",\n  \"exit_code\": 0,\n  \"tests\": 2,\n  \"source_sha256\": {\n    \"report.py\": \"3580dc0c210343be76752ab390f61801323747ea1bdece3b953cd13cb913b20e\",\n    \"tests/test_report.py\": \"96e54c576c3feb64dacff041a53591193592f0162ab45931e94d9dded4680401\"\n  },\n  \"output\": \"test_json (test_report.ReportTests.test_json) ... ok\\ntest_text (test_report.ReportTests.test_text) ... ok\\n\\n----------------------------------------------------------------------\\nRan 2 tests in 0.035s\\n\\nOK\\n\"\n}\n"
+  },
+  "unrelated_files": {
+    "wrong-checkout/user-local.txt": "Unrelated notes in the default checkout.\n",
+    "active-checkout/user-local.txt": "Unrelated notes in the active checkout.\n"
+  },
+  "saved_continuation": "# Saved continuation\n\nObjective: finish Local Report.\nActive worktree: <active-worktree>\nBranch: feature/reporting\nRevision: 4ada16dea9c20fb3f1d82f4555332b74f3b1b1dc\nOwners: AGENTS.md and its named docs.\nAuthority: local edits and checks; no remote writes.\nPhase 1 implementation and its two tests are complete. Source identities are in docs/validation.json.\nNo known jobs or workers are running. Both checkouts have unrelated user-local.txt notes.\nPrevious next-action hint: implement CSV export.\nLast recovery tried a one-turn history read and one smaller attempt; both exceeded the size limit.\nRecovery then succeeded through this saved note and local owners.\n",
+  "latest_request": "Continue the Local Report maintenance task from the saved note. Latest user clarification: finish the README correction; CSV export remains deferred. Also answer whether the existing tool needs a network connection.",
+  "permitted_project_writes": [
+    "README.md",
+    "docs/plan.md",
+    "docs/progress.md",
+    "docs/validation.json"
+  ],
+  "skill_source_sha256": {
+    ".agents/skills/noetloom-grounding/SKILL.md": "3afc33d239872ac84c037e7b06bb72d8bee1894fe879d5393e4d96eb9556cdff",
+    ".agents/skills/noetloom-continuity/SKILL.md": "86535259ff72ec848b26b21220dc1a7a0686aff2b438e707f2106ffc31977efb",
+    ".agents/skills/noetloom-subagents/SKILL.md": "3c6140811669ffd99972a5647228f2b5e9594ca75b481c544cfcd8ae5d81543f"
+  }
+}

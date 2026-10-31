@@ -22,6 +22,11 @@ development. Generation initializes the work and later messages steer it.
 - Preserve one active plan, consequential steering, explicit reversals, deferred scope,
   current evidence, and enough local state for a fresh session. Captured, applied, and
   answered input remain distinguishable with proportionate records.
+- Bundle repository-agnostic grounding, context-continuity and subagent-orchestration
+  skills. Ground in the exact working checkout and its own contracts. Recover from a
+  concise checkpoint, reconcile newer steering and continue authorized work through
+  compaction. Delegate useful independent work with explicit ownership and verified
+  results; use the host's advertised capabilities and preserve the primary's decisions.
 - Preserve useful optional helpers, existing applications, host conveniences, packaging,
   and licensing. The helper profile selects marked records within one plan, not a second
   queue. Its bootstrap emits a blocked planning sentinel until an agent derives real phases.

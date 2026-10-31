@@ -7,6 +7,9 @@ October 4, 2026 maintenance: the copied NOTICE, MIT-0 text, and license-scope RE
 match their finalized framework sources byte for byte. This maintenance did not change
 application licensing policy; the declared application and framework checks were rerun.
 
+October 31, 2026 maintenance: shared Noetloom guidance was upgraded to 0.3.0 with six
+shared project skills and the existing utility skill. Application behavior was unchanged.
+
 <!-- noetloom:validation -->
 ```json
 {

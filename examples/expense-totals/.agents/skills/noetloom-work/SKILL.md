@@ -8,6 +8,12 @@ the real workspace and reconcile newer input before trusting a continuation note
 Honor explicit pauses and existing authority. The local operating method is readable
 directly; neither native discovery nor Noetloom commands are prerequisites.
 
+Use [grounding](../noetloom-grounding/SKILL.md) when establishing repository context.
+After compaction or a handoff, use [continuity](../noetloom-continuity/SKILL.md) to recover
+the exact workspace and next action without restarting completed work. When independent
+bounded work becomes ready, apply [subagent routing](../noetloom-subagents/SKILL.md).
+Continue locally when delegation adds no value or the host cannot provide it.
+
 Select the highest-value ready phase that advances the objective. Read the local
 guidance it names. A phase needs a concrete outcome, dependencies, scope, work
 instructions, guidance, acceptance, verification, and current state. If these are

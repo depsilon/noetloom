@@ -280,6 +280,46 @@ This block is the project's only execution queue.
       ],
       "summary": "Copied finalized NOTICE, MIT-0 text, and license-scope README exactly. Application licensing policy is unchanged; all declared checks passed.",
       "at": "2026-10-04T21:58:08.681618+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "7f791247-6b06-4c5b-bf71-253b57ae5c87",
+      "id": "P-001",
+      "cycle": 8,
+      "reason": "Refresh the copied Noetloom 0.3.0 project guidance, six shared skills, and generated adapters; revalidate declared checks without changing application behavior.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:39:22.753076+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "7f791247-6b06-4c5b-bf71-253b57ae5c87",
+      "item": {
+        "id": "P-001",
+        "title": "Add optional category filtering to the expense totals CLI",
+        "status": "planned",
+        "cycle": 8,
+        "depends_on": [],
+        "outcome": "Build a Python standard-library CLI that totals CSV expenses by category, with an optional category filter. Input columns are category and amount; output stable JSON totals with two decimal places. Reject malformed or non-finite amounts with an error and nonzero exit. Allow negative refunds. No network services or authentication.",
+        "scope": [
+          "Application, local operating documents, and relevant tests"
+        ],
+        "acceptance": [
+          "The CLI accepts exactly the category and amount columns in either order, rejects malformed rows, blank categories, nonnumeric/non-finite values, and amounts with over two fractional digits with stderr diagnostics and nonzero exit, and prints no partial stdout on failure",
+          "Without a filter, valid input produces deterministic JSON with sorted category keys and two-decimal amount strings; negative refunds aggregate correctly and a header-only CSV produces an empty object",
+          "With --category CATEGORY, only that category's total is returned, or {} when absent; the entire input is validated including unselected rows",
+          "Subprocess tests exercise valid, empty, invalid, filtered, absent-category, and invalid-unselected-row behavior through the public command"
+        ],
+        "verification": [
+          "application",
+          "framework"
+        ]
+      },
+      "evidence": [
+        "check-c4b5d16783734659aad7d22e29d3094d",
+        "check-8dd2eeeea6eb450a97f836d73e926adb"
+      ],
+      "summary": "Refreshed shared Noetloom 0.3.0 project guidance and six shared skills, preserving the utility domain skill and application behavior; declared checks passed.",
+      "at": "2026-10-31T08:39:52.949921+00:00"
     }
   ]
 }

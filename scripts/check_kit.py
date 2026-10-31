@@ -5,10 +5,11 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from noetloom import __version__
+from noetloom import PROJECT_SKILLS, __version__
 from noetloom.runtime import helper as h
 from scripts.build_plugin import BASE, DOMAINS, READABLE, SKILLS, payload
 
@@ -49,6 +50,10 @@ def main():
     files = payload()
     if json.loads(files["plugin.json"])["version"] != __version__:
         raise ValueError("Plugin and kit versions differ")
+    if tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"] != __version__:
+        raise ValueError("Project metadata and kit versions differ")
+    if {p.name for p in (ROOT / ".agents/skills").iterdir() if p.is_dir()} != set(SKILLS):
+        raise ValueError("Canonical skill inventory and public catalog differ")
     same(ROOT / "templates/LICENSE", ROOT / "LICENSES/MIT-0.txt")
     for name in ("claude-skill.md", "completed.md"):
         same(ROOT / ".noetloom/templates" / name, ROOT / "templates/base" / name)
@@ -69,6 +74,11 @@ def main():
     examples = (ROOT / "examples/expense-totals", ROOT / "examples/reading-list")
     for root in (ROOT, *examples):
         project = h.Project(root)
+        expected_skills = SKILLS if root == ROOT else (*PROJECT_SKILLS, f"project-{project.manifest['domain']}")
+        if set(project.manifest["skills"]) != {f".agents/skills/{name}" for name in expected_skills}:
+            raise ValueError(f"Maintained skill manifest differs from the public catalog: {root.name}")
+        if project.manifest["kit_version"] != __version__:
+            raise ValueError(f"Maintained manifest version differs from kit: {root.name}")
         result = project.check()
         if result["status"] != "passed":
             raise ValueError(str(result))
@@ -84,7 +94,7 @@ def main():
             same(root / ".noetloom" / guide, ROOT / "docs" / guide)
         for name in ("claude-skill.md", "completed.md"):
             same(root / ".noetloom/templates" / name, ROOT / "templates/base" / name)
-        for skill in SKILLS[1:]:
+        for skill in PROJECT_SKILLS:
             same(root / ".agents/skills" / skill / "SKILL.md", ROOT / ".agents/skills" / skill / "SKILL.md")
         domain = project.manifest["domain"]
         same(root / f".agents/skills/project-{domain}/SKILL.md", ROOT / f"templates/domains/{domain}/SKILL.md")

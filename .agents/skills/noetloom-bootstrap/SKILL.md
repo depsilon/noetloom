@@ -8,6 +8,12 @@ in the repository or two in a portable plugin. Read that entrypoint and its link
 operating method. They define the complete baseline; no Noetloom command or native
 skill discovery is required.
 
+Use [grounding](../noetloom-grounding/SKILL.md) to establish the actual target and its
+contracts. Establish local [continuity](../noetloom-continuity/SKILL.md) before sustained
+work, and apply [subagent routing](../noetloom-subagents/SKILL.md) when independent bounded
+work would benefit. Their procedures are also part of the readable operating method;
+neither native delegation nor a particular host is required.
+
 Inspect the actual brief and target workspace. Establish the objective, constraints,
 existing authority, exclusions, and completion boundary. Derive concrete implementation
 phases and relevant local guidance from the requested capabilities and their risks.

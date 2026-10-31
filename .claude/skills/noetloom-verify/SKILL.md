@@ -7,4 +7,4 @@ description: "Verify real behavior, repair gaps, and finish an autonomous projec
 Read and follow the canonical project skill at [.agents/skills/noetloom-verify/SKILL.md](../../../.agents/skills/noetloom-verify/SKILL.md).
 Resolve that link relative to this file. It contains the complete instructions.
 
-Canonical SHA-256: 5992894036e242a943c26f6925f4587b23813b99118de0a6a1532ef89e70d6d3
+Canonical SHA-256: 55f337e09650b4f9ddf187531f165788a68211633be3df0ca627d685dd032edb

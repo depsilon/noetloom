@@ -18,6 +18,10 @@ match their finalized framework sources byte for byte. This maintenance did not 
 application licensing policy; the declared application, browser-evidence, and framework
 checks were rerun. No new browser interaction is claimed.
 
+October 31, 2026 maintenance: shared Noetloom guidance was upgraded to 0.3.0 with six
+shared project skills and the existing website skill. Application behavior was unchanged;
+browser evidence was not replayed.
+
 <!-- noetloom:validation -->
 ```json
 {

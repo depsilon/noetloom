@@ -169,6 +169,49 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Copied finalized NOTICE, MIT-0 text, and license-scope README exactly. Application licensing policy is unchanged; all declared checks passed. Browser-evidence verification bound existing evidence without replay.",
       "at": "2026-10-04T21:58:14.573999+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "8d55d350-44d4-4f81-8849-b5968dd9e383",
+      "id": "P-001",
+      "cycle": 5,
+      "reason": "Refresh the copied Noetloom 0.3.0 project guidance, six shared skills, and generated adapters; revalidate declared checks without changing application behavior.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:39:22.818893+00:00"
+    },
+    {
+      "event": "completed",
+      "project_id": "8d55d350-44d4-4f81-8849-b5968dd9e383",
+      "item": {
+        "id": "P-001",
+        "title": "Deliver an offline reading list",
+        "status": "planned",
+        "cycle": 5,
+        "depends_on": [],
+        "outcome": "Build a small offline reading list website. Users can add a title and optional HTTP(S) URL, mark an entry read or unread, filter unread entries, and remove an entry. Save entries locally across reloads. No accounts, authentication, sync, server dependency, or remote assets. Show clear empty and error states and support keyboard and narrow screens.",
+        "scope": [
+          "Application, local operating documents, and relevant tests"
+        ],
+        "acceptance": [
+          "Add title and optional safe HTTP(S) link; mark, filter and remove entries",
+          "Persist across reloads and cached offline reloads after first successful local load",
+          "Clear empty/error states, keyboard focus and narrow-screen layout",
+          "No accounts, sync, database service or remote assets",
+          "Behavior tests and source-bound browser observations pass"
+        ],
+        "verification": [
+          "application",
+          "browser-evidence",
+          "framework"
+        ]
+      },
+      "evidence": [
+        "check-4afb944d86ca47bab9ba3533ea895944",
+        "check-98fe28559dc349629973d6503e27ff7d",
+        "check-7f30d5368b574950b8d69a18edad00bf"
+      ],
+      "summary": "Refreshed shared Noetloom 0.3.0 project guidance and six shared skills, preserving the website domain skill and application behavior; declared checks passed. Browser evidence fingerprints passed without replaying browser interaction.",
+      "at": "2026-10-31T08:39:52.991610+00:00"
     }
   ]
 }

@@ -13,13 +13,19 @@ That choice does not make helpers mandatory for projects using the method.
 
 | Work | Relevant local guidance |
 | --- | --- |
+| Establish the actual repository, checkout and contracts | .agents/skills/noetloom-grounding/SKILL.md |
+| Recover after compaction or a session handoff | .agents/skills/noetloom-continuity/SKILL.md |
+| Route independent bounded work and verify workers | .agents/skills/noetloom-subagents/SKILL.md |
 | Derive a new project's phases and guide its build | .agents/skills/noetloom-bootstrap/SKILL.md |
 | Reconcile consequential input, findings, or pause/resume | .agents/skills/noetloom-intake/SKILL.md |
 | Implement, repair, replan, and continue | .agents/skills/noetloom-work/SKILL.md |
 | Verify acceptance and finish delivery | .agents/skills/noetloom-verify/SKILL.md |
 
 Read these files directly; native discovery is optional. Reconcile newer messages before
-a checkpoint. Select concrete ready work, implement it, inspect behavior, test and repair,
+a checkpoint. After compaction, use the saved continuation note first, verify the exact
+active worktree and task-owned jobs, recover only missing context, and continue the active
+objective without another prompt. Keep worker ownership and results in that same continuity.
+Select concrete ready work, implement it, inspect behavior, test and repair,
 update evidence, and continue across phases. Replan necessary missing work within the
 objective. Keep decisions and reviews in the one plan; preserve reversals and deferred scope.
 Capture, application, and a response delivered are distinct when that distinction matters.

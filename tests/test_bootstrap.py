@@ -56,6 +56,32 @@ class BootstrapTests(unittest.TestCase):
         with self.assertRaisesRegex(h.FrameworkError, "Only the next ready item"):
             project.complete("P-000", [evidence["id"]], "Files exist")
 
+    def test_working_skills_are_local_routed_and_checked_for_adapter_drift(self):
+        self.create(docs_dir="working-docs")
+        project = h.Project(self.root)
+        expected = {
+            "noetloom-intake", "noetloom-work", "noetloom-verify",
+            "noetloom-grounding", "noetloom-continuity", "noetloom-subagents",
+            "project-utility",
+        }
+        self.assertEqual(set(project.manifest["skills"]),
+                         {f".agents/skills/{name}" for name in expected})
+        instructions = (self.root / "AGENTS.md").read_text(encoding="utf-8")
+        for name in expected:
+            source = (KIT_ROOT / "templates/domains/utility/SKILL.md" if name == "project-utility"
+                      else KIT_ROOT / f".agents/skills/{name}/SKILL.md")
+            local = f".agents/skills/{name}/SKILL.md"
+            self.assertEqual((self.root / local).read_bytes(), source.read_bytes())
+            self.assertIn(f"]({local})", instructions)
+        skill = self.root / ".agents/skills/noetloom-continuity/SKILL.md"
+        skill.write_text(skill.read_text(encoding="utf-8") + "\nA project-specific continuation rule.\n",
+                         encoding="utf-8")
+        result = project.check()
+        self.assertEqual(result["status"], "failed")
+        self.assertTrue(any("noetloom-continuity" in error for error in result["errors"]))
+        project.adapters()
+        self.assertEqual(project.check()["status"], "passed")
+
     def test_repeat_bootstrap_preserves_bytes_and_identity(self):
         first = self.create(compact=True)
         before = self.files()
@@ -110,6 +136,16 @@ class BootstrapTests(unittest.TestCase):
         with self.assertRaises(h.FrameworkError):
             self.create(adopt=True)
         self.assertEqual(before, self.files())
+
+    def test_existing_working_skill_is_not_overwritten_during_adoption(self):
+        skill = self.root / ".agents/skills/noetloom-continuity/SKILL.md"
+        skill.parent.mkdir(parents=True)
+        skill.write_text("The application's existing continuation policy.\n", encoding="utf-8")
+        (self.root / "AGENTS.md").write_text("Keep the existing project rules.\n", encoding="utf-8")
+        before = self.files()
+        with self.assertRaisesRegex(h.FrameworkError, "Adoption conflict"):
+            self.create(adopt=True)
+        self.assertEqual(self.files(), before)
 
     def test_adoption_preserves_existing_instruction_bytes_including_line_endings(self):
         self.root.mkdir()

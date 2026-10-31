@@ -59,6 +59,21 @@ detects drift. They are compatibility instructions, not a second policy library.
 `CLAUDE.md` imports `AGENTS.md`. No hooks are installed. Host limitations are recorded
 in [hosts.md](hosts.md).
 
+The public catalog in `noetloom/__init__.py` has seven skills: bootstrap and six skills
+for ongoing work. Grounding, continuity and subagent orchestration join intake, work and
+verification. Generation copies those six plus the selected domain guide; the plugin
+ships all seven from the same canonical source. Entrypoints route the relevant skill at
+task entry, after compaction and when independent work becomes ready. No runtime invokes
+them or schedules workers. The operating method remains complete without their wrappers.
+
+Grounding selects the actual workspace and derives its contracts from local evidence.
+Continuity keeps one resume note, reconciles newer steering, checks task-owned jobs and
+uses bounded retrieval only for missing context. Subagent guidance keeps decisions and
+acceptance in the primary while independently useful workers receive exclusive ownership
+and verifiable packets. These are repository-independent procedures, without private
+paths, fixed models or a mandatory host API. Existing projects retain their policies and
+can reconcile newer guidance deliberately; idempotent bootstrap does not upgrade them.
+
 The portable plugin copies those same canonical skill bytes into `skills/` and uses
 the same bootstrap modules, helper, and templates. An explicit allowlist excludes
 Noetloom's own work state. Packaging is a distribution step, not an agent runtime.

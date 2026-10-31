@@ -751,6 +751,51 @@ Historical evidence; active work belongs in the plan.
       ],
       "summary": "Revalidated the existing-application proof after correcting its reference NOTICE. Native application code, frozen acceptance cases and historical run artifacts remain unchanged; current inventories and dated maintenance notes preserve those distinctions.",
       "at": "2026-10-04T22:14:22.945019+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-001",
+      "cycle": 6,
+      "reason": "Portable working skills change shared guidance and distribution inputs; retain historical proof and revalidate current acceptance.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:33:00.250790+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-002",
+      "cycle": 5,
+      "reason": "Portable working skills change shared guidance and distribution inputs; retain historical proof and revalidate current acceptance.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:33:00.285513+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-003",
+      "cycle": 4,
+      "reason": "Portable working skills change shared guidance and distribution inputs; retain historical proof and revalidate current acceptance.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:33:00.319807+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-004",
+      "cycle": 3,
+      "reason": "Portable working skills change shared guidance and distribution inputs; retain historical proof and revalidate current acceptance.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:33:00.354677+00:00"
+    },
+    {
+      "event": "reopened",
+      "project_id": "noetloom-framework",
+      "id": "P-005",
+      "cycle": 2,
+      "reason": "Portable working skills change shared guidance and distribution inputs; retain historical proof and revalidate current acceptance.",
+      "feedback": "portable-working-skills-20261031",
+      "at": "2026-10-31T08:33:00.389023+00:00"
     }
   ]
 }

@@ -26,6 +26,14 @@ python3 -B .noetloom/project.py feedback record --id message-2 --kind correction
 
 The helper prints JSON. Exit status 0 means the requested helper operation succeeded, 1 means a check failed, and 2 means invalid input or a state error. `--help` on each command gives the full arguments. The helper reads files and runs declared checks; it does not run an agent or implement work.
 
+New projects receive six canonical working skills: intake, work, verification, repository
+grounding, context continuity and subagent orchestration, plus the chosen domain guide.
+Their entrypoint names each local path. They remain usable after removing the source kit
+or plugin. Bootstrap is idempotent installation, not an upgrade command: repeating an
+existing healthy request preserves its files. To adopt newer guidance in an existing
+project, deliberately reconcile owned copies, its manifest and entrypoint, regenerate
+adapters, and revalidate affected outcomes without overwriting application instructions.
+
 ## Feedback, work, and recovery
 
 The agent classifies feedback and reconciles affected owners and work. A completed item affected by a correction must first be reopened, for example:
@@ -49,6 +57,12 @@ python3 -B .noetloom/project.py complete P-001 --evidence check-RETURNED_ID --su
 ```
 
 Use the check record ID returned by verification as evidence. The example IDs are illustrative, not existing records. A `checkpoint --item P-001 --next "Add the reload regression check"` records a resume hint; omit `--item` when no active work remains. Pause and resume are feedback receipts of kind `pause` or `resume`, applied as accepted. A checkpoint cannot clear a pause. Status prioritizes interrupted writes, pending input, pause, then ready work, and reports applied but unacknowledged feedback independently of work completion.
+
+For compaction, keep enough ordinary progress text to recover the exact workspace,
+authority, current evidence, pending responses and task-owned jobs/workers. The helper's
+small checkpoint does not capture a conversation or supervise workers. Read the saved
+continuation note first, reconcile newer input and actual state, then continue authorized
+work. The local continuity skill explains bounded retrieval when a material gap remains.
 
 `recover` finishes an interrupted helper transaction only after checking for intervening edits. If there is a conflict, inspect the journal and preserve the user's edits before deliberately resolving it; do not delete a journal as a generic repair. Manual semantic edits are not transactional. Keep feedback pending until all affected owners are reconciled; another session can see and finish that pending input. `adapters` regenerates thin Claude entries after canonical skill changes. `check` detects adapter drift, invalid dependencies, missing owners, cross-project records, and stale completion evidence; it does not execute application tests.
 

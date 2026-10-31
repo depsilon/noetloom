@@ -11,7 +11,8 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ("noetloom-bootstrap", "noetloom-intake", "noetloom-work", "noetloom-verify")
+sys.path.insert(0, str(ROOT))
+from noetloom import FRAMEWORK_SKILLS as SKILLS
 BASE = ("AGENTS.md", "CLAUDE.md", "project.md", "architecture.md", "plan.md", "plan.json",
         "validation.md", "completed.md", "claude-skill.md", "checkpoint.json", "license-scope.md")
 DOMAINS = ("utility", "website", "data", "deployment")

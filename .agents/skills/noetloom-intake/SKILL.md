@@ -16,6 +16,12 @@ Reopen only affected completed outcomes, including dependants whose assumptions 
 Keep unrelated completion evidence. Preserve deferred scope and its reconsideration
 condition on a plain continuation.
 
+Reconcile affected worker assignments as part of steering. Stop obsolete or conflicting
+work through available controls and establish that writes stopped before reassigning
+files. Preserve worker state in the continuation note. Follow
+[subagent routing](../noetloom-subagents/SKILL.md) for ownership and acceptance and
+[continuity](../noetloom-continuity/SKILL.md) after compaction; a context change is not new scope.
+
 Use proportionate ordinary Markdown: a short progress note or table can distinguish
 captured, applied, and answered to the user when interruption could lose that distinction.
 Record pending reconciliation before changing affected work, and update it after owners

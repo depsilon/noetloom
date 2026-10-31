@@ -104,6 +104,16 @@ class PluginTests(unittest.TestCase):
             return json.loads(run.stdout)
 
         self.assertEqual(command("check")["status"], "passed")
+        working_skills = ("noetloom-grounding", "noetloom-continuity", "noetloom-subagents")
+        manifest = json.loads((project / ".noetloom/manifest.json").read_text(encoding="utf-8"))
+        instructions = (project / "AGENTS.md").read_text(encoding="utf-8")
+        for name in working_skills:
+            self.assertIn(f".agents/skills/{name}", manifest["skills"])
+            local = f".agents/skills/{name}/SKILL.md"
+            self.assertIn(f"]({local})", instructions)
+            self.assertEqual((project / local).read_bytes(),
+                             (ROOT / f".agents/skills/{name}/SKILL.md").read_bytes())
+            self.assertTrue((project / f".claude/skills/{name}/SKILL.md").is_file())
         command("feedback", "record", "--id", "offline", "--kind", "correction",
                 "--message", "Offline only; defer authentication")
         # A separate process resumes with no originating conversation or installed package.

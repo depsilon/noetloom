@@ -7,4 +7,4 @@ description: "Reconcile consequential user steering or review evidence into an o
 Read and follow the canonical project skill at [.agents/skills/noetloom-intake/SKILL.md](../../../.agents/skills/noetloom-intake/SKILL.md).
 Resolve that link relative to this file. It contains the complete instructions.
 
-Canonical SHA-256: 89a4eb0461762e963e40f64469c4f0c0423acfacb16c831503751d37777f06cf
+Canonical SHA-256: b674ea3009f8b18708392f905f1ab6265ab4abdc9714dec8bd9dfee53a95a3b7

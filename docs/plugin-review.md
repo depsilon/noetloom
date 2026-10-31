@@ -1,9 +1,34 @@
 # Plugin review record
 
-Prepared October 4, 2026. This is a local review candidate, not a Directory submission
+Updated October 31, 2026. This is a local review candidate, not a Directory submission
 or an approval claim. Public submission/publication remains explicitly unauthorized.
 
-## Current candidate: 0.2.0, attribution corrected October 4, 2026
+## Current candidate: 0.3.0, portable working skills
+
+- Build: `python3.13 -B scripts/build_plugin.py --output dist/plugin-review-working-skills-0.3.0`.
+- ZIP SHA-256: `7916065f50d5a9cbc071cbb9f2e1c19d0302de518fec8e960bc7be869333a975`.
+- Contents: 53 files, including `bundle.json` with source identities for 52 payload files.
+- A second build in `dist/plugin-review-working-skills-repro-0.3.0` produced identical bytes.
+
+The package now includes seven canonical skills. Repository grounding, context continuity
+and subagent orchestration join bootstrap, intake, work and verification. New generated
+projects receive the six ongoing-work skills plus their domain guide, with local routing
+and thin compatibility entries. The same procedures remain part of the readable method.
+The new skills have no fixed repository, personal skill path or model binding.
+
+All payload files matched the current source bytes. Automated extraction/bootstrap tests
+verified the new skills, local links and adapters after removing the source package.
+Adoption preserved a conflicting existing skill without partial writes. All 50 local
+tests and the kit/project checks passed. A fresh native agent exercised recovery from
+local documents and the three new skills; [the observation](evidence/portable-working-skills/README.md)
+separates real execution from the twelve simulated routing/retrieval cases.
+
+Native plugin installation was not repeated for this candidate. Prior installation
+records below identify their exact historical versions and ZIPs. This candidate has not
+been submitted or published to the Directory; automatic skill discovery and native
+Claude execution remain outside the demonstrated paths.
+
+## Historical candidate: 0.2.0, attribution corrected October 4, 2026
 
 - Build: `python3.13 -B scripts/build_plugin.py --output dist/plugin-review-attribution-final-20261004`.
 - ZIP SHA-256: `11ee1620843183b3ae05f8837c0c9f544f4ef74e2acdbe7b9949479f608085a9`.

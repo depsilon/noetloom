@@ -54,8 +54,11 @@ connected source. See [host evidence](hosts.md) and [privacy](privacy.md).
 
 ## Review and publication boundary
 
-The package is prepared for review, with four related workflows: bootstrap, intake,
-continuation, and verification. [Plugin review notes](https://github.com/depsilon/noetloom/blob/main/docs/plugin-review.md) record exercised
+The package is prepared for review, with seven canonical skills: bootstrap, intake, work,
+verification, repository grounding, context continuity and subagent orchestration.
+The last six are copied into new helper-profile projects, alongside their domain guide.
+The shared catalog in `noetloom/__init__.py` drives generation and the package allowlist.
+[Plugin review notes](https://github.com/depsilon/noetloom/blob/main/docs/plugin-review.md) record exercised
 paths and limitations. No package has been submitted or published to the Directory.
 An explicit later authorization is required for either action.
 
