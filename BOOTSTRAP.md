@@ -24,6 +24,9 @@ A person can inspect and follow the same method with normal development tools.
    evidence, and progress owners. [Readable starter outlines](templates/readable/AGENTS.md)
    are available under MIT-0; adapt and combine them. The instructions must explain
    how to operate the project without this repository, private skills, or the conversation.
+   Include the exact workspace, existing authority, checks and outstanding input in one
+   concise progress note. Route compaction recovery to that note first, then resume the
+   active objective after checking newer steering and task-owned jobs.
 6. **Build and continue.** Select ready work, implement, run ordinary application checks,
    inspect real behavior, diagnose and repair, integrate, record meaningful evidence,
    and continue the next phase. Replan necessary missing work from evidence within the
@@ -47,3 +50,10 @@ Native skills, [host adapters](docs/hosts.md), and the [OpenAI plugin](docs/plug
 are ways to discover or distribute the same method. Read the files explicitly when
 discovery is unavailable. Use the application's own tools for implementation and proof;
 no integration grants permissions or extends the life of a host session.
+
+The shared working skills are `noetloom-grounding`, `noetloom-continuity` and
+`noetloom-subagents`, alongside intake, work and verification. They establish the actual
+repository context, recover through compaction, and route independently useful bounded
+work to available workers. The operating method contains these procedures in plain
+language too. Grounding imposes no repository-specific policy; continuity needs an active
+host; delegation is optional when the host or task cannot use it effectively.

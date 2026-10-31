@@ -21,6 +21,14 @@ working behavior before choosing a design. Preserve unrelated work and existing 
 For adoption, understand the existing architecture and a representative user flow first.
 Create the requested application in its own workspace, not inside the reference kit.
 
+Establish the exact active workspace from the request or saved continuation note. A host's
+default directory may point to a different checkout. For Git projects, inspect the branch,
+local changes, remotes and recent commits; discover the default branch rather than assuming
+one. For other workspaces, inspect their files and available revision information without
+creating a repository unnecessarily. Pass the actual working directory to tools and workers.
+Read applicable directory instructions and trace the affected source, tests, dependencies
+and CI. Derive contracts from this project's evidence, never another repository's policies.
+
 Write a concise project owner that another developer could use without the conversation:
 
 - The user, problem, intended deliverable, and observable success conditions.
@@ -123,6 +131,24 @@ every test, minor edit, or user clarification into a separate administrative rec
 Delegate independent bounded work when the host and project permit, with explicit
 ownership and verification; the primary agent remains responsible for integration.
 
+Apply a lightweight routing check as independent work becomes ready. Keep a trivial
+lookup or edit in a direct tool; keep interpretation, diagnosis, design and final decisions
+with the primary. Delegate a decided, checkable packet only when it can run alongside useful
+primary work and the benefit exceeds briefing, review and repair overhead. Prefer an
+advertised economical capable worker with supported adequate effort, respecting user
+preferences. Do not invent model names or prices, silently inherit an unsuitable setting,
+or replace unavailable native delegation with a new service. Continue locally when needed.
+
+A packet names the exact workspace, inputs, allowed files/actions, applicable instructions,
+observable checks, stopping conditions and required result. Workers are leaves; only the
+primary orchestrates. Give each writer exclusive files or an isolated workspace, and avoid
+concurrent control of a shared browser or service. Return ambiguity instead of guessing.
+The primary verifies input coverage, source claims, actual artifacts and integration;
+a worker's completion label is insufficient. Reuse valid evidence, allow a focused clerical
+repair when useful, and take over repeated or reasoning failures. Track every packet through
+acceptance, takeover, cancellation or an explicit unresolved result. Delegation grants no
+new external authority and does not require idle workers or scheduled background tasks.
+
 ## 5. Replan from evidence
 
 The initial plan is a hypothesis about the work needed. If implementation reveals a
@@ -165,6 +191,8 @@ that do not affect durable scope need no separate receipt file or command.
 An explicit pause stops implementation. Save useful state and wait for resumption.
 A resume continues the current durable objective after newer input is reconciled;
 it does not restore superseded instructions or revive deferred features.
+Stop affected workers when steering invalidates their assignments. Establish that writes
+have stopped before reassigning files; do not assume losing a connection stopped the work.
 
 ## 7. Keep enough state for another session
 
@@ -179,16 +207,38 @@ not become separate queues.
 | Design and guidance | Actual components, data contracts, decisions, and work routing. |
 | Plan | Ordered project-specific phases, status, dependencies, remaining work. |
 | Validation and completion | Commands/scenarios, results, source revision or inputs, limits, completed outcomes. |
-| Progress and continuation | Current phase, unresolved input, pause state, changed assumptions, concrete next action. |
+| Progress and continuation | Exact workspace, current phase, unresolved input, pause state, task-owned jobs/workers, changed assumptions, concrete next action. |
 
-Before interruption, leave a short continuation note with what works, what failed,
-which checks were run, local changes to preserve, outstanding responses, and the next
-action. A checkpoint is a hint, not authority or a substitute for the plan.
+Update one concise continuation note at meaningful boundaries and before a known context
+limit or handoff. Include the objective, latest unresolved steering, completion boundary,
+authority, exact workspace/worktree and revision, owner paths, what works, failed checks,
+source-bound validation, local changes to preserve, outstanding responses and next action.
+Record task-owned jobs/workers, identifiers, exclusive file ownership, unfinished outputs
+and artifacts. Keep private session pointers in task-owned host state when appropriate;
+do not publish credentials, unrelated conversation or raw tool dumps. A checkpoint is a
+hint, not authority or a substitute for the plan.
 
-On arrival, a fresh session reads the entrypoint, project owner, current plan, and latest
-progress. Inspect the actual workspace and reconcile pending input before trusting the
-old next action. Select the relevant guidance, establish what evidence is still current,
-and resume the loop without requiring the original conversation or global skills.
+After compaction or a handoff, read that note or supplied summary first. Reconcile newer
+messages before following its next step, including questions and short replies to earlier
+proposals. Verify the exact checkout and current changes, then inspect relevant owners and
+known jobs. Establish worker state before duplicating tasks or assigning their files. Use
+the entrypoint's continuity guidance when available; explicit local reading is sufficient.
+
+Retrieve history only for a specific missing requirement, response or permission. Start
+with one turn or the smallest supported page, omit outputs when possible, use actual
+identifiers and returned cursors, and retain only useful context. After a size-limit error,
+try at most one genuinely smaller request if supported; after another failure or an
+unavailable backend, switch to the checkpoint, diff, relevant commits and local owners.
+Do not repeatedly fetch a failed history path. Files can prove work, not missing authority.
+Ask only if a consequential gap remains, while continuing independent authorized work.
+
+Resume once the objective, authority, workspace, completed work and next action are known.
+Reuse checks whose source and execution assumptions are current; rerun affected checks
+when changes or uncertainty justify it. Compaction does not restart the task, require
+another "continue", or justify repeating opening plans, announcements or completed checks.
+Report new results instead. Before finalizing, answer the latest unresolved request and
+distinguish a completed action from a response already delivered. These instructions use
+the active host's context facilities; they cannot force compaction or revive an exited host.
 
 ## 8. Close the agreed boundary
 

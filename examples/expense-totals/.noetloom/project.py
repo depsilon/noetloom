@@ -16,7 +16,7 @@ import tempfile
 import time
 import uuid
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 FENCE = chr(96) * 3
 KINDS = {"question", "suggestion", "requirement", "correction", "instruction",
          "review", "pause", "resume", "unclassified"}

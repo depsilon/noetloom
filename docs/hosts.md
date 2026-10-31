@@ -25,6 +25,13 @@ but a host event name alone is not proof that every payload is a newly authorize
 human requirement. Any future capture integration must preserve origin and classify
 input before changing scope. Hooks are explicitly deferred in the project owner.
 
+Repository grounding, context continuity and subagent orchestration are portable written
+skills, routed by local entrypoints. A host that continues after compaction can follow the
+saved note and resume the active task; these instructions do not install a compaction hook
+or control when the host compacts. Native delegation is used only when the host exposes
+permitted worker tools and suitable capabilities. Otherwise the primary works locally.
+No fixed model, effort vocabulary, history API or background process is assumed.
+
 The host must provide the ordinary application tools needed by the chosen project,
 such as workspace access, its language toolchain, and any relevant test or runtime
 environment. Python 3.11+ is needed only for the optional helper profile and package

@@ -33,6 +33,19 @@ and work; questions do not silently become features. Local instructions preserve
 scope, explicit reversals, useful evidence, and enough state for a fresh session to resume.
 Noetloom cannot keep an exited host running or receive conversations it was never given.
 
+Three shared working skills support that loop in any repository:
+
+- [Repository grounding](.agents/skills/noetloom-grounding/SKILL.md) establishes the actual
+  checkout, local contracts, existing changes and verification boundary.
+- [Context continuity](.agents/skills/noetloom-continuity/SKILL.md) saves useful state,
+  recovers from compaction with bounded context retrieval and resumes authorized work.
+- [Subagent orchestration](.agents/skills/noetloom-subagents/SKILL.md) delegates useful
+  independent packets with explicit ownership and primary verification.
+
+They ship with the lifecycle skills in the plugin and in newly generated helper-profile
+projects. Local entrypoints route their use; the readable method includes the same
+procedures without requiring skill discovery or native delegation.
+
 - [Readable project outlines and domain guidance](templates/README.md).
 - [Working examples and proof boundaries](examples/README.md).
 - [Optional Python helpers](docs/helpers.md), [host conveniences](docs/hosts.md), and

@@ -29,6 +29,11 @@ Report the implemented result, meaningful checks, remaining limitations, and any
 boundary. Record a response as delivered only after delivering it. Leave local continuation
 state when work remains. Distinguish actual host execution from compatibility inspection.
 
+Account for every delegated packet and verify integrated artifacts against the original
+acceptance; a worker's completion label is insufficient. After a context transition,
+reconcile the newest unresolved request before reporting completion, using
+[continuity](../noetloom-continuity/SKILL.md) when needed.
+
 If the project opted into helper-managed evidence, read its local helper reference:
 declare complete input patterns, run its verify checks, regenerate edited adapters, and
 complete with current passing records. The helper cannot judge test adequacy or behavior;

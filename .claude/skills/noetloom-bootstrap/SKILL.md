@@ -7,4 +7,4 @@ description: "Establish project-specific phases and guidance, then drive an auto
 Read and follow the canonical project skill at [.agents/skills/noetloom-bootstrap/SKILL.md](../../../.agents/skills/noetloom-bootstrap/SKILL.md).
 Resolve that link relative to this file. It contains the complete instructions.
 
-Canonical SHA-256: e0f12aa6b27de56a26b168325a056df8733d5329dc29a0ae51f31126068b7c01
+Canonical SHA-256: cd668da65e06b6d97c4b948ec411157b9796bea1a44202609df1f5e9b56c2d51

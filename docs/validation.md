@@ -22,7 +22,7 @@ actual host installation and native-agent observations are recorded separately b
       "id": "kit",
       "command": ["{python}", "-B", "scripts/check_kit.py"],
       "cwd": ".",
-      "inputs": ["noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", ".claude/skills/*/SKILL.md", "AGENTS.md", "CLAUDE.md", "BOOTSTRAP.md", "README.md", "CONTRIBUTING.md", "LICENSE", "LICENSES/*", "NOTICE", "docs/project.md", "docs/architecture.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/evidence/existing-application/*", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/plugin.md", "docs/plugin-review.md", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", ".github/workflows/checks.yml", "pyproject.toml", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.md", "examples/**/*.json", "examples/**/*.jsonl", "examples/**/licenses/*", "examples/tool-shelf/reference/*", "examples/tool-shelf/evidence/**/*.txt", "examples/tool-shelf/evidence/**/*.csv", "examples/tool-shelf/evidence/**/*.sqlite3", "examples/tool-shelf/evidence/**/*.zip", "examples/tool-shelf-renewals/reference/*", "examples/tool-shelf-renewals/evidence/**/*.txt", "examples/tool-shelf-renewals/evidence/**/*.csv", "examples/tool-shelf-renewals/evidence/**/*.sqlite3", "examples/tool-shelf-renewals/evidence/**/*.zip", ".gitattributes"],
+      "inputs": [".noetloom/manifest.json", "docs/evidence/portable-working-skills/*", "noetloom/*.py", ".noetloom/project.py", ".noetloom/templates/*.md", "templates/base/*.md", "templates/readable/*.md", "templates/README.md", "templates/base/*.json", "templates/domains/*/SKILL.md", "templates/LICENSE", ".agents/skills/*/SKILL.md", ".claude/skills/*/SKILL.md", "AGENTS.md", "CLAUDE.md", "BOOTSTRAP.md", "README.md", "CONTRIBUTING.md", "LICENSE", "LICENSES/*", "NOTICE", "docs/project.md", "docs/architecture.md", "docs/operating-model.md", "docs/helpers.md", "docs/evidence/readable-autonomy/*", "docs/evidence/existing-application/*", "docs/hosts.md", "docs/licensing.md", "docs/privacy.md", "docs/plugin.md", "docs/plugin-review.md", "scripts/*.py", "plugin/*.json", "plugin/*.md", "assets/*", ".github/workflows/checks.yml", "pyproject.toml", "examples/**/*.py", "examples/**/*.js", "examples/**/*.cjs", "examples/**/*.html", "examples/**/*.css", "examples/**/*.md", "examples/**/*.json", "examples/**/*.jsonl", "examples/**/licenses/*", "examples/tool-shelf/reference/*", "examples/tool-shelf/evidence/**/*.txt", "examples/tool-shelf/evidence/**/*.csv", "examples/tool-shelf/evidence/**/*.sqlite3", "examples/tool-shelf/evidence/**/*.zip", "examples/tool-shelf-renewals/reference/*", "examples/tool-shelf-renewals/evidence/**/*.txt", "examples/tool-shelf-renewals/evidence/**/*.csv", "examples/tool-shelf-renewals/evidence/**/*.sqlite3", "examples/tool-shelf-renewals/evidence/**/*.zip", ".gitattributes"],
       "timeout_seconds": 120
     }
   ]
@@ -30,6 +30,34 @@ actual host installation and native-agent observations are recorded separately b
 ```
 
 ## Observed behavior and limits
+
+### Portable working skills, version 0.3.0
+
+On October 31, 2026, three original public skills were added by adapting the maintainer's
+existing repository-grounding, bounded compaction-recovery and subagent-routing practices.
+They use the current project's own contracts and the host's advertised capabilities,
+without fixed repositories, private paths, model names, runtime services or hooks.
+The readable method and project entrypoints route their use during active development.
+One catalog drives the seven package skills and six shared generated-project skills.
+
+The complete local suite passed **50 tests**. New checks exercise local skill routing,
+canonical copies, adapter drift/repair and preservation of a conflicting existing skill.
+Archive extraction tests verify standalone use after removing the package. Kit and
+project checks passed, and both maintained helper examples have current passing evidence.
+Their application behavior and the earlier readable application observations are preserved.
+
+A fresh native agent completed a real local documentation task from a saved note in the
+correct worktree, honored newer steering over a stale next action, reused current checks
+and answered the pending question. Primary inspection verified the exact file-change
+boundary and unchanged application/test identities. All **12 simulated routing/retrieval
+cases** passed primary review. [The evidence](evidence/portable-working-skills/README.md)
+distinguishes those decisions, the real continuation and the separate bounded native
+example-maintenance worker. No actual host-triggered compaction event or history-service
+outage was induced. No cross-host or measured cost/quality improvement is claimed.
+
+Two builds produced the identical 53-file unpublished archive recorded in
+[plugin review](plugin-review.md). Its 52 payload files matched current source bytes;
+the new guidance remained portable. Native plugin installation was not repeated.
 
 ### Licensing attribution and scope, October 4, 2026
 

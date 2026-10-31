@@ -6,10 +6,10 @@ from pathlib import Path
 import re
 import uuid
 
+from . import PROJECT_SKILLS
 from .runtime import KIT_ROOT, helper as h
 
 DOMAINS = ("utility", "website", "data", "deployment")
-LIFECYCLE = ("noetloom-intake", "noetloom-work", "noetloom-verify")
 START = "<!-- noetloom:instructions -->"
 END = "<!-- /noetloom:instructions -->"
 
@@ -93,7 +93,7 @@ def bootstrap(target, *, name, prompt, domain="utility", adopt=False, compact=Fa
         files[roles["plan"]] += "\n" + template("completed.md")
     else:
         files[roles["architecture"]] = template("architecture.md")
-    skills = [*LIFECYCLE, f"project-{domain}"]
+    skills = [*PROJECT_SKILLS, f"project-{domain}"]
     for skill in skills:
         canonical = KIT_ROOT / ".agents/skills"
         if not canonical.is_dir():  # Portable plugin distribution uses the same canonical bytes.

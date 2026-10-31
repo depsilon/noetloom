@@ -15,6 +15,9 @@ workspace and newer input, then read these local owners directly:
 
 | Work | Relevant local guidance |
 | --- | --- |
+| Establish the actual repository, checkout and contracts | [.agents/skills/noetloom-grounding/SKILL.md](.agents/skills/noetloom-grounding/SKILL.md) |
+| Recover after compaction or a session handoff | [.agents/skills/noetloom-continuity/SKILL.md](.agents/skills/noetloom-continuity/SKILL.md) |
+| Route independent bounded work and verify workers | [.agents/skills/noetloom-subagents/SKILL.md](.agents/skills/noetloom-subagents/SKILL.md) |
 | Consequential steering, review findings, pause/resume | [.agents/skills/noetloom-intake/SKILL.md](.agents/skills/noetloom-intake/SKILL.md) |
 | Implementation and continuation | [.agents/skills/noetloom-work/SKILL.md](.agents/skills/noetloom-work/SKILL.md) |
 | Testing, repair, acceptance, delivery | [.agents/skills/noetloom-verify/SKILL.md](.agents/skills/noetloom-verify/SKILL.md) |
@@ -34,6 +37,10 @@ Stop for completion, explicit pause, exhausted host/resources, or a genuine bloc
 Reconcile newer input before following a checkpoint. Preserve reversals and deferred
 scope; reopen affected completed work. Use proportionate records and distinguish capture,
 application, and a response actually delivered. Preserve unrelated work and permissions.
+After compaction, read the saved continuation note first, verify the exact active workspace
+and task-owned jobs, recover only missing context, and continue authorized work without
+another prompt. Carry worker identifiers, exclusive ownership and unfinished outputs into
+continuation state; do not duplicate jobs or assign files while an earlier worker may write.
 This project is self-contained and needs no private skills or Noetloom checkout.
 
 This workspace opted into the Python helper profile. [.noetloom/helpers.md](.noetloom/helpers.md)
